@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Covid dashboard',
+      title: 'Rsclone: Dweep',
       template: path.resolve(__dirname, './src/index.html'), // template
       filename: 'index.html', // output filename
       minify: {
