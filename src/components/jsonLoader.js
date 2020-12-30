@@ -19,7 +19,7 @@ function getMatrixRows(json) {
       result.push(json[row]);
       return result;
     }, []);
-}
+};
 
 module.exports = {
   getJson,
