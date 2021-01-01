@@ -4,54 +4,57 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import ButtonPrimary from '../common/ButtonPrimary';
 
-export default function OptionsMenu() {
-  const [state, setState] = React.useState({
-    isEffectsOn: {
-      name: 'Sound effects',
-      state: true,
-    },
-    isMusicOn: {
-      name: 'Music',
-      state: true,
-    },
-    isTipsOn: {
-      name: 'Level tips',
-      state: true,
-    },
-  });
+const OPTION_TITLES = {
+  'areEffectsOn': 'Sound effects',
+  'isMusicOn': 'Music',
+  'areTipsOn': 'Level tips',
+}
 
-  const handleChange = (event) => {
-    setState((prevState) => ({
-      ...prevState,
-      [event.target.name]: {
-        ...prevState[event.target.name],
-        state: event.target.checked,
-      }
-    }));
+export default function OptionsMenu({ stateOptions, setOption, isVisible, toggleVisibility }) {
+  const changeOption = (event) => {
+    const newOptions = stateOptions.slice();
+    const index = newOptions.findIndex(item => item.id === event.target.name);
+    newOptions[index].state = event.target.checked;
+    
+    setOption(() => [...newOptions]);
   };
 
   const optionItems = [];
-  for (const [key, value] of Object.entries(state)) {
+  stateOptions.forEach((item) => {
     optionItems.push(
       <FormControlLabel
-        key={key}
+        key={item.id}
         control={
           <Checkbox
-            checked={value.state}
-            onChange={handleChange}
-            name={key}
+            checked={item.state}
+            onChange={changeOption}
+            name={item.id}
             color="primary"
           />
         }
-        label={value.name}
+        label={OPTION_TITLES[item.id]}
       />
     )
-  }
+  });
 
   return (
-    <FormGroup>
+    <FormGroup
+      style={{
+        margin: '0 auto',
+        padding: '30px',
+        width: '200px',
+        minHeight: '200px',
+
+        display: isVisible ? 'flex' : 'none',
+        justifyContent: 'space-between',
+        background: 'rgb(225, 225, 225)',
+        borderRadius: '8px',
+      }}>
       {optionItems}
-      <ButtonPrimary content='Ok' />
+      <ButtonPrimary
+        content='Ok'
+        action={() => toggleVisibility(!isVisible)}
+      />
     </FormGroup>
   );
 }
