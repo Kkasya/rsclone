@@ -6,9 +6,9 @@ import {Menu} from './Menu';
 function App() {
   return (
     <div className="App">
-        <main>
-            <Menu />
-        </main>
+        {/*<main>*/}
+        {/*    <Menu />*/}
+        {/*</main>*/}
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}
