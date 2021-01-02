@@ -1,40 +1,18 @@
 import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import OptionsItems from './OptionsItems';
+import ToggleButtons from './ToggleButtons';
 import ButtonPrimary from '../common/ButtonPrimary';
 
-const OPTION_TITLES = {
-  'areEffectsOn': 'Sound effects',
-  'isMusicOn': 'Music',
-  'areTipsOn': 'Level tips',
-}
-
-export default function OptionsMenu({ stateOptions, setOption, isVisible, toggleVisibility }) {
-  const changeOption = (event) => {
-    const newOptions = stateOptions.slice();
-    const index = newOptions.findIndex(item => item.id === event.target.name);
-    newOptions[index].state = event.target.checked;
-
-    setOption(() => [...newOptions]);
-  };
-
-  const optionItems = stateOptions.map((item) => {
-    return (
-      <FormControlLabel
-        key={item.id}
-        control={
-          <Checkbox
-            checked={item.state}
-            onChange={changeOption}
-            name={item.id}
-            color="primary"
-          />
-        }
-        label={OPTION_TITLES[item.id]}
-      />
-    );
-  });
+export default function OptionsMenu(props) {
+  const {
+    stateOptions,
+    setOption,
+    isVisible,
+    toggleVisibility,
+    stateLang,
+    toggleLang,
+  } = props;
 
   return (
     <FormGroup
@@ -42,14 +20,24 @@ export default function OptionsMenu({ stateOptions, setOption, isVisible, toggle
         margin: '0 auto',
         padding: '30px',
         width: '200px',
-        minHeight: '200px',
+        minHeight: '300px',
 
         display: isVisible ? 'flex' : 'none',
         justifyContent: 'space-between',
         background: 'rgb(225, 225, 225)',
         borderRadius: '8px',
-      }}>
-      {optionItems}
+      }}
+    >
+      <OptionsItems 
+        stateOptions={stateOptions}
+        setOption={setOption}
+      />
+
+      <ToggleButtons
+        stateLang={stateLang}
+        toggleLang={toggleLang}
+      />
+
       <ButtonPrimary
         content='Ok'
         action={() => toggleVisibility(!isVisible)}

@@ -20,6 +20,7 @@ function App() {
   );
 
   const [isVisible, toggleVisibility] = React.useState(true);
+  const [stateLang, toggleLang] = React.useState('ru');
 
   return (
     <OptionsMenu
@@ -27,6 +28,8 @@ function App() {
       setOption={setOption}
       isVisible={isVisible}
       toggleVisibility={toggleVisibility}
+      stateLang={stateLang}
+      toggleLang={toggleLang}
     />
   );
 }
