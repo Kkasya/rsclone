@@ -1,6 +1,6 @@
 import React from "react";
 import {MenuLevels} from "./MenuLevels";
-import {NUMBER_LEVELS} from "../../../common";
+import {NUMBER_LEVELS} from "../common";
 
 export function Menu() {
     return (

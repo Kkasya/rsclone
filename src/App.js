@@ -1,14 +1,14 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import {Menu} from './common';
+import {Menu} from './Menu';
 
 function App() {
   return (
     <div className="App">
-        {/*<main>*/}
-        {/*    <Menu />*/}
-        {/*</main>*/}
+        <main>
+            <Menu />
+        </main>
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}
