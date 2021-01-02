@@ -2,7 +2,7 @@ import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
 import OptionsItems from './OptionsItems';
 import ToggleButtons from './ToggleButtons';
-import ButtonPrimary from '../common/ButtonPrimary';
+import ButtonPrimary from '../../common/ButtonPrimary';
 
 export default function OptionsMenu(props) {
   const {

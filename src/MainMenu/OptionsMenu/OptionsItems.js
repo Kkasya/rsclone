@@ -8,7 +8,7 @@ const OPTION_TITLES = {
   'areTipsOn': 'Level tips',
 }
 
-export default function OptionsItems({ stateOptions, setOption}) {
+export default function OptionsItems({ stateOptions, setOption }) {
   const changeOption = (event) => {
     const newOptions = stateOptions.slice();
     const index = newOptions.findIndex(item => item.id === event.target.name);

@@ -1,7 +1,7 @@
 import React from 'react';
-import OptionsMenu from './OptionsMenu/OptionsMenu';
+import MainMenu from './MainMenu/MainMenu';
 
-function App() {
+export default function App() {
   const [stateOptions, setOption] = React.useState(
     [
       {
@@ -23,7 +23,7 @@ function App() {
   const [stateLang, toggleLang] = React.useState('ru');
 
   return (
-    <OptionsMenu
+    <MainMenu
       stateOptions={stateOptions}
       setOption={setOption}
       isVisible={isVisible}
@@ -33,5 +33,3 @@ function App() {
     />
   );
 }
-
-export default App;
