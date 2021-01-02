@@ -15,13 +15,12 @@ export default function OptionsMenu({ stateOptions, setOption, isVisible, toggle
     const newOptions = stateOptions.slice();
     const index = newOptions.findIndex(item => item.id === event.target.name);
     newOptions[index].state = event.target.checked;
-    
+
     setOption(() => [...newOptions]);
   };
 
-  const optionItems = [];
-  stateOptions.forEach((item) => {
-    optionItems.push(
+  const optionItems = stateOptions.map((item) => {
+    return (
       <FormControlLabel
         key={item.id}
         control={
@@ -34,7 +33,7 @@ export default function OptionsMenu({ stateOptions, setOption, isVisible, toggle
         }
         label={OPTION_TITLES[item.id]}
       />
-    )
+    );
   });
 
   return (
