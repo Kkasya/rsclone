@@ -1,21 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from "@material-ui/core";
 import Button from '@material-ui/core/ButtonBase';
+import {makeStyles} from "@material-ui/core";
 import {ItemLevelsPage} from './ItemLevelsPage'
+import {LIST_LEVELS} from "../../common/constants";
+import * as styles from "../../common/styles";
 
 const useStyles = makeStyles({
-  listLevels: {
-    display: 'flex',
-    'flex-flow': 'column wrap',
-    height: '100vh',
-  },
-
-  btnsLevelMenu: {
-    display: 'flex',
-    'justify-content': 'space-around',
-  },
-
   footerLevels: {
     background: 'linear-gradient(45deg, #375fa1 30%, #689cf2 90%)',
     boxShadow: '0 3px 5px 2px rgba(91, 212, 252, .3)',
@@ -29,14 +20,20 @@ const useStyles = makeStyles({
 });
 
 export function LevelsPage(props) {
-  const [passedLevels, setPassedLevels] = useState([1, 2, 3]);
+  const [passedLevels, setPassedLevels] = useState(LIST_LEVELS);
 
   const addPassedLevel = (level) => {
-    if (!passedLevels.includes(level)) {
-      const newPassedLevels = passedLevels.concat();
-      newPassedLevels.push(level);
+    const newPassedLevels = passedLevels.concat();
+    newPassedLevels.forEach((item) => {
+      if ((item.name === level) && (item.isReady === 'false')) item.isReady = 'true';
+    })
       setPassedLevels(newPassedLevels);
-    }
+  }
+
+  const clearPassedLevel = () => {
+    const newPassedLevels = passedLevels.concat();
+    newPassedLevels.forEach((item) => item.isReady = 'false');
+    setPassedLevels(newPassedLevels);
   }
 
   const openPreviousScreen = () => {
@@ -44,18 +41,18 @@ export function LevelsPage(props) {
   }
 
   const classes = useStyles();
-  const {title, variant, itemList, name, color} = props;
+  const {title, variant, itemList, color} = props;
 
   useEffect(() => {
-    itemList.map((item, index) => addItemLevel(index + 1))
+    itemList.map((item) => addItemLevel(item));
   });
 
-  function addItemLevel(id) {
+  function addItemLevel(item) {
     return (
       <ItemLevelsPage
-        name={name + ' ' + id}
-        id={Number(id)}
-        passedLevels={passedLevels.concat()}
+        name={item.name}
+        id={item.id}
+        passedLevel={item.isReady}
       />
     )
   }
@@ -63,14 +60,14 @@ export function LevelsPage(props) {
   return (
     <div>
       <Typography variant={variant} color={color}>{title}</Typography>
-      <div className={classes.listLevels}>
-        {itemList.map((item) => addItemLevel(item.id))}
+      <div style={styles.flexWrapper}>
+        {itemList.map((item) => addItemLevel(item))}
       </div>
-      <div className={classes.btnsLevelMenu}>
-        <Button className={classes.footerLevels} key='left' onClick={() => setPassedLevels([])}>
+      <div style={styles.flexBtns}>
+        <Button className={classes.footerLevels} key='left' onClick={() => clearPassedLevel()}>
           <p>Clear Checkmarks</p>
         </Button>
-        <Button className={classes.footerLevels} key='right' onClick={() => openPreviousScreen}>
+        <Button className={classes.footerLevels} key='right' onClick={() => openPreviousScreen()}>
           <p>Previous Screen</p>
         </Button>
       </div>

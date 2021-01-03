@@ -1,15 +1,9 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core";
 import Button from '@material-ui/core/ButtonBase';
+import * as styles from "../../../common/styles";
 
 const useStyles = makeStyles({
-  itemLevel: {
-    margin: '3rem',
-    display: 'flex',
-    'justify-items': 'center',
-    'align-items': 'center',
-  },
-
   btnLevel: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     'border-radius': '1rem',
@@ -27,9 +21,6 @@ const useStyles = makeStyles({
   },
 
   passedLevel: {
-    width: '3rem',
-    height: '3rem',
-    'margin-right': '1rem',
     background: 'url("https://i.ibb.co/c64LFVt/check-marks.png") no-repeat',
     'background-size': 'cover',
   }
@@ -42,18 +33,18 @@ export function ItemLevelsPage(props) {
   }
 
   const classes = useStyles();
-  const {name, id, passedLevels} = props;
+  const {name, id, passedLevel} = props;
 
-  const isPassedLevel = (id) => {
-    return passedLevels.includes(id) ? classes.passedLevel : classes.checkLevel;
+  const isPassedLevel = () => {
+    return (passedLevel === 'true') ? (classes.checkLevel + ' ' + classes.passedLevel) : classes.checkLevel;
   }
 
   return (
-    <div className={classes.itemLevel} key={name}>
-      <div className={isPassedLevel(id)}></div>
+    <div style={styles.flexInlineItems} key={id}>
+      <div className={isPassedLevel()}></div>
       <Button className={classes.btnLevel} onClick={chooseLevel} id={id}>
         <p>{name}</p>
       </Button>
     </div>
-  )
+  );
 }
