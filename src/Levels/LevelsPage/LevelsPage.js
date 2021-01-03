@@ -4,7 +4,7 @@ import Button from '@material-ui/core/ButtonBase';
 import {makeStyles} from "@material-ui/core";
 import {ItemLevelsPage} from './ItemLevelsPage'
 import {LIST_LEVELS} from "../../common/constants";
-import * as styles from "../../common/styles";
+import {styles} from "../../common/styles";
 
 const useStyles = makeStyles({
   footerLevels: {
@@ -27,7 +27,7 @@ export function LevelsPage(props) {
     newPassedLevels.forEach((item) => {
       if ((item.name === level) && (item.isReady === 'false')) item.isReady = 'true';
     })
-      setPassedLevels(newPassedLevels);
+    setPassedLevels(newPassedLevels);
   }
 
   const clearPassedLevel = () => {
@@ -41,6 +41,7 @@ export function LevelsPage(props) {
   }
 
   const classes = useStyles();
+  const commonStyle = styles();
   const {title, variant, itemList, color} = props;
 
   useEffect(() => {
@@ -51,8 +52,8 @@ export function LevelsPage(props) {
     return (
       <ItemLevelsPage
         name={item.name}
-        id={item.id}
         passedLevel={item.isReady}
+        key={item.id}
       />
     )
   }
@@ -60,10 +61,10 @@ export function LevelsPage(props) {
   return (
     <div>
       <Typography variant={variant} color={color}>{title}</Typography>
-      <div style={styles.flexWrapper}>
+      <div className={commonStyle.flexWrapper}>
         {itemList.map((item) => addItemLevel(item))}
       </div>
-      <div style={styles.flexBtns}>
+      <div className={commonStyle.flexBtns}>
         <Button className={classes.footerLevels} key='left' onClick={() => clearPassedLevel()}>
           <p>Clear Checkmarks</p>
         </Button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from "@material-ui/core";
 import Button from '@material-ui/core/ButtonBase';
-import * as styles from "../../../common/styles";
+import {styles} from "../../../common/styles";
 
 const useStyles = makeStyles({
   btnLevel: {
@@ -33,16 +33,17 @@ export function ItemLevelsPage(props) {
   }
 
   const classes = useStyles();
-  const {name, id, passedLevel} = props;
+  const commonStyle = styles();
+  const {name, passedLevel} = props;
 
   const isPassedLevel = () => {
     return (passedLevel === 'true') ? (classes.checkLevel + ' ' + classes.passedLevel) : classes.checkLevel;
   }
 
   return (
-    <div style={styles.flexInlineItems} key={id}>
+    <div className={commonStyle.flexInlineItems}>
       <div className={isPassedLevel()}></div>
-      <Button className={classes.btnLevel} onClick={chooseLevel} id={id}>
+      <Button className={classes.btnLevel} onClick={chooseLevel}>
         <p>{name}</p>
       </Button>
     </div>

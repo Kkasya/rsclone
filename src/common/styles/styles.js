@@ -1,18 +1,23 @@
-export const flexWrapper = {
-  display: 'flex',
-  'flex-flow': 'column wrap',
-  height: '100vh',
-};
+import {makeStyles} from "@material-ui/core";
 
-export const flexInlineItems = {
-  margin: '3rem',
-  display: 'flex',
-  'justify-items': 'center',
-  'align-items': 'center',
-};
+export const styles = makeStyles({
+  flexWrapper: {
+    display: 'flex',
+    'flex-flow': 'column wrap',
+    height: '100vh',
+  },
 
-export const  flexBtns = {
-  display: 'flex',
-  'justify-content': 'space-around',
-};
+  flexInlineItems: {
+    margin: '3rem',
+    display: 'flex',
+    'justify-items': 'center',
+    'align-items': 'center',
+  },
+
+  flexBtns: {
+    display: 'flex',
+    'justify-content': 'space-around',
+  },
+});
+
 
