@@ -2,34 +2,34 @@ import React from 'react';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const OPTION_TITLES = {
+const SETTINGS_TITLES = {
   'areEffectsOn': 'Sound effects',
   'isMusicOn': 'Music',
   'areTipsOn': 'Level tips',
 }
 
-export default function OptionsItems({ stateOptions, setOption }) {
-  const changeOption = (event) => {
-    const newOptions = stateOptions.slice();
-    const index = newOptions.findIndex(item => item.id === event.target.name);
-    newOptions[index].state = event.target.checked;
+export default function SettingsItems({ stateSettings, setSettings }) {
+  const changeSettings = (event) => {
+    const newSettings = stateSettings.slice();
+    const index = newSettings.findIndex(item => item.id === event.target.name);
+    newSettings[index].state = event.target.checked;
 
-    setOption(() => [...newOptions]);
+    setSettings(() => [...newSettings]);
   };
 
-  return stateOptions.map((item) => {
+  return stateSettings.map((item) => {
     return (
       <FormControlLabel
         key={item.id}
         control={
           <Checkbox
             checked={item.state}
-            onChange={changeOption}
+            onChange={changeSettings}
             name={item.id}
             color="primary"
           />
         }
-        label={OPTION_TITLES[item.id]}
+        label={SETTINGS_TITLES[item.id]}
       />
     );
   });

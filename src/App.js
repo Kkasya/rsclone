@@ -1,8 +1,8 @@
 import React from 'react';
-import MainMenu from './MainMenu/MainMenu';
+import MainPage from './MainPage/MainPage';
 
 export default function App() {
-  const [stateOptions, setOption] = React.useState(
+  const [stateSettings, setSettings] = React.useState(
     [
       {
         id: 'areEffectsOn',
@@ -23,9 +23,9 @@ export default function App() {
   const [stateLang, toggleLang] = React.useState('ru');
 
   return (
-    <MainMenu
-      stateOptions={stateOptions}
-      setOption={setOption}
+    <MainPage
+      stateSettings={stateSettings}
+      setSettings={setSettings}
       isVisible={isVisible}
       toggleVisibility={toggleVisibility}
       stateLang={stateLang}

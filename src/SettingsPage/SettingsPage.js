@@ -1,13 +1,13 @@
 import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
-import OptionsItems from './OptionsItems';
+import SettingsItems from './SettingsItems';
 import ToggleButtons from './ToggleButtons';
-import ButtonPrimary from '../../common/ButtonPrimary';
+import ButtonPrimary from '../common/ButtonPrimary/ButtonPrimary';
 
-export default function OptionsMenu(props) {
+export default function SettingsPage(props) {
   const {
-    stateOptions,
-    setOption,
+    stateSettings,
+    setSettings,
     isVisible,
     toggleVisibility,
     stateLang,
@@ -28,9 +28,9 @@ export default function OptionsMenu(props) {
         borderRadius: '8px',
       }}
     >
-      <OptionsItems 
-        stateOptions={stateOptions}
-        setOption={setOption}
+      <SettingsItems 
+        stateSettings={stateSettings}
+        setSettings={setSettings}
       />
 
       <ToggleButtons
