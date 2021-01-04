@@ -1,10 +1,13 @@
 import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
+
+import styles from '../common/styles/styles';
 import SettingsItems from './SettingsItems';
 import ToggleButtons from './ToggleButtons';
 import ButtonPrimary from '../common/ButtonPrimary/ButtonPrimary';
 
 export default function SettingsPage(props) {
+  const commonStyles = styles();
   const {
     stateSettings,
     setSettings,
@@ -15,19 +18,7 @@ export default function SettingsPage(props) {
   } = props;
 
   return (
-    <FormGroup
-      style={{
-        margin: '0 auto',
-        padding: '30px',
-        width: '200px',
-        minHeight: '300px',
-
-        display: isVisible ? 'flex' : 'none',
-        justifyContent: 'space-between',
-        background: 'rgb(225, 225, 225)',
-        borderRadius: '8px',
-      }}
-    >
+    <FormGroup className={commonStyles.settingsPage}>
       <SettingsItems 
         stateSettings={stateSettings}
         setSettings={setSettings}
