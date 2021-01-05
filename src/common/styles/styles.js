@@ -8,11 +8,16 @@ const styles = makeStyles({
     '& li': {
       'list-style': 'none',
       fontSize: '18px',
+      marginLeft: '10px',
     },
 
     '& a': {
       color: '#24292e',
       textDecoration: 'none',
+    },
+
+    '& a.activeNavLink': {
+      backgroundColor: '#FF8228',
     },
   },
 
@@ -33,6 +38,14 @@ const styles = makeStyles({
 
   helpPage: {
     backgroundColor: 'tomato',
+  },
+
+  aboutPage: {
+    backgroundColor: 'red',
+  },
+
+  mainPage: {
+    backgroundColor: 'blue',
   },
 });
 

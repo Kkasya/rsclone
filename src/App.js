@@ -3,13 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
   Redirect,
 } from 'react-router-dom';
 
 import LevelsPage from './LevelsPage/LevelsPage';
 import SettingsPage from './SettingsPage/SettingsPage';
 import HelpPage from './HelpPage/HelpPage';
+import AboutPage from './AboutPage/AboutPage';
+import MainPage from './MainPage/MainPage';
 
 import styles from './common/styles/styles';
 
@@ -39,33 +41,33 @@ export default function App() {
   return (
     <Router className={commonStyles.root} >
       <div>
-
         <nav>
           <ul className={commonStyles.navbar}>
             <li>
-              <Link to='/levels'>Levels</Link>
+              <NavLink to='/' activeClassName='activeNavLink' exact>Main</NavLink>
             </li>
             <li>
-              <Link to='/settings'>Settings</Link>
+              <NavLink to='/levels' activeClassName='activeNavLink'>Levels</NavLink>
             </li>
             <li>
-              <Link to='/help'>Help</Link>
+              <NavLink to='/settings' activeClassName='activeNavLink'>Settings</NavLink>
+            </li>
+            <li>
+              <NavLink to='/help' activeClassName='activeNavLink'>Help</NavLink>
+            </li>
+            <li>
+              <NavLink to='/about' activeClassName='activeNavLink'>About</NavLink>
             </li>
           </ul>
         </nav>
 
         <Switch>
-
           <Route
             exact
             path='/'
-            render={() => <Redirect to='/levels' />}
-          />
-
-          <Route path='/levels'>
-            <LevelsPage />
-          </Route>
-
+            render={() => <Redirect to='/' />}
+            component={MainPage} />
+          <Route path='/levels' component={LevelsPage} />
           <Route path='/settings'>
             <SettingsPage
               stateSettings={stateSettings}
@@ -76,13 +78,9 @@ export default function App() {
               toggleLang={toggleLang}
             />
           </Route>
-
-          <Route path='/help'>
-            <HelpPage />
-          </Route>
-
+          <Route path='/help' component={HelpPage} />
+          <Route path='/about' component={AboutPage} />
         </Switch>
-
       </div>
     </Router>
   );
