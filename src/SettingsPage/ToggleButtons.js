@@ -2,7 +2,7 @@ import React from 'react';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { connect } from 'react-redux';
-import toggleLang from '../redux/toggleLang';
+import { toggleLang } from '../redux/actions';
 
 const LANGUAGES = [
   'en',

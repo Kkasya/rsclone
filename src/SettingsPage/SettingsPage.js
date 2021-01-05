@@ -1,6 +1,5 @@
 import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
-
 import styles from '../common/styles/styles';
 import SettingsItems from './SettingsItems';
 import ToggleButtons from './ToggleButtons';

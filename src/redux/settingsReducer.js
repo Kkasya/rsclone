@@ -1,5 +1,5 @@
 const initialState = {
-  togglableSettings: [
+  settings: [
     {
       id: 'areEffectsOn',
       state: true,
@@ -20,15 +20,15 @@ const settingsReducer = (state = initialState, action) => {
   let target = null;
   try {
     target = action.payload.nativeEvent.target;
-  } catch(e) {}
+  } catch (e) { }
 
   switch (action.type) {
-    
-    case 'CHANGE_SETTINGS':
-      const newSettings = state.togglableSettings.slice();
+
+    case 'TOGGLE_SETTINGS':
+      const newSettings = state.settings.slice();
       const index = newSettings.findIndex(item => item.id === target.name);
       newSettings[index].state = target.checked;
-      return { ...state, togglableSettings: [...newSettings] }
+      return { ...state, settings: [...newSettings] }
 
     case 'TOGGLE_LANG':
       const newLang = target.value || target.parentNode.value;

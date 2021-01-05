@@ -1,6 +1,13 @@
-export default function toggleSetting(setting) {
+export function toggleSetting(setting) {
   return {
-    type: 'CHANGE_SETTINGS',
+    type: 'TOGGLE_SETTINGS',
     payload: setting,
+  };
+}
+
+export function toggleLang(lang) {
+  return {
+    type: 'TOGGLE_LANG',
+    payload: lang,
   };
 }

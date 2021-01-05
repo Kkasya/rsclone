@@ -6,7 +6,6 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
-
 import LevelsPage from './LevelsPage/LevelsPage';
 import SettingsPage from './SettingsPage/SettingsPage';
 import HelpPage from './HelpPage/HelpPage';

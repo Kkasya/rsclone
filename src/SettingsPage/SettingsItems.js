@@ -2,7 +2,7 @@ import React from 'react';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { connect } from 'react-redux';
-import toggleSetting from '../redux/actions';
+import { toggleSetting } from '../redux/actions';
 
 const SETTINGS_TITLES = {
   'areEffectsOn': 'Sound effects',
@@ -10,9 +10,8 @@ const SETTINGS_TITLES = {
   'areTipsOn': 'Level tips',
 }
 
-function SettingsItems({ togglableSettings, toggleSetting }) {
-  console.log(toggleSetting)
-  return togglableSettings.map((item) => {
+function SettingsItems({ settings, toggleSetting }) {
+  return settings.map((item) => {
     return (
       <FormControlLabel
         key={item.id}
@@ -31,7 +30,7 @@ function SettingsItems({ togglableSettings, toggleSetting }) {
 }
 
 const mapStateToProps = (state) => ({
-  togglableSettings: state.settings.togglableSettings,
+  settings: state.settings.settings,
 });
 
 const mapDispatchToProps = {
