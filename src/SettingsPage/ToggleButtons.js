@@ -1,36 +1,42 @@
 import React from 'react';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import { connect } from 'react-redux';
+import toggleLang from '../redux/toggleLang';
 
-export default function ToggleButtons({ stateLang, toggleLang }) {
-  const handleLang = (event, newLang) => {
-    if (newLang) {
-      toggleLang(newLang);
-    }
-  };
+const LANGUAGES = [
+  'en',
+  'ru',
+];
+
+function ToggleButtons({ lang, toggleLang }) {
+  const langButtons = LANGUAGES.map((lang) => (
+    <ToggleButton
+      value={lang}
+      key={lang}
+      color='primary'
+    >
+      {lang.toUpperCase()}
+    </ToggleButton>
+  ));
 
   return (
     <ToggleButtonGroup
-      value={stateLang}
+      value={lang}
       exclusive
-      onChange={handleLang}
+      onChange={toggleLang}
     >
-      <ToggleButton
-        value="ru"
-        style={{
-          color: '#000',
-        }}
-      >
-        RU
-      </ToggleButton>
-      <ToggleButton
-        value="en"
-        style={{
-          color: '#000',
-        }}
-      >
-        EN
-      </ToggleButton>
+      {langButtons}
     </ToggleButtonGroup>
   );
 }
+
+const mapStateToProps = (state) => ({
+  lang: state.settings.lang,
+});
+
+const mapDispatchToProps = {
+  toggleLang,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToggleButtons);

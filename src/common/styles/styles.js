@@ -6,7 +6,7 @@ const styles = makeStyles({
     backgroundColor: 'aqua',
 
     '& li': {
-      'list-style': 'none',
+      listStyle: 'none',
       fontSize: '18px',
     },
 

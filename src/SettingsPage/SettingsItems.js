@@ -1,6 +1,8 @@
 import React from 'react';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { connect } from 'react-redux';
+import toggleSetting from '../redux/actions';
 
 const SETTINGS_TITLES = {
   'areEffectsOn': 'Sound effects',
@@ -8,23 +10,16 @@ const SETTINGS_TITLES = {
   'areTipsOn': 'Level tips',
 }
 
-export default function SettingsItems({ stateSettings, setSettings }) {
-  const changeSettings = (event) => {
-    const newSettings = stateSettings.slice();
-    const index = newSettings.findIndex(item => item.id === event.target.name);
-    newSettings[index].state = event.target.checked;
-
-    setSettings(() => [...newSettings]);
-  };
-
-  return stateSettings.map((item) => {
+function SettingsItems({ togglableSettings, toggleSetting }) {
+  console.log(toggleSetting)
+  return togglableSettings.map((item) => {
     return (
       <FormControlLabel
         key={item.id}
         control={
           <Checkbox
             checked={item.state}
-            onChange={changeSettings}
+            onChange={toggleSetting}
             name={item.id}
             color="primary"
           />
@@ -34,3 +29,13 @@ export default function SettingsItems({ stateSettings, setSettings }) {
     );
   });
 }
+
+const mapStateToProps = (state) => ({
+  togglableSettings: state.settings.togglableSettings,
+});
+
+const mapDispatchToProps = {
+  toggleSetting,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsItems);
