@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core";
 
 export const styles = makeStyles({
   pageBackground: {
-    background: 'linear-gradient(45deg, rgb(152, 207, 195), rgb(86, 181, 184))',
+    background: 'linear-gradient(45deg, rgba(152, 207, 195, 0.5), rgba(86, 181, 184, 0.5))',
   },
 
   flexWrapper: {

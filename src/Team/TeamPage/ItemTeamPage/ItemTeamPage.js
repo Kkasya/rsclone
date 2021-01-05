@@ -4,10 +4,10 @@ import {styles} from "../../../common/styles";
 
 const objStyle = {
   cardMember: {
-    backgroundColor: 'rgba(242, 242, 167, 0.5)',
+    backgroundColor: 'rgba(242, 242, 167, 0.3)',
     'border-radius': '1rem',
     width: '40%',
-    boxShadow: '0 0.4rem 0.7rem 0.2rem rgba(0, 0, 135, 0.5)',
+    boxShadow: '0 0.4rem 0.7rem 0.2rem rgba(0, 0, 135, 0.6)',
     flexDirection: "column",
     '& *': {
       margin: '1rem',
