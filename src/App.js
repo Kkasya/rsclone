@@ -52,6 +52,8 @@ export default function App() {
             <HelpPage />
           </Route>
 
+          <Route path="*" render={() => <Redirect to='/levels' />} />
+
         </Switch>
 
       </div>
