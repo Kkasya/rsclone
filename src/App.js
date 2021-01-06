@@ -3,39 +3,52 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   NavLink,
   Redirect,
 } from 'react-router-dom';
+import { Container } from '@material-ui/core';
 import StartPage from './StartPage/StartPage';
+import Logo from './Logo/Logo';
 import LevelsPage from './LevelsPage/LevelsPage';
 import SettingsPage from './SettingsPage/SettingsPage';
 import HelpPage from './HelpPage/HelpPage';
 import styles from './common/styles/styles';
+const classNames = require('classnames');
 
 export default function App() {
   const commonStyles = styles();
+  const header = classNames(
+    commonStyles.container,
+    commonStyles.containerHeader,
+  );
 
   return (
     <Router>
-      <div>
+      <div className={commonStyles.root}>
+        <Container
+          maxWidth="lg"
+          className={header}
+        >
+          <nav>
+            <Logo />
+            <ul className={commonStyles.navbar}>
+              <li>
+                <NavLink to='/' activeclassname='activeNavLink' exact>Start</NavLink>
+              </li>
 
-        <nav>
-          <ul className={commonStyles.navbar}>
-            <li>
-              <NavLink to='/' activeclassname='activeNavLink' exact>Start</NavLink>
-            </li>
-            <li>
-              <Link to='/levels' activeclassname='activeNavLink'>Levels</Link>
-            </li>
-            <li>
-              <Link to='/settings' activeclassname='activeNavLink'>Settings</Link>
-            </li>
-            <li>
-              <Link to='/help' activeclassname='activeNavLink'>Help</Link>
-            </li>
-          </ul>
-        </nav>
+              <li>
+                <NavLink to='/levels' activeclassname='activeNavLink'>Levels</NavLink>
+              </li>
+
+              <li>
+                <NavLink to='/settings' activeclassname='activeNavLink'>Settings</NavLink>
+              </li>
+              <li>
+                <NavLink to='/help' activeclassname='activeNavLink'>Help</NavLink>
+              </li>
+            </ul>
+          </nav>
+        </Container>
 
         <Switch>
 

@@ -4,6 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import rootReducer from './redux/rootReducer';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const store = createStore(
   rootReducer,
@@ -14,6 +15,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <CssBaseline />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
