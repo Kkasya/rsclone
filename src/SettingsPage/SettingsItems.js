@@ -30,7 +30,7 @@ function SettingsItems({ settings, toggleSetting }) {
 }
 
 const mapStateToProps = (state) => ({
-  settings: state.settings.settings,
+  settings: state.settings,
 });
 
 const mapDispatchToProps = {
