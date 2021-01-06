@@ -4,8 +4,10 @@ import {
   Switch,
   Route,
   Link,
+  NavLink,
   Redirect,
 } from 'react-router-dom';
+import StartPage from './StartPage/StartPage';
 import LevelsPage from './LevelsPage/LevelsPage';
 import SettingsPage from './SettingsPage/SettingsPage';
 import HelpPage from './HelpPage/HelpPage';
@@ -21,13 +23,16 @@ export default function App() {
         <nav>
           <ul className={commonStyles.navbar}>
             <li>
-              <Link to='/levels'>Levels</Link>
+              <NavLink to='/' activeclassname='activeNavLink' exact>Start</NavLink>
             </li>
             <li>
-              <Link to='/settings'>Settings</Link>
+              <Link to='/levels' activeclassname='activeNavLink'>Levels</Link>
             </li>
             <li>
-              <Link to='/help'>Help</Link>
+              <Link to='/settings' activeclassname='activeNavLink'>Settings</Link>
+            </li>
+            <li>
+              <Link to='/help' activeclassname='activeNavLink'>Help</Link>
             </li>
           </ul>
         </nav>
@@ -37,10 +42,14 @@ export default function App() {
           <Route
             exact
             path='/'
-            render={() => <Redirect to='/levels' />}
-          />
+          >
+            <StartPage />
+          </Route>
 
-          <Route path='/levels'>
+          <Route
+            exact
+            path='/levels'
+          >
             <LevelsPage />
           </Route>
 
@@ -51,6 +60,11 @@ export default function App() {
           <Route path='/help'>
             <HelpPage />
           </Route>
+
+          <Route
+            path="*"
+            render={() => <Redirect to='/' />}
+          />
 
         </Switch>
 

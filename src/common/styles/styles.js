@@ -4,6 +4,7 @@ const styles = makeStyles({
   navbar: {
     display: 'flex',
     backgroundColor: 'aqua',
+    paddingInlineStart: 0,
 
     '& li': {
       listStyle: 'none',
