@@ -5,13 +5,14 @@ import {styles} from "../../../common/styles";
 
 const useStyles = makeStyles({
   btnLevel: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    'border-radius': '1rem',
-    width: '12rem',
-    outline: 'none',
-    color: 'white',
-    'font-size': '2rem',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    width: '15rem',
+    'font-size': '2.5rem',
+  },
+
+  btnInactive: {
+    cursor: 'default',
+    opacity: '0.5',
+    pointerEvents: 'none',
   },
 
   checkLevel: {
@@ -28,22 +29,27 @@ const useStyles = makeStyles({
 
 export function ItemLevelsPage(props) {
 
+  const {name, passedLevel} = props;
+  const classes = useStyles();
+  const commonStyle = styles();
+  const btnLevel = `${commonStyle.btn} ${classes.btnLevel}`;
+
   const chooseLevel = (e) => {
     // open chose level
   }
-
-  const classes = useStyles();
-  const commonStyle = styles();
-  const {name, passedLevel} = props;
 
   const isPassedLevel = () => {
     return (passedLevel === 'true') ? (classes.checkLevel + ' ' + classes.passedLevel) : classes.checkLevel;
   }
 
+  const isActiveBtn = () => {
+    return (passedLevel !== 'true') ? btnLevel : (btnLevel + ' ' + classes.btnInactive);
+  }
+
   return (
     <div className={commonStyle.flexInlineItems}>
       <div className={isPassedLevel()}></div>
-      <Button className={classes.btnLevel} onClick={chooseLevel}>
+      <Button className={isActiveBtn()} onClick={chooseLevel}>
         <p>{name}</p>
       </Button>
     </div>

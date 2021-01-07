@@ -58,9 +58,4 @@ export const LIST_LEVELS = [{
     name: '12',
     isReady: 'false',
   },
-  {
-    id: '13',
-    name: '13',
-    isReady: 'false',
-  }
 ];
