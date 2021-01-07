@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../common/styles/styles';
+import styles from '../../common/styles/styles';
 import { Container } from '@material-ui/core';
 
 export default function TeamPage() {

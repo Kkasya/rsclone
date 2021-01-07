@@ -2,7 +2,7 @@ import React from 'react';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { connect } from 'react-redux';
-import { toggleSetting } from '../redux/actions';
+import { toggleSetting } from '../../redux/actions';
 
 const SETTINGS_TITLES = {
   'areEffectsOn': 'Sound effects',

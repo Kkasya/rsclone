@@ -1,19 +1,24 @@
 import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
 import { Container } from '@material-ui/core';
-import styles from '../common/styles/styles';
+import styles from '../../common/styles/styles';
 import SettingsItems from './SettingsItems';
 import ToggleButtons from './ToggleButtons';
+const classNames = require('classnames');
 
 export default function SettingsPage() {
   const commonStyles = styles();
+  const containerSettingsPage = classNames(
+    commonStyles.containerPage,
+    commonStyles.settingsPage,
+  );
 
   return (
     <Container
       maxWidth="lg"
       className={commonStyles.container}
     >
-      <FormGroup className={commonStyles.settingsPage}>
+      <FormGroup className={containerSettingsPage}>
         <div className={commonStyles.settingsCheckboxes}>
           <SettingsItems />
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import NavCustom from './NavCustom/NavCustom';
-import SwitchCustom from './SwitchCustom/SwitchCustom';
+import RouteCustom from './Navigation/RouteCustom/RouteCustom';
+import SwitchCustom from './Navigation/SwitchCustom/SwitchCustom';
 import styles from './common/styles/styles';
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <Router>
       <div className={commonStyles.root}>
-        <NavCustom />
+        <RouteCustom isMain={false} />
         <SwitchCustom />
       </div>
     </Router>

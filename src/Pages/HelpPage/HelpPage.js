@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from '../common/styles/styles';
+import styles from '../../common/styles/styles';
 import { Container } from '@material-ui/core';
 
-export default function LevelsPage() {
+export default function HelpPage() {
   const commonStyles = styles();
   return (
     <Container
       maxWidth="lg"
       className={commonStyles.container}
     >
-      <div className={commonStyles.levelsPage}>
-        <h1>LevelsPage</h1>
+      <div className={commonStyles.helpPage}>
+        <h1>HelpPage</h1>
       </div>
     </Container>
   );
