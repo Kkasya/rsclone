@@ -3,7 +3,7 @@ export const dataTeamMembers = [
     id: '1',
     photo: 'https://i.ibb.co/sChPwbf/1.jpg',
     name: 'Viktor Bashincheev',
-    gitHub: 'reagent',
+    gitHub: 'reagentJS',
     about: `An electric utility worker who wants to turn programming from a hobby into a job.`
   },
   {
