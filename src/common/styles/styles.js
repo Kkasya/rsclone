@@ -40,11 +40,11 @@ const styles = makeStyles({
     backgroundColor: 'tomato',
   },
 
-  aboutPage: {
+  teamPage: {
     backgroundColor: 'red',
   },
 
-  mainPage: {
+  startPage: {
     backgroundColor: 'blue',
   },
 });

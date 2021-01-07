@@ -10,8 +10,8 @@ import {
 import LevelsPage from './LevelsPage/LevelsPage';
 import SettingsPage from './SettingsPage/SettingsPage';
 import HelpPage from './HelpPage/HelpPage';
-import AboutPage from './AboutPage/AboutPage';
-import MainPage from './MainPage/MainPage';
+import TeamPage from './TeamPage/TeamPage';
+import StartPage from './StartPage/StartPage';
 
 import styles from './common/styles/styles';
 
@@ -44,7 +44,7 @@ export default function App() {
         <nav>
           <ul className={commonStyles.navbar}>
             <li>
-              <NavLink to='/' activeClassName='activeNavLink' exact>Main</NavLink>
+              <NavLink to='/' activeClassName='activeNavLink' exact>Start</NavLink>
             </li>
             <li>
               <NavLink to='/levels' activeClassName='activeNavLink'>Levels</NavLink>
@@ -56,13 +56,13 @@ export default function App() {
               <NavLink to='/help' activeClassName='activeNavLink'>Help</NavLink>
             </li>
             <li>
-              <NavLink to='/about' activeClassName='activeNavLink'>About</NavLink>
+              <NavLink to='/team' activeClassName='activeNavLink'>Team</NavLink>
             </li>
           </ul>
         </nav>
 
         <Switch>
-          <Route exact path='/' component={MainPage} />
+          <Route exact path='/' component={StartPage} />
           <Route exact path='/levels' component={LevelsPage} />
           <Route path='/settings'>
             <SettingsPage
@@ -75,7 +75,7 @@ export default function App() {
             />
           </Route>
           <Route path='/help' component={HelpPage} />
-          <Route path='/about' component={AboutPage} />
+          <Route path='/team' component={TeamPage} />
           <Route path="*" render={() => <Redirect to='/' />} />
         </Switch>
       </div>

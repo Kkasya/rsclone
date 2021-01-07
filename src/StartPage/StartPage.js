@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from '../common/styles/styles';
 
-export default function AboutPage() {
+export default function StartPage() {
   const commonStyles = styles();
   return (
-    <div className={commonStyles.aboutPage}>
-      <h1>AboutPage</h1>
+    <div className={commonStyles.startPage}>
+      <h1>StartPage</h1>
     </div>
   );
 }
