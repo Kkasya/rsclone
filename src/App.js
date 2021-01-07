@@ -63,7 +63,7 @@ export default function App() {
 
         <Switch>
           <Route exact path='/' component={MainPage} />
-          <Route path='/levels' component={LevelsPage} />
+          <Route exact path='/levels' component={LevelsPage} />
           <Route path='/settings'>
             <SettingsPage
               stateSettings={stateSettings}
