@@ -12,7 +12,7 @@ const objStyle = {
     flexDirection: "column",
     margin: '1rem 2rem',
     '& *': {
-      margin: '0.5rem',
+      margin: '0 0.5rem 0.5rem',
     },
     '&:hover': {
       boxShadow: '0 0.2rem 0.4rem 0.1rem rgba(0, 0, 135, 0.6)',
@@ -43,6 +43,7 @@ const objStyle = {
   aboutMember: {
     fontSize: '1.2rem',
     textAlign: 'justify',
+    padding: '0 1rem 0 1rem',
   }
 };
 

@@ -6,13 +6,14 @@ import {iconRss, urlRss} from "../../../common/constants";
 const useStyles = makeStyles( {
   footer: {
     fontSize: '2.5rem',
-    justifyContent: 'space-between',
-    margin: '0 2rem 0 50%',
+    justifyContent: 'center',
+    '& *': {
+      margin: '0.5rem',
+    }
   },
 
   icon: {
-    width: '5rem',
-    height: '5rem',
+    height: '2.5rem',
   }
 });
 
@@ -23,9 +24,10 @@ export function Footer() {
 return (
   <div className={footerWrapper}>
     <div className={classes.nameMember}>2021</div>
-    <a href={urlRss}  target='_blank'>
+    <div> <a href={urlRss}  target='_blank'>
       <img className={classes.icon} src={iconRss}></img>
-    </a>
+    </a></div>
+
 
   </div>
 )
