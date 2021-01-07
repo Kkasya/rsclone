@@ -62,11 +62,7 @@ export default function App() {
         </nav>
 
         <Switch>
-          <Route
-            exact
-            path='/'
-            render={() => <Redirect to='/' />}
-            component={MainPage} />
+          <Route exact path='/' component={MainPage} />
           <Route path='/levels' component={LevelsPage} />
           <Route path='/settings'>
             <SettingsPage
