@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import {Team} from './Team';
 
 function App() {
   return (
     <div className="App">
+      <main>
+        <Team/>
+      </main>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

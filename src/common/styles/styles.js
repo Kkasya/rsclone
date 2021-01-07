@@ -1,14 +1,16 @@
 import {makeStyles} from "@material-ui/core";
 
 export const styles = makeStyles({
-  pageBackground: {
+  pageWrapper: {
     background: 'linear-gradient(45deg, rgba(152, 207, 195, 0.5), rgba(86, 181, 184, 0.5))',
+    '& a': {
+      textDecoration: 'none',
+    },
   },
 
   flexWrapper: {
     display: 'flex',
     'flex-flow': 'column wrap',
-    height: '100vh',
   },
 
   flexWrapperRow: {
@@ -18,8 +20,9 @@ export const styles = makeStyles({
   },
 
   flexInlineItems: {
-    margin: '3rem',
+    margin: '0.3rem',
     display: 'flex',
+    flexDirection: 'row',
     'justify-items': 'center',
     'align-items': 'center',
   },
