@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import constants from './constants';
 
-const footerHeight = '65';
+const footerHeight = Math.max(constants.minFooterHeight, constants.logoSizes);
 
 export const styles = makeStyles({
   root: {
@@ -12,6 +12,12 @@ export const styles = makeStyles({
       justifyContent: 'space-between',
       boxShadow: '0px 2px 4px 0px rgba(0, 0, 0, .5)',
       color: constants.fontColorPrimary,
+    },
+
+    '& a': {
+      '& img': {
+        display: 'flex',
+      },
     },
   },
 
@@ -65,7 +71,7 @@ export const styles = makeStyles({
 
   containerHeader: {
     padding: 0,
-    minHeight: `${footerHeight}px`,
+    minHeight: `${constants.minFooterHeight}px`,
     backgroundColor: constants.backgroundColorHeader,
   },
 

@@ -32,19 +32,6 @@ export default function NavCustom({ isOnStart, isMain }) {
     <nav className={isMain ? navbarCombine : commonStyles.navbar}>
       {!isMain && <Logo />}
       <ul>
-        {
-          !isMain &&
-          <li>
-            <NavLink to='/'>
-              <Button
-                variant="contained"
-                className={buttonAndSmall}
-              >
-                Start page
-              </Button>
-            </NavLink>
-          </li>
-        }
         <li>
           <NavLink to='/levels'>
             <Button
