@@ -67,7 +67,7 @@ export default function App() {
             path='/'
             render={() => <Redirect to='/' />}
             component={MainPage} />
-          <Route path='/levels' component={LevelsPage} />
+          <Route exact path='/levels' component={LevelsPage} />
           <Route path='/settings'>
             <SettingsPage
               stateSettings={stateSettings}
