@@ -3,6 +3,8 @@ import {makeStyles} from "@material-ui/core";
 export const styles = makeStyles({
   pageWrapper: {
     background: 'linear-gradient(45deg, rgba(152, 207, 195, 0.5), rgba(86, 181, 184, 0.5))',
+    textAlign: 'center',
+    fontSize: '10px',
     '& a': {
       textDecoration: 'none',
     },
