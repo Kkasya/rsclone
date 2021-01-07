@@ -13,37 +13,14 @@ import TeamPage from '../../Pages/TeamPage/TeamPage';
 export default function SwitchCustom() {
   return (
     <Switch>
-
-      <Route
-        exact
-        path='/'
-      >
-        <StartPage />
-      </Route>
-
-      <Route
-        exact
-        path='/levels'
-      >
-        <LevelsPage />
-      </Route>
-
-      <Route path='/settings'>
-        <SettingsPage />
-      </Route>
-
-      <Route path='/help'>
-        <HelpPage />
-      </Route>
-
-      <Route path='/team'>
-        <TeamPage />
-      </Route>
-
+      <Route exact path='/' component={StartPage} />
+      <Route exact path='/levels' component={LevelsPage} />
+      <Route path='/settings' component={SettingsPage} />
+      <Route path='/help' component={HelpPage} />
+      <Route path='/team' component={TeamPage} />
       <Route path="*">
         <Redirect to='/' />
       </Route>
-
     </Switch>
   );
 }

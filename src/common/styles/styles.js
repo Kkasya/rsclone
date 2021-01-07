@@ -19,6 +19,12 @@ export const styles = makeStyles({
         display: 'flex',
       },
     },
+
+    '& a.activeNavLink': {
+      '& button': {
+        backgroundColor: constants.backgroundButtonActive,
+      },
+    },
   },
 
   invis: {
@@ -35,9 +41,7 @@ export const styles = makeStyles({
       marginRight: '20px',
       display: 'flex',
       alignItems: 'center',
-
       listStyle: 'none',
-      fontSize: '18px',
 
       '&:last-child': {
         marginRight: '0',
@@ -80,11 +84,8 @@ export const styles = makeStyles({
     paddingTop: '20vh',
   },
 
-  startPage: {
-
-  },
-
   button: {
+    fontSize: '16px',
     backgroundColor: constants.backgroundButtonDefault,
 
     '&:hover': {
@@ -102,6 +103,10 @@ export const styles = makeStyles({
     alignItems: 'center',
   },
 
+  startPage: {
+
+  },
+
   levelsPage: {
 
   },
@@ -117,6 +122,10 @@ export const styles = makeStyles({
   },
 
   helpPage: {
+
+  },
+
+  teamPage: {
 
   },
 });

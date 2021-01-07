@@ -9,7 +9,7 @@ export default function TeamPage() {
       maxWidth="lg"
       className={commonStyles.container}
     >
-      <div className={commonStyles.helpPage}>
+      <div className={commonStyles.teamPage}>
         <h1>TeamPage</h1>
       </div>
     </Container>

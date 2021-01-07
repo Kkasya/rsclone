@@ -5,6 +5,13 @@ import styles from '../../common/styles/styles';
 import Logo from '../Logo/Logo';
 const classNames = require('classnames');
 
+const pagesList = [
+  'levels',
+  'settings',
+  'help',
+  'team',
+];
+
 export default function NavCustom({ isOnStart, isMain }) {
   const commonStyles = styles();
   const navbarCombine = classNames(
@@ -15,10 +22,6 @@ export default function NavCustom({ isOnStart, isMain }) {
     commonStyles.button,
     commonStyles.buttonBig,
   );
-  const buttonAndSmall = classNames(
-    commonStyles.button,
-    commonStyles.buttonSmall,
-  );
 
   if (isOnStart && !isMain) {
     return (
@@ -28,50 +31,26 @@ export default function NavCustom({ isOnStart, isMain }) {
     );
   }
 
+  const pagesListComponents = pagesList.map((item) => {
+    return (
+      <li key={item}>
+        <NavLink to={`/${item}`} activeClassName='activeNavLink'>
+          <Button
+            variant="contained"
+            className={isMain ? buttonAndBig : commonStyles.button}
+          >
+            {item}
+          </Button>
+        </NavLink>
+      </li>
+    );
+  });
+
   return (
     <nav className={isMain ? navbarCombine : commonStyles.navbar}>
       {!isMain && <Logo />}
       <ul>
-        <li>
-          <NavLink to='/levels'>
-            <Button
-              variant="contained"
-              className={isMain ? buttonAndBig : buttonAndSmall}
-            >
-              Levels
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/settings'>
-            <Button
-              variant="contained"
-              className={isMain ? buttonAndBig : buttonAndSmall}
-            >
-              Settings
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/help'>
-            <Button
-              variant="contained"
-              className={isMain ? buttonAndBig : buttonAndSmall}
-            >
-              Help
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/team'>
-            <Button
-              variant="contained"
-              className={isMain ? buttonAndBig : buttonAndSmall}
-            >
-              Team
-            </Button>
-          </NavLink>
-        </li>
+        {pagesListComponents}
       </ul>
     </nav>
   );
