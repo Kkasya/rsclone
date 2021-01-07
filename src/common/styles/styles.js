@@ -45,6 +45,7 @@ export const styles = makeStyles({
   },
 
   navbarOnStart: {
+    boxShadow: 'none !important',
     '& ul': {
       flexDirection: 'column',
     },
@@ -75,6 +76,24 @@ export const styles = makeStyles({
 
   startPage: {
 
+  },
+
+  button: {
+    backgroundColor: constants.backgroundButtonDefault,
+
+    '&:hover': {
+      backgroundColor: constants.backgroundButtonHover,
+    },
+  },
+
+  buttonBig: {
+    marginBottom: '30px',
+    width: '240px',
+    height: '45px',
+
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   levelsPage: {
