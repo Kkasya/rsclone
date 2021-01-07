@@ -64,11 +64,14 @@ export const styles = makeStyles({
 
   settingsPage: {
     margin: '0 auto',
-    padding: '30px',
-    width: '200px',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    justifyContent: 'space-between',
-    borderRadius: '8px',
+  settingsCheckboxes: {
+    marginBottom: '30px',
+    display: 'flex',
+    flexDirection: 'column',
   },
 
   helpPage: {

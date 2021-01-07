@@ -14,7 +14,9 @@ export default function SettingsPage() {
       className={commonStyles.container}
     >
       <FormGroup className={commonStyles.settingsPage}>
-        <SettingsItems />
+        <div className={commonStyles.settingsCheckboxes}>
+          <SettingsItems />
+        </div>
         <ToggleButtons />
       </FormGroup>
     </Container>
