@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from '../../common/styles/styles';
+import stylesCommon from '../../common/styles/stylesCommon';
 import { Container } from '@material-ui/core';
 
 export default function TeamPage() {
-  const commonStyles = styles();
+  const commonStyles = stylesCommon();
   return (
     <Container
       maxWidth='lg'

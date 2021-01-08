@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import styles from '../../common/styles/styles';
 import Logo from '../Logo/Logo';
+import stylesCommon from '../../common/styles/stylesCommon';
+import stylesNavCustom from './stylesNavCustom';
+import stylesStartPage from '../../Pages/StartPage/stylesStartPage';
 const classNames = require('classnames');
 
 const pagesList = [
@@ -13,10 +15,12 @@ const pagesList = [
 ];
 
 export default function NavCustom({ isOnStart, isMain }) {
-  const commonStyles = styles();
+  const commonStyles = stylesCommon();
+  const useStylesNavCustom = stylesNavCustom(); 
+  const useStylesStartPage = stylesStartPage();
   const navbarCombine = classNames(
-    commonStyles.navbar,
-    commonStyles.navbarOnStart,
+    useStylesNavCustom.navbar,
+    useStylesStartPage.navbarOnStart,
   );
   const buttonAndBig = classNames(
     commonStyles.button,
@@ -36,7 +40,7 @@ export default function NavCustom({ isOnStart, isMain }) {
       <li key={item}>
         <NavLink to={`/${item}`} activeClassName='activeNavLink'>
           <Button
-            variant="contained"
+            variant='contained'
             className={isMain ? buttonAndBig : commonStyles.button}
           >
             {item}
@@ -47,7 +51,7 @@ export default function NavCustom({ isOnStart, isMain }) {
   });
 
   return (
-    <nav className={isMain ? navbarCombine : commonStyles.navbar}>
+    <nav className={isMain ? navbarCombine : useStylesNavCustom.navbar}>
       {!isMain && <Logo />}
       <ul>
         {pagesListComponents}

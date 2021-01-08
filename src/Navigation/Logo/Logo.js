@@ -6,7 +6,12 @@ import constants from '../../common/styles/constants';
 export default function StartPage() {
   return (
     <NavLink to='/'>
-      <img src={logo} alt='logo.png' width={constants.logoSizes} height={constants.logoSizes} />
+      <img
+        src={logo}
+        alt='logo.png'
+        width={constants.logoSizes}
+        height={constants.logoSizes}
+      />
     </NavLink>
   );
 }

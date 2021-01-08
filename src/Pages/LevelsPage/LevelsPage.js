@@ -1,18 +1,16 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import styles from '../../common/styles/styles';
-import Levels from './Levels';
+import stylesCommon from '../../common/styles/stylesCommon';
+import LevelsContent from './LevelsContent';
 
 export default function LevelsPage() {
-  const commonStyles = styles();
+  const commonStyles = stylesCommon();
   return (
     <Container
       maxWidth='lg'
       className={commonStyles.container}
     >
-      <div className={commonStyles.levelsPage}>
-        <Levels />
-      </div>
+      <LevelsContent />
     </Container>
   );
 }

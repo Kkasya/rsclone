@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import RouteCustom from './Navigation/RouteCustom/RouteCustom';
 import SwitchCustom from './Navigation/SwitchCustom/SwitchCustom';
-import styles from './common/styles/styles';
+import stylesCommon from './common/styles/stylesCommon';
 
 export default function App() {
-  const commonStyles = styles();
+  const commonStyles = stylesCommon();
   return (
     <Router>
       <div className={commonStyles.root}>
