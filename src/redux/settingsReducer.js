@@ -1,39 +1,17 @@
-const initialState = {
-  settings: [
-    {
-      id: 'areEffectsOn',
-      state: true,
-    },
-    {
-      id: 'isMusicOn',
-      state: true,
-    },
-    {
-      id: 'areTipsOn',
-      state: true,
-    },
-  ],
-  lang: 'en',
-};
+import initialState from './initialState';
 
 const settingsReducer = (state = initialState, action) => {
-  let target = null;
-  try {
-    target = action.payload.nativeEvent.target;
-  } catch (e) { }
-
   switch (action.type) {
 
     case 'TOGGLE_SETTINGS':
       const newSettings = state.settings.slice();
-      const index = newSettings.findIndex(item => item.id === target.name);
-      newSettings[index].state = target.checked;
+      const index = newSettings.findIndex(item => item.id === action.target);
+      newSettings[index].state = action.value;
       return { ...state, settings: [...newSettings] }
 
     case 'TOGGLE_LANG':
-      const newLang = target.value || target.parentNode.value;
-      if (newLang && newLang !== state.lang) {
-        return { ...state, lang: newLang }
+      if (action.value !== state.lang) {
+        return { ...state, lang: action.value }
       }
       break;
 

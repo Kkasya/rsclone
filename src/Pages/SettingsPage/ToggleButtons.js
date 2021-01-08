@@ -31,7 +31,7 @@ function ToggleButtons({ lang, toggleLang }) {
 }
 
 const mapStateToProps = (state) => ({
-  lang: state.settings.lang,
+  lang: state.lang,
 });
 
 const mapDispatchToProps = {

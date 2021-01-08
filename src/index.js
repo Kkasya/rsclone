@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
-import rootReducer from './redux/rootReducer';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import settingsReducer from './redux/settingsReducer';
 
 const store = createStore(
-  rootReducer,
+  settingsReducer,
   compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );
 
