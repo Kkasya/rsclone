@@ -1,37 +1,17 @@
 import React from 'react';
-import OptionsMenu from './OptionsMenu/OptionsMenu';
+import { BrowserRouter as Router } from 'react-router-dom';
+import RouteCustom from './Navigation/RouteCustom/RouteCustom';
+import SwitchCustom from './Navigation/SwitchCustom/SwitchCustom';
+import styles from './common/styles/styles';
 
-function App() {
-  const [stateOptions, setOption] = React.useState(
-    [
-      {
-        id: 'areEffectsOn',
-        state: true,
-      },
-      {
-        id: 'isMusicOn',
-        state: true,
-      },
-      {
-        id: 'areTipsOn',
-        state: true,
-      },
-    ],
-  );
-
-  const [isVisible, toggleVisibility] = React.useState(true);
-  const [stateLang, toggleLang] = React.useState('ru');
-
+export default function App() {
+  const commonStyles = styles();
   return (
-    <OptionsMenu
-      stateOptions={stateOptions}
-      setOption={setOption}
-      isVisible={isVisible}
-      toggleVisibility={toggleVisibility}
-      stateLang={stateLang}
-      toggleLang={toggleLang}
-    />
+    <Router>
+      <div className={commonStyles.root}>
+        <RouteCustom isMain={false} />
+        <SwitchCustom />
+      </div>
+    </Router>
   );
 }
-
-export default App;
