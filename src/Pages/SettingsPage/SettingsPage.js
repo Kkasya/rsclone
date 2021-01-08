@@ -14,7 +14,7 @@ export default function SettingsPage() {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth='lg'
       className={commonStyles.container}
     >
       <FormGroup className={containerSettingsPage}>

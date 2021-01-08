@@ -20,7 +20,7 @@ function SettingsItems({ settings, toggleSetting }) {
             checked={item.state}
             onChange={toggleSetting}
             name={item.id}
-            color="primary"
+            color='primary'
           />
         }
         label={SETTINGS_TITLES[item.id]}

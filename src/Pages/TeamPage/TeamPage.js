@@ -6,7 +6,7 @@ export default function TeamPage() {
   const commonStyles = styles();
   return (
     <Container
-      maxWidth="lg"
+      maxWidth='lg'
       className={commonStyles.container}
     >
       <div className={commonStyles.teamPage}>
