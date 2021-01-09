@@ -3,15 +3,11 @@ import { Button } from '@material-ui/core/';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesLevelsPage from './stylesLevelsPage';
 import checkMarkGreen from '../../assets/icons/checkMarkGreen.png';
-const classNames = require('classnames');
 
 export default function ItemLevelsPage({ name, isCompleted }) {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
-  const buttonAndCompleted = classNames(
-    commonStyles.button,
-    useStyles.buttonCompleted,
-  );
+  const buttonAndCompleted = `${commonStyles.button} ${useStyles.buttonCompleted}`;
 
   const chooseLevel = (event) => {
     // open choose level

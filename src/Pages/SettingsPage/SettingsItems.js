@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
-
 import { connect } from 'react-redux';
 import { toggleSetting } from '../../redux/actions';
 

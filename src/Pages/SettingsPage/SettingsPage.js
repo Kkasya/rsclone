@@ -4,15 +4,11 @@ import SettingsItems from './SettingsItems';
 import ToggleButtons from './ToggleButtons';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesSettingsPage from './stylesSettingsPage';
-const classNames = require('classnames');
 
 export default function SettingsPage() {
   const commonStyles = stylesCommon();
   const useStyles = stylesSettingsPage();
-  const containerSettingsPage = classNames(
-    commonStyles.containerPage,
-    useStyles.settingsPage,
-  );
+  const containerSettingsPage = `${commonStyles.containerPage} ${useStyles.settingsPage}`;
 
   return (
     <Container

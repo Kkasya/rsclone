@@ -1,7 +1,7 @@
 import React from 'react';
-import stylesCommon from '../../common/styles/stylesCommon';
 import { Container } from '@material-ui/core';
 import RouteCustom from '../../Navigation/RouteCustom/RouteCustom';
+import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function StartPage() {
   const commonStyles = stylesCommon();

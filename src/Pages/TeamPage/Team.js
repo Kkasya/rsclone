@@ -11,7 +11,7 @@ export default function TeamPage() {
     return (
       <ItemTeamPage
         key={item.id}
-        photo={item.photo}
+        photoName={item.photoName}
         name={item.name}
         gitHub={item.gitHub}
         about={item.about}

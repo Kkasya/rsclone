@@ -1,8 +1,8 @@
 import React from 'react';
 import stylesTeamPage from './stylesTeamPage';
 import stylesCommon from '../../common/styles/stylesCommon';
-import { urlRss } from './URLS';
 import iconRss from '../../assets/icons/rs_school_js.svg';
+const urlRss = 'https://rs.school/js/';
 
 export default function Footer() {
   const useStylesTeamPage = stylesTeamPage();

@@ -4,16 +4,11 @@ import ItemLevelsPage from './ItemLevelsPage';
 import LEVELS_LIST from './LIST_LEVELS';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesLevelsPage from './stylesLevelsPage';
-const classNames = require('classnames');
 
 export default function LevelsContent() {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
-  const buttonAndBig = classNames(
-    commonStyles.button,
-    commonStyles.buttonBig,
-    useStyles.buttonReset,
-  );
+  const buttonAndBig = `${commonStyles.button} ${commonStyles.buttonBig} ${useStyles.buttonReset}`;
 
   const [passedLevels, setPassedLevels] = useState(LEVELS_LIST);
 

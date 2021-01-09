@@ -5,7 +5,6 @@ import Logo from '../Logo/Logo';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesNavCustom from './stylesNavCustom';
 import stylesStartPage from '../../Pages/StartPage/stylesStartPage';
-const classNames = require('classnames');
 
 const pagesList = [
   'levels',
@@ -16,16 +15,10 @@ const pagesList = [
 
 export default function NavCustom({ isOnStart, isMain }) {
   const commonStyles = stylesCommon();
-  const useStylesNavCustom = stylesNavCustom(); 
+  const useStylesNavCustom = stylesNavCustom();
   const useStylesStartPage = stylesStartPage();
-  const navbarCombine = classNames(
-    useStylesNavCustom.navbar,
-    useStylesStartPage.navbarOnStart,
-  );
-  const buttonAndBig = classNames(
-    commonStyles.button,
-    commonStyles.buttonBig,
-  );
+  const navbarCombine = `${useStylesNavCustom.navbar} ${useStylesStartPage.navbarOnStart}`;
+  const buttonAndBig = `${commonStyles.button} ${commonStyles.buttonBig}`;
 
   if (isOnStart && !isMain) {
     return (
