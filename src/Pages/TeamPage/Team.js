@@ -1,12 +1,11 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import styles from '../../common/styles/styles';
+import stylesTeamPage from './stylesTeamPage';
 import ItemTeamPage from './ItemTeamPage';
 import Footer from './Footer';
+import TEAM_MEMBERS from './TEAM_MEMBERS';
 
-export default function TeamPage({ title, variant, TEAM_MEMBERS, color }) {
-  const commonStyles = styles();
-  const teamWrapper = `${commonStyles.pageWrapper} ${commonStyles.flexWrapper}`;
+export default function TeamPage() {
+  const useStylesTeamPage = stylesTeamPage();
 
   const addItemTeamMembers = (item) => {
     return (
@@ -21,9 +20,8 @@ export default function TeamPage({ title, variant, TEAM_MEMBERS, color }) {
   }
 
   return (
-    <div className={teamWrapper}>
-      <Typography variant={variant} color={color}>{title}</Typography>
-      <div className={commonStyles.flexWrapperRow}>
+    <div>
+      <div className={useStylesTeamPage.contentWrapper}>
         {TEAM_MEMBERS.map((item) => addItemTeamMembers(item))}
       </div>
       <Footer />

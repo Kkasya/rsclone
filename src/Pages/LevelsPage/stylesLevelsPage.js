@@ -24,10 +24,6 @@ const stylesLevelsPage = makeStyles({
     opacity: '0.5',
   },
 
-  containerButtonReset: {
-    textAlign: 'center',
-  },
-
   buttonReset: {
     margin: '0 auto',
   },

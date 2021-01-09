@@ -5,16 +5,22 @@ const footerHeight = Math.max(constants.minFooterHeight, constants.logoSizes);
 
 const stylesCommon = makeStyles({
   root: {
+    '& *': {
+      fontSize: '16px',
+      color: constants.fontColorPrimary,
+    },
+
     '& nav': {
       padding: '0 40px',
       display: 'flex',
       width: '100%',
       justifyContent: 'space-between',
       boxShadow: '0px 2px 4px 0px rgba(0, 0, 0, .5)',
-      color: constants.fontColorPrimary,
     },
 
     '& a': {
+      textDecoration: 'none',
+
       '& img': {
         display: 'flex',
       },
@@ -50,9 +56,14 @@ const stylesCommon = makeStyles({
     paddingTop: '20vh',
   },
 
+  containerInlineCenter: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   button: {
     minWidth: '90px',
-    fontSize: '16px',
     backgroundColor: constants.backgroundButtonDefault,
 
     '&:hover': {

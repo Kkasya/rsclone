@@ -8,7 +8,7 @@ export default function Logo() {
     <NavLink to='/'>
       <img
         src={logo}
-        alt='logo.png'
+        alt='logo'
         width={constants.logoSizes}
         height={constants.logoSizes}
       />

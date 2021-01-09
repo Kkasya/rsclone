@@ -2,7 +2,7 @@ const constants = {
   minFooterHeight: 65,
   logoSizes: 80,
 
-  fontColorPrimary: '#24292e',
+  fontColorPrimary: '#333',
   backgroundColorHeader: '#33CCFF',
   backgroundColorMain: '#B3ECFF',
 

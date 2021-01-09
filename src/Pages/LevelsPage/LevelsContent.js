@@ -38,7 +38,7 @@ export default function LevelsContent() {
       <div className={useStyles.buttonsLevelsWrapper}>
         {levelsListComponents}
       </div>
-      <div className={useStyles.containerButtonReset}>
+      <div className={commonStyles.containerInlineCenter}>
         <Button
           variant='contained'
           className={buttonAndBig}

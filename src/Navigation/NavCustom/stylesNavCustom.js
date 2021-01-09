@@ -1,6 +1,5 @@
 
 import { makeStyles } from '@material-ui/core';
-import constants from '../../common/styles/constants';
 
 const stylesNavCustom = makeStyles({
   navbar: {
@@ -18,11 +17,6 @@ const stylesNavCustom = makeStyles({
       '&:last-child': {
         marginRight: '0',
       },
-    },
-
-    '& a': {
-      color: constants.fontColorPrimary,
-      textDecoration: 'none',
     },
   },
 });

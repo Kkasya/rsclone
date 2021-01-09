@@ -1,34 +1,27 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import styles from '../../common/styles/styles';
-import { iconRss, urlRss } from './constants';
-
-const useStyles = makeStyles({
-  footer: {
-    fontSize: '2.5rem',
-    justifyContent: 'center',
-    '& *': {
-      margin: '0.5rem',
-    }
-  },
-
-  icon: {
-    height: '2.5rem',
-  }
-});
+import stylesTeamPage from './stylesTeamPage';
+import stylesCommon from '../../common/styles/stylesCommon';
+import { urlRss } from './URLS';
+import iconRss from '../../assets/icons/rs_school_js.svg';
 
 export default function Footer() {
-  const commonStyle = styles();
-  const classes = useStyles();
-  const footerWrapper = `${commonStyle.flexInlineItems} ${classes.footer}`;
+  const useStylesTeamPage = stylesTeamPage();
+  const useStylesCommon = stylesCommon();
+
   return (
-    <div className={footerWrapper}>
-      <div className={classes.nameMember}>2021</div>
-      <div> <a href={urlRss} target='_blank'>
-        <img className={classes.icon} src={iconRss}></img>
-      </a></div>
-
-
+    <div className={useStylesCommon.containerInlineCenter}>
+      <span className={useStylesTeamPage.footerYear}>2021</span>
+      <a
+        href={urlRss}
+        target='_blank'
+        rel='noreferrer'
+      >
+        <img
+          className={useStylesTeamPage.icon}
+          src={iconRss}
+          alt='RSSchool-logo'
+        />
+      </a>
     </div>
   );
 }
