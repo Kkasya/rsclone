@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './logo.png';
+import logo from '../../assets/images/logo.png';
 import constants from '../../common/styles/constants';
 
-export default function StartPage() {
+export default function Logo() {
   return (
     <NavLink to='/'>
       <img

@@ -1,6 +1,8 @@
 import React from 'react';
 import stylesCommon from '../../common/styles/stylesCommon';
 import { Container } from '@material-ui/core';
+import Team from './Team';
+import TEAM_MEMBERS from './TEAM_MEMBERS';
 
 export default function TeamPage() {
   const commonStyles = stylesCommon();
@@ -10,7 +12,12 @@ export default function TeamPage() {
       className={commonStyles.container}
     >
       <div className={commonStyles.teamPage}>
-        <h1>TeamPage</h1>
+        <Team
+          title='Team members'
+          variant='h2'
+          color='secondary'
+          TEAM_MEMBERS={TEAM_MEMBERS}
+        />
       </div>
     </Container>
   );
