@@ -1,16 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
+import stylesCommon from '../../common/styles/stylesCommon';
 import constants from '../../common/styles/constants';
 
 export default function Logo() {
+  const useStylesCommon = stylesCommon();
   return (
-    <NavLink to='/'>
+    <NavLink to='/' className={useStylesCommon.logoNav}>
       <img
         src={logo}
         alt='logo'
-        width={constants.logoSizes}
-        height={constants.logoSizes}
+        height={constants.logoHeight}
       />
     </NavLink>
   );

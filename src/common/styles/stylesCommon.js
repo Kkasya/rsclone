@@ -1,7 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 import constants from './constants';
 
-const footerHeight = Math.max(constants.minFooterHeight, constants.logoSizes);
+const logoHeightWithPaddings = constants.logoHeight + 2 * constants.logoPaddings;
+const footerHeight = Math.max(constants.minFooterHeight, logoHeightWithPaddings);
 
 const stylesCommon = makeStyles({
   root: {
@@ -31,6 +32,10 @@ const stylesCommon = makeStyles({
         backgroundColor: constants.backgroundButtonActive,
       },
     },
+  },
+
+  logoNav: {
+    padding: `${constants.logoPaddings}px 0`,
   },
 
   invis: {
