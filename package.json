@@ -28,6 +28,9 @@
       "react-app/jest"
     ]
   },
+  "eslintIgnore": [
+    "HelpCardsDescription.json"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

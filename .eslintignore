@@ -1,0 +1,3 @@
+# external dependencies
+node_modules
+/src/assets/jsons

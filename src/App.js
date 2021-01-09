@@ -76,7 +76,7 @@ export default function App() {
           </Route>
           <Route path='/help' component={HelpPage} />
           <Route path='/team' component={TeamPage} />
-          <Route path="*" render={() => <Redirect to='/' />} />
+          {/* <Route path="*" render={() => <Redirect to='/' />} /> */}
         </Switch>
       </div>
     </Router>
