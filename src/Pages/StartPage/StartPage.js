@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import Routing from '../../common/Navigation/Routing/Routing';
+import Nav from '../../common/Navigation/Nav/Nav';
 import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function StartPage() {
@@ -12,7 +12,7 @@ export default function StartPage() {
       className={commonStyles.container}
     >
       <div className={commonStyles.containerPage}>
-        <Routing isMain={true} />
+        <Nav isNavbar={false} />
       </div>
     </Container>
   );

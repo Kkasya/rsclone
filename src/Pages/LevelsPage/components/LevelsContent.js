@@ -8,7 +8,11 @@ import stylesLevelsPage from '../stylesLevelsPage';
 export default function LevelsContent() {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
-  const buttonAndBig = `${commonStyles.button} ${commonStyles.buttonBig} ${useStyles.buttonReset}`;
+  const buttonAndBig = `
+    ${commonStyles.button}
+    ${commonStyles.buttonBig}
+    ${commonStyles.containerInlineCenter}
+  `;
 
   const [passedLevels, setPassedLevels] = useState(LEVELS_LIST);
 

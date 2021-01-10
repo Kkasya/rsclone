@@ -1,21 +1,35 @@
 import { makeStyles } from '@material-ui/core';
 
 const stylesNav = makeStyles({
-  navbar: {
-    '& ul': {
-      display: 'flex',
-      paddingInlineStart: 0,
+  nav: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+
+  list: {
+    margin: 0,
+    padding: 0,
+
+    '& li': {
+      listStyle: 'none',
     },
+
+    '& li:last-child': {
+      margin: 0,
+    },
+  },
+
+  listInNavbar: {
+    display: 'flex',
 
     '& li': {
       marginRight: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      listStyle: 'none',
+    },
+  },
 
-      '&:last-child': {
-        marginRight: '0',
-      },
+  listOnStart: {
+    '& li': {
+      marginBottom: '30px',
     },
   },
 });

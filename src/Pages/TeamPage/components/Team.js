@@ -1,7 +1,7 @@
 import React from 'react';
-import stylesTeamPage from '../stylesTeamPage';
 import ItemTeamPage from './ItemTeamPage';
 import FooterTeam from './FooterTeam';
+import stylesTeamPage from '../stylesTeamPage';
 import TEAM_MEMBERS from '../TEAM_MEMBERS';
 
 export default function TeamPage() {

@@ -1,10 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import Logo from '../Logo/Logo';
 import stylesCommon from '../../styles/stylesCommon';
 import stylesNav from './stylesNav';
-import stylesStartPage from '../../../Pages/StartPage/stylesStartPage';
 
 const pagesList = [
   'levels',
@@ -13,20 +11,16 @@ const pagesList = [
   'team',
 ];
 
-export default function Nav({ isOnStart, isMain }) {
+export default function Nav({ isNavbar }) {
   const commonStyles = stylesCommon();
-  const useStylesNav = stylesNav();
-  const useStylesStartPage = stylesStartPage();
-  const navbarCombine = `${useStylesNav.navbar} ${useStylesStartPage.navbarOnStart}`;
-  const buttonAndBig = `${commonStyles.button} ${commonStyles.buttonBig}`;
-
-  if (isOnStart && !isMain) {
-    return (
-      <nav className={commonStyles.navbar}>
-        <Logo />
-      </nav>
-    );
-  }
+  const useNavStyles = stylesNav();
+  const buttonAndBig = `
+    ${commonStyles.button}
+    ${commonStyles.buttonBig}
+    ${commonStyles.containerInlineCenter}
+  `;
+  const listInNavbar = `${useNavStyles.list} ${useNavStyles.listInNavbar}`;
+  const listOnStart = `${useNavStyles.list} ${useNavStyles.listOnStart}`;
 
   const pagesListComponents = pagesList.map((item) => {
     return (
@@ -34,7 +28,7 @@ export default function Nav({ isOnStart, isMain }) {
         <NavLink to={`/${item}`} activeClassName='activeNavLink'>
           <Button
             variant='contained'
-            className={isMain ? buttonAndBig : commonStyles.button}
+            className={isNavbar ? commonStyles.button : buttonAndBig}
           >
             {item}
           </Button>
@@ -44,9 +38,8 @@ export default function Nav({ isOnStart, isMain }) {
   });
 
   return (
-    <nav className={isMain ? navbarCombine : useStylesNav.navbar}>
-      {!isMain && <Logo />}
-      <ul>
+    <nav className={useNavStyles.nav}>
+      <ul className={isNavbar ? listInNavbar : listOnStart}>
         {pagesListComponents}
       </ul>
     </nav>

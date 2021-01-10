@@ -1,7 +1,7 @@
 import React from 'react';
-import stylesCommon from '../../common/styles/stylesCommon';
 import { Container } from '@material-ui/core';
 import Team from './components/Team';
+import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function TeamPage() {
   const commonStyles = stylesCommon();

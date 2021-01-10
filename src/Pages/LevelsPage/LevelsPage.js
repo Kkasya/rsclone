@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import stylesCommon from '../../common/styles/stylesCommon';
 import LevelsContent from './components/LevelsContent';
+import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function LevelsPage() {
   const commonStyles = stylesCommon();

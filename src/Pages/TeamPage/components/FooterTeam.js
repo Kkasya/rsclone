@@ -1,6 +1,6 @@
 import React from 'react';
-import stylesTeamPage from '../stylesTeamPage';
 import stylesCommon from '../../../common/styles/stylesCommon';
+import stylesTeamPage from '../stylesTeamPage';
 const iconRss = `${process.env.PUBLIC_URL}/assets/icons/rs_school_js.svg`;
 const urlRss = 'https://rs.school/js/';
 
