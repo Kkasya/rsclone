@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-const stylesNavCustom = makeStyles({
+const stylesNav = makeStyles({
   navbar: {
     '& ul': {
       display: 'flex',
@@ -20,4 +20,4 @@ const stylesNavCustom = makeStyles({
   },
 });
 
-export default stylesNavCustom;
+export default stylesNav;

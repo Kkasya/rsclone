@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { Container } from '@material-ui/core';
-import stylesCommon from '../../common/styles/stylesCommon';
-import NavCustom from '../NavCustom/NavCustom';
+import stylesCommon from '../../styles/stylesCommon';
+import Nav from '../Nav/Nav';
 
-export default function RouteCustom({ isMain }) {
+export default function Routing({ isMain }) {
   const commonStyles = stylesCommon();
   const header = `${commonStyles.container} ${commonStyles.containerHeader}`;
 
@@ -16,7 +16,7 @@ export default function RouteCustom({ isMain }) {
 
         if (isMain) {
           return (
-            <NavCustom
+            <Nav
               isOnStart={isOnStart}
               isMain={isMain}
             />
@@ -28,7 +28,7 @@ export default function RouteCustom({ isMain }) {
             maxWidth="lg"
             className={header}
           >
-            <NavCustom
+            <Nav
               isOnStart={isOnStart}
               isMain={isMain}
             />

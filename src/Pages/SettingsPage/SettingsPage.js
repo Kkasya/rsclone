@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormGroup, Container } from '@material-ui/core';
-import SettingsItems from './SettingsItems';
-import ToggleButtons from './ToggleButtons';
+import SettingsItems from './components/SettingsItems';
+import ToggleButtons from './components/ToggleButtons';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesSettingsPage from './stylesSettingsPage';
 

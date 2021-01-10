@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 import constants from './constants';
 
 const logoHeightWithPaddings = constants.logoHeight + 2 * constants.logoPaddings;
-const footerHeight = Math.max(constants.minFooterHeight, logoHeightWithPaddings);
+const headerHeight = Math.max(constants.minHeaderHeight, logoHeightWithPaddings);
 
 const stylesCommon = makeStyles({
   root: {
@@ -44,7 +44,7 @@ const stylesCommon = makeStyles({
 
   container: {
     padding: '0 40px 10vh 40px',
-    minHeight: `calc(100vh - ${footerHeight}px)`,
+    minHeight: `calc(100vh - ${headerHeight}px)`,
 
     display: 'flex',
     backgroundColor: constants.backgroundColorMain,
@@ -52,7 +52,7 @@ const stylesCommon = makeStyles({
 
   containerHeader: {
     padding: 0,
-    minHeight: `${constants.minFooterHeight}px`,
+    minHeight: `${constants.minHeaderHeight}px`,
     backgroundColor: constants.backgroundColorHeader,
   },
 

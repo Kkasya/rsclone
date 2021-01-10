@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import Logo from '../Logo/Logo';
-import stylesCommon from '../../common/styles/stylesCommon';
-import stylesNavCustom from './stylesNavCustom';
-import stylesStartPage from '../../Pages/StartPage/stylesStartPage';
+import stylesCommon from '../../styles/stylesCommon';
+import stylesNav from './stylesNav';
+import stylesStartPage from '../../../Pages/StartPage/stylesStartPage';
 
 const pagesList = [
   'levels',
@@ -13,11 +13,11 @@ const pagesList = [
   'team',
 ];
 
-export default function NavCustom({ isOnStart, isMain }) {
+export default function Nav({ isOnStart, isMain }) {
   const commonStyles = stylesCommon();
-  const useStylesNavCustom = stylesNavCustom();
+  const useStylesNav = stylesNav();
   const useStylesStartPage = stylesStartPage();
-  const navbarCombine = `${useStylesNavCustom.navbar} ${useStylesStartPage.navbarOnStart}`;
+  const navbarCombine = `${useStylesNav.navbar} ${useStylesStartPage.navbarOnStart}`;
   const buttonAndBig = `${commonStyles.button} ${commonStyles.buttonBig}`;
 
   if (isOnStart && !isMain) {
@@ -44,7 +44,7 @@ export default function NavCustom({ isOnStart, isMain }) {
   });
 
   return (
-    <nav className={isMain ? navbarCombine : useStylesNavCustom.navbar}>
+    <nav className={isMain ? navbarCombine : useStylesNav.navbar}>
       {!isMain && <Logo />}
       <ul>
         {pagesListComponents}

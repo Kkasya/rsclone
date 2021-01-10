@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import RouteCustom from '../../Navigation/RouteCustom/RouteCustom';
+import Routing from '../../common/Navigation/Routing/Routing';
 import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function StartPage() {
@@ -12,7 +12,7 @@ export default function StartPage() {
       className={commonStyles.container}
     >
       <div className={commonStyles.containerPage}>
-        <RouteCustom isMain={true} />
+        <Routing isMain={true} />
       </div>
     </Container>
   );

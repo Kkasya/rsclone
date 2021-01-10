@@ -1,8 +1,8 @@
 import React from 'react';
-import stylesTeamPage from './stylesTeamPage';
+import stylesTeamPage from '../stylesTeamPage';
 import ItemTeamPage from './ItemTeamPage';
-import Footer from './Footer';
-import TEAM_MEMBERS from './TEAM_MEMBERS';
+import FooterTeam from './FooterTeam';
+import TEAM_MEMBERS from '../TEAM_MEMBERS';
 
 export default function TeamPage() {
   const useStylesTeamPage = stylesTeamPage();
@@ -24,7 +24,7 @@ export default function TeamPage() {
       <div className={useStylesTeamPage.contentWrapper}>
         {TEAM_MEMBERS.map((item) => addItemTeamMembers(item))}
       </div>
-      <Footer />
+      <FooterTeam />
     </div>
   );
 }
