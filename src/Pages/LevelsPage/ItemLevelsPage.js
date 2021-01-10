@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@material-ui/core/';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesLevelsPage from './stylesLevelsPage';
-import checkMarkGreen from '../../assets/icons/checkMarkGreen.png';
+const checkMarkGreen = `${process.env.PUBLIC_URL}/assets/icons/checkMarkGreen.png`;
 
 export default function ItemLevelsPage({ name, isCompleted }) {
   const commonStyles = stylesCommon();
