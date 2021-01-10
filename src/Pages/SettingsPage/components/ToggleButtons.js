@@ -1,7 +1,7 @@
 import React from 'react';
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import { connect } from 'react-redux';
-import { toggleLang } from '../../redux/actions';
+import { toggleLang } from '../../../redux/actions';
 
 const LANGUAGES = [
   'en',

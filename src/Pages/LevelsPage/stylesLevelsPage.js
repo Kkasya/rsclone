@@ -20,11 +20,7 @@ const stylesLevelsPage = makeStyles({
   },
 
   buttonCompleted: {
-    opacity: '0.5',
-  },
-
-  buttonReset: {
-    margin: '0 auto',
+    opacity: '0.6',
   },
 });
 
