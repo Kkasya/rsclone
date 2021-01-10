@@ -1,14 +1,16 @@
-
 const constants = {
   minFooterHeight: 65,
-  logoSizes: 100,
+  logoPaddings: 10,
+  logoHeight: 70,
 
-  fontColorPrimary: '#24292e',
+  fontColorPrimary: '#333',
+
   backgroundColorHeader: '#33CCFF',
   backgroundColorMain: '#B3ECFF',
 
   backgroundButtonDefault: '#FFBA5F',
   backgroundButtonHover: '#FF9E44',
+  backgroundButtonActive: '#FF8228',
 };
 
 export default constants;
