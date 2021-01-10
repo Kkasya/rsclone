@@ -3,6 +3,7 @@ import helpStyles from './HelpStyles';
 
 export default function HelpElements(props) {
   const classes = helpStyles();
+  console.log("Props: " + props);
 
   return (
     <div className={classes.helpCard} key={props.helpCard.title}>
@@ -13,15 +14,4 @@ export default function HelpElements(props) {
       </div>
     </div>
   )
-
-  // const e = React.createElement;
-  // return (
-  //   e('div', { className: classes.helpCard, key: props.helpCard.title }, [
-  //     e('div', { className: classes.helpCard_title, key: String.prototype.concat(props.helpCard.title, "_card") }, []),
-  //     e('div', { className: classes.helpCard_description, key: String.prototype.concat(props.helpCard.title, "_desc") }, [
-  //       e('img', { src: props.helpCard.imgUrl, alt: props.helpCard.title, className: classes.helpCard_img, key: String.prototype.concat(props.helpCard.title, "_img") }, []),
-  //       e('p', { key: String.prototype.concat(props.helpCard.title, "_p") }, [])
-  //     ]),
-  //   ])
-  // )
 }

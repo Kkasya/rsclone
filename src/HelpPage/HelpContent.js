@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import HelpElements from './HelpElements';
 
-async function getCards(urlPath) {
+function getCards(urlPath) {
   return fetch(urlPath)
     .then((response) => {
       if (response.ok) {
@@ -12,17 +12,34 @@ async function getCards(urlPath) {
     .catch((answer) => alert("Something went wrong! Error: " + answer.statusText));
 }
 
-export default async function HelpContent() {
+export default function HelpContent() {
   const url = '/assets/json/HelpCardsDescription.json';
-  let pages = await getCards(url);
 
-  let cardsRender = Object.values(pages).map((page) => {
-    page.map((card) => {
-      return (
-        < HelpElements helpCard={card} />
-      )
-    })
-  });
+  const [data, setData] = useState({});
+  let cardRender = '';
 
-  return (cardsRender);
+  useEffect(() => {
+    async function fetchData() {
+      let pages = getCards(url);
+      pages.then((pageData) => {
+        cardRender = Object.values(pageData).map((page) => {
+          let cardElement = page.map((card) => {
+            return < HelpElements helpCard={card} />
+          })
+          return cardElement;
+        })
+        setData(cardRender);
+      })
+    }
+
+    fetchData();
+  }, [data]);
+
+  return (
+    <div>
+      {Object.values(data).map((cards) => {
+        return cards;
+      })}
+    </div>
+  )
 }
