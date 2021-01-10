@@ -85,6 +85,14 @@ const stylesCommon = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  buttonDisabled: {
+    opacity: '0.5',
+  },
+
+  buttonHide: {
+    display: 'none'
+  },
 });
 
 export default stylesCommon;

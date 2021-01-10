@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import HelpElements from './HelpElements';
+import helpStyles from './HelpStyles';
+import Pagination from './HelpPaginationButtons';
 
 function getCards(urlPath) {
   return fetch(urlPath)
@@ -13,6 +14,7 @@ function getCards(urlPath) {
 }
 
 export default function HelpContent() {
+  const classes = helpStyles();
   const url = '/assets/json/HelpCardsDescription.json';
 
   const [data, setData] = useState({});
@@ -22,24 +24,16 @@ export default function HelpContent() {
     async function fetchData() {
       let pages = getCards(url);
       pages.then((pageData) => {
-        cardRender = Object.values(pageData).map((page) => {
-          let cardElement = page.map((card) => {
-            return < HelpElements helpCard={card} />
-          })
-          return cardElement;
-        })
+        cardRender = <Pagination data={pageData} pageNumber={1} />
         setData(cardRender);
       })
     }
-
     fetchData();
-  }, [data]);
+  }, []);
 
   return (
-    <div>
-      {Object.values(data).map((cards) => {
-        return cards;
-      })}
+    <div id='helpContainer' className={classes.helpContainer}>
+      {data}
     </div>
   )
 }
