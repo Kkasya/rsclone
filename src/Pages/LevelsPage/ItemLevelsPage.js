@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from '@material-ui/core/';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesLevelsPage from './stylesLevelsPage';
-import checkMarkGreen from '../../assets/icons/checkMarkGreen.png';
 
 export default function ItemLevelsPage({ name, isCompleted }) {
   const commonStyles = stylesCommon();
@@ -16,7 +15,7 @@ export default function ItemLevelsPage({ name, isCompleted }) {
   return (
     <div className={useStyles.containerButtonsLevels}>
       <img
-        src={checkMarkGreen}
+        src='./assets/icons/checkMarkGreen.png'
         alt='checkMark'
         width='20'
         height='20'

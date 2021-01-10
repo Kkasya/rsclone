@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import constants from '../../common/styles/constants';
+import constants from '../../../common/styles/constants';
 
 const helpCardStyles = makeStyles({
   helpCard: {

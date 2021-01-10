@@ -1,7 +1,6 @@
 import React from 'react';
 import stylesTeamPage from './stylesTeamPage';
 import stylesCommon from '../../common/styles/stylesCommon';
-import iconRss from '../../assets/icons/rs_school_js.svg';
 const urlRss = 'https://rs.school/js/';
 
 export default function Footer() {
@@ -18,7 +17,7 @@ export default function Footer() {
       >
         <img
           className={useStylesTeamPage.icon}
-          src={iconRss}
+          src='./assets/icons/rs_school_js.svg'
           alt='RSSchool-logo'
         />
       </a>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import stylesTeamPage from './stylesTeamPage';
-import iconGitHub from '../../assets/icons/github.png';
 
 const objPhotoMember = {
   photoMember: {
@@ -37,7 +36,7 @@ export default function ItemTeamPage({ photoName, name, gitHub, about }) {
         <div className={useStylesTeamPage.nameMember}>{name}</div>
         <img
           className={useStylesTeamPage.icon}
-          src={iconGitHub}
+          src='./assets/icons/github.png'
           alt={name}
         />
       </a>
