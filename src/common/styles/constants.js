@@ -1,5 +1,5 @@
 const constants = {
-  minFooterHeight: 65,
+  minHeaderHeight: 65,
   logoPaddings: 10,
   logoHeight: 70,
 

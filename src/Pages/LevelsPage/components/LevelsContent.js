@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import ItemLevelsPage from './ItemLevelsPage';
-import LEVELS_LIST from './LIST_LEVELS';
-import stylesCommon from '../../common/styles/stylesCommon';
-import stylesLevelsPage from './stylesLevelsPage';
+import LEVELS_LIST from '../LIST_LEVELS';
+import stylesCommon from '../../../common/styles/stylesCommon';
+import stylesLevelsPage from '../stylesLevelsPage';
 
 export default function LevelsContent() {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
-  const buttonAndBig = `${commonStyles.button} ${commonStyles.buttonBig} ${useStyles.buttonReset}`;
+  const buttonAndBig = `
+    ${commonStyles.button}
+    ${commonStyles.buttonBig}
+    ${commonStyles.containerInlineCenter}
+  `;
 
   const [passedLevels, setPassedLevels] = useState(LEVELS_LIST);
 

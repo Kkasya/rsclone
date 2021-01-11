@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
-import stylesCommon from '../../common/styles/stylesCommon';
-import constants from '../../common/styles/constants';
+import stylesCommon from '../../styles/stylesCommon';
+import constants from '../../styles/constants';
+const logo = `${process.env.PUBLIC_URL}/assets/images/logo.png`;
 
 export default function Logo() {
   const useStylesCommon = stylesCommon();
