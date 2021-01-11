@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 import LevelsContent from './components/LevelsContent';
+import GameCanvas from './components/GameCanvas';
 import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function LevelsPage() {
@@ -10,7 +11,8 @@ export default function LevelsPage() {
       maxWidth='lg'
       className={commonStyles.container}
     >
-      <LevelsContent />
+      {/* <LevelsContent /> */}
+      <GameCanvas />
     </Container>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import GameCanvas from './GameCanvas';
 import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function HelpPage() {
@@ -10,7 +9,7 @@ export default function HelpPage() {
       maxWidth="lg"
       className={commonStyles.container}
     >
-      <GameCanvas />
+      <h1>Help page</h1>
     </Container>
   );
 }
