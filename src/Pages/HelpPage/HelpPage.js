@@ -11,7 +11,7 @@ export default function HelpPage() {
       maxWidth='lg'
       className={commonStyles.container}
     >
-      <HelpContent />
+      <HelpContent key={'helpContent'} />
     </Container>
   );
 }

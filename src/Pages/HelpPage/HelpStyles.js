@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import constants from '../../../common/styles/constants';
+import constants from '../../common/styles/constants';
 
 const helpCardStyles = makeStyles({
   helpContainer: {
@@ -46,12 +46,8 @@ const helpCardStyles = makeStyles({
     columnGap: '1em',
     marginTop: '3em',
 
-    '& Button.buttonDisabled': {
-      cursop: 'default !important',
-    },
-
     '& img': {
-      width: '50px',
+      width: '40px',
       height: '40px',
     },
   },

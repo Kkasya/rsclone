@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import helpStyles from './HelpStyles';
+import helpStyles from '../HelpStyles';
 import HelpElements from './HelpElements';
 import stylesCommon from '../../../common/styles/stylesCommon';
 
@@ -10,8 +10,10 @@ let classes = '';
 let commonStyles = '';
 
 function getPageCard(page) {
+  let id = 0;
   let cardElement = page.map((card) => {
-    return < HelpElements helpCard={card} />
+    id++;
+    return < HelpElements helpCard={card} key={String.prototype.concat('helpCard', id)} />
   })
   return cardElement;
 }
@@ -38,7 +40,7 @@ function createPages(pages, pageNumber) {
     }
   }
 
-  return pageRender;
+  return (pageRender);
 }
 
 function getNextHelpPage() {
@@ -55,9 +57,8 @@ function getBackHelpPage() {
 
 function createButton(isLeftDisabled, isRightDisabled, pageNumber, isPagination) {
   const buttonAndDisabled = `${commonStyles.button} ${commonStyles.buttonDisabled}`;
-
   return (
-    <div className={classes.pagination_container}>
+    <div className={classes.pagination_container} key={'pagination_container'}>
       <Button
         className={isPagination ? isLeftDisabled ? buttonAndDisabled : commonStyles.button : commonStyles.buttonHide}
         disabled={isLeftDisabled}
