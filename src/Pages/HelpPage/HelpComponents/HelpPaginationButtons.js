@@ -22,15 +22,14 @@ function getPageCard(page) {
 function createPages(pages, pageNumber) {
   let pageRender = '';
   const pageCount = Object.values(pages).length;
-  const pageElementName = 'page'.concat(pageNumber - 1);
 
   if (pageCount <= 0) {
     pageRender = <div>There is no help description!</div>
   } else if (pageCount === 1) {
-    pageRender = getPageCard(pages.page0);
+    pageRender = getPageCard(pages[1]);
     pageRender.push(createButton(true, true, 1, false));
   } else {
-    pageRender = getPageCard(pages[pageElementName]);
+    pageRender = getPageCard(pages[pageNumber]);
     if (pageNumber === pageCount) {
       pageRender.push(createButton(false, true, pageNumber, true));
     } else if (pageNumber === 1) {
