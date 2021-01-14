@@ -42,26 +42,23 @@ function createPages(pages, pageNumber) {
   return (pageRender);
 }
 
-function getNextHelpPage() {
-  let pageNumber = document.getElementById('page-number').getAttribute('page-number');
-  let pageRender = createPages(helpDescription, ++pageNumber);
-  ReactDOM.render(pageRender, document.getElementById('helpContainer'));
-}
-
-function getBackHelpPage() {
-  let pageNumber = document.getElementById('page-number').getAttribute('page-number');
-  let pageRender = createPages(helpDescription, --pageNumber);
-  ReactDOM.render(pageRender, document.getElementById('helpContainer'));
+function getNewHelpPage(e) {
+  const buttonType = e.currentTarget.getAttribute('aria-label');
+  let currentPageNumber = document.getElementById('page-number').getAttribute('page-number');
+  const newHelpPage = createPages(helpDescription, buttonType === 'left' ? --currentPageNumber : ++currentPageNumber);
+  ReactDOM.render(newHelpPage, document.getElementById('helpContainer'));
 }
 
 function createButton(isLeftDisabled, isRightDisabled, pageNumber, isPagination) {
   const buttonAndDisabled = `${commonStyles.button} ${commonStyles.buttonDisabled}`;
+
   return (
     <div className={classes.pagination_container} key={'pagination_container'}>
       <Button
         className={isPagination ? isLeftDisabled ? buttonAndDisabled : commonStyles.button : commonStyles.buttonHide}
         disabled={isLeftDisabled}
-        onClick={getBackHelpPage}
+        onClick={getNewHelpPage}
+        aria-label={'left'}
       >
         <img src='./assets/icons/paginationArrow.png' alt='left arrow' className={classes.leftArrow} />
       </Button>
@@ -69,7 +66,8 @@ function createButton(isLeftDisabled, isRightDisabled, pageNumber, isPagination)
       <Button
         className={isPagination ? isRightDisabled ? buttonAndDisabled : commonStyles.button : commonStyles.buttonHide}
         disabled={isRightDisabled}
-        onClick={getNextHelpPage}
+        onClick={getNewHelpPage}
+        aria-label={'right'}
       >
         <img src='./assets/icons/paginationArrow.png' alt='right arrow' />
       </Button>

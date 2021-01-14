@@ -35,7 +35,7 @@ const helpCardStyles = makeStyles({
   },
 
   helpCard_descriptionText: {
-    minWidth: '40em',
+    minWidth: '10em',
   },
 
   pagination_container: {

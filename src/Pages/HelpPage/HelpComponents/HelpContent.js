@@ -31,8 +31,6 @@ export default function HelpContent() {
     fetchData();
   }, []);
 
-  console.log(data)
-
   return (
     <div id='helpContainer' className={classes.helpContainer}>
       {data}
