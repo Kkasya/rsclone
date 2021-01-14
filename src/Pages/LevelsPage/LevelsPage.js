@@ -1,21 +1,21 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 import LevelsContent from './components/LevelsContent';
-import GameCanvas from './components/GameCanvas';
+import GameContainer from './components/Game/GameContainer';
 import stylesCommon from '../../common/styles/stylesCommon';
 import stylesLevelsPage from './stylesLevelsPage';
 
 export default function LevelsPage() {
   const commonStyles = stylesCommon();
   const useStylesLevelsPage = stylesLevelsPage();
-  const aaa = `${commonStyles.container} ${useStylesLevelsPage.containerLevels}`
+  const containerForLevels = `${commonStyles.container} ${useStylesLevelsPage.containerLevels}`
   return (
     <Container
       maxWidth='lg'
-      className={aaa}
+      className={containerForLevels}
     >
       {/* <LevelsContent /> */}
-      <GameCanvas />
+      <GameContainer />
     </Container>
   );
 }

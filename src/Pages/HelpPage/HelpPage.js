@@ -6,7 +6,7 @@ export default function HelpPage() {
   const commonStyles = stylesCommon();
   return (
     <Container
-      maxWidth="lg"
+      maxWidth='lg'
       className={commonStyles.container}
     >
       <h1>Help page</h1>
