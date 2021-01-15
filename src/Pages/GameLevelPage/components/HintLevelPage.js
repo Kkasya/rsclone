@@ -5,7 +5,7 @@ import stylesGameLevelPage from "../stylesGameLevelPage";
 
 export default function HintLevelPage({level}) {
   const hints = HINTS_LEVELS;
-  const {title, description} = hints.find(hint => hint.level === level);
+  const {title, description} = hints.find(hint => hint.id === level);
   const nameLevel = `Level ${level}`;
   const useStylesGameLevelPage = stylesGameLevelPage();
 
@@ -14,7 +14,6 @@ export default function HintLevelPage({level}) {
   const hideModal = () => {
     hide(false);
   };
-
   return (
     <React.Fragment>
       {isShow && (

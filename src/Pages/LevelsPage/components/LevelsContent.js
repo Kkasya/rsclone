@@ -34,7 +34,6 @@ export default function LevelsContent() {
           key={item.id}
         />
       </NavLink>
-
     );
   });
 
@@ -53,8 +52,8 @@ export default function LevelsContent() {
             Reset progress
           </Button>
         </div>
-        <ChooseLevels/>
       </div>
+      <ChooseLevels/>
     </Router>
   );
 }

@@ -1,11 +1,10 @@
 import React from 'react';
-import {Button} from '@material-ui/core/';
+import { Button } from '@material-ui/core/';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLevelsPage from '../stylesLevelsPage';
-
 const checkMarkGreen = `${process.env.PUBLIC_URL}/assets/icons/checkMarkGreen.png`;
 
-export default function ItemLevelsPage({name, isCompleted}) {
+export default function ItemLevelsPage({ name, isCompleted }) {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
   const buttonAndCompleted = `${commonStyles.button} ${useStyles.buttonCompleted}`;

@@ -1,10 +1,11 @@
 import React from "react";
 import HintLevelPage from "../GameLevelPage/components/HintLevelPage";
 
-export default function GameLevelPage({level}) {
+export default function GameLevelPage(props) {
+  const id = props.match.params.id;
   return (
     <HintLevelPage
-      level={level}>
+      level={id}>
     </HintLevelPage>
   )
 }
