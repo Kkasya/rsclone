@@ -1,14 +1,14 @@
 import * as Phaser from 'phaser';
 import MoveToPlugin from 'phaser3-rex-plugins/plugins/moveto-plugin.js';
-import gameConstants from './gameConstants';
+import TILES_SIZES from './TILES_SIZES';
 import MainScene from './MainScene';
 
 export default class PhaserGame extends Phaser.Game {
   constructor(react) {
     const config = {
       type: Phaser.AUTO,
-      width: gameConstants.sizeInPixels,
-      height: gameConstants.sizeInPixels,
+      width: TILES_SIZES.widthInPixels,
+      height: TILES_SIZES.heightInPixels,
       audio: {
         disableWebAudio: true,
       },

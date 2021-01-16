@@ -1,41 +1,38 @@
 import * as Phaser from 'phaser';
 import EasyStar from 'easystarjs';
-import gameConstants from './gameConstants';
-import map from './levels/map4.json';
-import Char from './Char/Char';
+import TILES_SIZES from './TILES_SIZES';
+import map from './levels/map2.json';
+import ITEMS from './ITEMS';
+import GameObject from './GameObject';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super({ key: 'MainScene' });
     this.finder = new EasyStar.js();
+    this.gameObjects = [];
   }
 
   preload() {
     this.load.tilemapTiledJSON('map', map);
-    this.load.image('tiles', 'assets/sprites/tiles.png');
-    this.load.image('char', 'assets/sprites/char.png');
+    ITEMS.forEach((item) => {
+      this.load.image(item, `assets/sprites/${item}.png`);
+    });
   }
 
   create() {
     this.map = this.make.tilemap({
       key: 'map',
-      tileWidth: gameConstants.sizeInPixels,
-      tileHeight: gameConstants.sizeInPixels,
+      tileWidth: 40,
+      tileHeight: 40,
     });
 
     const tileset = this.map.addTilesetImage('tiles');
     const layer = this.map
       .createLayer(0, tileset)
-      .setInteractive({
-        // cursor: `url(blur.cur), pointer`,
-        cursor: 'pointer',
-      });
+      .setInteractive({ cursor: 'pointer' })
 
     // layer.setCollisionByProperty({ isCollied: true });
     // this.physics.add.collider(layer, this.char);
-
-    const offset = gameConstants.tileSize + gameConstants.tileSize / 2;
-    this.char = new Char(this, offset, offset, 'char');
 
     this.input.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
@@ -43,33 +40,54 @@ export default class MainScene extends Phaser.Scene {
       }
     });
 
-    this.objectsLayer = this.map.getObjectLayer('objects')['objects'];
-    this.objects = this.physics.add.staticGroup();
-    this.objectsLayer.forEach(object => {
-      let obj = this.objects.create(object.x, object.y, object.gid);
-      obj.setScale(object.width / 40, object.height / 40);
-      obj.setOrigin(0);
-      obj.body.width = object.width;
-      obj.body.height = object.height;
-    });
+    for (let i = 0; i < this.map.layers[1].data.length; i += TILES_SIZES.blocksInTile) {
+      for (let j = 0; j < this.map.layers[1].data[i].length; j += TILES_SIZES.blocksInTile) {
+        const item = this.map.layers[1].data[i][j]
+        if (item.index !== -1 && item.x % TILES_SIZES.blocksInTile === 0 && item.y % TILES_SIZES.blocksInTile === 0) {
+          const gameObject = new GameObject(
+            this,
+            item.x * TILES_SIZES.fieldWidth + TILES_SIZES.tileSize / 2,
+            item.y * TILES_SIZES.fieldWidth + TILES_SIZES.tileSize / 2,
+            item.properties.type
+          );
+          this.gameObjects.push({ ...item.properties, gameObject, x: item.x, y: item.y });
+        }
+      }
+    }
 
-    this.physics.add.overlap(this.char, this.objects, this.playInteraction, null, this);
+    this._createCharacter();
+    this._interaction = this._interaction.bind(this)
+
+    this.gameObjects.forEach((item) => {
+      this._setCollisionWithChar(
+          this,
+          item.gameObject,
+          this.char,
+          this._interaction,
+          item
+        );
+    });
   }
 
-  playInteraction(player, obj) {
-    obj.destroy(obj.x, obj.y); // remove the tile/coin
-    console.log(obj)
-    console.log('destroyed')
-    // coinScore++; // increment the score
-    // text.setText(`Coins: ${coinScore}x`); // set the text to show the current score
-    // return false;
+  _createCharacter() {
+    const offset = TILES_SIZES.tileSize + TILES_SIZES.tileSize / 2;
+    this.char = new GameObject(this, offset, offset, 'char');
+  }
+
+  _setCollisionWithChar(scene, collider, player, callback, colliderItem) {
+    scene.physics.add.collider(collider, player, () => callback(colliderItem));
+  }
+
+  _interaction(colliderItem) {
+    console.log(colliderItem)
+    console.log(this.char)
   }
 
   _createPath(pointer) {
-    const fromX = Math.floor(this.char.x / gameConstants.tileSize);
-    const fromY = Math.floor(this.char.y / gameConstants.tileSize);
-    const toX = this.map.worldToTileX(pointer.worldX);
-    const toY = this.map.worldToTileX(pointer.worldY);
+    const fromX = Math.floor(this.char.x / TILES_SIZES.tileSize);
+    const fromY = Math.floor(this.char.y / TILES_SIZES.tileSize);
+    const toX = Math.floor(this.map.worldToTileX(pointer.worldX) / TILES_SIZES.blocksInTile);
+    const toY = Math.floor(this.map.worldToTileX(pointer.worldY) / TILES_SIZES.blocksInTile);
 
     if (!(fromX === toX && fromY === toY)) {
       this._defineAllAndAcceptableTiles();
@@ -82,10 +100,10 @@ export default class MainScene extends Phaser.Scene {
     const acceptableTiles = [];
     const properties = this.map.tilesets[0].tileProperties;
 
-    for (let y = 0; y < this.map.height; y++) {
+    for (let y = 0; y < this.map.height; y += TILES_SIZES.blocksInTile) {
       const col = [];
-      for (let x = 0; x < this.map.width; x++) {
-        const id = this.getTileID(x, y);
+      for (let x = 0; x < this.map.width; x += TILES_SIZES.blocksInTile) {
+        const id = this._getTileID(x, y);
         if (!properties[id - 1] || !properties[id - 1].isCollied) {
           acceptableTiles.push(id);
         }
@@ -98,7 +116,19 @@ export default class MainScene extends Phaser.Scene {
     this.finder.setAcceptableTiles(acceptableTiles);
   }
 
-  getTileID(x, y) {
+  _getTileID(x, y) {
+    return this._getIdFromObjectsLayer(x, y) || this._getIdFromFloorLayer(x, y);
+  }
+
+  _getIdFromObjectsLayer(x, y) {
+    for (let i = 0; i < this.gameObjects.length; i++) {
+      if (this.gameObjects[i].x === x && this.gameObjects[i].y === y && this.gameObjects[i].isCollied) {
+        return TILES_SIZES.unacceptableId;
+      }
+    }
+  }
+
+  _getIdFromFloorLayer(x, y) {
     const tile = this.map.getTileAt(x, y);
     return tile.index;
   }
@@ -120,12 +150,12 @@ export default class MainScene extends Phaser.Scene {
       tweens.push({
         targets: this.char,
         x: {
-          value: cellX * this.map.tileWidth + gameConstants.tileSize / 2,
-          duration: gameConstants.duration,
+          value: cellX * this.map.tileWidth * TILES_SIZES.blocksInTile + TILES_SIZES.tileSize / 2,
+          duration: TILES_SIZES.duration,
         },
         y: {
-          value: cellY * this.map.tileHeight + gameConstants.tileSize / 2,
-          duration: gameConstants.duration,
+          value: cellY * this.map.tileHeight * TILES_SIZES.blocksInTile + TILES_SIZES.tileSize / 2,
+          duration: TILES_SIZES.duration,
         },
       });
     }
