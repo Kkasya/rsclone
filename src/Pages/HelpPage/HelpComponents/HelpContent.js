@@ -4,6 +4,8 @@ import helpStyles from '../HelpStyles';
 import HelpCards from './HelpCards';
 import stylesCommon from '../../../common/styles/stylesCommon';
 
+let pageNumber = 1;
+
 function getCardsArray(urlPath) {
   return fetch(urlPath)
     .then((response) => {
@@ -19,7 +21,6 @@ export default function HelpContent() {
   const classes = helpStyles();
   let commonStyles = stylesCommon();
   const url = '/assets/json/HelpCardsDescription.json';
-  let pageNumber = 1;
 
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
