@@ -46,7 +46,7 @@ const stylesTeamPage = makeStyles({
     textAlign: 'justify',
   },
 
-  footerYear: {
+  footerTeamYear: {
     margin: '0 16px 0 0',
     fontSize: '24px',
   },

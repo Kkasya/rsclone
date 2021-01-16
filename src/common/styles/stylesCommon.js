@@ -2,23 +2,10 @@ import { makeStyles } from '@material-ui/core';
 import constants from './constants';
 
 const logoHeightWithPaddings = constants.logoHeight + 2 * constants.logoPaddings;
-const footerHeight = Math.max(constants.minFooterHeight, logoHeightWithPaddings);
+const headerHeight = Math.max(constants.minHeaderHeight, logoHeightWithPaddings);
 
 const stylesCommon = makeStyles({
   root: {
-    '& *': {
-      fontSize: '16px',
-      color: constants.fontColorPrimary,
-    },
-
-    '& nav': {
-      padding: '0 40px',
-      display: 'flex',
-      width: '100%',
-      justifyContent: 'space-between',
-      boxShadow: '0px 2px 4px 0px rgba(0, 0, 0, .5)',
-    },
-
     '& a': {
       textDecoration: 'none',
 
@@ -43,17 +30,26 @@ const stylesCommon = makeStyles({
   },
 
   container: {
+    '& *': {
+      fontSize: '16px',
+      color: constants.fontColorPrimary,
+    },
+
     padding: '0 40px 10vh 40px',
-    minHeight: `calc(100vh - ${footerHeight}px)`,
+    minHeight: `calc(100vh - ${headerHeight}px)`,
 
     display: 'flex',
     backgroundColor: constants.backgroundColorMain,
   },
 
   containerHeader: {
-    padding: 0,
-    minHeight: `${constants.minFooterHeight}px`,
+    position: 'relative',
+    padding: '0 40px',
+    minHeight: `${constants.minHeaderHeight}px`,
+
+    justifyContent: 'space-between',
     backgroundColor: constants.backgroundColorHeader,
+    boxShadow: '0px 2px 4px 0px rgba(0, 0, 0, .5)',
   },
 
   containerPage: {
@@ -77,13 +73,8 @@ const stylesCommon = makeStyles({
   },
 
   buttonBig: {
-    marginBottom: '30px',
     minWidth: '240px',
     minHeight: '45px',
-
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   buttonDisabled: {
