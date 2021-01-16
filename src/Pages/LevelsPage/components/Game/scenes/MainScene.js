@@ -1,22 +1,17 @@
 import * as Phaser from 'phaser';
 import EasyStar from 'easystarjs';
-import TILES_SIZES from './TILES_SIZES';
-import map from './levels/map2.json';
-import ITEMS from './ITEMS';
-import GameObject from './GameObject';
+import TILES_SIZES from '../constants/TILES_SIZES';
+import GameObject from '../GameObject';
+import ActionsReducer from '../utils/ActionsReducer';
+import Stock from '../Stock';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'MainScene' });
+    super('MainScene');
     this.finder = new EasyStar.js();
     this.gameObjects = [];
-  }
-
-  preload() {
-    this.load.tilemapTiledJSON('map', map);
-    ITEMS.forEach((item) => {
-      this.load.image(item, `assets/sprites/${item}.png`);
-    });
+    this.actionsReducer = new ActionsReducer();
+    this.stock = new Stock();
   }
 
   create() {
@@ -56,16 +51,16 @@ export default class MainScene extends Phaser.Scene {
     }
 
     this._createCharacter();
-    this._interaction = this._interaction.bind(this)
+    this._interactionWithChar = this._interactionWithChar.bind(this)
 
     this.gameObjects.forEach((item) => {
       this._setCollisionWithChar(
-          this,
-          item.gameObject,
-          this.char,
-          this._interaction,
-          item
-        );
+        this,
+        item.gameObject,
+        this.char,
+        this._interactionWithChar,
+        item
+      );
     });
   }
 
@@ -78,9 +73,35 @@ export default class MainScene extends Phaser.Scene {
     scene.physics.add.collider(collider, player, () => callback(colliderItem));
   }
 
-  _interaction(colliderItem) {
-    console.log(colliderItem)
-    console.log(this.char)
+  _interactionWithChar(colliderItem) {
+    const action = this.actionsReducer.defineAction(colliderItem.type);
+    if (!action) {
+      return;
+    }
+    switch (action) {
+      case 'pickItem':
+        colliderItem.gameObject.destroy();
+        this.stock.add(colliderItem);
+        break;
+
+      case 'freeze':
+
+        break;
+
+      case 'heatUp':
+
+        break;
+
+      case 'death':
+        this.scene.start('Death');
+        break;
+
+      case 'winRound':
+        this.scene.start('WinRound');
+        break;
+
+      default: console.log(`Unknown action: ${action}`);
+    }
   }
 
   _createPath(pointer) {
