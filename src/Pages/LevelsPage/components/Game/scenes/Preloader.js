@@ -1,5 +1,5 @@
 import * as Phaser from 'phaser';
-import map from '../levels/map2.json';
+import map from '../levels/map3.json';
 import ITEMS from '../constants/ITEMS';
 
 export default class Preloader extends Phaser.Scene {

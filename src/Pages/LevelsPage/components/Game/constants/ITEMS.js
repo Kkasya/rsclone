@@ -3,6 +3,9 @@ const ITEMS = [
     type: 'tiles',
   },
   {
+    type: 'menu',
+  },
+  {
     type: 'char',
   },
   {
@@ -14,7 +17,7 @@ const ITEMS = [
   },
   {
     type: 'fire',
-    action: 'heatUp',
+    action: 'heatByFire',
   },
   {
     type: 'hammer',

@@ -3,6 +3,7 @@ import TILES_SIZES from './constants/TILES_SIZES';
 import Preloader from './scenes/Preloader';
 import MainScene from './scenes/MainScene';
 import WinRound from './scenes/WinRound';
+import Death from './scenes/Death';
 
 export default class PhaserGame extends Phaser.Game {
   constructor(react) {
@@ -19,6 +20,7 @@ export default class PhaserGame extends Phaser.Game {
         Preloader,
         MainScene,
         WinRound,
+        Death,
       ],
 
       physics: {
