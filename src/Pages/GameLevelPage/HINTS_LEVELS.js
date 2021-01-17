@@ -14,37 +14,37 @@ const HINTS_LEVELS = [
   {
     id: '3',
     title: 'House of Mirrors',
-    description: '',
+    description: 'Tip: Dweep can pick up items in green squares to add to your inventory. Pick up lasers, and use them to destroy other lasers',
   },
 
   {
     id: '4',
     title: 'Bombing Alley',
-    description: '',
+    description: 'Tip: A torch or a laser can light a bomb`s fuse. An exploding bomb will cause adjacent bombs to explode as well',
   },
 
   {
     id: '5',
     title: 'Dexterity',
-    description: '',
+    description: 'Tip: An exploding bomb will destroy all adjacent object, including lasers, mirrors, and other bombs',
   },
 
   {
     id: '6',
     title: 'Lasermania',
-    description: '',
+    description: 'Tip: If Dweep steps on a freeze plate, Dweep will freeze and will be unable to move. Avoid the freeze plates here.',
   },
 
   {
     id: '7',
     title: 'Phoenix',
-    description: '',
+    description: 'Tip: Use a water bucket to make Dweep wet. A wet Dweep can pass through a single laser beam unharmed. Do not stop in the beam.',
   },
 
   {
     id: '8',
     title: 'Squish Time',
-    description: '',
+    description: 'Tip: Use a torch to thaw a frozen Dweep.',
   },
 
   {
@@ -55,20 +55,20 @@ const HINTS_LEVELS = [
 
   {
     id: '10',
-    title: 'Badda Bing Badda Boom',
-    description: '',
+    title: 'Badda Bing',
+    description: 'Tip: A water bucket can defuse an ignited bomb before it explodes, but if a laser beam is still passing through the bomb`s fuse, the bomb will re-ignite.',
   },
 
   {
     id: '11',
     title: 'A Torch in the Hand',
-    description: '',
+    description: 'Tip: If your inventory is full, Dweep cannot pick up any more items.',
   },
 
   {
     id: '12',
     title: 'Fear No Lasers',
-    description: '',
+    description: 'Tip: Dweep can move diagonally as well as vertically and horizontally.',
   },
 ];
 

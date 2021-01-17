@@ -16,7 +16,7 @@ const stylesGameLevelPage = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    padding: '50px',
+    padding: '30px 20px 40px 30px',
   },
 
   title: {
