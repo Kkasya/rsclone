@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core";
 
-const hintBackground = `${process.env.PUBLIC_URL}/assets/images/hint.png`;
+const hintBackground = `/assets/images/hint.png`;
 const widthModal = 750;
 const heightModal = 400;
 
