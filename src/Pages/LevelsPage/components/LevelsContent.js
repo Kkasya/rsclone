@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, NavLink} from "react-router-dom";
+import {Button} from '@material-ui/core';
 import ItemLevelsPage from './ItemLevelsPage';
 import LEVELS_LIST from '../LIST_LEVELS';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLevelsPage from '../stylesLevelsPage';
+import ChooseLevels from "../../../common/Navigation/chooseLevels/ChooseLevels";
+
 
 export default function LevelsContent() {
   const commonStyles = stylesCommon();
@@ -24,28 +27,33 @@ export default function LevelsContent() {
 
   const levelsListComponents = LEVELS_LIST.map((item) => {
     return (
-      <ItemLevelsPage
-        name={item.name}
-        isCompleted={item.isCompleted}
-        key={item.id}
-      />
+      <NavLink to={`/level${item.id}`} key={item.id}>
+        <ItemLevelsPage
+          name={item.name}
+          isCompleted={item.isCompleted}
+          key={item.id}
+        />
+      </NavLink>
     );
   });
 
   return (
-    <div>
-      <div className={useStyles.buttonsLevelsWrapper}>
-        {levelsListComponents}
+    <Router>
+      <div>
+        <div className={useStyles.buttonsLevelsWrapper}>
+          {levelsListComponents}
+        </div>
+        <div className={commonStyles.containerInlineCenter}>
+          <Button
+            variant='contained'
+            className={buttonAndBig}
+            onClick={clearPassedLevel}
+          >
+            Reset progress
+          </Button>
+        </div>
       </div>
-      <div className={commonStyles.containerInlineCenter}>
-        <Button
-          variant='contained'
-          className={buttonAndBig}
-          onClick={clearPassedLevel}
-        >
-          Reset progress
-        </Button>
-      </div>
-    </div>
+      <ChooseLevels/>
+    </Router>
   );
 }

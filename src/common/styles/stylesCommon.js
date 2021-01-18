@@ -26,7 +26,7 @@ const stylesCommon = makeStyles({
   },
 
   invis: {
-    display: 'none',
+    visibility: 'hidden',
   },
 
   container: {

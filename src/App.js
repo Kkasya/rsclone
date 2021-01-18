@@ -22,6 +22,8 @@ export default function App() {
         </Container>
         <Switcher />
       </div>
+
     </Router>
+
   );
 }

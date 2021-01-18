@@ -1,0 +1,10 @@
+{
+  "win": {
+    "title": "Congratulations!",
+    "description": "You are truly brilliant!"
+  },
+  "loosing": {
+    "title": "Alas, poor Dweep!",
+    "description": "Dweep`s fur appears to be rather flammable"
+  }
+}
