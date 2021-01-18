@@ -3,23 +3,42 @@ import React, { useState } from 'react';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLogin from '../LoginStyles';
 import { Button } from '@material-ui/core';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
-function loginWithPassword() {
-  alert("test");
-}
+const CLIENT_ID = '824384593344-7noatcalu0r0mbi96u4vq0pbv5jdibcg.apps.googleusercontent.com';
 
 export default function LoginContent() {
   const commonStyles = stylesCommon();
   const loginStyles = stylesLogin();
-  const buttonAndBig = `
-    ${commonStyles.button}
-    ${commonStyles.containerInlineCenter}
-  `;
-
-  const [userEmail, setUseEmail] = useState('');
+  const loginButton = `${loginStyles.button_login} + ${commonStyles.button}`;
 
   const handleSubmit = () => {
-    alert(userEmail);
+    // add POST request for login
+  }
+
+  const [isLogined, setIsLogined] = useState(false);
+  const [accessToken, setAccessToken] = useState('');
+  const [userName, setUserName] = useState('');
+
+  let login = (response) => {
+    if (response.accessToken) {
+      setIsLogined(true);
+      setAccessToken(response.accessToken);
+      setUserName(response.name);
+    }
+  }
+
+  let logout = (response) => {
+    setIsLogined(false);
+    setAccessToken('');
+  }
+
+  let handleLoginFailure = (response) => {
+    alert('Failed to log in')
+  }
+
+  let handleLogoutFailure = (response) => {
+    alert('Failed to log out')
   }
 
   return (
@@ -34,8 +53,25 @@ export default function LoginContent() {
           <input type='password' placeholder='Enter password' />
         </div>
         <div className={loginStyles.button_form}>
-          <Button type='submit' className={buttonAndBig} onClick={loginWithPassword}>Login</Button>
-          <Button className={buttonAndBig}>Google</Button>
+          <Button type='submit' className={loginButton} onClick={handleSubmit}>Login</Button>
+          {isLogined ?
+            <GoogleLogout
+              clientId={CLIENT_ID}
+              buttonText='Sign Out'
+              onLogoutSuccess={logout}
+              onFailure={handleLogoutFailure}
+              className={loginStyles.button_google}
+            >
+            </GoogleLogout> : <GoogleLogin
+              clientId={CLIENT_ID}
+              buttonText='Sign In'
+              onSuccess={login}
+              onFailure={handleLoginFailure}
+              cookiePolicy={'single_host_origin'}
+              responseType='code,token'
+              className={loginStyles.button_google}
+            />
+          }
         </div>
       </form>
     </div>
