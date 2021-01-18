@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {Button} from '@material-ui/core';
-import HINTS_LEVELS from "../HINTS_LEVELS";
+import * as HINTS_LEVELS from "../HINT_LEVELS.json";
 import stylesGameLevelPage from "../stylesGameLevelPage";
 
 export default function HintLevelPage({level}) {
-  const hints = HINTS_LEVELS;
+  const hints = HINTS_LEVELS.hints;
   const {title, description} = hints.find(hint => hint.id === level);
   const nameLevel = `Level ${level}`;
   const useStylesGameLevelPage = stylesGameLevelPage();
