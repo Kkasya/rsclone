@@ -14,6 +14,7 @@ export default class MainScene extends Phaser.Scene {
     this.onlyUpMirrors = [];
     this.actionsReducer = new ActionsReducer();
     this.stock = new Stock(this);
+    this.isCollideAccept = true;
   }
 
   create() {
@@ -113,9 +114,11 @@ export default class MainScene extends Phaser.Scene {
 
   _interactionWithChar(colliderItem) {
     const action = this.actionsReducer.defineAction(colliderItem.type);
-    if (!action) {
+    if (!this.isCollideAccept || !action) {
       return;
     }
+    this.isCollideAccept = false;
+
     switch (action) {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
@@ -246,6 +249,9 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
+    if (this.char.body.x % 40 > 10 || this.char.body.y % 40 > 10) {
+      this.isCollideAccept = true;
+    }
     if (this.activeItem.type) {
       const x = this.input.mouse.manager.activePointer.worldX + SIZES.cursorImageOffset;
       const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;
