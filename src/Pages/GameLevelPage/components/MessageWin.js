@@ -4,10 +4,12 @@ import {Button} from '@material-ui/core';
 import * as MESSAGES from "../MESSAGES.json";
 import stylesGameLevelPage from "../stylesGameLevelPage";
 import GameLevelPage from "../GameLevelPage";
+import LIST_LEVELS from "../../LevelsPage/LIST_LEVELS"
 
 export default function messageWin({level}) {
   const {title, description} = MESSAGES.win;
-  const nextLevel = Number(level) + 1;
+  const maxLevel = LIST_LEVELS.length;
+  const nextLevel = (Number(level) === maxLevel) ? 's' : (Number(level) + 1);
   const useStylesGameLevelPage = stylesGameLevelPage();
   const styleModal = `${useStylesGameLevelPage.modal} ${useStylesGameLevelPage.win}`
 
