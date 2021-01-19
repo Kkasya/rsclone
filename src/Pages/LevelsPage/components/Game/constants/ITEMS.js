@@ -6,6 +6,12 @@ const ITEMS = [
     type: 'menu',
   },
   {
+    type: 'move',
+  },
+  {
+    type: 'emptySlot',
+  },
+  {
     type: 'char',
   },
   {
@@ -18,10 +24,6 @@ const ITEMS = [
   {
     type: 'fire',
     action: 'heatByFire',
-  },
-  {
-    type: 'hammer',
-    action: 'pickItem',
   },
   {
     type: 'mirror-double-left-left',
@@ -50,10 +52,17 @@ const ITEMS = [
   {
     type: 'pail',
     action: 'pickItem',
+    isActionToChar: true,
   },
   {
     type: 'torch',
     action: 'pickItem',
+    isActionToChar: true,
+  },
+  {
+    type: 'hammer',
+    action: 'pickItem',
+    isActionToChar: false,
   },
   {
     type: 'water',
@@ -62,10 +71,12 @@ const ITEMS = [
   {
     type: 'wrench-left',
     action: 'pickItem',
+    isActionToChar: false,
   },
   {
     type: 'wrench-right',
     action: 'pickItem',
+    isActionToChar: false,
   },
 ];
 

@@ -1,4 +1,4 @@
-const TILES_SIZES = {
+const SIZES = {
   tileSize: 40,
   fieldWidth: 14,
   fieldHeight: 12,
@@ -21,7 +21,11 @@ const TILES_SIZES = {
     return this.tileSize / 2;
   },
 
+  get extraOffset() {
+    return this.tileSize * (3 / 4);
+  },
+
   duration: 200,
 };
 
-export default TILES_SIZES;
+export default SIZES;

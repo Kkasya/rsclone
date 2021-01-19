@@ -1,5 +1,5 @@
 import * as Phaser from 'phaser';
-import TILES_SIZES from './constants/TILES_SIZES';
+import SIZES from './constants/SIZES';
 import Preloader from './scenes/Preloader';
 import MainScene from './scenes/MainScene';
 import WinRound from './scenes/WinRound';
@@ -9,8 +9,8 @@ export default class PhaserGame extends Phaser.Game {
   constructor(react) {
     const config = {
       type: Phaser.AUTO,
-      width: TILES_SIZES.widthInPixels,
-      height: TILES_SIZES.heightInPixels,
+      width: SIZES.widthInPixels,
+      height: SIZES.heightInPixels,
       scale: {
         zoom: 1.5,
       },
