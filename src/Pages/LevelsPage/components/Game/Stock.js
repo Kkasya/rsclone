@@ -1,46 +1,42 @@
 export default class Stock {
   constructor(scene) {
     this.scene = scene;
-    this.arr = [];
-    this.emptySlots = [];
-    this.count = 0;
+    this.slots = [];
+    this.itemsCounter = 0;
   }
 
   addEmptySlot(slotObj) {
-    this.emptySlots.push(slotObj);
+    this.slots.push(slotObj);
   }
 
   defineLimit() {
-    this.limit = this.emptySlots.length;
+    this.limit = this.slots.length;
   }
 
-  isEnoughPlace() {
-    return this.arr.length < this.limit;
+  get isEnoughPlace() {
+    return this.itemsCounter < this.limit;
   }
 
-  addItem(item) {
-    this.count++;
-    this.arr.push(item);
-    this.emptySlots[this.arr.length - 1].type = item.type;
-    this.emptySlots[this.arr.length - 1].gameObject.setTexture(item.type);
-
-    this._setInteractive(this.emptySlots[this.arr.length - 1], this.arr.length - 1);
+  addItem(itemType) {
+    const firstEmptyCell = this.slots.findIndex((item) => (item.type === 'emptySlot'));
+    this.slots[firstEmptyCell].type = itemType;
+    this.slots[firstEmptyCell].gameObject.setTexture(itemType);
+    this._setInteractive(this.slots[firstEmptyCell], firstEmptyCell);
+    this.itemsCounter++;
   }
 
   _setInteractive(item, index) {
-    item.gameObject.setInteractive().on('pointerdown', (pointer, localX, localY, event) => {
-      const activeItem = {
-        type: item.type,
-        index: index,
-      };
-      this.scene.setActiveItem(activeItem);
-      this.scene.cursorImage.setTexture(item.type);
+    item.gameObject.setInteractive().on('pointerdown', () => {
+      this.scene.setActiveItem(item.type, index);
     });
   }
 
-  remove(item) {
-    this.count--;
-    item.gameObject.destroy();
-    this.arr = this.arr.filter((obj) => item !== obj);
+  removeActiveItem() {
+    const index = this.scene.activeItem.index;
+    this.slots[index].type = 'emptySlot';
+    this.slots[index].gameObject.setTexture('emptySlot');
+    this.slots[index].gameObject.removeInteractive();
+    // this._moveEmptyToEnd(index);
+    this.itemsCounter--;
   }
 }

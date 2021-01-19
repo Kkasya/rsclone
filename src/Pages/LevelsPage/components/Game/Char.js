@@ -14,22 +14,19 @@ export default class Char extends GameObject {
   }
 
   _setInteractive() {
-    this.setInteractive().on('pointerdown', (pointer, localX, localY, event) => {
+    this.setInteractive().on('pointerdown', () => {
       const actionType = this.scene.activeItem.type;
       if (actionType) {
-        switch (actionType) {
-          case 'pail':
+        if (actionType === 'pail' || actionType === 'torch') {
+          if (actionType === 'pail') {
             this.addPile();
-            this.scene.resetActiveItem();
-            break;
-
-          case 'torch':
+          }
+          else {
             this.addHeatByTorch();
-            this.scene.resetActiveItem();
-            break;
-
-          default: console.log(`${actionType} is unacceptable to character`);
+          }
+          this.scene.stock.removeActiveItem();
         }
+        this.scene.resetActiveItem();
       }
     });
   }

@@ -21,7 +21,7 @@ const SIZES = {
     return this.tileSize / 2;
   },
 
-  get extraOffset() {
+  get cursorImageOffset() {
     return this.tileSize * (3 / 4);
   },
 

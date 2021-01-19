@@ -14,7 +14,6 @@ export default class MainScene extends Phaser.Scene {
     this.onlyUpMirrors = [];
     this.actionsReducer = new ActionsReducer();
     this.stock = new Stock(this);
-    this.resetActiveItem();
   }
 
   create() {
@@ -29,10 +28,10 @@ export default class MainScene extends Phaser.Scene {
     this.stockEdge = Math.floor(this.map.layers[1].data.length * 0.8);
 
     this.input.on('pointerdown', (pointer) => {
-      // if (this.activeItem.type) {
-      //   this.resetActiveItem();
-      // }
-      if (pointer.primaryDown && !this.char.isFreeze && !this.char.isFlying) {
+      if (!pointer.primaryDown) {
+        this.resetActiveItem();
+      }
+      else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
         this._createPath(pointer);
       }
     });
@@ -41,7 +40,7 @@ export default class MainScene extends Phaser.Scene {
     this._createCharacter();
     this._createGameObjects(false);
     this.stock.defineLimit();
-    this.cursorImage = new GameObject(this, 0, 0, '');
+    this.initActiveItem();
 
     this._interactionWithChar = this._interactionWithChar.bind(this)
 
@@ -54,6 +53,8 @@ export default class MainScene extends Phaser.Scene {
         item
       );
     });
+
+    this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
   }
 
   _createGameObjects(isWithoutMirrors) {
@@ -117,8 +118,8 @@ export default class MainScene extends Phaser.Scene {
     }
     switch (action) {
       case 'pickItem':
-        if (this.stock.isEnoughPlace()) {
-          this.stock.addItem(colliderItem);
+        if (this.stock.isEnoughPlace) {
+          this.stock.addItem(colliderItem.type);
           colliderItem.gameObject.destroy();
         }
         break;
@@ -226,22 +227,29 @@ export default class MainScene extends Phaser.Scene {
     });
   };
 
-  setActiveItem(activeItem) {
-    this.activeItem = { ...activeItem };
+  initActiveItem() {
+    this.activeItem = {
+      type: '',
+      index: 0,
+      image: new GameObject(this, -SIZES.cursorImageOffset, -SIZES.cursorImageOffset, ''),
+    };
   }
 
   resetActiveItem() {
-    this.activeItem = {
-      type: '',
-      index: '',
-    };
+    [this.activeItem.type, this.activeItem.index] = ['', 0];
+    this.activeItem.image.setPosition(-SIZES.cursorImageOffset, -SIZES.cursorImageOffset);
+  }
+
+  setActiveItem(type, index) {
+    [this.activeItem.type, this.activeItem.index] = [type, index];
+    this.activeItem.image.setTexture(type);
   }
 
   update() {
     if (this.activeItem.type) {
-      const x = this.input.mouse.manager.activePointer.worldX + SIZES.extraOffset;
-      const y = this.input.mouse.manager.activePointer.worldY + SIZES.extraOffset;
-      this.cursorImage.setPosition(x, y);
+      const x = this.input.mouse.manager.activePointer.worldX + SIZES.cursorImageOffset;
+      const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;
+      this.activeItem.image.setPosition(x, y);
     }
   }
 }
