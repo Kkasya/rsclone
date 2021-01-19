@@ -209,20 +209,25 @@ export default class MainScene extends Phaser.Scene {
   _moveCharacter(path) {
     const tweens = [];
     for (let i = 0; i < path.length - 1; i++) {
-      const cellX = path[i + 1].x;
-      const cellY = path[i + 1].y;
+      const cellX = path[i + 1].x * SIZES.blocksInTile;
+      const cellY = path[i + 1].y * SIZES.blocksInTile;
 
       tweens.push({
         targets: this.char,
         x: {
-          value: cellX * this.map.tileWidth * SIZES.blocksInTile + SIZES.halfForOffset,
+          value: cellX * this.map.tileWidth + SIZES.halfForOffset,
           duration: SIZES.duration,
         },
         y: {
-          value: cellY * this.map.tileHeight * SIZES.blocksInTile + SIZES.halfForOffset,
+          value: cellY * this.map.tileHeight + SIZES.halfForOffset,
           duration: SIZES.duration,
         },
       });
+
+      const type = this.map.layers[1].data[cellY][cellX].properties.type;
+      if (type === 'fire' ||type === 'water') {
+        break;
+      }
     }
 
     this.tweens.timeline({
