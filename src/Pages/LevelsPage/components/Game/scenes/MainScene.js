@@ -1,20 +1,22 @@
 import * as Phaser from 'phaser';
-import EasyStar from 'easystarjs';
+import Pathfinder from '../utils/Pathfinder';
 import SIZES from '../constants/SIZES';
 import GameObject from '../GameObject';
 import Char from '../Char';
 import ActionsReducer from '../utils/ActionsReducer';
 import Stock from '../Stock';
+import ActiveItem from '../ActiveItem';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
-    this.finder = new EasyStar.js();
+    this.pathfinder = new Pathfinder(this);
     this.gameObjects = [];
     this.onlyUpMirrors = [];
     this.actionsReducer = new ActionsReducer();
     this.stock = new Stock(this);
     this.isCollideAccept = true;
+    this.activeItem = new ActiveItem(this);
   }
 
   create() {
@@ -28,20 +30,13 @@ export default class MainScene extends Phaser.Scene {
     this.map.createLayer(0, tileset, 0, 0).setInteractive({ cursor: 'pointer' });
     this.stockEdge = Math.floor(this.map.layers[1].data.length * 0.8);
 
-    this.input.on('pointerdown', (pointer) => {
-      if (!pointer.primaryDown) {
-        this.resetActiveItem();
-      }
-      else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
-        this._createPath(pointer);
-      }
-    });
-
+    this._addListener();
     this._createGameObjects(true);
+    this._createControlPanel();
     this._createCharacter();
     this._createGameObjects(false);
     this.stock.defineLimit();
-    this.initActiveItem();
+    this.activeItem.init();
 
     this._interactionWithChar = this._interactionWithChar.bind(this)
 
@@ -56,6 +51,17 @@ export default class MainScene extends Phaser.Scene {
     });
 
     this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
+  }
+
+  _addListener() {
+    this.input.on('pointerdown', (pointer) => {
+      if (!pointer.primaryDown) {
+        this.activeItem.reset();
+      }
+      else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
+        this.pathfinder.createPath(pointer);
+      }
+    });
   }
 
   _createGameObjects(isWithoutMirrors) {
@@ -77,12 +83,14 @@ export default class MainScene extends Phaser.Scene {
         }
       }
     }
+  }
 
+  _createControlPanel() {
     for (let i = this.stockEdge; i < this.map.layers[1].data.length; i += 1) {
       for (let j = 0; j < this.map.layers[1].data[i].length; j += 1) {
         const item = this.map.layers[1].data[i][j];
 
-        if (item.index !== -1 && isWithoutMirrors) {
+        if (item.index !== -1) {
           if (this.map.layers[1].data[i - 1][j].index !== -1) continue;
           const gameObject = new GameObject(
             this,
@@ -147,66 +155,7 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
-  _createPath(pointer) {
-    const toX = Math.floor(pointer.x / SIZES.tileSize);
-    const toY = Math.floor(pointer.y / SIZES.tileSize);
-    const fromX = Math.floor(this.char.x / SIZES.tileSize);
-    const fromY = Math.floor(this.char.y / SIZES.tileSize);
-
-    if (!(fromX === toX && fromY === toY)) {
-      this._defineAllAndAcceptableTiles();
-      this._calculatePath(fromX, fromY, toX, toY);
-    }
-  }
-
-  _defineAllAndAcceptableTiles() {
-    const allTiles = [];
-    const acceptableTiles = [];
-    const properties = this.map.tilesets[0].tileProperties;
-
-    for (let y = 0; y < this.map.height; y += SIZES.blocksInTile) {
-      const col = [];
-      for (let x = 0; x < this.map.width; x += SIZES.blocksInTile) {
-        const id = this._getTileID(x, y);
-        if (!properties[id - 1] || !properties[id - 1].isCollied) {
-          acceptableTiles.push(id);
-        }
-        col.push(id);
-      }
-      allTiles.push(col);
-    }
-
-    this.finder.setGrid(allTiles);
-    this.finder.setAcceptableTiles(acceptableTiles);
-  }
-
-  _getTileID(x, y) {
-    return this._getIdFromObjectsLayer(x, y) || this._getIdFromFloorLayer(x, y);
-  }
-
-  _getIdFromObjectsLayer(x, y) {
-    for (let i = 0; i < this.gameObjects.length; i++) {
-      if (this.gameObjects[i].x === x && this.gameObjects[i].y === y && this.gameObjects[i].isCollied) {
-        return SIZES.unacceptableId;
-      }
-    }
-  }
-
-  _getIdFromFloorLayer(x, y) {
-    const tile = this.map.getTileAt(x, y);
-    return tile.index;
-  }
-
-  _calculatePath(fromX, fromY, toX, toY) {
-    this.finder.findPath(fromX, fromY, toX, toY, (path) => {
-      if (path) {
-        this._moveCharacter(path);
-      }
-    });
-    this.finder.calculate();
-  }
-
-  _moveCharacter(path) {
+  moveCharacter(path) {
     const tweens = [];
     for (let i = 0; i < path.length - 1; i++) {
       const cellX = path[i + 1].x * SIZES.blocksInTile;
@@ -225,7 +174,10 @@ export default class MainScene extends Phaser.Scene {
       });
 
       const type = this.map.layers[1].data[cellY][cellX].properties.type;
-      if (type === 'fire' ||type === 'water') {
+      if (type === 'water') {
+        break;
+      }
+      else if (type === 'fire' && !this.isCollideAccept) {
         break;
       }
     }
@@ -234,24 +186,6 @@ export default class MainScene extends Phaser.Scene {
       tweens: tweens,
     });
   };
-
-  initActiveItem() {
-    this.activeItem = {
-      type: '',
-      index: 0,
-      image: new GameObject(this, -SIZES.cursorImageOffset, -SIZES.cursorImageOffset, ''),
-    };
-  }
-
-  resetActiveItem() {
-    [this.activeItem.type, this.activeItem.index] = ['', 0];
-    this.activeItem.image.setPosition(-SIZES.cursorImageOffset, -SIZES.cursorImageOffset);
-  }
-
-  setActiveItem(type, index) {
-    [this.activeItem.type, this.activeItem.index] = [type, index];
-    this.activeItem.image.setTexture(type);
-  }
 
   update() {
     if (this.char.body.x % 40 > 10 || this.char.body.y % 40 > 10) {

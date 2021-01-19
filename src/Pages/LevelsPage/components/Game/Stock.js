@@ -27,7 +27,7 @@ export default class Stock {
 
   _setInteractive(item, index) {
     item.gameObject.setInteractive().on('pointerdown', () => {
-      this.scene.setActiveItem(item.type, index);
+      this.scene.activeItem.setItem(item.type, index);
     });
   }
 

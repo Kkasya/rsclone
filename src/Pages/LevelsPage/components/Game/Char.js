@@ -26,7 +26,7 @@ export default class Char extends GameObject {
           }
           this.scene.stock.removeActiveItem();
         }
-        this.scene.resetActiveItem();
+        this.scene.activeItem.reset();
       }
     });
   }
