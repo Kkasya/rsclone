@@ -6,6 +6,7 @@ import Char from '../Char';
 import ActionsReducer from '../utils/ActionsReducer';
 import Stock from '../Stock';
 import ActiveItem from '../ActiveItem';
+import Bullets from '../Bullets';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -68,17 +69,30 @@ export default class MainScene extends Phaser.Scene {
     for (let i = 0; i < this.stockEdge; i += 4) {
       for (let j = 0; j < this.map.layers[1].data[i].length; j += 4) {
         const item = this.map.layers[1].data[i][j];
+        const type = item.properties.type;
 
         if (item.index !== -1) {
-          if (isWithoutMirrors ^ (item.properties.type === 'mirror-up-left' || item.properties.type === 'mirror-up-right')) {
+          if (isWithoutMirrors ^ type.includes('mirror-up')) {
             const gameObject = new GameObject(
               this,
               item.x * SIZES.tileSizeInPixels + SIZES.halfForOffset,
               item.y * SIZES.tileSizeInPixels + SIZES.halfForOffset,
-              item.properties.type
+              type,
             );
 
-            this.gameObjects.push({ ...item.properties, gameObject, x: item.x, y: item.y });
+            if (isWithoutMirrors && type.includes('laser')) {
+              const direction = type.split('-')[1];
+              const bulletsObj = new Bullets(
+                this,
+                item.x * SIZES.tileSizeInPixels,
+                item.y * SIZES.tileSizeInPixels,
+                direction,
+              );
+              this.gameObjects.push({ ...item.properties, gameObject, bulletsObj, x: item.x, y: item.y });
+            }
+            else {
+              this.gameObjects.push({ ...item.properties, gameObject, x: item.x, y: item.y });
+            }
           }
         }
       }
@@ -196,5 +210,16 @@ export default class MainScene extends Phaser.Scene {
       const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;
       this.activeItem.image.setPosition(x, y);
     }
+
+    this.gameObjects.forEach((item) => {
+      if (item.type.includes('laser')) {
+        if (item.bulletsObj.bullets) {
+          const bullet = item.bulletsObj.bullets.get();
+          if (bullet) {
+            bullet.fire(item.bulletsObj.initX, item.bulletsObj.initY);
+          }
+        }
+      }
+    });
   }
 }

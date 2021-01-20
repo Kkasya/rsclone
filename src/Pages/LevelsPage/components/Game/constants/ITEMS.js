@@ -78,6 +78,21 @@ const ITEMS = [
     action: 'pickItem',
     isActionToChar: false,
   },
+  {
+    type: 'laser-top',
+  },
+  {
+    type: 'laser-right',
+  },
+  {
+    type: 'laser-bottom',
+  },
+  {
+    type: 'laser-left',
+  },
+  {
+    type: 'bullet',
+  },
 ];
 
 export default ITEMS;
