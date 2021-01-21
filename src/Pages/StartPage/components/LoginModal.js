@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import stylesCommon from '../../../common/styles/stylesCommon';
-import stylesLogin from '../LoginStyles';
+import stylesLogin from './LoginModalStyles';
 import { Button } from '@material-ui/core';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 

@@ -13,6 +13,7 @@ export default function StartPage() {
     >
       <div className={commonStyles.containerPage}>
         <Nav isNavbar={false} />
+        <div className='' ></div>
       </div>
     </Container>
   );
