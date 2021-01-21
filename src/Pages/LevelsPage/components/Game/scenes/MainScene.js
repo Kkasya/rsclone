@@ -34,6 +34,7 @@ export default class MainScene extends Phaser.Scene {
     this._addListener();
     this._createGameObjects(true);
     this._createControlPanel();
+    this._addListenerToMoveButton();
     this._createCharacter();
     this._createGameObjects(false);
     this.stock.defineLimit();
@@ -114,7 +115,7 @@ export default class MainScene extends Phaser.Scene {
           );
 
           if (item.properties.type === 'move') {
-            this.moveButton = { ...item.properties, gameObject, x: item.x, y: item.y };
+            this.moveButton = gameObject;
           }
           else {
             this.stock.addEmptySlot({ ...item.properties, gameObject, x: item.x, y: item.y });
@@ -123,6 +124,14 @@ export default class MainScene extends Phaser.Scene {
         }
       }
     }
+  }
+
+  _addListenerToMoveButton() {
+    this.moveButton.on('pointerdown', (pointer) => {
+      if (pointer.primaryDown) {
+        this.activeItem.reset();
+      }
+    });
   }
 
   _createCharacter() {

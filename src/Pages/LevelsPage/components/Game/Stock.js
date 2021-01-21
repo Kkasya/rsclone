@@ -21,12 +21,12 @@ export default class Stock {
     const firstEmptyCell = this.slots.findIndex((item) => (item.type === 'emptySlot'));
     this.slots[firstEmptyCell].type = itemType;
     this.slots[firstEmptyCell].gameObject.setTexture(itemType);
-    this._setInteractive(this.slots[firstEmptyCell], firstEmptyCell);
+    this._addListener(this.slots[firstEmptyCell], firstEmptyCell);
     this.itemsCounter++;
   }
 
-  _setInteractive(item, index) {
-    item.gameObject.setInteractive().on('pointerdown', () => {
+  _addListener(item, index) {
+    item.gameObject.on('pointerdown', () => {
       this.scene.activeItem.setItem(item.type, index);
     });
   }

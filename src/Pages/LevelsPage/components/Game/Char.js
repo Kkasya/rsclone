@@ -10,11 +10,11 @@ export default class Char extends GameObject {
     this.isFreeze = false;
     this.isWet = false;
     this.isFlying = false;
-    this._setInteractive();
+    this._addListener();
   }
 
-  _setInteractive() {
-    this.setInteractive().on('pointerdown', () => {
+  _addListener() {
+    this.on('pointerdown', () => {
       const actionType = this.scene.activeItem.type;
       if (actionType) {
         if (actionType === 'pail' || actionType === 'torch') {
