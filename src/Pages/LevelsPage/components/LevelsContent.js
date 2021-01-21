@@ -27,7 +27,7 @@ export default function LevelsContent() {
 
   const levelsListComponents = LEVELS_LIST.map((item) => {
     return (
-      <NavLink to={`/level${item.id}`} key={item.id}>
+      <NavLink to={`/levels/${item.id}`} key={item.id}>
         <ItemLevelsPage
           name={item.name}
           isCompleted={item.isCompleted}
