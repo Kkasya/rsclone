@@ -9,7 +9,7 @@ import LIST_LEVELS from "../../LevelsPage/LIST_LEVELS"
 export default function messageWin({level}) {
   const {title, description} = MESSAGES.win;
   const maxLevel = LIST_LEVELS.length;
-  const nextLevel = (Number(level) === maxLevel) ? 's' : (Number(level) + 1);
+  const nextLevel = (Number(level) === maxLevel) ? '' : (Number(level) + 1);
   const useStylesGameLevelPage = stylesGameLevelPage();
   const styleModal = `${useStylesGameLevelPage.modal} ${useStylesGameLevelPage.win}`
 
@@ -19,7 +19,7 @@ export default function messageWin({level}) {
         <h1 className={useStylesGameLevelPage.title}>{title}</h1>
         <p className={useStylesGameLevelPage.description}>{description}</p>
         <div className={useStylesGameLevelPage.btnWrapper}>
-          <NavLink to={`/level${nextLevel}`} key={nextLevel}>
+          <NavLink to={`/levels/${nextLevel}`} key={nextLevel}>
             <Button
               variant='outlined'
               className={useStylesGameLevelPage.btnClose}
@@ -28,7 +28,7 @@ export default function messageWin({level}) {
           </NavLink>
         </div>
       </div>
-      <Route exact path='/level:{nextLevel}' component={(props) => <GameLevelPage  {...props}/>}/>
+      <Route exact path='/levels/:{nextLevel}' component={(props) => <GameLevelPage  {...props}/>}/>
     </React.Fragment>
   );
 }

@@ -1,3 +1,4 @@
+
 import initialState from './initialState';
 
 const settingsReducer = (state = initialState, action) => {

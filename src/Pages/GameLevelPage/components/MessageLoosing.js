@@ -16,7 +16,7 @@ export default function messageWin({level}) {
         <h1 className={useStylesGameLevelPage.title}>{title}</h1>
         <p className={useStylesGameLevelPage.description}>{description}</p>
         <div className={useStylesGameLevelPage.btnWrapper}>
-          <NavLink to={`/level${level}`} key={level}>
+          <NavLink to={`/levels/${level}`} key={level}>
             <Button
               variant='outlined'
               className={useStylesGameLevelPage.btnClose}
@@ -25,7 +25,7 @@ export default function messageWin({level}) {
           </NavLink>
         </div>
       </div>
-      <Route exact path='/level:{id}' component={(props) => <GameLevelPage  {...props}/>}/>
+      <Route exact path='/levels/:{id}' component={(props) => <GameLevelPage  {...props}/>}/>
     </React.Fragment>
   );
 }

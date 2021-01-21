@@ -10,7 +10,7 @@ export default function ChooseLevels() {
   return (
     <Switch>
       <Route exact path='/levels'/>
-      <Route exact path='/level:id' component={(props) => <GameLevelPage  {...props}/>}/>
+      <Route exact path='/levels/:id' component={(props) => <GameLevelPage  {...props}/>}/>
     </Switch>
   );
 }
