@@ -11,7 +11,7 @@ export default function messageWin({level}) {
   const styleModal = `${useStylesGameLevelPage.modal} ${useStylesGameLevelPage.loosing}`
 
   return (
-    <React.Fragment>
+    <div>
       <div className={styleModal}>
         <h1 className={useStylesGameLevelPage.title}>{title}</h1>
         <p className={useStylesGameLevelPage.description}>{description}</p>
@@ -26,6 +26,6 @@ export default function messageWin({level}) {
         </div>
       </div>
       <Route exact path='/levels/:{id}' component={(props) => <GameLevelPage  {...props}/>}/>
-    </React.Fragment>
+    </div>
   );
 }
