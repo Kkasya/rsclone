@@ -5,7 +5,6 @@ import stylesCommon from '../../styles/stylesCommon';
 import stylesNav from './stylesNav';
 
 const pagesList = [
-  'login',
   'levels',
   'settings',
   'help',

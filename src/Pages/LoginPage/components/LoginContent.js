@@ -26,6 +26,8 @@ export default function LoginContent() {
       setAccessToken(response.accessToken);
       setUserName(response.name);
     }
+
+    // add check for existing user
   }
 
   let logout = (response) => {
@@ -43,37 +45,26 @@ export default function LoginContent() {
 
   return (
     <div className={loginStyles.login_container}>
-      <form className={loginStyles.login_form} onSubmit={handleSubmit}>
-        <div className={loginStyles.input_form}>
-          <label>Email:</label>
-          <input type='email' placeholder='Enter email' />
-        </div>
-        <div className={loginStyles.input_form}>
-          <label>Password:</label>
-          <input type='password' placeholder='Enter password' />
-        </div>
-        <div className={loginStyles.button_form}>
-          <Button type='submit' className={loginButton} onClick={handleSubmit}>Login</Button>
-          {isLogined ?
-            <GoogleLogout
-              clientId={CLIENT_ID}
-              buttonText='Sign Out'
-              onLogoutSuccess={logout}
-              onFailure={handleLogoutFailure}
-              className={loginStyles.button_google}
-            >
-            </GoogleLogout> : <GoogleLogin
-              clientId={CLIENT_ID}
-              buttonText='Sign In'
-              onSuccess={login}
-              onFailure={handleLoginFailure}
-              cookiePolicy={'single_host_origin'}
-              responseType='code,token'
-              className={loginStyles.button_google}
-            />
-          }
-        </div>
-      </form>
+      <div className={loginStyles.button_form}>
+        {isLogined ?
+          <GoogleLogout
+            clientId={CLIENT_ID}
+            buttonText='Sign Out'
+            onLogoutSuccess={logout}
+            onFailure={handleLogoutFailure}
+            className={loginStyles.button_google}
+          >
+          </GoogleLogout> : <GoogleLogin
+            clientId={CLIENT_ID}
+            buttonText='Sign In'
+            onSuccess={login}
+            onFailure={handleLoginFailure}
+            cookiePolicy={'single_host_origin'}
+            responseType='code,token'
+            className={loginStyles.button_google}
+          />
+        }
+      </div>
     </div>
   );
 }
