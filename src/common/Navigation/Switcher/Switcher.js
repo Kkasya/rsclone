@@ -9,13 +9,11 @@ import LevelsPage from '../../../Pages/LevelsPage/LevelsPage';
 import SettingsPage from '../../../Pages/SettingsPage/SettingsPage';
 import HelpPage from '../../../Pages/HelpPage/HelpPage';
 import TeamPage from '../../../Pages/TeamPage/TeamPage';
-import LoginPage from '../../../Pages/LoginPage/LoginPage';
 
 export default function Switcher() {
   return (
     <Switch>
       <Route exact path='/' component={StartPage} />
-      <Route exact path='/login' component={LoginPage} />
       <Route exact path='/levels' component={LevelsPage} />
       <Route path='/settings' component={SettingsPage} />
       <Route path='/help' component={HelpPage} />

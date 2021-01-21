@@ -1,40 +1,53 @@
 import { makeStyles } from '@material-ui/core/styles';
-import constants from '../../../common/styles/constants';
 
 const loginStyles = makeStyles({
-  login_container: {
-    margin: '0 auto',
-    paddingTop: '20vh',
-  },
-  login_form: {
+  modal_container: {
+    position: 'fixed',
+    top: '0',
+    bottom: '0',
+    right: '0',
+    left: '0',
+    overflow: 'hidden',
+    overflowY: 'auto',
     display: 'flex',
-    flexDirection: 'column',
-  },
-  input_form: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: '2em',
-    rowGap: '0.5em',
+    flexFlow: 'column nowrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: '99',
 
-    '& input': {
-      borderRadius: '4px',
-      padding: '7px 10px',
-      backgroundColor: constants.backgroundButtonDefault,
-      border: 'solid 2px #3339',
-      outline: 'none',
-    },
+
+    '&.hidden': {
+      display: 'none',
+    }
   },
-  button_form: {
+  modal_window: {
+    margin: '0 auto',
+    width: '60vw',
+    height: '50vh',
+    zIndex: '10',
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  button_login: {
-    boxShadow: '0px 2px 0px 0px rgba(34, 60, 80, 0.2)'
-  },
-  button_google: {
-    minWidth: '90px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    borderRadius: '4px!important',
     backgroundColor: '#FFBA5F!important',
+    textAlign: 'center',
+    position: 'relative',
+  },
+  cross_button: {
+    position: 'absolute',
+    top: '0px',
+    right: '0px',
+    margin: '10px 10px 0px 0px',
+
+    '& img': {
+      width: '40px',
+      height: '40px',
+    }
+  },
+
+  button_google: {
+    minWidth: '150px',
     outline: 'none',
     borderRadius: '4px!important',
     textTransform: 'uppercase',
