@@ -4,7 +4,6 @@ const SIZES = {
   fieldHeight: 12,
   blocksInTile: 4,
   unacceptableId: 588,
-  hitbox: 2,
 
   get widthInPixels() {
     return this.tileSize * this.fieldWidth;
@@ -27,6 +26,11 @@ const SIZES = {
   },
 
   duration: 300,
+
+  hitboxes: {
+    gameObjects: 2,
+    char: 16,
+  }
 };
 
 export default SIZES;

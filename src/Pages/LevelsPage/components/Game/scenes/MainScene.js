@@ -135,8 +135,9 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createCharacter() {
-    const offset = 2 * SIZES.tileSize + SIZES.halfForOffset;
-    this.char = new Char(this, offset, offset, 'char');
+    const offsetX = 4 * SIZES.tileSize + SIZES.halfForOffset;
+    const offsetY = 5 * SIZES.tileSize + SIZES.halfForOffset;
+    this.char = new Char(this, offsetX, offsetY, 'char');
   }
 
   _setCollisionWithChar(scene, collider, player, callback, colliderItem) {
@@ -148,7 +149,6 @@ export default class MainScene extends Phaser.Scene {
     if (!this.isCollideAccept || !action) {
       return;
     }
-    this.isCollideAccept = false;
 
     switch (action) {
       case 'pickItem':
@@ -160,10 +160,12 @@ export default class MainScene extends Phaser.Scene {
 
       case 'freeze':
         this.char.addFreeze();
+        this.toggleCollideAccept();
         break;
 
       case 'heatByFire':
         this.char.addHeatByFire();
+        this.toggleCollideAccept();
         break;
 
       case 'death':
@@ -196,11 +198,8 @@ export default class MainScene extends Phaser.Scene {
         },
       });
 
-      const type = this.map.layers[1].data[cellY][cellX].properties.type;
-      if (type === 'water') {
-        break;
-      }
-      else if (type === 'fire' && !this.isCollideAccept) {
+      const fieldType = this.map.layers[1].data[cellY][cellX].properties.type;
+      if (this.checkMobility(fieldType)) {
         break;
       }
     }
@@ -210,9 +209,24 @@ export default class MainScene extends Phaser.Scene {
     });
   };
 
+  toggleCollideAccept() {
+    this.isCollideAccept = !this.isCollideAccept;
+  }
+
+  checkMobility(fieldType) {
+    if (this.isCollideAccept) {
+      if (fieldType === 'water' || (fieldType === 'fire' && !this.char.isWet)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   update() {
-    if (this.char.body.x % 40 > 10 || this.char.body.y % 40 > 10) {
-      this.isCollideAccept = true;
+    if (!this.isCollideAccept) {
+      if ((this.char.body.x - 12 + 20) % 40 < 10 || (this.char.body.y - 8 + 20) % 40 < 10) {
+        this.toggleCollideAccept();
+      }
     }
     if (this.activeItem.type) {
       const x = this.input.mouse.manager.activePointer.worldX + SIZES.cursorImageOffset;

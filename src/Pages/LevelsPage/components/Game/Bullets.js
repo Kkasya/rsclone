@@ -20,13 +20,21 @@ export default class Bullets {
       initialize:
         function Bullet(scene) {
           Phaser.GameObjects.Image.call(this, scene, 0, 0, 'bullet');
-          this.speed = Phaser.Math.GetSpeed(100, 1);
+          scene.add.existing(this);
+          this.setInteractive({ cursor: 'pointer' });
+          scene.physics.add.collider(scene.char, this, this.collide);
+          this.speed = Phaser.Math.GetSpeed(400, 1);
         },
 
       fire: function (x, y) {
         this.setPosition(x, y);
         this.setActive(true);
         this.setVisible(true);
+
+        setTimeout(() => {
+          this.setActive(false);
+          this.setVisible(false);
+        }, 200);
       },
 
       update: function (time, delta) {
@@ -34,19 +42,19 @@ export default class Bullets {
         this[mainAxis] = LASER_OFFSET[direction].isIncrease
           ? this[mainAxis] + this.speed * delta
           : this[mainAxis] - this.speed * delta;
+      },
 
-        // setTimeout(() => {
-        //   this.setActive(false);
-        //   this.setVisible(false);
-        // }, 2000);
+      collide: function (char, bullet) {
+        console.log(char);
+        console.log(bullet);
       }
     };
   }
 
   _addBulletsGroup(scene) {
-    this.bullets = scene.add.group({
+    this.bullets = scene.physics.add.group({
       classType: this.instance,
-      maxSize: 10,
+      maxSize: 40,
       runChildUpdate: true,
     });
   }
