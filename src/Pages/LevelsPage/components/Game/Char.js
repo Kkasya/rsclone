@@ -1,10 +1,11 @@
 import GameObject from './GameObject';
+import visibilityPriority from './utils/visibilityPriority';
 
 export default class Char extends GameObject {
   constructor(...props) {
     super(...props);
     this.setCollideWorldBounds(true);
-    this.setDepth(2);
+    this.setDepth(visibilityPriority('char'));
 
     // this.isNormal = true;
     // this.isDead = false;
@@ -36,6 +37,7 @@ export default class Char extends GameObject {
   addFreeze() {
     if (!this.isFlying) {
       this.isFreeze = true;
+      this.scene.isReadyToToggleCollide = true;
     }
   }
 
@@ -56,6 +58,16 @@ export default class Char extends GameObject {
     }
   }
 
+  addHeatByLaser() {
+    if (this.isWet) {
+      this.isWet = false;
+      this.scene.isReadyToToggleCollide = true;
+    }
+    else {
+      this.scene.scene.start('Death');
+    }
+  }
+
   addHeatByFire() {
     if (this.isWet) {
       this.isWet = false;
@@ -63,5 +75,6 @@ export default class Char extends GameObject {
     else {
       this.isFlying = true;
     }
+    this.scene.isReadyToToggleCollide = true;
   }
 }

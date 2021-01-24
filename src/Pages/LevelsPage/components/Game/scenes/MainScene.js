@@ -12,11 +12,11 @@ export default class MainScene extends Phaser.Scene {
     super('MainScene');
     this.pathfinder = new Pathfinder(this);
     this.actionsReducer = new ActionsReducer();
-
     this.collideObjects = [];
     this.stock = new Stock(this);
-    this.isCollideAccept = true;
     this.activeItem = new ActiveItem(this);
+    this.isCollideAccept = true;
+    this.isReadyToToggleCollide = false;
   }
 
   create() {
@@ -102,7 +102,7 @@ export default class MainScene extends Phaser.Scene {
 
   _createCharacter() {
     const offsetX = 4 * SIZES.blocksInTile;
-    const offsetY = 5 * SIZES.blocksInTile;
+    const offsetY = 2 * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char');
   }
 
@@ -185,11 +185,13 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
-    if (!this.isCollideAccept) {
-      if ((this.char.body.x - 12 + 20) % 40 < 10 || (this.char.body.y - 8 + 20) % 40 < 10) {
-        this.toggleCollideAccept();
+    if (!this.isCollideAccept && this.isReadyToToggleCollide) {
+      if ((this.char.body.x - 12 + 20) % 40 < 4 || (this.char.body.y - 8 + 20) % 40 < 4) {
+        this.isCollideAccept = true;
+        this.isReadyToToggleCollide = false;
       }
     }
+
     if (this.activeItem.type) {
       const x = this.input.mouse.manager.activePointer.worldX + SIZES.cursorImageOffset;
       const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;

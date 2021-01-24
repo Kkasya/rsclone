@@ -3,6 +3,9 @@ const ITEMS = [
     type: 'tiles',
   },
   {
+    type: 'rock-up',
+  },
+  {
     type: 'menu',
   },
   {

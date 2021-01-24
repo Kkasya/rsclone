@@ -28,8 +28,8 @@ const SIZES = {
   duration: 300,
 
   hitboxes: {
-    gameObjects: 2,
-    char: 16,
+    small: 2,
+    big: 19,
   }
 };
 
