@@ -5,7 +5,7 @@ import SIZES from './constants/SIZES';
 export default class Bullets {
   constructor(scene, laserX, laserY, direction) {
     this._defineOffset(laserX, laserY, direction);
-    this._createBulletMechanics(direction);
+    this._createBulletMechanics(scene, direction);
     this.instance = new Phaser.Class(this.bulletMechanics);
     this._addBulletsGroup(scene);
   }
@@ -15,23 +15,19 @@ export default class Bullets {
     this.initY = laserY * SIZES.tileSizeInPixels + LASER_OFFSET[direction].y;
   }
 
-  _createBulletMechanics(direction) {
+  _createBulletMechanics(scene, direction) {
     this.bulletMechanics = {
       Extends: Phaser.GameObjects.Image,
+      scene: scene,
       initialize:
-        function Bullet(scene) {
-          Phaser.GameObjects.Image.call(this, scene, 0, 0, 'bullet');
+        function Bullet() {
+          Phaser.GameObjects.Image.call(this, this.scene, 0, 0, 'bullet');
           this.speed = Phaser.Math.GetSpeed(400, 1);
-          scene.add.existing(this);
+          this.scene.add.existing(this);
           this.setInteractive({ cursor: 'pointer' });
 
-          scene.physics.add.collider(scene.char, this, this.collideWitchChar);
-
-          scene.collideObjects.forEach((item) => {
-            if (item.texture.key === 'bomb') {
-              scene.physics.add.collider(item, this, this.collideWithBomb);
-            }
-          });
+          this.setCollisionWithChar();
+          this.setCollisionWithBombs();
         },
 
       fire: function (x, y) {
@@ -42,7 +38,7 @@ export default class Bullets {
         setTimeout(() => {
           this.setActive(false);
           this.setVisible(false);
-        }, 200);
+        }, 600);
       },
 
       update: function (time, delta) {
@@ -52,13 +48,25 @@ export default class Bullets {
           : this[mainAxis] - this.speed * delta;
       },
 
+      setCollisionWithChar: function () {
+        this.scene.physics.add.collider(this.scene.char, this, this.collideWitchChar);
+      },
+
+      setCollisionWithBombs: function () {
+        this.scene.collideObjects.forEach((item) => {
+          if (item.texture.key === 'bomb') {
+            this.scene.physics.add.collider(item, this, this.collideWithBomb);
+          }
+        });
+      },
+
       collideWitchChar: function (char, bullet) {
-        // console.log('collide with char');
+        console.log('collide with char');
       },
 
       collideWithBomb: function (bomb) {
         // console.log(bomb);
-        // bomb.explode();
+        bomb.explode();
       }
     };
   }
@@ -66,7 +74,7 @@ export default class Bullets {
   _addBulletsGroup(scene) {
     this.bullets = scene.physics.add.group({
       classType: this.instance,
-      maxSize: 40,
+      maxSize: 10,
       runChildUpdate: true,
     });
   }

@@ -6,7 +6,6 @@ import Char from '../Char';
 import ActionsReducer from '../utils/ActionsReducer';
 import Stock from '../Stock';
 import ActiveItem from '../ActiveItem';
-import Bullets from '../Bullets';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -33,19 +32,18 @@ export default class MainScene extends Phaser.Scene {
 
     this.interactionWithChar = this.interactionWithChar.bind(this)
 
-    this._addListener();
+    this._addListenerToField();
     this._createCharacter();
-    this._createGameObjects(true);
+    this._createGameObjects();
     this._createControlPanel();
     this._addListenerToMoveButton();
-    this._createGameObjects(false);
     this.stock.defineLimit();
     this.activeItem.init();
 
     this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
   }
 
-  _addListener() {
+  _addListenerToField() {
     this.input.on('pointerdown', (pointer) => {
       if (!pointer.primaryDown) {
         this.activeItem.reset();
@@ -56,42 +54,18 @@ export default class MainScene extends Phaser.Scene {
     });
   }
 
-  _createGameObjects(isWithoutMirrors) {
+  _createGameObjects() {
     for (let i = 0; i < this.stockEdge; i += 4) {
       for (let j = 0; j < this.map.layers[1].data[i].length; j += 4) {
         const item = this.map.layers[1].data[i][j];
-        const type = item.properties.type;
 
         if (item.index !== -1) {
-          if (isWithoutMirrors ^ type.includes('mirror-up')) {
-            const gameObject = new GameObject(
-              this,
-              item.x,
-              item.y,
-              type,
-            );
-
-            if (isWithoutMirrors && type.includes('laser')) {
-              const direction = type.split('-')[1];
-              const bulletsObj = new Bullets(
-                this,
-                item.x,
-                item.y,
-                direction,
-              );
-              gameObject.bulletsObj = bulletsObj;
-              //this.gameObjects.push({ ...item.properties, gameObject, bulletsObj, x: item.x, y: item.y });
-            }
-            else {
-              //this.gameObjects.push({ ...item.properties, gameObject, x: item.x, y: item.y });
-            }
-
-            if (item.properties.isCollied) {
-              this.collideObjects.push(gameObject);
-            }
-            else {
-              gameObject.setCollisionWithChar();
-            }
+          const gameObject = new GameObject(this, item.x, item.y, item.properties.type);
+          if (item.properties.isCollied) {
+            this.collideObjects.push(gameObject);
+          }
+          else {
+            gameObject.setCollisionWithChar();
           }
         }
       }
@@ -99,12 +73,12 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createControlPanel() {
-    for (let i = this.stockEdge; i < this.map.layers[1].data.length; i += 1) {
-      for (let j = 0; j < this.map.layers[1].data[i].length; j += 1) {
-        const item = this.map.layers[1].data[i][j];
+    const data = this.map.layers[1].data;
+    for (let i = this.stockEdge; i < data.length; i += 1) {
+      for (let j = 0; j < data[i].length; j += 1) {
+        const item = data[i][j];
 
-        if (item.index !== -1) {
-          if (this.map.layers[1].data[i - 1][j].index !== -1) continue;
+        if (item.index !== -1 && data[i - 1][j].index === -1) {
           const gameObject = new GameObject(this, item.x, item.y, item.properties.type);
           if (item.properties.type === 'move') {
             this.moveButton = gameObject;
@@ -141,7 +115,6 @@ export default class MainScene extends Phaser.Scene {
     switch (action) {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
-          console.log(colliderItem);
           this.stock.addItem(colliderItem.texture.key);
           colliderItem.destroy();
         }

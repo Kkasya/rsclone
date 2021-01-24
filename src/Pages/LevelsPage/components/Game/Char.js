@@ -4,6 +4,7 @@ export default class Char extends GameObject {
   constructor(...props) {
     super(...props);
     this.setCollideWorldBounds(true);
+    this.setDepth(2);
 
     // this.isNormal = true;
     // this.isDead = false;
