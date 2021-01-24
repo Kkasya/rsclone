@@ -18,24 +18,22 @@ export default class Stock {
   }
 
   addItem(itemType) {
-    const firstEmptyCell = this.slots.findIndex((item) => (item.type === 'emptySlot'));
-    this.slots[firstEmptyCell].type = itemType;
-    this.slots[firstEmptyCell].gameObject.setTexture(itemType);
+    const firstEmptyCell = this.slots.findIndex((item) => (item.texture.key === 'emptySlot'));
+    this.slots[firstEmptyCell].setTexture(itemType);
     this._addListener(this.slots[firstEmptyCell], firstEmptyCell);
     this.itemsCounter++;
   }
 
   _addListener(item, index) {
-    item.gameObject.on('pointerdown', () => {
-      this.scene.activeItem.setItem(item.type, index);
+    item.on('pointerdown', () => {
+      this.scene.activeItem.setItem(item.texture.key, index);
     });
   }
 
   removeActiveItem() {
     const index = this.scene.activeItem.index;
-    this.slots[index].type = 'emptySlot';
-    this.slots[index].gameObject.setTexture('emptySlot');
-    this.slots[index].gameObject.removeInteractive();
+    this.slots[index].setTexture('emptySlot');
+    this.slots[index].removeInteractive();
     // this._moveEmptyToEnd(index);
     this.itemsCounter--;
   }

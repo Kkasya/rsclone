@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser';
 import LASER_OFFSET from './constants/LASER_OFFSET';
+import SIZES from './constants/SIZES';
 
 export default class Bullets {
   constructor(scene, laserX, laserY, direction) {
@@ -10,8 +11,8 @@ export default class Bullets {
   }
 
   _defineOffset(laserX, laserY, direction) {
-    this.initX = laserX + LASER_OFFSET[direction].x;
-    this.initY = laserY + LASER_OFFSET[direction].y;
+    this.initX = laserX * SIZES.tileSizeInPixels + LASER_OFFSET[direction].x;
+    this.initY = laserY * SIZES.tileSizeInPixels + LASER_OFFSET[direction].y;
   }
 
   _createBulletMechanics(direction) {
@@ -20,10 +21,17 @@ export default class Bullets {
       initialize:
         function Bullet(scene) {
           Phaser.GameObjects.Image.call(this, scene, 0, 0, 'bullet');
+          this.speed = Phaser.Math.GetSpeed(400, 1);
           scene.add.existing(this);
           this.setInteractive({ cursor: 'pointer' });
-          scene.physics.add.collider(scene.char, this, this.collide);
-          this.speed = Phaser.Math.GetSpeed(400, 1);
+
+          scene.physics.add.collider(scene.char, this, this.collideWitchChar);
+
+          scene.collideObjects.forEach((item) => {
+            if (item.texture.key === 'bomb') {
+              scene.physics.add.collider(item, this, this.collideWithBomb);
+            }
+          });
         },
 
       fire: function (x, y) {
@@ -44,9 +52,13 @@ export default class Bullets {
           : this[mainAxis] - this.speed * delta;
       },
 
-      collide: function (char, bullet) {
-        console.log(char);
-        console.log(bullet);
+      collideWitchChar: function (char, bullet) {
+        // console.log('collide with char');
+      },
+
+      collideWithBomb: function (bomb) {
+        // console.log(bomb);
+        // bomb.explode();
       }
     };
   }

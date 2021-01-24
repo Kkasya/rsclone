@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
+// eslint-disable-next-line
 import LevelsContent from './components/LevelsContent';
 import GameContainer from './components/Game/GameContainer';
 import stylesCommon from '../../common/styles/stylesCommon';

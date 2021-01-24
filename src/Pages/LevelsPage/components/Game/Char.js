@@ -1,15 +1,13 @@
 import GameObject from './GameObject';
-import SIZES from './constants/SIZES';
 
 export default class Char extends GameObject {
   constructor(...props) {
     super(...props);
     this.setCollideWorldBounds(true);
-    this.body.setSize(SIZES.hitboxes.char, SIZES.hitboxes.char, false);
-    this.body.setOffset(12, 8);
 
     // this.isNormal = true;
     // this.isDead = false;
+
     this.isFreeze = false;
     this.isWet = false;
     this.isFlying = false;

@@ -12,9 +12,9 @@ export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
     this.pathfinder = new Pathfinder(this);
-    this.gameObjects = [];
-    this.onlyUpMirrors = [];
     this.actionsReducer = new ActionsReducer();
+
+    this.collideObjects = [];
     this.stock = new Stock(this);
     this.isCollideAccept = true;
     this.activeItem = new ActiveItem(this);
@@ -31,26 +31,16 @@ export default class MainScene extends Phaser.Scene {
     this.map.createLayer(0, tileset, 0, 0).setInteractive({ cursor: 'pointer' });
     this.stockEdge = Math.floor(this.map.layers[1].data.length * 0.8);
 
+    this.interactionWithChar = this.interactionWithChar.bind(this)
+
     this._addListener();
+    this._createCharacter();
     this._createGameObjects(true);
     this._createControlPanel();
     this._addListenerToMoveButton();
-    this._createCharacter();
     this._createGameObjects(false);
     this.stock.defineLimit();
     this.activeItem.init();
-
-    this._interactionWithChar = this._interactionWithChar.bind(this)
-
-    this.gameObjects.forEach((item) => {
-      this._setCollisionWithChar(
-        this,
-        item.gameObject,
-        this.char,
-        this._interactionWithChar,
-        item
-      );
-    });
 
     this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
   }
@@ -76,8 +66,8 @@ export default class MainScene extends Phaser.Scene {
           if (isWithoutMirrors ^ type.includes('mirror-up')) {
             const gameObject = new GameObject(
               this,
-              item.x * SIZES.tileSizeInPixels + SIZES.halfForOffset,
-              item.y * SIZES.tileSizeInPixels + SIZES.halfForOffset,
+              item.x,
+              item.y,
               type,
             );
 
@@ -85,14 +75,22 @@ export default class MainScene extends Phaser.Scene {
               const direction = type.split('-')[1];
               const bulletsObj = new Bullets(
                 this,
-                item.x * SIZES.tileSizeInPixels,
-                item.y * SIZES.tileSizeInPixels,
+                item.x,
+                item.y,
                 direction,
               );
-              this.gameObjects.push({ ...item.properties, gameObject, bulletsObj, x: item.x, y: item.y });
+              gameObject.bulletsObj = bulletsObj;
+              //this.gameObjects.push({ ...item.properties, gameObject, bulletsObj, x: item.x, y: item.y });
             }
             else {
-              this.gameObjects.push({ ...item.properties, gameObject, x: item.x, y: item.y });
+              //this.gameObjects.push({ ...item.properties, gameObject, x: item.x, y: item.y });
+            }
+
+            if (item.properties.isCollied) {
+              this.collideObjects.push(gameObject);
+            }
+            else {
+              gameObject.setCollisionWithChar();
             }
           }
         }
@@ -107,18 +105,12 @@ export default class MainScene extends Phaser.Scene {
 
         if (item.index !== -1) {
           if (this.map.layers[1].data[i - 1][j].index !== -1) continue;
-          const gameObject = new GameObject(
-            this,
-            item.x * SIZES.tileSizeInPixels + SIZES.halfForOffset,
-            item.y * SIZES.tileSizeInPixels + SIZES.halfForOffset,
-            item.properties.type
-          );
-
+          const gameObject = new GameObject(this, item.x, item.y, item.properties.type);
           if (item.properties.type === 'move') {
             this.moveButton = gameObject;
           }
           else {
-            this.stock.addEmptySlot({ ...item.properties, gameObject, x: item.x, y: item.y });
+            this.stock.addEmptySlot(gameObject);
           }
           j += 3;
         }
@@ -135,17 +127,13 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createCharacter() {
-    const offsetX = 4 * SIZES.tileSize + SIZES.halfForOffset;
-    const offsetY = 5 * SIZES.tileSize + SIZES.halfForOffset;
+    const offsetX = 4 * SIZES.blocksInTile;
+    const offsetY = 5 * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char');
   }
 
-  _setCollisionWithChar(scene, collider, player, callback, colliderItem) {
-    scene.physics.add.collider(collider, player, () => callback(colliderItem));
-  }
-
-  _interactionWithChar(colliderItem) {
-    const action = this.actionsReducer.defineAction(colliderItem.type);
+  interactionWithChar(colliderItem) {
+    const action = this.actionsReducer.defineAction(colliderItem.texture.key);
     if (!this.isCollideAccept || !action) {
       return;
     }
@@ -153,8 +141,9 @@ export default class MainScene extends Phaser.Scene {
     switch (action) {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
-          this.stock.addItem(colliderItem.type);
-          colliderItem.gameObject.destroy();
+          console.log(colliderItem);
+          this.stock.addItem(colliderItem.texture.key);
+          colliderItem.destroy();
         }
         break;
 
@@ -234,8 +223,8 @@ export default class MainScene extends Phaser.Scene {
       this.activeItem.image.setPosition(x, y);
     }
 
-    this.gameObjects.forEach((item) => {
-      if (item.type.includes('laser')) {
+    this.collideObjects.forEach((item) => {
+      if (item.texture.key.includes('laser')) {
         if (item.bulletsObj.bullets) {
           const bullet = item.bulletsObj.bullets.get();
           if (bullet) {

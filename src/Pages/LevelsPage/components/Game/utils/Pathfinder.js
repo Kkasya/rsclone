@@ -45,11 +45,9 @@ export default class Pathfinder {
   }
 
   _getIdFromObjectsLayer(x, y) {
-    for (let i = 0; i < this.scene.gameObjects.length; i++) {
-      if (this.scene.gameObjects[i].x === x
-        && this.scene.gameObjects[i].y === y
-        && this.scene.gameObjects[i].isCollied)
-      {
+    for (let i = 0; i < this.scene.collideObjects.length; i++) {
+      if ((this.scene.collideObjects[i].x - SIZES.halfForOffset) / SIZES.tileSizeInPixels === x
+      && (this.scene.collideObjects[i].y - SIZES.halfForOffset) / SIZES.tileSizeInPixels === y) {
         return SIZES.unacceptableId;
       }
     }
