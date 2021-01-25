@@ -7,9 +7,11 @@ const ITEMS = [
   },
   {
     type: 'rayHor',
+    action: 'heatByLaser',
   },
   {
     type: 'rayVert',
+    action: 'heatByLaser',
   },
   {
     type: 'menu',
@@ -98,9 +100,6 @@ const ITEMS = [
   },
   {
     type: 'laser-left',
-  },
-  {
-    type: 'bullet',
   },
 ];
 

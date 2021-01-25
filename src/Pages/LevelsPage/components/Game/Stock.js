@@ -18,7 +18,7 @@ export default class Stock {
   }
 
   addItem(itemType) {
-    const firstEmptyCell = this.slots.findIndex((item) => (item.texture.key === 'emptySlot'));
+    const firstEmptyCell = this.slots.findIndex((item) => (item.texture === 'emptySlot'));
     this.slots[firstEmptyCell].setTexture(itemType);
     this._addListener(this.slots[firstEmptyCell], firstEmptyCell);
     this.itemsCounter++;
@@ -26,7 +26,7 @@ export default class Stock {
 
   _addListener(item, index) {
     item.on('pointerdown', () => {
-      this.scene.activeItem.setItem(item.texture.key, index);
+      this.scene.activeItem.setItem(item.texture, index);
     });
   }
 

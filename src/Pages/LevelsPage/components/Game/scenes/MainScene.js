@@ -6,7 +6,6 @@ import Char from '../Char';
 import ActionsReducer from '../utils/ActionsReducer';
 import Stock from '../Stock';
 import ActiveItem from '../ActiveItem';
-import Raycaster from 'phaser3-rex-plugins/plugins/raycaster.js';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -31,7 +30,7 @@ export default class MainScene extends Phaser.Scene {
     this.map.createLayer(0, tileset, 0, 0).setInteractive({ cursor: 'pointer' });
     this.stockEdge = Math.floor(this.map.layers[1].data.length * 0.8);
 
-    this.interactionWithChar = this.interactionWithChar.bind(this)
+    this.interactionWithChar = this.interactionWithChar.bind(this);
 
     this._addListenerToField();
     this._createCharacter();
@@ -117,7 +116,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   interactionWithChar(colliderItem) {
-    const action = this.actionsReducer.defineAction(colliderItem.texture.key);
+    const action = this.actionsReducer.defineAction(colliderItem.texture);
     if (!this.isCollideAccept || !action) {
       return;
     }
@@ -125,7 +124,7 @@ export default class MainScene extends Phaser.Scene {
     switch (action) {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
-          this.stock.addItem(colliderItem.texture.key);
+          this.stock.addItem(colliderItem.texture);
           colliderItem.destroy();
         }
         break;
@@ -137,6 +136,11 @@ export default class MainScene extends Phaser.Scene {
 
       case 'heatByFire':
         this.char.addHeatByFire();
+        this.toggleCollideAccept();
+        break;
+
+      case 'heatByLaser':
+        this.char.addHeatByLaser();
         this.toggleCollideAccept();
         break;
 
@@ -195,11 +199,9 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
-    if (!this.isCollideAccept && this.isReadyToToggleCollide) {
-      if ((this.char.body.x - 12 + 20) % 40 < 4 || (this.char.body.y - 8 + 20) % 40 < 4) {
-        this.isCollideAccept = true;
-        this.isReadyToToggleCollide = false;
-      }
+    if (!this.isCollideAccept && this.isReadyToToggleCollide && this._isNearTileBoundies()) {
+      this.isCollideAccept = true;
+      this.isReadyToToggleCollide = false;
     }
 
     if (this.activeItem.type) {
@@ -207,16 +209,11 @@ export default class MainScene extends Phaser.Scene {
       const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;
       this.activeItem.image.setPosition(x, y);
     }
+  }
 
-    // this.collideObjects.forEach((item) => {
-    //   if (item.texture.key.includes('laser')) {
-    //     if (item.bulletsObj.bullets) {
-    //       const bullet = item.bulletsObj.bullets.get();
-    //       if (bullet) {
-    //         bullet.fire(item.bulletsObj.initX, item.bulletsObj.initY);
-    //       }
-    //     }
-    //   }
-    // });
+  _isNearTileBoundies() {
+    const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % 40;
+    const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % 40;
+    return (remainderX < 2 || remainderX > 38 || remainderY < 2 || remainderY > 38);
   }
 }

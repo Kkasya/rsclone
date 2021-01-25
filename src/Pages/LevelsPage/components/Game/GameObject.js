@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import Bullets from './Bullets';
 import RaysGenerator from './RaysGenerator';
 import SIZES from './constants/SIZES';
 import visibilityPriority from './utils/visibilityPriority';

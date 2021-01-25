@@ -1,5 +1,6 @@
-import GameObject from './GameObject';
+import Phaser from 'phaser';
 import SIZES from './constants/SIZES';
+import visibilityPriority from './utils/visibilityPriority';
 
 export default class ActiveItem {
   constructor(scene) {
@@ -9,7 +10,7 @@ export default class ActiveItem {
   init() {
     this.type = '';
     this.index = 0;
-    this.image = new GameObject(this.scene, -SIZES.cursorImageOffset, -SIZES.cursorImageOffset, '');
+    this.image = new ActiveItemImage(this.scene, -SIZES.cursorImageOffset, -SIZES.cursorImageOffset, '');
   }
 
   reset() {
@@ -20,5 +21,13 @@ export default class ActiveItem {
   setItem(type, index) {
     [this.type, this.index] = [type, index];
     this.image.setTexture(type);
+  }
+}
+
+class ActiveItemImage extends Phaser.Physics.Arcade.Sprite {
+  constructor(...props) {
+    super(...props);
+    this.scene.add.existing(this);
+    this.setDepth(visibilityPriority('activeItem'));
   }
 }

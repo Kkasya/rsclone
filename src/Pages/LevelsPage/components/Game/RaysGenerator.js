@@ -108,19 +108,36 @@ export default class RaysGenerator {
       );
       return true;
     }
-    else if (item.texture === 'bomb') {
-      item.explode();
-    }
   }
 }
 
 class Rays extends Phaser.Physics.Arcade.Sprite {
   constructor(...props) {
     super(...props);
+    this.texture = this.texture.key;
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.setInteractive({ cursor: 'pointer' });
     this.setDepth(visibilityPriority('ray'));
+
+    this._setCollisionWithChar();
+    this._setCollisionWithBombs();
+  }
+
+  _setCollisionWithChar() {
+    this.scene.physics.add.collider(this, this.scene.char, this.scene.interactionWithChar);
+  }
+
+  _setCollisionWithBombs() {
+    this.scene.collideObjects.forEach((item) => {
+      if (item.texture === 'bomb') {
+        this.scene.physics.add.collider(item, this, this._collideWithBombs);
+      }
+    });
+  }
+
+  _collideWithBombs(item) {
+    item.explode();
   }
 }
 
