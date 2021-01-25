@@ -1,8 +1,7 @@
-import Phaser from 'phaser';
-import visibilityPriority from './utils/visibilityPriority';
-import SIZES from './constants/SIZES';
-import { LASER_OFFSET2 } from './constants/LASER_OFFSET';
-import mirrorsReflection from './utils/mirrorsReflection';
+import SIZES from '../constants/SIZES';
+import { LASER_OFFSET2 } from '../constants/LASER_OFFSET';
+import mirrorsReflection from './mirrorsReflection';
+import { RayHor, RayVert } from './RaysFabric';
 
 export default class RaysGenerator {
   constructor(scene, x, y, direction) {
@@ -11,6 +10,7 @@ export default class RaysGenerator {
     this.initY = y;
     this.direction = direction;
 
+    this.rays = [];
     this._drawRays();
   }
 
@@ -31,6 +31,7 @@ export default class RaysGenerator {
         }
 
         const ray = new RayHor(this.scene, i, this.initY);
+        this.rays.push(ray);
       }
     }
 
@@ -50,6 +51,7 @@ export default class RaysGenerator {
         }
 
         const ray = new RayHor(this.scene, i, this.initY);
+        this.rays.push(ray);
       }
     }
 
@@ -69,6 +71,7 @@ export default class RaysGenerator {
         }
 
         const ray = new RayVert(this.scene, this.initX, i);
+        this.rays.push(ray);
       }
     }
 
@@ -88,6 +91,7 @@ export default class RaysGenerator {
         }
 
         const ray = new RayVert(this.scene, this.initX, i);
+        this.rays.push(ray);
       }
     }
   }
@@ -106,54 +110,8 @@ export default class RaysGenerator {
         item.y,
         mirrorsReflection(mirrorType, currentDirection)
       );
+      this.rays.push(...rays.rays);
       return true;
     }
-  }
-}
-
-class Rays extends Phaser.Physics.Arcade.Sprite {
-  constructor(...props) {
-    super(...props);
-    this.texture = this.texture.key;
-    this.scene.add.existing(this);
-    this.scene.physics.add.existing(this);
-    this.setInteractive({ cursor: 'pointer' });
-    this.setDepth(visibilityPriority('ray'));
-
-    this._setCollisionWithChar();
-    this._setCollisionWithBombs();
-  }
-
-  _setCollisionWithChar() {
-    this.scene.physics.add.collider(this, this.scene.char, this.scene.interactionWithChar);
-  }
-
-  _setCollisionWithBombs() {
-    this.scene.collideObjects.forEach((item) => {
-      if (item.texture === 'bomb') {
-        this.scene.physics.add.collider(item, this, this._collideWithBombs);
-      }
-    });
-  }
-
-  _collideWithBombs(item) {
-    item.explode();
-  }
-}
-
-class RayHor extends Rays {
-  constructor(...props) {
-    super(...props, 'rayHor');
-    this._setOffset();
-  }
-
-  _setOffset() {
-    this.setPosition(this.x, this.y - 10);
-  }
-}
-
-class RayVert extends Rays {
-  constructor(...props) {
-    super(...props, 'rayVert');
   }
 }

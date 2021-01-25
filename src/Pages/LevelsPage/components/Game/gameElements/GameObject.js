@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import RaysGenerator from './RaysGenerator';
-import SIZES from './constants/SIZES';
-import visibilityPriority from './utils/visibilityPriority';
+import RaysGenerator from '../rays/RaysGenerator';
+import SIZES from '../constants/SIZES';
+import visibilityPriority from '../utils/visibilityPriority';
 
 export default class GameObject extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x = 0, y = 0, texture = 'char') {
@@ -26,7 +26,7 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
 
   createRays() {
     const direction = this.texture.split('-')[1];
-    const rays = new RaysGenerator(this.scene, this.xForPhaser, this.yForPhaser, direction);
+    this.raysGenerator = new RaysGenerator(this.scene, this.xForPhaser, this.yForPhaser, direction);
   }
 
   _defineHitbox(texture) {
@@ -50,6 +50,12 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
 
       console.log('explode!');
       this.explodeTimer = setTimeout(() => {
+        if (this.raysGenerator?.rays?.length) {
+          this.raysGenerator.rays.forEach((ray) => {
+            ray.destroy();
+          });
+          this.raysGenerator.rays.length = 0;
+        }
         this.destroy();
         this.isExplodeAccept = true;
       }, this.explodeDelay);

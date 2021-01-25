@@ -1,5 +1,5 @@
 import GameObject from './GameObject';
-import visibilityPriority from './utils/visibilityPriority';
+import visibilityPriority from '../utils/visibilityPriority';
 
 export default class Char extends GameObject {
   constructor(...props) {

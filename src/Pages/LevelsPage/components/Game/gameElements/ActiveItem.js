@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import SIZES from './constants/SIZES';
-import visibilityPriority from './utils/visibilityPriority';
+import SIZES from '../constants/SIZES';
+import visibilityPriority from '../utils/visibilityPriority';
 
 export default class ActiveItem {
   constructor(scene) {

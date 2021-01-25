@@ -1,11 +1,11 @@
 import * as Phaser from 'phaser';
 import Pathfinder from '../utils/Pathfinder';
-import SIZES from '../constants/SIZES';
-import GameObject from '../GameObject';
-import Char from '../Char';
 import ActionsReducer from '../utils/ActionsReducer';
-import Stock from '../Stock';
-import ActiveItem from '../ActiveItem';
+import SIZES from '../constants/SIZES';
+import GameObject from '../gameElements/GameObject';
+import Char from '../gameElements/Char';
+import Stock from '../gameElements/Stock';
+import ActiveItem from '../gameElements/ActiveItem';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -198,8 +198,14 @@ export default class MainScene extends Phaser.Scene {
     return false;
   }
 
+  _isNearTileBoundaries() {
+    const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % 40;
+    const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % 40;
+    return (remainderX < 2 || remainderX > 38 || remainderY < 2 || remainderY > 38);
+  }
+
   update() {
-    if (!this.isCollideAccept && this.isReadyToToggleCollide && this._isNearTileBoundies()) {
+    if (!this.isCollideAccept && this.isReadyToToggleCollide && this._isNearTileBoundaries()) {
       this.isCollideAccept = true;
       this.isReadyToToggleCollide = false;
     }
@@ -209,11 +215,5 @@ export default class MainScene extends Phaser.Scene {
       const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;
       this.activeItem.image.setPosition(x, y);
     }
-  }
-
-  _isNearTileBoundies() {
-    const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % 40;
-    const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % 40;
-    return (remainderX < 2 || remainderX > 38 || remainderY < 2 || remainderY > 38);
   }
 }
