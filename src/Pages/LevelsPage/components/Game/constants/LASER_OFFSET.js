@@ -1,4 +1,6 @@
-const LASER_OFFSET = {
+import SIZES from './SIZES';
+
+export const LASER_OFFSET = {
   top: {
     x: 20,
     y: -3,
@@ -28,4 +30,9 @@ const LASER_OFFSET = {
   },
 }
 
-export default LASER_OFFSET;
+export const LASER_OFFSET2 = {
+  right: SIZES.tileSize,
+  left: -SIZES.tileSize,
+  top: -SIZES.tileSize,
+  bottom: SIZES.tileSize,
+}

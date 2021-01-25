@@ -6,6 +6,7 @@ import Char from '../Char';
 import ActionsReducer from '../utils/ActionsReducer';
 import Stock from '../Stock';
 import ActiveItem from '../ActiveItem';
+import Raycaster from 'phaser3-rex-plugins/plugins/raycaster.js';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -41,6 +42,15 @@ export default class MainScene extends Phaser.Scene {
     this.activeItem.init();
 
     this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
+    this.createRays();
+  }
+
+  createRays() {
+    this.collideObjects.forEach((item) => {
+      if (item.texture.includes('laser')) {
+        item.createRays();
+      }
+    });
   }
 
   _addListenerToField() {
@@ -198,15 +208,15 @@ export default class MainScene extends Phaser.Scene {
       this.activeItem.image.setPosition(x, y);
     }
 
-    this.collideObjects.forEach((item) => {
-      if (item.texture.key.includes('laser')) {
-        if (item.bulletsObj.bullets) {
-          const bullet = item.bulletsObj.bullets.get();
-          if (bullet) {
-            bullet.fire(item.bulletsObj.initX, item.bulletsObj.initY);
-          }
-        }
-      }
-    });
+    // this.collideObjects.forEach((item) => {
+    //   if (item.texture.key.includes('laser')) {
+    //     if (item.bulletsObj.bullets) {
+    //       const bullet = item.bulletsObj.bullets.get();
+    //       if (bullet) {
+    //         bullet.fire(item.bulletsObj.initX, item.bulletsObj.initY);
+    //       }
+    //     }
+    //   }
+    // });
   }
 }

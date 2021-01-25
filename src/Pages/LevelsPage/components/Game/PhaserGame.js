@@ -4,6 +4,7 @@ import Preloader from './scenes/Preloader';
 import MainScene from './scenes/MainScene';
 import WinRound from './scenes/WinRound';
 import Death from './scenes/Death';
+import RaycasterPlugin from 'phaser3-rex-plugins/plugins/raycaster-plugin.js';
 
 export default class PhaserGame extends Phaser.Game {
   constructor(react) {
@@ -26,9 +27,19 @@ export default class PhaserGame extends Phaser.Game {
       physics: {
         default: 'arcade',
         arcade: {
-          debug: false,
+          debug: true,
           gravity: { y: 0 },
         },
+      },
+
+      plugins: {
+        scene: [
+          {
+            key: 'rexRaycaster',
+            plugin: RaycasterPlugin,
+            start: true
+          },
+        ],
       },
 
       audio: {

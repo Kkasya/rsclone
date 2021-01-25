@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import Bullets from './Bullets';
+import RaysGenerator from './RaysGenerator';
 import SIZES from './constants/SIZES';
 import visibilityPriority from './utils/visibilityPriority';
 
@@ -9,28 +10,24 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     const yForPhaser = y * SIZES.tileSizeInPixels + SIZES.halfForOffset;
 
     super(scene, xForPhaser, yForPhaser, texture);
-    this.scene = scene
+    this.xForPhaser = xForPhaser;
+    this.yForPhaser = yForPhaser;
+    this.texture = texture;
+
     scene.add.existing(this);
     scene.physics.add.existing(this);
     this.setInteractive({ cursor: 'pointer' });
     this._defineHitbox(texture);
-    this.explodeDelay = 2500;
-
     this.setDepth(visibilityPriority(texture));
-    if (texture.includes('laser')) {
-      this._createBullets(texture, x, y);
-    }
 
+    this.explodeDelay = 2500;
     this.isExplodeAccept = true;
     this.explodeTimer = null;
   }
 
-  _createBullets(texture, x, y) {
-    if (texture.includes('laser')) {
-      const direction = texture.split('-')[1];
-      const bulletsObj = new Bullets(this.scene, x, y, direction);
-      this.bulletsObj = bulletsObj;
-    }
+  createRays() {
+    const direction = this.texture.split('-')[1];
+    const rays = new RaysGenerator(this.scene, this.xForPhaser, this.yForPhaser, direction);
   }
 
   _defineHitbox(texture) {

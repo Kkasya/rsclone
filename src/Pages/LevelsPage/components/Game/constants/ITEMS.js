@@ -6,6 +6,12 @@ const ITEMS = [
     type: 'rock-up',
   },
   {
+    type: 'rayHor',
+  },
+  {
+    type: 'rayVert',
+  },
+  {
     type: 'menu',
   },
   {

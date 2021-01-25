@@ -1,5 +1,5 @@
 import * as Phaser from 'phaser';
-import LASER_OFFSET from './constants/LASER_OFFSET';
+import { LASER_OFFSET } from './constants/LASER_OFFSET';
 import SIZES from './constants/SIZES';
 import visibilityPriority from './utils/visibilityPriority';
 
