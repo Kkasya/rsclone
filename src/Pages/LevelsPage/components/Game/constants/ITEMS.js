@@ -45,6 +45,11 @@ const ITEMS = [
     type: 'bomb',
   },
   {
+    type: 'bomb-stock',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
+  {
     type: 'fire',
     action: 'heatByFire',
   },

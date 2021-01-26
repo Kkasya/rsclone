@@ -5,18 +5,23 @@ import FlyWeight from './RaysFabric';
 export default class RaysGenerator {
   constructor(scene, x, y, direction) {
     this.scene = scene;
-    this.x = x;
-    this.y = y;
+    this.sourceX = x;
+    this.sourceY = y;
     this.rays = [];
-    this._drawRays(direction);
+    this.direction = direction;
+    this._drawRays();
   }
 
-  _drawRays(direction) {
-    const { mainAxis, increment } = LASER_OFFSET[direction];
-    let isLastRay = false;
-    let mirrorType = null;
+  _drawRays() {
+    this.x = this.sourceX;
+    this.y = this.sourceY;
 
-    for (this[mainAxis] = this[mainAxis] + increment; !isLastRay; this[mainAxis] += increment) {
+    const { mainAxis, increment } = LASER_OFFSET[this.direction];
+    let isLastRay = false;
+    let mirrorType = '';
+
+    let i = 0;
+    for (this[mainAxis] = this[mainAxis] + increment; !isLastRay; this[mainAxis] += increment, i++) {
       if (this._isCollisionWithRock(this.x, this.y)) {
         break;
       }
@@ -24,14 +29,14 @@ export default class RaysGenerator {
       for (let j = 0; j < this.scene.collideObjects.length; j++) {
         const item = this.scene.collideObjects[j];
         if (this.x === item.x && this.y === item.y) {
-          isLastRay = this._playCollision(direction, item);
+          isLastRay = this._playCollision(this.direction, item);
           if (isLastRay) {
             mirrorType = item.texture.split('-')[2];
           }
         }
       }
 
-      const ray = new FlyWeight(mainAxis, this.scene, this.x, this.y, direction, isLastRay, mirrorType);
+      const ray = new FlyWeight(mainAxis, this.scene, this.x, this.y, this.direction, isLastRay, mirrorType);
       this.rays.push(ray);
     }
   }
@@ -53,5 +58,13 @@ export default class RaysGenerator {
       this.rays.push(...rays.rays);
       return true;
     }
+  }
+
+  refresh() {
+    this.rays.forEach((ray) => {
+      ray.destroy();
+    });
+    this.rays.length = 0;
+    this._drawRays();
   }
 }

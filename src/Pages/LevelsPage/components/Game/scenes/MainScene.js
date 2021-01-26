@@ -62,10 +62,7 @@ export default class MainScene extends Phaser.Scene {
           const y = pointer.worldY / SIZES.tileSizeInPixels - (pointer.worldY / SIZES.tileSizeInPixels % SIZES.blocksInTile);
 
           if (y < 9 * SIZES.blocksInTile) {
-            const gameObject = new GameObject(this, x, y, this.activeItem.type.key);
-            this.collideObjects.push(gameObject);
-            this.stock.removeActiveItem();
-            this.activeItem.reset();
+            this.addObjectToField(x, y, this.activeItem.type.key);
           }
         }
         else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
@@ -74,6 +71,29 @@ export default class MainScene extends Phaser.Scene {
       }
       else {
         this.activeItem.reset();
+      }
+    });
+  }
+
+  addObjectToField(x, y, oldType) {
+    let newType = null;
+    if (oldType.includes('mirror')) {
+      newType = oldType.replace('stock', 'down');
+      const newTypeUp = newType.replace('down', 'up');
+      const gameObjectUp = new GameObject(this, x, y - SIZES.blocksInTile, newTypeUp);
+    }
+    else if (oldType.includes('bomb')) {
+      newType = 'bomb';
+    }
+
+    const gameObject = new GameObject(this, x, y, newType);
+    this.collideObjects.push(gameObject);
+    this.stock.removeActiveItem();
+    this.activeItem.reset();
+
+    this.collideObjects.forEach((item) => {
+      if (item.texture.includes('laser')) {
+        item.raysGenerator.refresh();
       }
     });
   }
@@ -217,6 +237,10 @@ export default class MainScene extends Phaser.Scene {
     const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % 40;
     const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % 40;
     return (remainderX < 2 || remainderX > 38 || remainderY < 2 || remainderY > 38);
+  }
+
+  removeCollideObject(item) {
+    this.collideObjects.filter((obj) => obj !== item);
   }
 
   update() {

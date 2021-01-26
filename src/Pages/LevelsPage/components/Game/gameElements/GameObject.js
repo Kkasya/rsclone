@@ -31,7 +31,7 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
   }
 
   _defineHitbox(texture) {
-    if (texture === 'char' || texture === 'bomb' || texture.includes('mirror-down')) {
+    if (texture === 'char' || texture === 'bomb' || texture?.includes('mirror-down')) {
       this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
       this.body.setOffset(12, 8);
     }
@@ -57,6 +57,12 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
           });
           this.raysGenerator.rays.length = 0;
         }
+
+        if (this.texture === 'bomb') {
+          this._explodeNearObjects(this.x, this.y);
+        }
+        
+        this.scene.removeCollideObject(this);
         this.destroy();
         this.isExplodeAccept = true;
       }, this.explodeDelay);
@@ -66,5 +72,19 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
   preventExplode() {
     clearTimeout(this.explodeTimer);
     this.isExplodeAccept = true;
+  }
+
+  _explodeNearObjects(x, y) {
+    for (let i = x - 40; i <= x + 40; i += 40) {
+      for (let j = y - 40; j <= y + 40; j += 40) {
+        if (i !== j) {
+          this.scene.collideObjects.forEach((item) => {
+            if (item.x === i && item.y === j) {
+              item.explode();
+            }
+          });
+        }
+      }
+    }
   }
 }
