@@ -56,11 +56,24 @@ export default class MainScene extends Phaser.Scene {
 
   _addListenerToField() {
     this.input.on('pointerdown', (pointer) => {
-      if (!pointer.primaryDown) {
-        this.activeItem.reset();
+      if (pointer.primaryDown) {
+        if (this.activeItem.type && this.activeItem.isSetupOnField) {
+          const x = pointer.worldX / SIZES.tileSizeInPixels - (pointer.worldX / SIZES.tileSizeInPixels % SIZES.blocksInTile);
+          const y = pointer.worldY / SIZES.tileSizeInPixels - (pointer.worldY / SIZES.tileSizeInPixels % SIZES.blocksInTile);
+
+          if (y < 9 * SIZES.blocksInTile) {
+            const gameObject = new GameObject(this, x, y, this.activeItem.type.key);
+            this.collideObjects.push(gameObject);
+            this.stock.removeActiveItem();
+            this.activeItem.reset();
+          }
+        }
+        else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
+          this.pathfinder.createPath(pointer);
+        }
       }
-      else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
-        this.pathfinder.createPath(pointer);
+      else {
+        this.activeItem.reset();
       }
     });
   }

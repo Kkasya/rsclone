@@ -83,6 +83,24 @@ const ITEMS = [
     isActionToChar: false,
   },
   {
+    type: 'laser-right-behind-mirror-right',
+  },
+  {
+    type: 'laser-left-behind-mirror-left',
+  },
+  {
+    type: 'laser-left-behind-mirror-right',
+  },
+  {
+    type: 'laser-right-behind-mirror-left',
+  },
+  {
+    type: 'laser-top-bottom-behind-mirror-left',
+  },
+  {
+    type: 'laser-top-bottom-behind-mirror-right',
+  },
+  {
     type: 'pail',
     action: 'pickItem',
     isActionToChar: true,
