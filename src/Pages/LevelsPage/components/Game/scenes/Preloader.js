@@ -1,5 +1,4 @@
 import * as Phaser from 'phaser';
-import map from '../levels/map.json';
 import ITEMS from '../constants/ITEMS';
 
 export default class Preloader extends Phaser.Scene {
@@ -9,7 +8,7 @@ export default class Preloader extends Phaser.Scene {
 
   preload() {
     this.add.text(20, 20, 'Loading...');
-    this.load.tilemapTiledJSON('map', map);
+    this.load.tilemapTiledJSON('map', require(`../levels/2.json`));
     ITEMS.forEach((item) => {
       this.load.image(item.type, `assets/sprites/${item.type}.png`);
     });

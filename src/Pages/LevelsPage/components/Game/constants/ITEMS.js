@@ -73,6 +73,16 @@ const ITEMS = [
     type: 'mirror-up-right',
   },
   {
+    type: 'mirror-stock-left',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
+  {
+    type: 'mirror-stock-right',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
+  {
     type: 'pail',
     action: 'pickItem',
     isActionToChar: true,

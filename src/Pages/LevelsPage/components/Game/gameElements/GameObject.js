@@ -4,7 +4,7 @@ import SIZES from '../constants/SIZES';
 import visibilityPriority from '../utils/visibilityPriority';
 
 export default class GameObject extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene, x = 0, y = 0, texture = 'char') {
+  constructor(scene, x = 0, y = 0, texture = 'char', isSetupOnField) {
     const xForPhaser = x * SIZES.tileSizeInPixels + SIZES.halfForOffset;
     const yForPhaser = y * SIZES.tileSizeInPixels + SIZES.halfForOffset;
 
@@ -12,6 +12,7 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     this.xForPhaser = xForPhaser;
     this.yForPhaser = yForPhaser;
     this.texture = texture;
+    this.isSetupOnField = isSetupOnField;
 
     scene.add.existing(this);
     scene.physics.add.existing(this);

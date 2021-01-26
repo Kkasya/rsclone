@@ -27,7 +27,9 @@ export default class MainScene extends Phaser.Scene {
     });
 
     const tileset = this.map.addTilesetImage('tiles');
-    this.map.createLayer(0, tileset, 0, 0).setInteractive({ cursor: 'pointer' });
+    this.map
+      .createLayer(0, tileset, 0, 0)
+      .setInteractive({ cursor: 'pointer' });
     this.stockEdge = Math.floor(this.map.layers[1].data.length * 0.8);
 
     this.interactionWithChar = this.interactionWithChar.bind(this);
@@ -69,7 +71,7 @@ export default class MainScene extends Phaser.Scene {
         const item = this.map.layers[1].data[i][j];
 
         if (item.index !== -1) {
-          const gameObject = new GameObject(this, item.x, item.y, item.properties.type);
+          const gameObject = new GameObject(this, item.x, item.y, item.properties.type, item.properties.isSetupOnField);
           if (item.properties.isCollied) {
             this.collideObjects.push(gameObject);
           }
@@ -110,7 +112,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createCharacter() {
-    const offsetX = 4 * SIZES.blocksInTile;
+    const offsetX = 2 * SIZES.blocksInTile;
     const offsetY = 2 * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char');
   }
@@ -124,7 +126,7 @@ export default class MainScene extends Phaser.Scene {
     switch (action) {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
-          this.stock.addItem(colliderItem.texture);
+          this.stock.addItem(colliderItem.texture, colliderItem.isSetupOnField);
           colliderItem.destroy();
         }
         break;
@@ -211,9 +213,15 @@ export default class MainScene extends Phaser.Scene {
     }
 
     if (this.activeItem.type) {
-      const x = this.input.mouse.manager.activePointer.worldX + SIZES.cursorImageOffset;
-      const y = this.input.mouse.manager.activePointer.worldY + SIZES.cursorImageOffset;
-      this.activeItem.image.setPosition(x, y);
+      const x = this.input.mouse.manager.activePointer.worldX;
+      const y = this.input.mouse.manager.activePointer.worldY;
+
+      if (this.activeItem.isSetupOnField) {
+        this.activeItem.image.setPosition(x, y);
+      }
+      else {
+        this.activeItem.image.setPosition(x + SIZES.cursorImageOffset, y + SIZES.cursorImageOffset);
+      }
     }
   }
 }

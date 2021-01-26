@@ -18,9 +18,10 @@ export default class ActiveItem {
     this.image.setPosition(-SIZES.cursorImageOffset, -SIZES.cursorImageOffset);
   }
 
-  setItem(type, index) {
+  setItem(type, index, isSetupOnField) {
     [this.type, this.index] = [type, index];
     this.image.setTexture(type);
+    this.isSetupOnField = isSetupOnField;
   }
 }
 

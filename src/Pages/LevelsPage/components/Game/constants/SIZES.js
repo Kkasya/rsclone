@@ -1,6 +1,6 @@
 const SIZES = {
   tileSize: 40,
-  fieldWidth: 14,
+  fieldWidth: 16,
   fieldHeight: 12,
   blocksInTile: 4,
   unacceptableId: 588,

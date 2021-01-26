@@ -17,7 +17,7 @@ export default class Stock {
     return this.itemsCounter < this.limit;
   }
 
-  addItem(itemType) {
+  addItem(itemType, isSetupOnField) {
     const firstEmptyCell = this.slots.findIndex((item) => {
       return (item.texture === 'emptySlot' || item.texture?.key === 'emptySlot');
     });
@@ -25,13 +25,13 @@ export default class Stock {
     this.slots[firstEmptyCell]
       .setTexture(itemType)
       .setInteractive({ cursor: 'pointer' });
-    this._addListener(this.slots[firstEmptyCell], firstEmptyCell);
+    this._addListener(this.slots[firstEmptyCell], firstEmptyCell, isSetupOnField);
     this.itemsCounter++;
   }
 
-  _addListener(item, index) {
+  _addListener(item, index, isSetupOnField) {
     item.on('pointerdown', () => {
-      this.scene.activeItem.setItem(item.texture, index);
+      this.scene.activeItem.setItem(item.texture, index, isSetupOnField);
     });
   }
 
