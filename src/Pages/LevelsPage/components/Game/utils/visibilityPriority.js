@@ -1,13 +1,17 @@
 const VISIBILITY_PRIORITY = {
   'char': 2,
   'ray': 3,
-  'rock-up': 4,
-  'activeItem': 5,
+  'ray-priority': 5,
+  'rock-up': 6,
+  'activeItem': 7,
 };
 
 export default function visibilityPriority(type) {
-  if (type.includes('mirror-up')) {
+  if (type.includes('mirror-down-')) {
     return 4;
+  }
+  if (type.includes('mirror-up-')) {
+    return 6;
   }
 
   return VISIBILITY_PRIORITY[type] || 1;

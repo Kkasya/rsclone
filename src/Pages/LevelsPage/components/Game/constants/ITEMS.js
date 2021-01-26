@@ -14,6 +14,18 @@ const ITEMS = [
     action: 'heatByLaser',
   },
   {
+    type: 'ray-angle-from-left',
+  },
+  {
+    type: 'ray-angle-from-right',
+  },
+  {
+    type: 'ray-short-left',
+  },
+  {
+    type: 'ray-short-right',
+  },
+  {
     type: 'menu',
   },
   {

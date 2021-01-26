@@ -34,7 +34,6 @@ export default class Stock {
     const index = this.scene.activeItem.index;
     this.slots[index].setTexture('emptySlot');
     this.slots[index].removeInteractive();
-    // this._moveEmptyToEnd(index);
     this.itemsCounter--;
   }
 }

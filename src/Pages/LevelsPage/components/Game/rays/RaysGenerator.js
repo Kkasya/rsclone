@@ -1,98 +1,38 @@
-import SIZES from '../constants/SIZES';
-import { LASER_OFFSET2 } from '../constants/LASER_OFFSET';
+import LASER_OFFSET from '../constants/LASER_OFFSET';
 import mirrorsReflection from './mirrorsReflection';
-import { RayHor, RayVert } from './RaysFabric';
+import FlyWeight from './RaysFabric';
 
 export default class RaysGenerator {
   constructor(scene, x, y, direction) {
     this.scene = scene;
-    this.initX = x;
-    this.initY = y;
-    this.direction = direction;
-
+    this.x = x;
+    this.y = y;
     this.rays = [];
-    this._drawRays();
+    this._drawRays(direction);
   }
 
-  _drawRays() {
-    if (this.direction === 'right') {
-      outer: for (let i = this.initX + LASER_OFFSET2[this.direction]; ; i += SIZES.tileSize) {
-        if (this._isCollisionWithRock(i, this.initY)) {
-          break;
-        }
+  _drawRays(direction) {
+    const { mainAxis, increment } = LASER_OFFSET[direction];
+    let isLastRay = false;
+    let mirrorType = null;
 
-        for (let j = 0; j < this.scene.collideObjects.length; j++) {
-          const item = this.scene.collideObjects[j];
-          if (i === item.x && this.initY === item.y) {
-            if (this._playCollision(this.direction, item)) {
-              break outer;
-            }
+    for (this[mainAxis] = this[mainAxis] + increment; !isLastRay; this[mainAxis] += increment) {
+      if (this._isCollisionWithRock(this.x, this.y)) {
+        break;
+      }
+
+      for (let j = 0; j < this.scene.collideObjects.length; j++) {
+        const item = this.scene.collideObjects[j];
+        if (this.x === item.x && this.y === item.y) {
+          isLastRay = this._playCollision(direction, item);
+          if (isLastRay) {
+            mirrorType = item.texture.split('-')[2];
           }
         }
-
-        const ray = new RayHor(this.scene, i, this.initY);
-        this.rays.push(ray);
       }
-    }
 
-    else if (this.direction === 'left') {
-      outer: for (let i = this.initX + LASER_OFFSET2[this.direction]; ; i -= SIZES.tileSize) {
-        if (this._isCollisionWithRock(i, this.initY)) {
-          break;
-        }
-
-        for (let j = 0; j < this.scene.collideObjects.length; j++) {
-          const item = this.scene.collideObjects[j];
-          if (i === item.x && this.initY === item.y) {
-            if (this._playCollision(this.direction, item)) {
-              break outer;
-            }
-          }
-        }
-
-        const ray = new RayHor(this.scene, i, this.initY);
-        this.rays.push(ray);
-      }
-    }
-
-    else if (this.direction === 'top') {
-      outer: for (let i = this.initY + LASER_OFFSET2[this.direction]; ; i -= SIZES.tileSize) {
-        if (this._isCollisionWithRock(this.initX, i)) {
-          break;
-        }
-
-        for (let j = 0; j < this.scene.collideObjects.length; j++) {
-          const item = this.scene.collideObjects[j];
-          if (this.initX === item.x && i === item.y) {
-            if (this._playCollision(this.direction, item)) {
-              break outer;
-            }
-          }
-        }
-
-        const ray = new RayVert(this.scene, this.initX, i);
-        this.rays.push(ray);
-      }
-    }
-
-    else if (this.direction === 'bottom') {
-      outer: for (let i = this.initY + LASER_OFFSET2[this.direction]; ; i += SIZES.tileSize) {
-        if (this._isCollisionWithRock(this.initX, i)) {
-          break;
-        }
-
-        for (let j = 0; j < this.scene.collideObjects.length; j++) {
-          const item = this.scene.collideObjects[j];
-          if (this.initX === item.x && i === item.y) {
-            if (this._playCollision(this.direction, item)) {
-              break outer;
-            }
-          }
-        }
-
-        const ray = new RayVert(this.scene, this.initX, i);
-        this.rays.push(ray);
-      }
+      const ray = new FlyWeight(mainAxis, this.scene, this.x, this.y, direction, isLastRay, mirrorType);
+      this.rays.push(ray);
     }
   }
 
@@ -108,7 +48,7 @@ export default class RaysGenerator {
         this.scene,
         item.x,
         item.y,
-        mirrorsReflection(mirrorType, currentDirection)
+        mirrorsReflection(mirrorType, currentDirection),
       );
       this.rays.push(...rays.rays);
       return true;

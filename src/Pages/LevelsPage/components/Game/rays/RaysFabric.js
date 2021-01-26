@@ -44,10 +44,26 @@ class Rays extends Phaser.Physics.Arcade.Sprite {
   }
 }
 
-export class RayHor extends Rays {
-  constructor(...props) {
-    super(...props, 'rayHor');
-    this._setOffset();
+class RayHor extends Rays {
+  constructor(scene, x, y, direction, isLastRay, mirrorType) {
+    super(scene, x, y, 'rayHor');
+
+    if (isLastRay) {
+      this._setLastTexture(direction, mirrorType);
+    }
+    else {
+      this._setOffset();
+    }
+  }
+
+  _setLastTexture(direction, mirrorType) {
+    if (direction === mirrorType) {
+      this.setTexture(`ray-short-${mirrorType}`);
+    }
+    else {
+      this.setTexture(`ray-angle-from-${mirrorType}`);
+      this.setDepth(visibilityPriority('ray-priority'));
+    }
   }
 
   _setOffset() {
@@ -55,8 +71,33 @@ export class RayHor extends Rays {
   }
 }
 
-export class RayVert extends Rays {
-  constructor(...props) {
-    super(...props, 'rayVert');
+class RayVert extends Rays {
+  constructor(scene, x, y, direction, isLastRay, mirrorType) {
+    super(scene, x, y, 'rayVert');
+
+    if (isLastRay) {
+      this._setLastTexture(direction, mirrorType);
+    }
+  }
+
+  _setLastTexture(direction, mirrorType) {
+    if (direction === 'bottom') {
+      this.setTexture(`ray-short-${mirrorType}`);
+    }
+    else if (direction === 'top') {
+      this.setTexture(`ray-angle-from-${mirrorType}`);
+      this.setDepth(visibilityPriority('ray-priority'));
+    }
+  }
+}
+
+export default class FlyWeight {
+  constructor(primAxis, ...props) {
+    if (primAxis === 'x') {
+      return new RayHor(...props);
+    }
+    if (primAxis === 'y') {
+      return new RayVert(...props);
+    }
   }
 }
