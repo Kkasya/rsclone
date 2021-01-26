@@ -18,8 +18,13 @@ export default class Stock {
   }
 
   addItem(itemType) {
-    const firstEmptyCell = this.slots.findIndex((item) => (item.texture === 'emptySlot'));
-    this.slots[firstEmptyCell].setTexture(itemType);
+    const firstEmptyCell = this.slots.findIndex((item) => {
+      return (item.texture === 'emptySlot' || item.texture?.key === 'emptySlot');
+    });
+
+    this.slots[firstEmptyCell]
+      .setTexture(itemType)
+      .setInteractive({ cursor: 'pointer' });
     this._addListener(this.slots[firstEmptyCell], firstEmptyCell);
     this.itemsCounter++;
   }
@@ -32,8 +37,9 @@ export default class Stock {
 
   removeActiveItem() {
     const index = this.scene.activeItem.index;
-    this.slots[index].setTexture('emptySlot');
-    this.slots[index].removeInteractive();
+    this.slots[index]
+      .setTexture('emptySlot')
+      .removeInteractive();
     this.itemsCounter--;
   }
 }
