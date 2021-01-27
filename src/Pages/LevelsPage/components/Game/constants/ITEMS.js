@@ -45,25 +45,13 @@ const ITEMS = [
     type: 'bomb',
   },
   {
-    type: 'bomb-stock',
+    type: 'stock-bomb',
     action: 'pickItem',
     isActionToChar: false,
   },
   {
     type: 'fire',
     action: 'heatByFire',
-  },
-  {
-    type: 'mirror-double-left-left',
-  },
-  {
-    type: 'mirror-double-left-right',
-  },
-  {
-    type: 'mirror-double-right-left',
-  },
-  {
-    type: 'mirror-double-right-right',
   },
   {
     type: 'mirror-down-left',
@@ -78,32 +66,14 @@ const ITEMS = [
     type: 'mirror-up-right',
   },
   {
-    type: 'mirror-stock-left',
+    type: 'stock-mirror-down-left',
     action: 'pickItem',
     isActionToChar: false,
   },
   {
-    type: 'mirror-stock-right',
+    type: 'stock-mirror-down-right',
     action: 'pickItem',
     isActionToChar: false,
-  },
-  {
-    type: 'laser-right-behind-mirror-right',
-  },
-  {
-    type: 'laser-left-behind-mirror-left',
-  },
-  {
-    type: 'laser-left-behind-mirror-right',
-  },
-  {
-    type: 'laser-right-behind-mirror-left',
-  },
-  {
-    type: 'laser-top-bottom-behind-mirror-left',
-  },
-  {
-    type: 'laser-top-bottom-behind-mirror-right',
   },
   {
     type: 'pail',

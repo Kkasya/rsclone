@@ -9,8 +9,8 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     const yForPhaser = y * SIZES.tileSizeInPixels + SIZES.halfForOffset;
 
     super(scene, xForPhaser, yForPhaser, texture);
-    this.xForPhaser = xForPhaser;
-    this.yForPhaser = yForPhaser;
+    this.scene = scene;
+    [this.xForPhaser, this.yForPhaser] = [xForPhaser, yForPhaser];
     this.texture = texture;
     this.isSetupOnField = isSetupOnField;
 
@@ -23,6 +23,11 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     this.explodeDelay = 2500;
     this.isDetonateAccept = true;
     this.explodeTimer = null;
+
+    if (texture.startsWith('mirror-down')) {
+      const mirrorUpType = texture.replace('down', 'up');
+      this.mirrorUp = new GameObject(scene, x, y - SIZES.blocksInTile, mirrorUpType);
+    }
   }
 
   createRays() {
@@ -58,7 +63,6 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
 
   explode() {
     this.scene.removeCollideObject(this);
-
     if (this.raysGenerator?.rays?.length) {
       this.raysGenerator.rays.forEach((ray) => {
         ray.destroy();
@@ -70,10 +74,8 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
       this._explodeNearObjects(this.x, this.y);
     }
 
-    if (this.gameObjectUp) {
-      this.gameObjectUp.destroy();
-    }
-
+    this.scene.refreshLasers();
+    this.mirrorUp?.destroy();
     this.destroy();
   }
 
@@ -83,18 +85,16 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
   }
 
   _explodeNearObjects(x, y) {
-    for (let i = x - 40; i <= x + 40; i += 40) {
-      for (let j = y - 40; j <= y + 40; j += 40) {
-        if (i !== j) {
-          if (this.scene.char.x === i && this.scene.char.y === j) {
-            this.scene.char.explode();
-          }
-          this.scene.collideObjects.forEach((item) => {
-            if (item.x === i && item.y === j) {
-              item.explode();
-            }
-          });
+    for (let i = x - SIZES.tileSize; i <= x + SIZES.tileSize; i += SIZES.tileSize) {
+      for (let j = y - SIZES.tileSize; j <= y + SIZES.tileSize; j += SIZES.tileSize) {
+        if (this.scene.char.x === i && this.scene.char.y === j) {
+          this.scene.char.explode();
         }
+        this.scene.collideObjects.forEach((item) => {
+          if (item.x === i && item.y === j) {
+            item.explode();
+          }
+        });
       }
     }
   }

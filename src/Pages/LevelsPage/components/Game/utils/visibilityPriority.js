@@ -7,12 +7,11 @@ const VISIBILITY_PRIORITY = {
 };
 
 export default function visibilityPriority(type) {
-  if (type.includes('mirror-down-')) {
+  if (type.startsWith('mirror-down')) {
     return 4;
   }
-  if (type.includes('mirror-up-')) {
+  if (type.startsWith('mirror-up')) {
     return 6;
   }
-
   return VISIBILITY_PRIORITY[type] || 1;
 }

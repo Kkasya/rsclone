@@ -1,27 +1,21 @@
 import LASER_OFFSET from '../constants/LASER_OFFSET';
 import mirrorsReflection from './mirrorsReflection';
-import FlyWeight from './RaysFabric';
+import RaysFabric from './RaysFabric';
 
 export default class RaysGenerator {
-  constructor(scene, x, y, direction) {
-    this.scene = scene;
-    this.sourceX = x;
-    this.sourceY = y;
+  constructor(...props) {
+    [this.scene, this.sourceX, this.sourceY, this.direction] = [...props];
     this.rays = [];
-    this.direction = direction;
     this._drawRays();
   }
 
   _drawRays() {
-    this.x = this.sourceX;
-    this.y = this.sourceY;
-
+    [this.x, this.y] = [this.sourceX, this.sourceY];
     const { mainAxis, increment } = LASER_OFFSET[this.direction];
     let isLastRay = false;
     let mirrorType = '';
 
-    let i = 0;
-    for (this[mainAxis] = this[mainAxis] + increment; !isLastRay; this[mainAxis] += increment, i++) {
+    for (this[mainAxis] = this[mainAxis] + increment; !isLastRay; this[mainAxis] += increment) {
       if (this._isCollisionWithRock(this.x, this.y)) {
         break;
       }
@@ -36,7 +30,15 @@ export default class RaysGenerator {
         }
       }
 
-      const ray = new FlyWeight(mainAxis, this.scene, this.x, this.y, this.direction, isLastRay, mirrorType);
+      const ray = new RaysFabric(
+        mainAxis,
+        this.scene,
+        this.x,
+        this.y,
+        this.direction,
+        isLastRay,
+        mirrorType,
+      );
       this.rays.push(ray);
     }
   }

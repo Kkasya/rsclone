@@ -91,7 +91,7 @@ class RayVert extends Rays {
   }
 }
 
-export default class FlyWeight {
+export default class RaysFabric {
   constructor(primAxis, ...props) {
     if (primAxis === 'x') {
       return new RayHor(...props);

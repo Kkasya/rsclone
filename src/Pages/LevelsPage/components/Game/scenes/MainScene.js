@@ -76,28 +76,16 @@ export default class MainScene extends Phaser.Scene {
   }
 
   addObjectToField(x, y, oldType) {
-    let newType = null;
-    let gameObjectUp = null;
-
-    if (oldType.includes('bomb')) {
-      newType = 'bomb';
-    }
-    else if (oldType.includes('mirror')) {
-      newType = oldType.replace('stock', 'down');
-      const newTypeUp = newType.replace('down', 'up');
-      gameObjectUp = new GameObject(this, x, y - SIZES.blocksInTile, newTypeUp);
-    }
-
+    const newType = oldType.replace('stock-', '');
     const gameObject = new GameObject(this, x, y, newType);
-
-    if (gameObjectUp) {
-      gameObject.gameObjectUp = gameObjectUp;
-    }
 
     this.collideObjects.push(gameObject);
     this.stock.removeActiveItem();
     this.activeItem.reset();
+    this.refreshLasers();
+  }
 
+  refreshLasers() {
     this.collideObjects.forEach((item) => {
       if (item.texture.includes('laser')) {
         item.raysGenerator.refresh();
@@ -111,7 +99,13 @@ export default class MainScene extends Phaser.Scene {
         const item = this.map.layers[1].data[i][j];
 
         if (item.index !== -1) {
-          const gameObject = new GameObject(this, item.x, item.y, item.properties.type, item.properties.isSetupOnField);
+          const gameObject = new GameObject(
+            this,
+            item.x,
+            item.y,
+            item.properties.type,
+            item.properties.isSetupOnField,
+          );
           if (item.properties.isCollied) {
             this.collideObjects.push(gameObject);
           }
@@ -247,7 +241,7 @@ export default class MainScene extends Phaser.Scene {
   }
 
   removeCollideObject(item) {
-    this.collideObjects.filter((obj) => obj !== item);
+    this.collideObjects = this.collideObjects.filter((obj) => obj !== item);
   }
 
   update() {
