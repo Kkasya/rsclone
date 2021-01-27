@@ -28,7 +28,7 @@ class Rays extends Phaser.Physics.Arcade.Sprite {
   }
 
   _collideWithBombs(item) {
-    item.explode();
+    item.detonate();
   }
 
   _setCollisionWithLasers() {
@@ -40,7 +40,7 @@ class Rays extends Phaser.Physics.Arcade.Sprite {
   }
 
   _collideWithLasers(item) {
-    item.explode();
+    item.detonate();
   }
 }
 

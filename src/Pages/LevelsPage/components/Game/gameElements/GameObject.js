@@ -21,7 +21,7 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     this.setDepth(visibilityPriority(texture));
 
     this.explodeDelay = 2500;
-    this.isExplodeAccept = true;
+    this.isDetonateAccept = true;
     this.explodeTimer = null;
   }
 
@@ -45,39 +45,50 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.add.collider(this, this.scene.char, this.scene.interactionWithChar);
   }
 
-  explode() {
-    if (this.isExplodeAccept) {
-      this.isExplodeAccept = false;
+  detonate() {
+    if (this.isDetonateAccept) {
+      this.isDetonateAccept = false;
 
-      console.log('explode!');
       this.explodeTimer = setTimeout(() => {
-        if (this.raysGenerator?.rays?.length) {
-          this.raysGenerator.rays.forEach((ray) => {
-            ray.destroy();
-          });
-          this.raysGenerator.rays.length = 0;
-        }
-
-        if (this.texture === 'bomb') {
-          this._explodeNearObjects(this.x, this.y);
-        }
-        
-        this.scene.removeCollideObject(this);
-        this.destroy();
-        this.isExplodeAccept = true;
+        this.explode();
+        this.isDetonateAccept = true;
       }, this.explodeDelay);
     }
   }
 
+  explode() {
+    this.scene.removeCollideObject(this);
+
+    if (this.raysGenerator?.rays?.length) {
+      this.raysGenerator.rays.forEach((ray) => {
+        ray.destroy();
+      });
+      this.raysGenerator.rays.length = 0;
+    }
+
+    if (this.texture === 'bomb') {
+      this._explodeNearObjects(this.x, this.y);
+    }
+
+    if (this.gameObjectUp) {
+      this.gameObjectUp.destroy();
+    }
+
+    this.destroy();
+  }
+
   preventExplode() {
     clearTimeout(this.explodeTimer);
-    this.isExplodeAccept = true;
+    this.isDetonateAccept = true;
   }
 
   _explodeNearObjects(x, y) {
     for (let i = x - 40; i <= x + 40; i += 40) {
       for (let j = y - 40; j <= y + 40; j += 40) {
         if (i !== j) {
+          if (this.scene.char.x === i && this.scene.char.y === j) {
+            this.scene.char.explode();
+          }
           this.scene.collideObjects.forEach((item) => {
             if (item.x === i && item.y === j) {
               item.explode();

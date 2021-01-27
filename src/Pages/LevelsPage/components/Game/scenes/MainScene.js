@@ -77,16 +77,23 @@ export default class MainScene extends Phaser.Scene {
 
   addObjectToField(x, y, oldType) {
     let newType = null;
-    if (oldType.includes('mirror')) {
+    let gameObjectUp = null;
+
+    if (oldType.includes('bomb')) {
+      newType = 'bomb';
+    }
+    else if (oldType.includes('mirror')) {
       newType = oldType.replace('stock', 'down');
       const newTypeUp = newType.replace('down', 'up');
-      const gameObjectUp = new GameObject(this, x, y - SIZES.blocksInTile, newTypeUp);
-    }
-    else if (oldType.includes('bomb')) {
-      newType = 'bomb';
+      gameObjectUp = new GameObject(this, x, y - SIZES.blocksInTile, newTypeUp);
     }
 
     const gameObject = new GameObject(this, x, y, newType);
+
+    if (gameObjectUp) {
+      gameObject.gameObjectUp = gameObjectUp;
+    }
+
     this.collideObjects.push(gameObject);
     this.stock.removeActiveItem();
     this.activeItem.reset();

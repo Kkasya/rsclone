@@ -77,4 +77,8 @@ export default class Char extends GameObject {
     }
     this.scene.isReadyToToggleCollide = true;
   }
+
+  explode() {
+    console.log('char was exploded!');
+  }
 }
