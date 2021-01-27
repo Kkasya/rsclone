@@ -2,7 +2,7 @@ import * as Phaser from 'phaser';
 import Pathfinder from '../utils/Pathfinder';
 import ActionsReducer from '../utils/ActionsReducer';
 import SIZES from '../constants/SIZES';
-import GameObject from '../gameElements/GameObject';
+import GameObjectFabric from '../gameElements/GameObjectFabric';
 import Char from '../gameElements/Char';
 import Stock from '../gameElements/Stock';
 import ActiveItem from '../gameElements/ActiveItem';
@@ -77,7 +77,7 @@ export default class MainScene extends Phaser.Scene {
 
   addObjectToField(x, y, oldType) {
     const newType = oldType.replace('stock-', '');
-    const gameObject = new GameObject(this, x, y, newType);
+    const gameObject = new GameObjectFabric(this, x, y, newType);
 
     this.collideObjects.push(gameObject);
     this.stock.removeActiveItem();
@@ -99,7 +99,7 @@ export default class MainScene extends Phaser.Scene {
         const item = this.map.layers[1].data[i][j];
 
         if (item.index !== -1) {
-          const gameObject = new GameObject(
+          const gameObject = new GameObjectFabric(
             this,
             item.x,
             item.y,
@@ -124,7 +124,7 @@ export default class MainScene extends Phaser.Scene {
         const item = data[i][j];
 
         if (item.index !== -1 && data[i - 1][j].index === -1) {
-          const gameObject = new GameObject(this, item.x, item.y, item.properties.type);
+          const gameObject = new GameObjectFabric(this, item.x, item.y, item.properties.type);
           if (item.properties.type === 'move') {
             this.moveButton = gameObject;
           }

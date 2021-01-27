@@ -49,7 +49,7 @@ export default class RaysGenerator {
   }
 
   _playCollision(currentDirection, item) {
-    if (item.texture.includes('mirror-down-')) {
+    if (item.texture.includes('mirror-down')) {
       const mirrorType = item.texture.split('-')[2];
       const rays = new RaysGenerator(
         this.scene,
