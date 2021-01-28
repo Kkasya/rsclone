@@ -34,7 +34,7 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
   }
 
   explode() {
-    this.scene.removeCollideObject(this);
+    this.scene.removeItem(this.scene.collideObjects, this);
     this.scene.refreshLasers();
     this.destroy();
   }

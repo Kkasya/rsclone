@@ -21,7 +21,7 @@ export default class Bomb extends GameObject {
   }
 
   explode() {
-    this.scene.removeCollideObject(this);
+    this.scene.removeItem(this.scene.collideObjects, this);
     this._explodeNearObjects(this.x, this.y);
     this.scene.refreshLasers();
     this.destroy();

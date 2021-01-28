@@ -13,6 +13,8 @@ export default class MainScene extends Phaser.Scene {
     this.pathfinder = new Pathfinder(this);
     this.actionsReducer = new ActionsReducer();
     this.collideObjects = [];
+    this.nonCollideObjects = [];
+
     this.stock = new Stock(this);
     this.activeItem = new ActiveItem(this);
     this.isCollideAccept = true;
@@ -58,11 +60,17 @@ export default class MainScene extends Phaser.Scene {
     this.input.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
         if (this.activeItem.type && this.activeItem.isSetupOnField) {
-          const x = pointer.worldX / SIZES.tileSizeInPixels - (pointer.worldX / SIZES.tileSizeInPixels % SIZES.blocksInTile);
-          const y = pointer.worldY / SIZES.tileSizeInPixels - (pointer.worldY / SIZES.tileSizeInPixels % SIZES.blocksInTile);
+          const x = Math.floor(pointer.worldX / SIZES.tileSize) * SIZES.tileSize + SIZES.halfForOffset;
+          const y = Math.floor(pointer.worldY / SIZES.tileSize) * SIZES.tileSize + SIZES.halfForOffset;
 
-          if (y < 9 * SIZES.blocksInTile) {
-            this.addObjectToField(x, y, this.activeItem.type.key);
+          for (let i = 0; i < this.nonCollideObjects.length; i++) {
+            if (this.nonCollideObjects[i].x === x && this.nonCollideObjects[i].y === y) {
+              return;
+            }
+          }
+
+          if (y < 9 * SIZES.tileSize) {
+            this.addObjectToField((x - 20) / 10, (y - 20) / 10, this.activeItem.type.key);
           }
         }
         else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
@@ -109,7 +117,8 @@ export default class MainScene extends Phaser.Scene {
           if (item.properties.isCollied) {
             this.collideObjects.push(gameObject);
           }
-          else {
+          else if (!gameObject.texture.includes('rock')) {
+            this.nonCollideObjects.push(gameObject);
             gameObject.setCollisionWithChar();
           }
         }
@@ -161,6 +170,7 @@ export default class MainScene extends Phaser.Scene {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
           this.stock.addItem(colliderItem.texture, colliderItem.isSetupOnField);
+          this.removeItem(this.nonCollideObjects, colliderItem);
           colliderItem.destroy();
         }
         break;
@@ -235,13 +245,14 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _isNearTileBoundaries() {
-    const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % 40;
-    const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % 40;
+    const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % SIZES.tileSize;
+    const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % SIZES.tileSize;
     return (remainderX < 2 || remainderX > 38 || remainderY < 2 || remainderY > 38);
   }
 
-  removeCollideObject(item) {
-    this.collideObjects = this.collideObjects.filter((obj) => obj !== item);
+  removeItem(arr, item) {
+    const index = arr.indexOf(item);
+    arr.splice(index, 1);
   }
 
   update() {
