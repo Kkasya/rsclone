@@ -6,6 +6,7 @@ import GameObjectFabric from '../gameElements/GameObjectFabric';
 import Char from '../gameElements/Char';
 import Stock from '../gameElements/Stock';
 import ActiveItem from '../gameElements/ActiveItem';
+import INIT_CHAR_LOCATION from '../levels/INIT_CHAR_LOCATION';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -58,7 +59,7 @@ export default class MainScene extends Phaser.Scene {
 
   createRays() {
     this.collideObjects.forEach((item) => {
-      if (item.texture.includes('laser')) {
+      if (item.texture.key.includes('laser')) {
         item.createRays();
       }
     });
@@ -115,7 +116,7 @@ export default class MainScene extends Phaser.Scene {
 
   refreshLasers() {
     this.collideObjects.forEach((item) => {
-      if (item.texture.includes('laser')) {
+      if (item.texture.key.includes('laser')) {
         item.raysGenerator.refresh();
       }
     });
@@ -138,7 +139,7 @@ export default class MainScene extends Phaser.Scene {
             if (item.properties.isCollied) {
               this.collideObjects.push(gameObject);
             }
-            else if (!gameObject.texture.includes('rock')) {
+            else if (!gameObject.texture.key.includes('rock')) {
               this.pickableObjects.push(gameObject);
               gameObject.setCollisionWithChar();
             }
@@ -195,13 +196,13 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createCharacter() {
-    const offsetX = 2 * SIZES.blocksInTile;
-    const offsetY = 2 * SIZES.blocksInTile;
+    const offsetX = INIT_CHAR_LOCATION[this.game.levelNumber - 1].x * SIZES.blocksInTile;
+    const offsetY = INIT_CHAR_LOCATION[this.game.levelNumber - 1].y * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char');
   }
 
   interactionWithChar(colliderItem) {
-    const action = this.actionsReducer.defineAction(colliderItem.texture);
+    const action = this.actionsReducer.defineAction(colliderItem.texture.key);
     if (!this.isCollideAccept || !action) {
       return;
     }
@@ -209,7 +210,7 @@ export default class MainScene extends Phaser.Scene {
     switch (action) {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
-          this.stock.addItem(colliderItem.texture, colliderItem.isSetupOnField);
+          this.stock.addItem(colliderItem.texture.key, colliderItem.isSetupOnField);
           this.removeItem(this.pickableObjects, colliderItem);
           colliderItem.destroy();
         }

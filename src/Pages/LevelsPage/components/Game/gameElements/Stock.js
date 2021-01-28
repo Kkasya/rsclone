@@ -19,7 +19,7 @@ export default class Stock {
 
   addItem(itemType, isSetupOnField) {
     const firstEmptyCell = this.slots.findIndex((item) => {
-      return (item.texture === 'emptySlot' || item.texture?.key === 'emptySlot');
+      return (item.texture.key === 'emptySlot');
     });
 
     this.slots[firstEmptyCell]
@@ -31,7 +31,7 @@ export default class Stock {
 
   _addListener(item, index, isSetupOnField) {
     item.on('pointerdown', () => {
-      this.scene.activeItem.setItem(item.texture, index, isSetupOnField);
+      this.scene.activeItem.setItem(item.texture.key, index, isSetupOnField);
     });
   }
 

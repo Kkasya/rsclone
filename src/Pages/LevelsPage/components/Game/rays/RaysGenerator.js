@@ -28,7 +28,7 @@ export default class RaysGenerator {
         if (this.x === item.x && this.y === item.y) {
           isLastRay = this._playCollision(this.direction, item);
           if (isLastRay) {
-            mirrorType = item.texture.split('-')[2];
+            mirrorType = item.texture.key.split('-')[2];
           }
         }
       }
@@ -52,8 +52,8 @@ export default class RaysGenerator {
   }
 
   _playCollision(currentDirection, item) {
-    if (item.texture.includes('mirror-down')) {
-      const mirrorType = item.texture.split('-')[2];
+    if (item.texture.key.includes('mirror-down')) {
+      const mirrorType = item.texture.key.split('-')[2];
       const rays = new RaysGenerator(
         this.scene,
         item.x,

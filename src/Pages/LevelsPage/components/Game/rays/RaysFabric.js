@@ -4,7 +4,6 @@ import visibilityPriority from '../utils/visibilityPriority';
 class Rays extends Phaser.Physics.Arcade.Sprite {
   constructor(...props) {
     super(...props);
-    this.texture = this.texture.key;
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.setInteractive({ cursor: 'pointer' });
@@ -21,7 +20,7 @@ class Rays extends Phaser.Physics.Arcade.Sprite {
 
   _setCollisionWithBombs() {
     this.scene.collideObjects.forEach((item) => {
-      if (item.texture === 'bomb') {
+      if (item.texture.key === 'bomb') {
         this.scene.physics.add.collider(item, this, this._collideWithBombs);
       }
     });
@@ -33,7 +32,7 @@ class Rays extends Phaser.Physics.Arcade.Sprite {
 
   _setCollisionWithLasers() {
     this.scene.collideObjects.forEach((item) => {
-      if (item.texture.includes('laser')) {
+      if (item.texture.key.includes('laser')) {
         this.scene.physics.add.collider(item, this, this._collideWithLasers);
       }
     });
