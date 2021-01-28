@@ -6,7 +6,10 @@ export default class RaysGenerator {
   constructor(...props) {
     [this.scene, this.sourceX, this.sourceY, this.direction] = [...props];
     this.rays = [];
-    this._drawRays();
+
+    if (this.scene?.sys?.config === 'MainScene') {
+      this._drawRays();
+    }
   }
 
   _drawRays() {

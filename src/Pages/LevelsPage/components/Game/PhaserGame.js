@@ -12,7 +12,7 @@ export default class PhaserGame extends Phaser.Game {
       width: SIZES.widthInPixels,
       height: SIZES.heightInPixels,
       scale: {
-        zoom: 1.5,
+        zoom: 1,
       },
 
       parent: 'gameContainer',
@@ -26,7 +26,7 @@ export default class PhaserGame extends Phaser.Game {
       physics: {
         default: 'arcade',
         arcade: {
-          debug: true,
+          debug: false,
           gravity: { y: 0 },
         },
       },

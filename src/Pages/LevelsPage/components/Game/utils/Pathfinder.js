@@ -55,7 +55,7 @@ export default class Pathfinder {
 
   _getIdFromFloorLayer(x, y) {
     const tile = this.scene.map.getTileAt(x, y);
-    return tile.index;
+    return tile?.index;
   }
 
   _calculatePath(fromX, fromY, toX, toY) {

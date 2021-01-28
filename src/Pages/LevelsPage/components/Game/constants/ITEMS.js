@@ -32,6 +32,9 @@ const ITEMS = [
     type: 'move',
   },
   {
+    type: 'restartButton',
+  },
+  {
     type: 'emptySlot',
   },
   {

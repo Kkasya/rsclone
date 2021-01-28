@@ -1,7 +1,7 @@
 const SIZES = {
   tileSize: 40,
-  fieldWidth: 16,
-  fieldHeight: 12,
+  fieldWidth: 17,
+  fieldHeight: 14,
   blocksInTile: 4,
   unacceptableId: 588,
 
@@ -25,7 +25,7 @@ const SIZES = {
     return this.tileSize * (3 / 4);
   },
 
-  duration: 300,
+  duration: 200,
 
   hitboxes: {
     small: 2,

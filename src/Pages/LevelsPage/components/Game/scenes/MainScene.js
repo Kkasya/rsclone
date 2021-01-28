@@ -12,16 +12,28 @@ export default class MainScene extends Phaser.Scene {
     super('MainScene');
     this.pathfinder = new Pathfinder(this);
     this.actionsReducer = new ActionsReducer();
-    this.collideObjects = [];
-    this.nonCollideObjects = [];
-
-    this.stock = new Stock(this);
-    this.activeItem = new ActiveItem(this);
-    this.isCollideAccept = true;
-    this.isReadyToToggleCollide = false;
   }
 
   create() {
+    this.createMap();
+    this.init();
+    this.stockEdge = Math.floor(this.map.layers[2].data.length * 0.8);
+    this.interactionWithChar = this.interactionWithChar.bind(this);
+
+    this._addListenerToField();
+    this._createCharacter();
+    this._createGameObjects();
+    this._createControlPanel();
+    this._addListenerToMoveButton();
+    this._addListenerToRestartButton();
+    this.stock.defineLimit();
+    this.activeItem.init();
+
+    this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
+    this.createRays();
+  }
+
+  createMap() {
     this.map = this.make.tilemap({
       key: 'map',
       tileWidth: SIZES.tileSize,
@@ -32,20 +44,16 @@ export default class MainScene extends Phaser.Scene {
     this.map
       .createLayer(0, tileset, 0, 0)
       .setInteractive({ cursor: 'pointer' });
-    this.stockEdge = Math.floor(this.map.layers[1].data.length * 0.8);
+  }
 
-    this.interactionWithChar = this.interactionWithChar.bind(this);
-
-    this._addListenerToField();
-    this._createCharacter();
-    this._createGameObjects();
-    this._createControlPanel();
-    this._addListenerToMoveButton();
-    this.stock.defineLimit();
-    this.activeItem.init();
-
-    this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
-    this.createRays();
+  init() {
+    this.stock = new Stock(this);
+    this.activeItem = new ActiveItem(this);
+    this.collideObjects = [];
+    this.pickableObjects = [];
+    this.restartButton = null;
+    this.isCollideAccept = true;
+    this.isReadyToToggleCollide = false;
   }
 
   createRays() {
@@ -63,15 +71,19 @@ export default class MainScene extends Phaser.Scene {
           const x = Math.floor(pointer.worldX / SIZES.tileSize) * SIZES.tileSize + SIZES.halfForOffset;
           const y = Math.floor(pointer.worldY / SIZES.tileSize) * SIZES.tileSize + SIZES.halfForOffset;
 
-          for (let i = 0; i < this.nonCollideObjects.length; i++) {
-            if (this.nonCollideObjects[i].x === x && this.nonCollideObjects[i].y === y) {
-              return;
-            }
+          if (this.isCollideWithPickableObjects(x, y)) {
+            return;
           }
 
-          if (y < 9 * SIZES.tileSize) {
-            this.addObjectToField((x - 20) / 10, (y - 20) / 10, this.activeItem.type.key);
+          const newX = (x - 20) / 10;
+          const newY = (y - 20) / 10;
+          const properties = this.map.tilesets[0].tileProperties;
+          const id = this.pathfinder._getTileID(newX, newY);
+          if (properties[id - 1]?.isCollied) {
+            return;
           }
+
+          this.addObjectToField((x - 20) / 10, (y - 20) / 10, this.activeItem.type.key);
         }
         else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
           this.pathfinder.createPath(pointer);
@@ -81,6 +93,14 @@ export default class MainScene extends Phaser.Scene {
         this.activeItem.reset();
       }
     });
+  }
+
+  isCollideWithPickableObjects(x, y) {
+    for (let i = 0; i < this.pickableObjects.length; i++) {
+      if (this.pickableObjects[i].x === x && this.pickableObjects[i].y === y) {
+        return true;
+      }
+    }
   }
 
   addObjectToField(x, y, oldType) {
@@ -102,24 +122,26 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createGameObjects() {
-    for (let i = 0; i < this.stockEdge; i += 4) {
-      for (let j = 0; j < this.map.layers[1].data[i].length; j += 4) {
-        const item = this.map.layers[1].data[i][j];
+    for (let z = 1; z < this.map.layers.length; z += 1) {
+      for (let i = 0; i < this.stockEdge; i += 4) {
+        for (let j = 0; j < this.map.layers[z].data[i].length; j += 4) {
+          const item = this.map.layers[z].data[i][j];
 
-        if (item.index !== -1) {
-          const gameObject = new GameObjectFabric(
-            this,
-            item.x,
-            item.y,
-            item.properties.type,
-            item.properties.isSetupOnField,
-          );
-          if (item.properties.isCollied) {
-            this.collideObjects.push(gameObject);
-          }
-          else if (!gameObject.texture.includes('rock')) {
-            this.nonCollideObjects.push(gameObject);
-            gameObject.setCollisionWithChar();
+          if (item.index !== -1) {
+            const gameObject = new GameObjectFabric(
+              this,
+              item.x,
+              item.y,
+              item.properties.type,
+              item.properties.isSetupOnField,
+            );
+            if (item.properties.isCollied) {
+              this.collideObjects.push(gameObject);
+            }
+            else if (!gameObject.texture.includes('rock')) {
+              this.pickableObjects.push(gameObject);
+              gameObject.setCollisionWithChar();
+            }
           }
         }
       }
@@ -127,15 +149,25 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createControlPanel() {
-    const data = this.map.layers[1].data;
+    const data = this.map.layers[2].data;
     for (let i = this.stockEdge; i < data.length; i += 1) {
       for (let j = 0; j < data[i].length; j += 1) {
         const item = data[i][j];
 
         if (item.index !== -1 && data[i - 1][j].index === -1) {
+          if (item.properties.type === 'restartButton' && this.restartButton) {
+            continue;
+          }
+
           const gameObject = new GameObjectFabric(this, item.x, item.y, item.properties.type);
+
           if (item.properties.type === 'move') {
             this.moveButton = gameObject;
+          }
+          else if (item.properties.type === 'restartButton') {
+            gameObject.x += 28;
+            gameObject.y -= 10;
+            this.restartButton = gameObject;
           }
           else {
             this.stock.addEmptySlot(gameObject);
@@ -150,6 +182,14 @@ export default class MainScene extends Phaser.Scene {
     this.moveButton.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
         this.activeItem.reset();
+      }
+    });
+  }
+
+  _addListenerToRestartButton() {
+    this.restartButton.on('pointerdown', (pointer) => {
+      if (pointer.primaryDown) {
+        this.scene.start('MainScene');
       }
     });
   }
@@ -170,7 +210,7 @@ export default class MainScene extends Phaser.Scene {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
           this.stock.addItem(colliderItem.texture, colliderItem.isSetupOnField);
-          this.removeItem(this.nonCollideObjects, colliderItem);
+          this.removeItem(this.pickableObjects, colliderItem);
           colliderItem.destroy();
         }
         break;
@@ -220,7 +260,7 @@ export default class MainScene extends Phaser.Scene {
         },
       });
 
-      const fieldType = this.map.layers[1].data[cellY][cellX].properties.type;
+      const fieldType = this.map.layers[2].data[cellY][cellX].properties.type;
       if (this.checkMobility(fieldType)) {
         break;
       }
