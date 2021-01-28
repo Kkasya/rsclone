@@ -84,6 +84,13 @@ const stylesCommon = makeStyles({
   buttonHide: {
     display: 'none'
   },
+
+  navBarAndProfile: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    columnGap: '1em'
+  }
 });
 
 export default stylesCommon;

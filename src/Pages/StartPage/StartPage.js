@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import Nav from '../../common/Navigation/Nav/Nav';
 import stylesCommon from '../../common/styles/stylesCommon';
-import LoginModal from './components/LoginModal';
+import LoginModal from '../../common/Login/LoginModal';
 
 export default function StartPage() {
   const commonStyles = stylesCommon();
@@ -15,7 +15,6 @@ export default function StartPage() {
       <div className={commonStyles.containerPage}>
         <LoginModal />
         <Nav isNavbar={false} />
-        <div className='' ></div>
       </div>
     </Container>
   );

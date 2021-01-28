@@ -30,7 +30,7 @@ const loginStyles = makeStyles({
     alignItems: 'center',
     flexDirection: 'column',
     borderRadius: '4px!important',
-    backgroundColor: '#FFBA5F!important',
+    backgroundColor: '#B3ECFF!important',
     textAlign: 'center',
     position: 'relative',
   },
@@ -58,6 +58,24 @@ const loginStyles = makeStyles({
   },
   '& div': {
     backgroundColor: '#FFBA5F!important',
+  },
+  overlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#000000d1',
+    zIndex: '10'
+  },
+  login: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    '& img': {
+      width: '25px',
+      height: '25px',
+      marginRight: '5px'
+    }
   }
 });
 

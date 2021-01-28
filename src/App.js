@@ -4,6 +4,7 @@ import { Container } from '@material-ui/core';
 import Switcher from './common/Navigation/Switcher/Switcher';
 import Logo from './common/Navigation/Logo/Logo';
 import Nav from './common/Navigation/Nav/Nav';
+import UserProfile from './common/Navigation/UserProfile/UserProfile';
 import stylesCommon from './common/styles/stylesCommon';
 
 export default function App() {
@@ -19,7 +20,11 @@ export default function App() {
           className={header}
         >
           <Logo />
-          <Nav isNavbar={true} />
+          <div className={commonStyles.navBarAndProfile} >
+            <Nav isNavbar={true} />
+            <UserProfile />
+          </div>
+
         </Container>
         <Switcher />
       </div>
