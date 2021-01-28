@@ -3,7 +3,6 @@ const SIZES = {
   fieldWidth: 17,
   fieldHeight: 14,
   blocksInTile: 4,
-  unacceptableId: 588,
 
   get widthInPixels() {
     return this.tileSize * this.fieldWidth;
@@ -24,8 +23,6 @@ const SIZES = {
   get cursorImageOffset() {
     return this.tileSize * (3 / 4);
   },
-
-  duration: 200,
 
   hitboxes: {
     small: 2,

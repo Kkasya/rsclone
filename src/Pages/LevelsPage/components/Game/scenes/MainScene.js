@@ -6,6 +6,7 @@ import GameObjectFabric from '../gameElements/GameObjectFabric';
 import Char from '../gameElements/Char';
 import Stock from '../gameElements/Stock';
 import ActiveItem from '../gameElements/ActiveItem';
+import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import INIT_CHAR_LOCATION from '../levels/INIT_CHAR_LOCATION';
 
 export default class MainScene extends Phaser.Scene {
@@ -76,15 +77,15 @@ export default class MainScene extends Phaser.Scene {
             return;
           }
 
-          const newX = (x - 20) / 10;
-          const newY = (y - 20) / 10;
+          const newX = (x - SIZES.halfForOffset) / SIZES.tileSizeInPixels;
+          const newY = (y - SIZES.halfForOffset) / SIZES.tileSizeInPixels;
           const properties = this.map.tilesets[0].tileProperties;
           const id = this.pathfinder._getTileID(newX, newY);
           if (properties[id - 1]?.isCollied) {
             return;
           }
 
-          this.addObjectToField((x - 20) / 10, (y - 20) / 10, this.activeItem.type.key);
+          this.addObjectToField((x - SIZES.halfForOffset) / SIZES.tileSizeInPixels, (y - SIZES.halfForOffset) / SIZES.tileSizeInPixels, this.activeItem.type.key);
         }
         else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
           this.pathfinder.createPath(pointer);
@@ -253,11 +254,11 @@ export default class MainScene extends Phaser.Scene {
         targets: this.char,
         x: {
           value: cellX * this.map.tileWidth + SIZES.halfForOffset,
-          duration: SIZES.duration,
+          duration: DIFFERENT_CONSTANTS.duration,
         },
         y: {
           value: cellY * this.map.tileHeight + SIZES.halfForOffset,
-          duration: SIZES.duration,
+          duration: DIFFERENT_CONSTANTS.duration,
         },
       });
 

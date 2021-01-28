@@ -1,13 +1,37 @@
 import GameObject from './GameObject';
 import RaysGenerator from '../rays/RaysGenerator';
+import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
+import mirrorsWrench from '../utils/mirrorsWrench';
 
 export default class Laser extends GameObject {
   createRays() {
-    const direction = this.texture.key.split('-')[1];
-    this.raysGenerator = new RaysGenerator(this.scene, this.x, this.y, direction);
-    this.explodeDelay = 2500;
+    this.direction = this.texture.key.split('-')[1];
+    this.raysGenerator = new RaysGenerator(this.scene, this.x, this.y, this.direction);
     this.isDetonateAccept = true;
     this.explodeTimer = null;
+    this._addListenerToWrench();
+  }
+
+  _addListenerToWrench() {
+    this.on('pointerdown', (pointer) => {
+      if (pointer.primaryDown) {
+        const actionType = this.scene.activeItem.image.texture.key;
+        if (actionType.includes('wrench')) {
+          const isClockwise = actionType.split('-')[1] === 'right';
+          const newDirection = mirrorsWrench(this.direction, isClockwise);
+          this._setDirection(newDirection);
+          this.scene.stock.removeActiveItem();
+          this.scene.activeItem.reset();
+        }
+      }
+    });
+  }
+
+  _setDirection(newDirection) {
+    const newTexture = this.texture.key.replace(this.direction, newDirection);
+    this.direction = newDirection;
+    this.setTexture(newTexture);
+    this.raysGenerator.setDirection(this.direction);
   }
 
   detonate() {
@@ -17,7 +41,7 @@ export default class Laser extends GameObject {
       this.explodeTimer = setTimeout(() => {
         this.explode();
         this.isDetonateAccept = true;
-      }, this.explodeDelay);
+      }, DIFFERENT_CONSTANTS.explodeDelay);
     }
   }
 

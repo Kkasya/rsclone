@@ -1,10 +1,10 @@
 import GameObject from './GameObject';
+import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import SIZES from '../constants/SIZES';
 
 export default class Bomb extends GameObject {
   constructor(...props) {
     super(...props, 'bomb');
-    this.explodeDelay = 2500;
     this.isDetonateAccept = true;
     this.explodeTimer = null;
   }
@@ -16,7 +16,7 @@ export default class Bomb extends GameObject {
       this.explodeTimer = setTimeout(() => {
         this.explode();
         this.isDetonateAccept = true;
-      }, this.explodeDelay);
+      }, DIFFERENT_CONSTANTS.explodeDelay);
     }
   }
 

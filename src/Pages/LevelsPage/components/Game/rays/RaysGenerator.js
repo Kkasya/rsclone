@@ -1,4 +1,5 @@
 import LASER_OFFSET from '../constants/LASER_OFFSET';
+import SIZES from '../constants/SIZES';
 import mirrorsReflection from './mirrorsReflection';
 import RaysFabric from './RaysFabric';
 
@@ -47,7 +48,7 @@ export default class RaysGenerator {
   }
 
   _isCollisionWithRock(x, y) {
-    const tile = this.scene.map.getTileAt(x / 10, y / 10);
+    const tile = this.scene.map.getTileAt(x / SIZES.tileSizeInPixels, y / SIZES.tileSizeInPixels);
     return (tile?.properties?.type === 'rock');
   }
 
@@ -63,6 +64,11 @@ export default class RaysGenerator {
       this.rays.push(...rays.rays);
       return true;
     }
+  }
+
+  setDirection(newDirection) {
+    this.direction = newDirection;
+    this.refresh();
   }
 
   refresh() {

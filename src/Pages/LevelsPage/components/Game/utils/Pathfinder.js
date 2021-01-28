@@ -1,5 +1,6 @@
 import EasyStar from 'easystarjs';
 import SIZES from '../constants/SIZES';
+import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 
 export default class Pathfinder {
   constructor(scene) {
@@ -48,7 +49,7 @@ export default class Pathfinder {
     for (let i = 0; i < this.scene.collideObjects.length; i++) {
       if ((this.scene.collideObjects[i].x - SIZES.halfForOffset) / SIZES.tileSizeInPixels === x
       && (this.scene.collideObjects[i].y - SIZES.halfForOffset) / SIZES.tileSizeInPixels === y) {
-        return SIZES.unacceptableId;
+        return DIFFERENT_CONSTANTS.unacceptableId;
       }
     }
   }

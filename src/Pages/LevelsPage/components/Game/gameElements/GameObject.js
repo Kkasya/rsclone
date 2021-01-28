@@ -11,10 +11,11 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     this.isSetupOnField = isSetupOnField;
     scene.add.existing(this);
     scene.physics.add.existing(this);
-    if (!texture.includes('mirror-up')) {
+
+    if (!texture.includes('mirror-up') && !texture.includes('rock-up')) {
       this.setInteractive({ cursor: 'pointer' });
+      this._defineHitbox(texture);
     }
-    this._defineHitbox(texture);
     this.setDepth(visibilityPriority(texture));
   }
 
