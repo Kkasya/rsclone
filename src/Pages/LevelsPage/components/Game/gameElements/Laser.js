@@ -24,7 +24,7 @@ export default class Laser extends GameObject {
     this.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
         const actionType = this.scene.activeItem.image.texture.key;
-        if (actionType.includes('wrench')) {
+        if (actionType.startsWith('wrench')) {
           const isClockwise = actionType.split('-')[1] === 'right';
           const newDirection = mirrorsWrench(this.direction, isClockwise);
           this._setDirection(newDirection);
@@ -49,15 +49,17 @@ export default class Laser extends GameObject {
   }
 
   explode() {
-    this.scene.removeItem(this.scene.collideObjects, this);
-    if (this.raysGenerator.rays?.length) {
-      this.raysGenerator.rays.forEach((ray) => {
-        ray.destroy();
-      });
-      this.raysGenerator.rays.length = 0;
-    }
+    if (this.scene) {
+      this.scene.removeItem(this.scene.collideObjects, this);
+      if (this.raysGenerator.rays?.length) {
+        this.raysGenerator.rays.forEach((ray) => {
+          ray.destroy();
+        });
+        this.raysGenerator.rays.length = 0;
+      }
 
-    this.scene.refreshLasers();
-    this.destroy();
+      this.scene.refreshLasers();
+      this.destroy();
+    }
   }
 }

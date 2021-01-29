@@ -19,7 +19,7 @@ export default class Mirror extends GameObject {
     this.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
         const actionType = this.scene.activeItem.image.texture.key;
-        if (actionType.includes('wrench')) {
+        if (actionType.startsWith('wrench')) {
           this._toggleType(this);
           this._toggleType(this.mirrorUp);
           this.scene.stock.removeActiveItem();

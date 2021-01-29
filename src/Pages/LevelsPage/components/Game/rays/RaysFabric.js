@@ -31,7 +31,7 @@ class RayHor extends Rays {
   constructor(scene, x, y, direction, isLastRay, mirrorType) {
     super(scene, x, y, 'rayHor');
 
-    if (isLastRay) {
+    if (isLastRay && mirrorType) {
       this._setLastTexture(direction, mirrorType);
     }
     else {
@@ -58,7 +58,7 @@ class RayVert extends Rays {
   constructor(scene, x, y, direction, isLastRay, mirrorType) {
     super(scene, x, y, 'rayVert');
 
-    if (isLastRay) {
+    if (isLastRay && mirrorType) {
       this._setLastTexture(direction, mirrorType);
     }
   }

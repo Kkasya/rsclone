@@ -27,9 +27,14 @@ export default class RaysGenerator {
       for (let j = 0; j < this.scene.collideObjects.length; j++) {
         const item = this.scene.collideObjects[j];
         if (this.x === item.x && this.y === item.y) {
-          isLastRay = this._playCollision(this.direction, item);
-          if (isLastRay) {
-            mirrorType = item.texture.key.split('-')[2];
+          const key = item.texture.key;
+          if (key.startsWith('mirror-down')) {
+            this._createNewReflection(this.direction, item);
+            mirrorType = key.split('-')[2];
+            isLastRay = true;
+          }
+          else if (key.startsWith('laser')) {
+            isLastRay = true;
           }
         }
       }
@@ -52,18 +57,15 @@ export default class RaysGenerator {
     return (tile?.properties?.type === 'rock');
   }
 
-  _playCollision(currentDirection, item) {
-    if (item.texture.key.includes('mirror-down')) {
-      const mirrorType = item.texture.key.split('-')[2];
-      const rays = new RaysGenerator(
-        this.scene,
-        item.x,
-        item.y,
-        mirrorsReflection(mirrorType, currentDirection),
-      );
-      this.rays.push(...rays.rays);
-      return true;
-    }
+  _createNewReflection(currentDirection, item) {
+    const mirrorType = item.texture.key.split('-')[2];
+    const rays = new RaysGenerator(
+      this.scene,
+      item.x,
+      item.y,
+      mirrorsReflection(mirrorType, currentDirection),
+    );
+    this.rays.push(...rays.rays);
   }
 
   setDirection(newDirection) {
