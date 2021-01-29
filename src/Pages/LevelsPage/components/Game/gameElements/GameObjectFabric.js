@@ -10,11 +10,11 @@ export default class GameObjectFabric {
     }
 
     if (texture.startsWith('laser')) {
-      return new Laser(scene, x, y, texture, isSetupOnField);
+      return new Laser(scene, x, y, texture);
     }
 
     if (texture.startsWith('mirror-down')) {
-      return new Mirror(scene, x, y, texture, isSetupOnField);
+      return new Mirror(scene, x, y, texture);
     }
 
     return new GameObject(scene, x, y, texture, isSetupOnField);

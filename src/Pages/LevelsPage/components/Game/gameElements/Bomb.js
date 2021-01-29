@@ -7,6 +7,20 @@ export default class Bomb extends GameObject {
     super(...props, 'bomb');
     this.isDetonateAccept = true;
     this.explodeTimer = null;
+    this._addListenerToTorch();
+  }
+
+  _addListenerToTorch() {
+    this.on('pointerdown', (pointer) => {
+      if (pointer.primaryDown) {
+        const actionType = this.scene.activeItem.image.texture.key;
+        if (actionType === 'torch') {
+          this.detonate();
+          this.scene.stock.removeActiveItem();
+          this.scene.activeItem.reset();
+        }
+      }
+    });
   }
 
   detonate() {

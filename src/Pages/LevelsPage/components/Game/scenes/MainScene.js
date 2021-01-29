@@ -85,7 +85,7 @@ export default class MainScene extends Phaser.Scene {
             return;
           }
 
-          this.addObjectToField((x - SIZES.halfForOffset) / SIZES.tileSizeInPixels, (y - SIZES.halfForOffset) / SIZES.tileSizeInPixels, this.activeItem.type.key);
+          this.addObjectToField((x - SIZES.halfForOffset) / SIZES.tileSizeInPixels, (y - SIZES.halfForOffset) / SIZES.tileSizeInPixels, this.activeItem.type);
         }
         else if (!this.activeItem.type && !this.char.isFreeze && !this.char.isFlying) {
           this.pathfinder.createPath(pointer);
@@ -108,6 +108,9 @@ export default class MainScene extends Phaser.Scene {
   addObjectToField(x, y, oldType) {
     const newType = oldType.replace('stock-', '');
     const gameObject = new GameObjectFabric(this, x, y, newType);
+    if (newType.startsWith('laser')) {
+      gameObject.createRays();
+    }
 
     this.collideObjects.push(gameObject);
     this.stock.removeActiveItem();
@@ -197,8 +200,8 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createCharacter() {
-    const offsetX = INIT_CHAR_LOCATION[this.game.levelNumber - 1].x * SIZES.blocksInTile;
-    const offsetY = INIT_CHAR_LOCATION[this.game.levelNumber - 1].y * SIZES.blocksInTile;
+    const offsetX = (INIT_CHAR_LOCATION[this.game.levelNumber - 1]?.x || 2) * SIZES.blocksInTile;
+    const offsetY = (INIT_CHAR_LOCATION[this.game.levelNumber - 1]?.y || 2) * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char');
   }
 

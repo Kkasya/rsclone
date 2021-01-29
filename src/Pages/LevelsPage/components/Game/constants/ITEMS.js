@@ -119,6 +119,26 @@ const ITEMS = [
   {
     type: 'laser-left',
   },
+  {
+    type: 'stock-laser-top',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
+  {
+    type: 'stock-laser-right',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
+  {
+    type: 'stock-laser-bottom',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
+  {
+    type: 'stock-laser-left',
+    action: 'pickItem',
+    isActionToChar: false,
+  },
 ];
 
 export default ITEMS;

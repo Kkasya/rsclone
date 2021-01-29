@@ -4,12 +4,16 @@ import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import mirrorsWrench from '../utils/mirrorsWrench';
 
 export default class Laser extends GameObject {
+  constructor(...props) {
+    super(...props);
+    this._addListenerToWrench();
+  }
+
   createRays() {
     this.direction = this.texture.key.split('-')[1];
     this.raysGenerator = new RaysGenerator(this.scene, this.x, this.y, this.direction);
     this.isDetonateAccept = true;
     this.explodeTimer = null;
-    this._addListenerToWrench();
   }
 
   _addListenerToWrench() {

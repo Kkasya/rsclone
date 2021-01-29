@@ -26,7 +26,7 @@ export default class PhaserGame extends Phaser.Game {
       physics: {
         default: 'arcade',
         arcade: {
-          debug: true,
+          debug: false,
           gravity: { y: 0 },
         },
       },
@@ -37,6 +37,6 @@ export default class PhaserGame extends Phaser.Game {
     }
     super(config);
     this.react = react;
-    this.levelNumber = 3;
+    this.levelNumber = 5;
   }
 }
