@@ -10,6 +10,11 @@ export default class Mirror extends GameObject {
     this._addListenerToWrench();
   }
 
+  _defineHitbox() {
+    this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
+    this.body.setOffset(SIZES.offsetsForBigHitbox.x, SIZES.offsetsForBigHitbox.y);
+  }
+
   _addListenerToWrench() {
     this.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {

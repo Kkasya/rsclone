@@ -10,36 +10,20 @@ class Rays extends Phaser.Physics.Arcade.Sprite {
     this.setDepth(visibilityPriority('ray'));
 
     this._setCollisionWithChar();
-    this._setCollisionWithBombs();
-    this._setCollisionWithLasers();
+    this._setCollisionWithBombsAndLasers();
   }
 
   _setCollisionWithChar() {
     this.scene.physics.add.collider(this, this.scene.char, this.scene.interactionWithChar);
   }
 
-  _setCollisionWithBombs() {
+  _setCollisionWithBombsAndLasers() {
     this.scene.collideObjects.forEach((item) => {
-      if (item.texture.key === 'bomb') {
-        this.scene.physics.add.collider(item, this, this._collideWithBombs);
+      const key = item.texture.key;
+      if (key.startsWith('bomb') || key.startsWith('laser')) {
+        this.scene.physics.add.collider(item, this, () => item.detonate());
       }
     });
-  }
-
-  _collideWithBombs(item) {
-    item.detonate();
-  }
-
-  _setCollisionWithLasers() {
-    this.scene.collideObjects.forEach((item) => {
-      if (item.texture.key.includes('laser')) {
-        this.scene.physics.add.collider(item, this, this._collideWithLasers);
-      }
-    });
-  }
-
-  _collideWithLasers(item) {
-    item.detonate();
   }
 }
 

@@ -1,5 +1,6 @@
 import GameObject from './GameObject';
 import RaysGenerator from '../rays/RaysGenerator';
+import SIZES from '../constants/SIZES';
 import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import mirrorsWrench from '../utils/mirrorsWrench';
 
@@ -9,11 +10,14 @@ export default class Laser extends GameObject {
     this._addListenerToWrench();
   }
 
+  _defineHitbox() {
+    this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
+    this.body.setOffset(SIZES.offsetsForBigHitbox.x, SIZES.offsetsForBigHitbox.y);
+  }
+
   createRays() {
     this.direction = this.texture.key.split('-')[1];
     this.raysGenerator = new RaysGenerator(this.scene, this.x, this.y, this.direction);
-    this.isDetonateAccept = true;
-    this.explodeTimer = null;
   }
 
   _addListenerToWrench() {
@@ -39,14 +43,9 @@ export default class Laser extends GameObject {
   }
 
   detonate() {
-    if (this.isDetonateAccept) {
-      this.isDetonateAccept = false;
-
-      this.explodeTimer = setTimeout(() => {
-        this.explode();
-        this.isDetonateAccept = true;
-      }, DIFFERENT_CONSTANTS.explodeDelay);
-    }
+    setTimeout(() => {
+      this.explode();
+    }, DIFFERENT_CONSTANTS.explodeDelay);
   }
 
   explode() {

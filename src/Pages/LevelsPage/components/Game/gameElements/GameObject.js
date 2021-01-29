@@ -12,31 +12,19 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
-    if (!texture.includes('mirror-up') && !texture.includes('rock-up')) {
+    if (!texture.includes('mirror-up') && texture !== 'rock-up') {
       this.setInteractive({ cursor: 'pointer' });
-      this._defineHitbox(texture);
+      this._defineHitbox();
     }
     this.setDepth(visibilityPriority(texture));
   }
 
-  _defineHitbox(texture) {
-    if (texture === 'char' || texture === 'bomb' || texture?.includes('mirror-down')) {
-      this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
-      this.body.setOffset(12, 8);
-    }
-    else {
-      this.body.setSize(SIZES.hitboxes.small, SIZES.hitboxes.small, false);
-      this.body.setOffset(SIZES.halfForOffset, SIZES.halfForOffset);
-    }
+  _defineHitbox() {
+    this.body.setSize(SIZES.hitboxes.small, SIZES.hitboxes.small, false);
+    this.body.setOffset(SIZES.halfForOffset, SIZES.halfForOffset);
   }
 
   setCollisionWithChar() {
     this.scene.physics.add.collider(this, this.scene.char, this.scene.interactionWithChar);
-  }
-
-  explode() {
-    this.scene.removeItem(this.scene.collideObjects, this);
-    this.scene.refreshLasers();
-    this.destroy();
   }
 }

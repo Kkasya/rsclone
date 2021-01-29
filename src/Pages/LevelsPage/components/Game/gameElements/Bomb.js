@@ -7,20 +7,32 @@ export default class Bomb extends GameObject {
     super(...props, 'bomb');
     this.isDetonateAccept = true;
     this.explodeTimer = null;
-    this._addListenerToTorch();
+    this._addListeners();
   }
 
-  _addListenerToTorch() {
+  _defineHitbox() {
+    this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
+    this.body.setOffset(SIZES.offsetsForBigHitbox.x, SIZES.offsetsForBigHitbox.y);
+  }
+
+  _addListeners() {
     this.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
         const actionType = this.scene.activeItem.image.texture.key;
-        if (actionType === 'torch') {
-          this.detonate();
-          this.scene.stock.removeActiveItem();
-          this.scene.activeItem.reset();
+        if (actionType === 'torch' || actionType === 'pail') {
+          this._addTorchOrPail(actionType);
         }
       }
     });
+  }
+
+  _addTorchOrPail(actionType) {
+    actionType === 'torch'
+      ? this.detonate()
+      : this._preventExplode();
+    
+    this.scene.stock.removeActiveItem();
+    this.scene.activeItem.reset();
   }
 
   detonate() {
@@ -35,13 +47,15 @@ export default class Bomb extends GameObject {
   }
 
   explode() {
-    this.scene.removeItem(this.scene.collideObjects, this);
-    this._explodeNearObjects(this.x, this.y);
-    this.scene.refreshLasers();
-    this.destroy();
+    if (this.scene) {
+      this.scene.removeItem(this.scene.collideObjects, this);
+      this._explodeNearObjects(this.x, this.y);
+      this.scene.refreshLasers();
+      this.destroy();
+    }
   }
 
-  preventExplode() {
+  _preventExplode() {
     clearTimeout(this.explodeTimer);
     this.isDetonateAccept = true;
   }

@@ -60,7 +60,7 @@ export default class MainScene extends Phaser.Scene {
 
   createRays() {
     this.collideObjects.forEach((item) => {
-      if (item.texture.key.includes('laser')) {
+      if (item.texture.key.startsWith('laser')) {
         item.createRays();
       }
     });
@@ -120,7 +120,7 @@ export default class MainScene extends Phaser.Scene {
 
   refreshLasers() {
     this.collideObjects.forEach((item) => {
-      if (item.texture.key.includes('laser')) {
+      if (item.texture.key.startsWith('laser')) {
         item.raysGenerator.refresh();
       }
     });

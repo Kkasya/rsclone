@@ -27,6 +27,11 @@ const SIZES = {
   hitboxes: {
     small: 2,
     big: 19,
+  },
+
+  offsetsForBigHitbox: {
+    x: 12,
+    y: 8,
   }
 };
 

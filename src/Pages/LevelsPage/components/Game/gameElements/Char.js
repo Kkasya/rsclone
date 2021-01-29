@@ -1,4 +1,5 @@
 import GameObject from './GameObject';
+import SIZES from '../constants/SIZES';
 import visibilityPriority from '../utils/visibilityPriority';
 
 export default class Char extends GameObject {
@@ -14,6 +15,11 @@ export default class Char extends GameObject {
     this.isWet = false;
     this.isFlying = false;
     this._addListener();
+  }
+
+  _defineHitbox() {
+    this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
+    this.body.setOffset(SIZES.offsetsForBigHitbox.x, SIZES.offsetsForBigHitbox.y);
   }
 
   _addListener() {
