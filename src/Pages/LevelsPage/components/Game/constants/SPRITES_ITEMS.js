@@ -1,4 +1,4 @@
-const ITEMS = [
+const SPRITES_ITEMS = [
   {
     type: 'tiles',
   },
@@ -36,9 +36,6 @@ const ITEMS = [
   },
   {
     type: 'emptySlot',
-  },
-  {
-    type: 'char',
   },
   {
     type: 'kids',
@@ -141,4 +138,4 @@ const ITEMS = [
   },
 ];
 
-export default ITEMS;
+export default SPRITES_ITEMS;

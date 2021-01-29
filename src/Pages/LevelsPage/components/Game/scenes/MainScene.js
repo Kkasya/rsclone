@@ -202,7 +202,7 @@ export default class MainScene extends Phaser.Scene {
   _createCharacter() {
     const offsetX = (INIT_CHAR_LOCATION[this.game.levelNumber - 1]?.x || 2) * SIZES.blocksInTile;
     const offsetY = (INIT_CHAR_LOCATION[this.game.levelNumber - 1]?.y || 2) * SIZES.blocksInTile;
-    this.char = new Char(this, offsetX, offsetY, 'char');
+    this.char = new Char(this, offsetX, offsetY, 'char-normal');
   }
 
   interactionWithChar(colliderItem) {
@@ -292,7 +292,7 @@ export default class MainScene extends Phaser.Scene {
   _isNearTileBoundaries() {
     const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % SIZES.tileSize;
     const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % SIZES.tileSize;
-    return (remainderX < 2 || remainderX > 38 || remainderY < 2 || remainderY > 38);
+    return (remainderX < 3 || remainderX > 37 || remainderY < 3 || remainderY > 37);
   }
 
   removeItem(arr, item) {

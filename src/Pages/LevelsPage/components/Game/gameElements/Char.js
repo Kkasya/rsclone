@@ -44,6 +44,7 @@ export default class Char extends GameObject {
     if (!this.isFlying) {
       this.isFreeze = true;
       this.scene.isReadyToToggleCollide = true;
+      this._setTexture('freeze');
     }
   }
 
@@ -51,6 +52,7 @@ export default class Char extends GameObject {
     if (!this.isFreeze) {
       this.isFlying = false;
       this.isWet = true;
+      this._setTexture('wet');
     }
   }
 
@@ -58,16 +60,19 @@ export default class Char extends GameObject {
     if (this.isFreeze) {
       this.isFreeze = false;
       this.isWet = true;
+      this._setTexture('wet');
     }
     else if (this.isWet) {
       this.isWet = false;
+      this._setTexture('normal');
     }
   }
 
   addHeatByLaser() {
     if (this.isWet) {
-      this.isWet = false;
       this.scene.isReadyToToggleCollide = true;
+      this.isWet = false;
+      this._setTexture('normal');
     }
     else {
       this.scene.scene.start('Death');
@@ -77,14 +82,24 @@ export default class Char extends GameObject {
   addHeatByFire() {
     if (this.isWet) {
       this.isWet = false;
+      this._setTexture('normal');
     }
     else {
       this.isFlying = true;
+      this._setTexture('flying');
     }
     this.scene.isReadyToToggleCollide = true;
   }
 
+  _setTexture(state) {
+    this.setTexture(`char-${state}`);
+    state === 'flying'
+      ? this.setOrigin(0.5, 0.8)
+      : this.setOrigin(0.5, 0.5);
+  }
+
   explode() {
     console.log('char was exploded!');
+    this.scene.start('Death');
   }
 }
