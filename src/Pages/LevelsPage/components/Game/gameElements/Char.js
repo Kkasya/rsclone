@@ -15,6 +15,8 @@ export default class Char extends GameObject {
     this.isWet = false;
     this.isFlying = false;
     this._addListener();
+
+    this.toFlyingPositions = [0.5, 0.6, 0.7, 0.8];
   }
 
   _defineHitbox() {
@@ -28,7 +30,7 @@ export default class Char extends GameObject {
       if (actionType) {
         if (actionType === 'pail' || actionType === 'torch') {
           if (actionType === 'pail') {
-            this.addPile();
+            this.addPail();
           }
           else {
             this.addHeatByTorch();
@@ -48,10 +50,15 @@ export default class Char extends GameObject {
     }
   }
 
-  addPile() {
+  addPail() {
     if (!this.isFreeze) {
       this.isFlying = false;
       this.isWet = true;
+
+      if (this.texture.key === 'char-flying') {
+        this.scene.isCollideAccept = false;
+        this.scene.isReadyToToggleCollide = true;
+      }
       this._setTexture('wet');
     }
   }
@@ -92,14 +99,47 @@ export default class Char extends GameObject {
   }
 
   _setTexture(state) {
+    if (this.texture.key === 'char-flying') {
+      clearInterval(this.intervalToLevitate);
+      this._addFlyingAnimation('down');
+    }
+
     this.setTexture(`char-${state}`);
-    state === 'flying'
-      ? this.setOrigin(0.5, 0.8)
-      : this.setOrigin(0.5, 0.5);
+    if (state === 'flying') {
+      this._addFlyingAnimation('up');
+    }
+  }
+
+  _addFlyingAnimation(upOrDown) {
+    const arr = upOrDown === 'up'
+      ? [...this.toFlyingPositions]
+      : [...this.toFlyingPositions.reverse()];
+
+    let count = 0;
+    this.intervalToFlying = setInterval(() => {
+      this.setOrigin(0.5, arr[count]);
+      count++;
+      if (count >= arr.length) {
+        clearInterval(this.intervalToFlying);
+        if (upOrDown === 'up') {
+          this._addLevitateAnimation();
+        }
+      }
+    }, 100);
+  }
+
+  _addLevitateAnimation() {
+    let count = 0;
+    this.intervalToLevitate = setInterval(() => {
+      count & 1
+        ? this.setOrigin(0.5, 0.8)
+        : this.setOrigin(0.5, 0.9);
+      count++;
+    }, 400);
   }
 
   explode() {
     console.log('char was exploded!');
-    this.scene.start('Death');
+    this.scene.scene.start('Death');
   }
 }

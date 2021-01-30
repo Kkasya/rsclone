@@ -45,21 +45,23 @@ export default class Laser extends GameObject {
   detonate() {
     setTimeout(() => {
       this.explode();
-    }, DIFFERENT_CONSTANTS.explodeDelay);
+    }, DIFFERENT_CONSTANTS.explodeDelay.objects);
   }
 
   explode() {
-    if (this.scene) {
-      this.scene.removeItem(this.scene.collideObjects, this);
-      if (this.raysGenerator.rays?.length) {
-        this.raysGenerator.rays.forEach((ray) => {
-          ray.destroy();
-        });
-        this.raysGenerator.rays.length = 0;
-      }
+    setTimeout(() => {
+      if (this.scene) {
+        this.scene.removeItem(this.scene.collideObjects, this);
+        if (this.raysGenerator.rays?.length) {
+          this.raysGenerator.rays.forEach((ray) => {
+            ray.destroy();
+          });
+          this.raysGenerator.rays.length = 0;
+        }
 
-      this.scene.refreshLasers();
-      this.destroy();
-    }
+        this.scene.refreshLasers();
+        this.destroy();
+      }
+    }, 500);
   }
 }

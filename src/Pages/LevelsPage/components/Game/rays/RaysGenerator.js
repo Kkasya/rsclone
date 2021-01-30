@@ -20,7 +20,7 @@ export default class RaysGenerator {
     let mirrorType = '';
 
     for (this[mainAxis] = this[mainAxis] + increment; !isLastRay; this[mainAxis] += increment) {
-      if (this._isCollisionWithRock(this.x, this.y)) {
+      if (this._isCollisionWithRock() || this._isOutsideOfField()) {
         break;
       }
 
@@ -52,9 +52,18 @@ export default class RaysGenerator {
     }
   }
 
-  _isCollisionWithRock(x, y) {
-    const tile = this.scene.map.getTileAt(x / SIZES.tileSizeInPixels, y / SIZES.tileSizeInPixels);
+  _isCollisionWithRock() {
+    const tile = this.scene.map.getTileAt(this.x / SIZES.tileSizeInPixels, this.y / SIZES.tileSizeInPixels);
     return (tile?.properties?.type === 'rock');
+  }
+
+  _isOutsideOfField() {
+    if (this.x - SIZES.halfForOffset >= SIZES.widthInPixels || this.x <= 0) {
+      return true;
+    }
+    if (this.y - SIZES.halfForOffset >= SIZES.heightInPixels - SIZES.controlPanelHeight || this.y <= 0) {
+      return true;
+    }
   }
 
   _createNewReflection(currentDirection, item) {

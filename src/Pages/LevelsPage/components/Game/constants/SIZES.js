@@ -3,6 +3,7 @@ const SIZES = {
   fieldWidth: 17,
   fieldHeight: 14,
   blocksInTile: 4,
+  controlPanelHeight: 100,
 
   get widthInPixels() {
     return this.tileSize * this.fieldWidth;

@@ -42,7 +42,7 @@ export default class Bomb extends GameObject {
       this.explodeTimer = setTimeout(() => {
         this.explode();
         this.isDetonateAccept = true;
-      }, DIFFERENT_CONSTANTS.explodeDelay);
+      }, DIFFERENT_CONSTANTS.explodeDelay.bombs);
     }
   }
 

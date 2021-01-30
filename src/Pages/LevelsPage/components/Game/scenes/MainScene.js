@@ -200,8 +200,8 @@ export default class MainScene extends Phaser.Scene {
   }
 
   _createCharacter() {
-    const offsetX = (INIT_CHAR_LOCATION[this.game.levelNumber - 1]?.x || 2) * SIZES.blocksInTile;
-    const offsetY = (INIT_CHAR_LOCATION[this.game.levelNumber - 1]?.y || 2) * SIZES.blocksInTile;
+    const offsetX = (INIT_CHAR_LOCATION[this.game.levelNumber]?.x || 2) * SIZES.blocksInTile;
+    const offsetY = (INIT_CHAR_LOCATION[this.game.levelNumber]?.y || 2) * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char-normal');
   }
 
@@ -304,6 +304,10 @@ export default class MainScene extends Phaser.Scene {
     if (!this.isCollideAccept && this.isReadyToToggleCollide && this._isNearTileBoundaries()) {
       this.isCollideAccept = true;
       this.isReadyToToggleCollide = false;
+    }
+
+    if (this.char.isWet) {
+      this.char.setOrigin(0.5, 0.5);
     }
 
     if (this.activeItem.type) {
