@@ -222,17 +222,17 @@ export default class MainScene extends Phaser.Scene {
 
       case 'freeze':
         this.char.addFreeze();
-        this.toggleCollideAccept();
+        this.isCollideAccept = false;
         break;
 
       case 'heatByFire':
         this.char.addHeatByFire();
-        this.toggleCollideAccept();
+        this.isCollideAccept = false;
         break;
 
       case 'heatByLaser':
         this.char.addHeatByLaser();
-        this.toggleCollideAccept();
+        this.isCollideAccept = false;
         break;
 
       case 'death':
@@ -266,7 +266,7 @@ export default class MainScene extends Phaser.Scene {
       });
 
       const fieldType = this.map.layers[2].data[cellY][cellX].properties.type;
-      if (this.checkMobility(fieldType)) {
+      if (fieldType === 'water' || fieldType === 'fire') {
         break;
       }
     }
@@ -275,19 +275,6 @@ export default class MainScene extends Phaser.Scene {
       tweens: tweens,
     });
   };
-
-  toggleCollideAccept() {
-    this.isCollideAccept = !this.isCollideAccept;
-  }
-
-  checkMobility(fieldType) {
-    if (this.isCollideAccept) {
-      if (fieldType === 'water' || (fieldType === 'fire' && !this.char.isWet)) {
-        return true;
-      }
-    }
-    return false;
-  }
 
   _isNearTileBoundaries() {
     const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % SIZES.tileSize;
@@ -304,10 +291,6 @@ export default class MainScene extends Phaser.Scene {
     if (!this.isCollideAccept && this.isReadyToToggleCollide && this._isNearTileBoundaries()) {
       this.isCollideAccept = true;
       this.isReadyToToggleCollide = false;
-    }
-
-    if (this.char.isWet) {
-      this.char.setOrigin(0.5, 0.5);
     }
 
     if (this.activeItem.type) {

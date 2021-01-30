@@ -1,6 +1,6 @@
 const DIFFERENT_CONSTANTS = {
   unacceptableId: 588,
-  duration: 200,
+  duration: 250,
   explodeDelay: {
     objects: 1500,
     bombs: 2500,

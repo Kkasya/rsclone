@@ -9,8 +9,8 @@ export default class Preloader extends Phaser.Scene {
 
   preload() {
     this.add.text(20, 20, 'Loading...');
-    this.load.tilemapTiledJSON('map', require(`../levels/${this.game.levelNumber}.json`));
-    // this.load.tilemapTiledJSON('map', require(`../levels/example.json`));
+    // this.load.tilemapTiledJSON('map', require(`../levels/${this.game.levelNumber}.json`));
+    this.load.tilemapTiledJSON('map', require(`../levels/example.json`));
 
     SPRITES_CHAR.forEach((item) => {
       this.load.image(item, `assets/sprites/char/${item}.png`);
@@ -22,6 +22,9 @@ export default class Preloader extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start('MainScene');
+    const delayForPreventLags = 2000;
+    setTimeout(() => {
+      this.scene.start('MainScene');
+    }, delayForPreventLags);
   }
 }

@@ -14,9 +14,8 @@ export default class Char extends GameObject {
     this.isFreeze = false;
     this.isWet = false;
     this.isFlying = false;
-    this._addListener();
-
     this.toFlyingPositions = [0.5, 0.6, 0.7, 0.8];
+    this._addListener();
   }
 
   _defineHitbox() {
@@ -111,9 +110,10 @@ export default class Char extends GameObject {
   }
 
   _addFlyingAnimation(upOrDown) {
-    const arr = upOrDown === 'up'
-      ? [...this.toFlyingPositions]
-      : [...this.toFlyingPositions.reverse()];
+    const arr = [...this.toFlyingPositions];
+    if (upOrDown === 'down') {
+      arr.reverse();
+    }
 
     let count = 0;
     this.intervalToFlying = setInterval(() => {
@@ -133,7 +133,7 @@ export default class Char extends GameObject {
     this.intervalToLevitate = setInterval(() => {
       count & 1
         ? this.setOrigin(0.5, 0.8)
-        : this.setOrigin(0.5, 0.9);
+        : this.setOrigin(0.5, 0.85);
       count++;
     }, 400);
   }

@@ -37,6 +37,6 @@ export default class PhaserGame extends Phaser.Game {
     }
     super(config);
     this.react = react;
-    this.levelNumber = 11;
+    this.levelNumber = 1;
   }
 }
