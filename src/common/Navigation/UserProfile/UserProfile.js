@@ -1,37 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ProfileUser from './components/UserFrofileData';
-
-function getUserData(urlPath) {
-  return fetch(urlPath)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(response.json);
-    })
-    .catch((answer) => false);
-}
+import store from '../../../redux/authStore';
+import LoginModal from '../../Login/LoginModal';
 
 export default function UserProfile() {
-  const urlUserData = '/auth/user';
+  const [userProfile, setUserProfile] = useState({});
+  const [isLogged, setIsLogged] = useState(false);
 
-  const [userProfile, setUserProfile] = useState(false);
-
-  useEffect(() => {
-    async function fetchData() {
-      let pages = getUserData(urlUserData);
-      pages.then((userData) => {
-        console.log(userData)
-        setUserProfile(userData);
-      })
-    }
-    fetchData();
-  }, []);
+  store.subscribe(() => {
+    const storeData = store.getState();
+    setUserProfile(storeData.auth.userProfile);
+    storeData.auth.userProfile.id ? setIsLogged(true) : setIsLogged(false);
+  });
 
   return (
     <div>
       {
-        userProfile === false ? alert("Нет данных") : <ProfileUser userData={userProfile} />
+        isLogged ? <ProfileUser userData={userProfile} /> : <LoginModal modalText='Login in the game use google auth:' isLoginButton={true} />
       }
     </div>
   );

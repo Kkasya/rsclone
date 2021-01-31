@@ -1,34 +1,10 @@
 import React from 'react';
 import stylesUserProfile from '../UserProfileStyles';
+import Logout from '../../../Logout/Logout'
 
-function googleLogout(urlPath) {
-  return fetch(urlPath)
-    .then((response) => {
-      if (response.ok) {
-        return true;
-      }
-      return Promise.reject(response.json);
-    })
-    .catch((answer) => false);
-}
-
-export default function HelpElements(props) {
+export default function Profile(props) {
   const profileStyles = stylesUserProfile();
   const userProfile = props.userData;
-  const urlLogout = '/auth/logout';
-
-  let logout = () => {
-    if (googleLogout(urlLogout)) {
-      document.getElementById('login-modal_container').classList.remove('hidden');
-      document.getElementById('login-modal-text').innerText = 'Sign in using your google account:';
-    } else {
-      handleLogoutFailure();
-    }
-  }
-
-  let handleLogoutFailure = () => {
-    alert('Failed to log out')
-  }
 
   return (
     <div className={profileStyles.userProfile_container}>
@@ -40,7 +16,7 @@ export default function HelpElements(props) {
           <span>{userProfile.firstName}</span>
           <span>{userProfile.lastName}</span>
         </div>
-        <button className={profileStyles.logoutButton} onClick={logout}>Logout</button>
+        <Logout />
       </div>
     </div>
   )

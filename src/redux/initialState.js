@@ -14,6 +14,16 @@ const initialState = {
     },
   ],
   lang: 'en',
+  auth: {
+    loggedIn: 'false',
+    userProfile: {
+      id: '',
+      imgUrl: '',
+      userFirstName: '',
+      userLastName: ''
+    },
+  }
+
 };
 
 export default initialState;

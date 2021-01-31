@@ -14,3 +14,12 @@ export function toggleLang(lang) {
     payload: lang,
   };
 }
+
+export function toggleIsLogged(auth) {
+  return {
+    type: 'TOGGLE_ISLOGGED',
+    loggedIn: auth.loggedIn,
+    value: auth.userProfile,
+    payload: auth.userProfile,
+  };
+}

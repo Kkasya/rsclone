@@ -11,7 +11,7 @@ const stylesUserProfile = makeStyles({
     padding: '10px'
   },
   userAvatar: {
-    maxWidth: '55px',
+    width: '55px',
     maxHeight: '55px',
     borderRadius: '50%',
     overflow: 'hidden',
@@ -34,24 +34,6 @@ const stylesUserProfile = makeStyles({
     justifyContent: 'center',
     fontWeight: 'bold',
     columnGap: '0.3em'
-  },
-  logoutButton: {
-    border: 'none',
-    background: 'none',
-    textAlign: 'left',
-    fontWeight: 'bold',
-    color: constants.backgroundButtonDefault,
-    outline: 'none',
-    cursor: 'pointer',
-    padding: '0px',
-
-    '&:hover': {
-      color: constants.backgroundButtonHover
-    },
-
-    '&:active': {
-      color: constants.backgroundButtonActive
-    }
   }
 });
 
