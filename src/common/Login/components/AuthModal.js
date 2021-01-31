@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import stylesLogin from '../LoginModalStyles';
-import GoogleLogin from './Login';
+import stylesLogin from '../LoginStyles';
+import GoogleLogin from './GoogleLogin';
 
 function closeModal() {
   document.getElementById('login-modal_container').classList.add('hidden');

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProfileUser from './components/UserFrofileData';
 import store from '../../../redux/authStore';
-import LoginModal from '../../Login/LoginModal';
+import LoginModal from '../../Login/Login';
 
 export default function UserProfile() {
   const [userProfile, setUserProfile] = useState({});

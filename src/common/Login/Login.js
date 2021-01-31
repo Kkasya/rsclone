@@ -15,6 +15,8 @@ function getUserData(urlPath) {
 }
 
 export default function LoginContent(props) {
+  console.log('Start login!');
+
   const modalText = props.modalText;
   const isLoginButton = props.isLoginButton;
   const urlUserData = '/auth/user';

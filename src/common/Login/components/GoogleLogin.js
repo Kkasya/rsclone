@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import stylesLogin from '../LoginModalStyles';
+import stylesLogin from '../LoginStyles';
 import stylesCommon from '../../styles/stylesCommon';
 
 export default function GoogleLogin() {
