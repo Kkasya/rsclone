@@ -9,6 +9,7 @@ const charBurnedArr = Array(charBurnedSprites)
   .map((item, index) => `char-burned${index + 1}`);
 
 const lasersWithAnimation = [
+  'top',
   'right',
   'bottom',
   'left',

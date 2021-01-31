@@ -9,9 +9,7 @@ export default class Laser extends GameObject {
   constructor(...props) {
     super(...props);
     this._addListenerToWrench();
-    if (this.texture.key !== 'laser-top') {
-      this._createAnimation();
-    }
+    this._createAnimation();
   }
 
   _defineHitbox() {
@@ -29,15 +27,18 @@ export default class Laser extends GameObject {
           this._setDirection(newDirection);
           this.scene.stock.removeActiveItem();
           this.scene.activeItem.reset();
+
+          this._createAnimation();
         }
       }
     });
   }
 
   _createAnimation() {
+    this._defineShortTextureKey();
     const frames = Array(lasersSlidesQuantity).fill(0).map((item, index) => {
       return {
-        key: `${this.texture.key}-${index + 1}`,
+        key: `${this.shortTextureKey}-${index + 1}`,
         duration: 90,
       }
     });
@@ -49,6 +50,10 @@ export default class Laser extends GameObject {
       repeat: -1,
     });
     this.play(`working-${this.texture.key}`);
+  }
+
+  _defineShortTextureKey() {
+    this.shortTextureKey = this.texture.key.split('-').slice(0, -1).join('-');
   }
 
   createRays() {

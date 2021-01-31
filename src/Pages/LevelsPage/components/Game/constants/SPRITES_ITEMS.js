@@ -105,34 +105,34 @@ const SPRITES_ITEMS = [
     isActionToChar: false,
   },
   {
-    type: 'laser-top',
+    type: 'laser-top-1',
   },
   {
-    type: 'laser-right',
+    type: 'laser-right-1',
   },
   {
-    type: 'laser-bottom',
+    type: 'laser-bottom-1',
   },
   {
-    type: 'laser-left',
+    type: 'laser-left-1',
   },
   {
-    type: 'stock-laser-top',
+    type: 'stock-laser-top-1',
     action: 'pickItem',
     isActionToChar: false,
   },
   {
-    type: 'stock-laser-right',
+    type: 'stock-laser-right-1',
     action: 'pickItem',
     isActionToChar: false,
   },
   {
-    type: 'stock-laser-bottom',
+    type: 'stock-laser-bottom-1',
     action: 'pickItem',
     isActionToChar: false,
   },
   {
-    type: 'stock-laser-left',
+    type: 'stock-laser-left-1',
     action: 'pickItem',
     isActionToChar: false,
   },
