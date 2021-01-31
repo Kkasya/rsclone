@@ -50,7 +50,7 @@ class RayHor extends Rays {
   }
 
   _setOffset() {
-    this.setPosition(this.x, this.y - 10);
+    this.setPosition(this.x, this.y - 9);
   }
 }
 

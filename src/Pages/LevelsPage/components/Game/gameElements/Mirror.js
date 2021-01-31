@@ -39,7 +39,7 @@ export default class Mirror extends GameObject {
   }
 
   explode() {
-    this.scene.removeItem(this.scene.collideObjects, this);
+    this.scene.removeItemFromArray(this.scene.collideObjects, this);
     this.scene.refreshLasers();
     this.mirrorUp.destroy();
     this.destroy();

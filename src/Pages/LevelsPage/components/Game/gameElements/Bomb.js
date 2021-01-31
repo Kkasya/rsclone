@@ -82,7 +82,7 @@ export default class Bomb extends GameObject {
     setTimeout(() => {
       if (this.scene) {
         this._explodeNearObjects(this.x, this.y);
-        this.scene?.removeItem(this.scene?.collideObjects, this);
+        this.scene?.removeItemFromArray(this.scene?.collideObjects, this);
         this.scene?.refreshLasers();
         this.destroy();
       }
@@ -104,7 +104,7 @@ export default class Bomb extends GameObject {
         this._createExplodeSprite(i, j);
         if (!(a === 1 && b === 1)) {
           if (this.scene.char.x === i && this.scene.char.y === j) {
-            this.scene.char.explode();
+            this.scene.char.die();
           }
           this.scene.collideObjects.forEach((item) => {
             if (item.x === i && item.y === j) {

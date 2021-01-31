@@ -9,6 +9,11 @@ export default class Kids extends GameObject {
     this._addTweens();
   }
 
+  _defineHitbox() {
+    this.body.setSize(SIZES.hitboxes.big, SIZES.hitboxes.big, false);
+    this.body.setOffset(SIZES.offsetsForBigHitbox.x, SIZES.offsetsForBigHitbox.y);
+  }
+
   _createKids() {
     this.kids = [
       {

@@ -2,8 +2,8 @@ const VISIBILITY_PRIORITY = {
   'char': 2,
   'ray': 3,
   'ray-priority': 5,
-  'exploding-sprite': 7,
-  'rock-up': 8,
+  'rock-up': 7,
+  'exploding-sprite': 8,
   'activeItem': 9,
 };
 

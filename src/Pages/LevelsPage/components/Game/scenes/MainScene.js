@@ -6,7 +6,6 @@ import GameObjectFabric from '../gameElements/GameObjectFabric';
 import Char from '../gameElements/Char';
 import Stock from '../gameElements/Stock';
 import ActiveItem from '../gameElements/ActiveItem';
-import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import INIT_CHAR_LOCATION from '../levels/INIT_CHAR_LOCATION';
 
 export default class MainScene extends Phaser.Scene {
@@ -33,6 +32,7 @@ export default class MainScene extends Phaser.Scene {
 
     this.game.canvas.oncontextmenu = (e) => (e.preventDefault());
     this.createRays();
+    this.isGameOver = false;
   }
 
   createMap() {
@@ -68,7 +68,7 @@ export default class MainScene extends Phaser.Scene {
 
   _addListenerToField() {
     this.input.on('pointerdown', (pointer) => {
-      if (pointer.primaryDown) {
+      if (!this.isGameOver && pointer.primaryDown) {
         if (this.activeItem.type && this.activeItem.isSetupOnField) {
           const x = Math.floor(pointer.worldX / SIZES.tileSize) * SIZES.tileSize + SIZES.halfForOffset;
           const y = Math.floor(pointer.worldY / SIZES.tileSize) * SIZES.tileSize + SIZES.halfForOffset;
@@ -215,7 +215,7 @@ export default class MainScene extends Phaser.Scene {
       case 'pickItem':
         if (this.stock.isEnoughPlace) {
           this.stock.addItem(colliderItem.texture.key, colliderItem.isSetupOnField);
-          this.removeItem(this.pickableObjects, colliderItem);
+          this.removeItemFromArray(this.pickableObjects, colliderItem);
           colliderItem.destroy();
         }
         break;
@@ -240,55 +240,27 @@ export default class MainScene extends Phaser.Scene {
         break;
 
       case 'winRound':
-        this.scene.start('WinRound');
+        this.char.stopMoving();
+        setTimeout(() => {
+          this.scene.start('WinRound');
+        }, 2400);
         break;
 
-      default: console.log(`Unknown action: ${action}`);
+      default: return;
     }
   }
 
-  moveCharacter(path) {
-    const tweens = [];
-    for (let i = 0; i < path.length - 1; i++) {
-      const cellX = path[i + 1].x * SIZES.blocksInTile;
-      const cellY = path[i + 1].y * SIZES.blocksInTile;
-
-      tweens.push({
-        targets: this.char,
-        x: {
-          value: cellX * this.map.tileWidth + SIZES.halfForOffset,
-          duration: DIFFERENT_CONSTANTS.duration,
-        },
-        y: {
-          value: cellY * this.map.tileHeight + SIZES.halfForOffset,
-          duration: DIFFERENT_CONSTANTS.duration,
-        },
-      });
-
-      const fieldType = this.map.layers[2].data[cellY][cellX].properties.type;
-      if (fieldType === 'water' || fieldType === 'fire') {
-        break;
-      }
-    }
-
-    this.tweens.timeline({
-      tweens: tweens,
-    });
-  };
-
-  _isNearTileBoundaries() {
-    const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % SIZES.tileSize;
-    const remainderY = (this.char.body.y - 4 + SIZES.halfForOffset) % SIZES.tileSize;
-    return (remainderX <= 2 || remainderX >= 38 || remainderY <= 2 || remainderY >= 38);
-  }
-
-  removeItem(arr, item) {
+  removeItemFromArray(arr, item) {
     const index = arr.indexOf(item);
     arr.splice(index, 1);
   }
 
   update() {
-    if (!this.isCollideAccept && this.isReadyToToggleCollide && this._isNearTileBoundaries()) {
+    if (this.isGameOver && this.char.isInCenterOfTile()) {
+      this.char.way.destroy();
+    }
+
+    if (!this.isCollideAccept && this.isReadyToToggleCollide && this.char.isNearTileBoundaries()) {
       this.isCollideAccept = true;
       this.isReadyToToggleCollide = false;
     }

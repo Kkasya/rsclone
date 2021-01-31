@@ -1,5 +1,6 @@
 import GameObject from './GameObject';
 import SIZES from '../constants/SIZES';
+import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import visibilityPriority from '../utils/visibilityPriority';
 
 export default class Char extends GameObject {
@@ -8,14 +9,12 @@ export default class Char extends GameObject {
     this.setCollideWorldBounds(true);
     this.setDepth(visibilityPriority('char'));
 
-    // this.isNormal = true;
-    // this.isDead = false;
-
     this.isFreeze = false;
     this.isWet = false;
     this.isFlying = false;
     this.toFlyingPositions = [0.5, 0.6, 0.7, 0.8];
     this._addListener();
+    this._createBurnedAnimation();
   }
 
   _defineHitbox() {
@@ -39,6 +38,53 @@ export default class Char extends GameObject {
         this.scene.activeItem.reset();
       }
     });
+  }
+
+  move(path) {
+    const tweens = [];
+    for (let i = 0; i < path.length - 1; i++) {
+      const cellX = path[i + 1].x * SIZES.blocksInTile;
+      const cellY = path[i + 1].y * SIZES.blocksInTile;
+
+      tweens.push({
+        targets: this,
+        x: {
+          value: cellX * this.scene.map.tileWidth + SIZES.halfForOffset,
+          duration: DIFFERENT_CONSTANTS.duration,
+        },
+        y: {
+          value: cellY * this.scene.map.tileHeight + SIZES.halfForOffset,
+          duration: DIFFERENT_CONSTANTS.duration,
+        },
+      });
+
+      const fieldType = this.scene.map.layers[2].data[cellY][cellX].properties.type;
+      if (fieldType === 'water' || fieldType === 'fire') {
+        break;
+      }
+    }
+
+    this.way = this.scene.tweens.timeline({
+      tweens: tweens,
+    });
+  };
+
+  stopMoving() {
+    this.scene.isGameOver = true;
+  }
+
+  isInCenterOfTile() {
+    const x = this.x - SIZES.halfForOffset;
+    const y = this.y - SIZES.halfForOffset;
+    const inCenterByX = x % SIZES.tileSize <= 9;
+    const inCenterByY = y % SIZES.tileSize <= 9;
+    return (inCenterByX && inCenterByY);
+  }
+
+  isNearTileBoundaries() {
+    const remainderX = this.x % SIZES.tileSize;
+    const remainderY = (this.y + 4) % SIZES.tileSize;
+    return (remainderX <= 3 || remainderX >= 37 || remainderY <= 3 || remainderY >= 37);
   }
 
   addFreeze() {
@@ -81,7 +127,7 @@ export default class Char extends GameObject {
       this._setTexture('normal');
     }
     else {
-      this.scene.scene.start('Death');
+      this.die();
     }
   }
 
@@ -138,8 +184,61 @@ export default class Char extends GameObject {
     }, 400);
   }
 
-  explode() {
-    console.log('char was exploded!');
-    this.scene.scene.start('Death');
+  die() {
+    if (!this.scene.isGameOver) {
+      this.scene.isGameOver = true;
+      this.stopMoving();
+      setTimeout(() => {
+        this.setOrigin(0.5, 0.7);
+        this.play('burned');
+        setTimeout(() => {
+          this.scene.scene.start('Death');
+        }, 5000);
+      }, DIFFERENT_CONSTANTS.explodeDelay);
+    }
+  }
+
+  _createBurnedAnimation() {
+    this.arrCharBurnedArr = [
+      {
+        key: 'char-burned1',
+        duration: 800,
+      },
+      {
+        key: 'char-burned2',
+        duration: 80,
+      },
+      {
+        key: 'char-burned3',
+        duration: 80,
+      },
+      {
+        key: 'char-burned4',
+        duration: 80,
+      },
+      {
+        key: 'char-burned5',
+        duration: 80,
+      },
+      {
+        key: 'char-burned6',
+        duration: 800,
+      },
+      {
+        key: 'char-burned7',
+        duration: 40,
+      },
+      {
+        key: 'char-burned6',
+        duration: 8000,
+      },
+    ];
+
+    this.scene.anims.create({
+      key: 'burned',
+      frames: [...this.arrCharBurnedArr],
+      frameRate: 30,
+      repeat: 0,
+    });
   }
 }

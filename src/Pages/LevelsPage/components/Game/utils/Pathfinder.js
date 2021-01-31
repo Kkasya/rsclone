@@ -62,7 +62,7 @@ export default class Pathfinder {
   _calculatePath(fromX, fromY, toX, toY) {
     this.finder.findPath(fromX, fromY, toX, toY, (path) => {
       if (path) {
-        this.scene.moveCharacter(path);
+        this.scene.char.move(path);
       }
     });
     this.finder.calculate();
