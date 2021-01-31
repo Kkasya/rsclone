@@ -7,6 +7,9 @@ const VISIBILITY_PRIORITY = {
 };
 
 export default function visibilityPriority(type) {
+  if (type.startsWith('kid-')) {
+    return 2;
+  }
   if (type.startsWith('mirror-down')) {
     return 4;
   }

@@ -8,6 +8,7 @@ export default class Bomb extends GameObject {
     this.isDetonateAccept = true;
     this.explodeTimer = null;
     this._addListeners();
+    this._createAnimation();
   }
 
   _defineHitbox() {
@@ -26,11 +27,29 @@ export default class Bomb extends GameObject {
     });
   }
 
+  _createAnimation() {
+    this.scene.anims.create({
+      key: 'detonate',
+      frames: [
+        {
+          key: 'bomb1',
+          duration: 30,
+        },
+        {
+          key: 'bomb2',
+          duration: 30,
+        },
+      ],
+      frameRate: 30,
+      repeat: -1,
+    });
+  }
+
   _addTorchOrPail(actionType) {
     actionType === 'torch'
       ? this.detonate()
       : this._preventExplode();
-    
+
     this.scene.stock.removeActiveItem();
     this.scene.activeItem.reset();
   }
@@ -38,6 +57,7 @@ export default class Bomb extends GameObject {
   detonate() {
     if (this.isDetonateAccept) {
       this.isDetonateAccept = false;
+      this.play('detonate');
 
       this.explodeTimer = setTimeout(() => {
         this.explode();
@@ -57,6 +77,8 @@ export default class Bomb extends GameObject {
 
   _preventExplode() {
     clearTimeout(this.explodeTimer);
+    this.stop('detonate');
+    this.setTexture('bomb');
     this.isDetonateAccept = true;
   }
 
