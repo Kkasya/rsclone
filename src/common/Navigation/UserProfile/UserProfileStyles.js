@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-import constants from '../../styles/constants';
 
 const stylesUserProfile = makeStyles({
   userProfile_container: {

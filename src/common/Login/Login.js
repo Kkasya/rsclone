@@ -15,8 +15,6 @@ function getUserData(urlPath) {
 }
 
 export default function LoginContent(props) {
-  console.log('Start login!');
-
   const modalText = props.modalText;
   const isLoginButton = props.isLoginButton;
   const urlUserData = '/auth/user';
@@ -24,25 +22,24 @@ export default function LoginContent(props) {
   const [isLogined, setIsLogined] = useState(false);
 
   useEffect(() => {
+    let cleanupFunction = false;
     async function fetchData() {
       let pages = getUserData(urlUserData);
       pages.then((userData) => {
-        setUserProfileData(userData);
-        console.log(userData);
-        if (userData.id) {
-          setIsLogined(true);
+        if (!cleanupFunction) {
+          setUserProfileData(userData);
+          userData.id ? setIsLogined(true) : setIsLogined(false);
         }
       });
     }
     fetchData();
+    return () => cleanupFunction = true;
   }, []);
 
   const auth = {
     loggedIn: isLogined,
     userProfile: userProfileData
   }
-
-  console.log(userProfileData);
 
   store.dispatch(toggleIsLogged(auth));
 

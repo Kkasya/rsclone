@@ -24,7 +24,6 @@ export default function App() {
             <Nav isNavbar={true} />
             <UserProfile />
           </div>
-
         </Container>
         <Switcher />
       </div>

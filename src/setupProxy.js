@@ -9,7 +9,7 @@ module.exports = function (app) {
       headers: {
         'redirect-url': 'http://localhost:3000/api/auth/google/callback',
         'success-url': 'http://localhost:3000/',
-        'failure-url': 'http://localhost:3000/help',
+        'failure-url': 'http://localhost:3000/',
       },
       onProxyReq: function (proxyReq, req, res) {
         proxyReq.setHeader("accept-encoding", "identity")

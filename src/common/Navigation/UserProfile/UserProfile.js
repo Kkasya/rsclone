@@ -13,11 +13,13 @@ export default function UserProfile() {
     storeData.auth.userProfile.id ? setIsLogged(true) : setIsLogged(false);
   });
 
-  return (
-    <div>
-      {
-        isLogged ? <ProfileUser userData={userProfile} /> : <LoginModal modalText='Login in the game use google auth:' isLoginButton={true} />
-      }
-    </div>
-  );
+  if (isLogged) {
+    return (
+      <ProfileUser userData={userProfile} />
+    );
+  } else {
+    return (
+      <LoginModal modalText='Login to the game using google auth:' isLoginButton={true} />
+    );
+  }
 }

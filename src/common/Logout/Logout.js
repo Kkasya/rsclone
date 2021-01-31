@@ -2,6 +2,7 @@ import React from 'react';
 import stylesLogoutBtn from './LogoutBtnStyles';
 import { toggleIsLogged } from '../../redux/actions';
 import store from '../../redux/authStore';
+import AuthModal from '../Login/components/AuthModal'
 
 function googleLogout(urlPath) {
   return fetch(urlPath)
@@ -19,13 +20,16 @@ export default function Logout() {
   const urlLogout = '/auth/logout';
 
   let logout = () => {
-    console.log(googleLogout(urlLogout));
-    const auth = {
-      loggedIn: false,
-      userProfile: {}
-    }
+    if (googleLogout(urlLogout)) {
+      const auth = {
+        loggedIn: false,
+        userProfile: {}
+      }
 
-    store.dispatch(toggleIsLogged(auth));
+      store.dispatch(toggleIsLogged(auth));
+    } else {
+      return (<AuthModal modalText='Failed to logout! Please, try again.' isLoginButton={false} />)
+    }
   }
 
   return (
