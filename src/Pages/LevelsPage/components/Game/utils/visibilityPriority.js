@@ -2,8 +2,9 @@ const VISIBILITY_PRIORITY = {
   'char': 2,
   'ray': 3,
   'ray-priority': 5,
-  'rock-up': 6,
-  'activeItem': 7,
+  'exploding-sprite': 7,
+  'rock-up': 8,
+  'activeItem': 9,
 };
 
 export default function visibilityPriority(type) {

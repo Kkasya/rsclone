@@ -45,7 +45,7 @@ export default class Laser extends GameObject {
   detonate() {
     setTimeout(() => {
       this.explode();
-    }, DIFFERENT_CONSTANTS.explodeDelay.objects);
+    }, DIFFERENT_CONSTANTS.detonateDelay);
   }
 
   explode() {
@@ -62,6 +62,6 @@ export default class Laser extends GameObject {
         this.scene.refreshLasers();
         this.destroy();
       }
-    }, 500);
+    }, DIFFERENT_CONSTANTS.explodeDelay);
   }
 }

@@ -1,4 +1,6 @@
 import GameObject from './GameObject';
+import { bombExplodeArr } from '../constants/SPRITES_ANIMATION';
+import ExplodingObject from './ExplodingObject';
 import DIFFERENT_CONSTANTS from '../constants/DIFFERENT_CONSTANTS';
 import SIZES from '../constants/SIZES';
 
@@ -8,7 +10,8 @@ export default class Bomb extends GameObject {
     this.isDetonateAccept = true;
     this.explodeTimer = null;
     this._addListeners();
-    this._createAnimation();
+    this._createAnimationDetonate();
+    this._createArrExplodeSprites();
   }
 
   _defineHitbox() {
@@ -27,21 +30,30 @@ export default class Bomb extends GameObject {
     });
   }
 
-  _createAnimation() {
+  _createAnimationDetonate() {
     this.scene.anims.create({
       key: 'detonate',
       frames: [
         {
-          key: 'bomb1',
+          key: 'bomb-detonate1',
           duration: 30,
         },
         {
-          key: 'bomb2',
+          key: 'bomb-detonate2',
           duration: 30,
         },
       ],
       frameRate: 30,
       repeat: -1,
+    });
+  }
+
+  _createArrExplodeSprites() {
+    this.arrExplodeSprites = Array(bombExplodeArr.length).fill(0).map((item, index) => {
+      return {
+        key: bombExplodeArr[index],
+        duration: 80,
+      };
     });
   }
 
@@ -62,17 +74,19 @@ export default class Bomb extends GameObject {
       this.explodeTimer = setTimeout(() => {
         this.explode();
         this.isDetonateAccept = true;
-      }, DIFFERENT_CONSTANTS.explodeDelay.bombs);
+      }, DIFFERENT_CONSTANTS.detonateDelay);
     }
   }
 
   explode() {
-    if (this.scene) {
-      this.scene.removeItem(this.scene.collideObjects, this);
-      this._explodeNearObjects(this.x, this.y);
-      this.scene.refreshLasers();
-      this.destroy();
-    }
+    setTimeout(() => {
+      if (this.scene) {
+        this._explodeNearObjects(this.x, this.y);
+        this.scene?.removeItem(this.scene?.collideObjects, this);
+        this.scene?.refreshLasers();
+        this.destroy();
+      }
+    }, DIFFERENT_CONSTANTS.explodeDelay);
   }
 
   _preventExplode() {
@@ -83,17 +97,36 @@ export default class Bomb extends GameObject {
   }
 
   _explodeNearObjects(x, y) {
-    for (let i = x - SIZES.tileSize; i <= x + SIZES.tileSize; i += SIZES.tileSize) {
-      for (let j = y - SIZES.tileSize; j <= y + SIZES.tileSize; j += SIZES.tileSize) {
-        if (this.scene.char.x === i && this.scene.char.y === j) {
-          this.scene.char.explode();
-        }
-        this.scene.collideObjects.forEach((item) => {
-          if (item.x === i && item.y === j) {
-            item.explode();
+    let a = 0;
+    for (let i = x - SIZES.tileSize; i <= x + SIZES.tileSize; i += SIZES.tileSize, a++) {
+      let b = 0;
+      for (let j = y - SIZES.tileSize; j <= y + SIZES.tileSize; j += SIZES.tileSize, b++) {
+        this._createExplodeSprite(i, j);
+        if (!(a === 1 && b === 1)) {
+          if (this.scene.char.x === i && this.scene.char.y === j) {
+            this.scene.char.explode();
           }
-        });
+          this.scene.collideObjects.forEach((item) => {
+            if (item.x === i && item.y === j) {
+              item.explode();
+            }
+          });
+        }
       }
     }
+  }
+
+  _createExplodeSprite(i, j) {
+    const explodingObject = new ExplodingObject(
+      this.scene,
+      (i - SIZES.halfForOffset) / SIZES.tileSizeInPixels,
+      (j - SIZES.halfForOffset) / SIZES.tileSizeInPixels,
+      this.arrExplodeSprites,
+    );
+
+    explodingObject.play('explode');
+    setTimeout(() => {
+      explodingObject.destroy();
+    }, DIFFERENT_CONSTANTS.explodeDelay);
   }
 }

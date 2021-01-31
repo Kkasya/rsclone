@@ -278,8 +278,8 @@ export default class MainScene extends Phaser.Scene {
 
   _isNearTileBoundaries() {
     const remainderX = (this.char.body.x - 12 + SIZES.halfForOffset) % SIZES.tileSize;
-    const remainderY = (this.char.body.y - 8 + SIZES.halfForOffset) % SIZES.tileSize;
-    return (remainderX < 3 || remainderX > 37 || remainderY < 3 || remainderY > 37);
+    const remainderY = (this.char.body.y - 4 + SIZES.halfForOffset) % SIZES.tileSize;
+    return (remainderX <= 2 || remainderX >= 38 || remainderY <= 2 || remainderY >= 38);
   }
 
   removeItem(arr, item) {

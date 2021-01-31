@@ -12,7 +12,7 @@ export default class GameObject extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
-    if (!texture.startsWith('mirror-up') && texture !== 'rock-up') {
+    if (!texture.startsWith('mirror-up') && !texture.startsWith('kid-') && texture !== 'rock-up' && texture !== 'exploding-sprite') {
       this.setInteractive({ cursor: 'pointer' });
       this._defineHitbox();
     }
