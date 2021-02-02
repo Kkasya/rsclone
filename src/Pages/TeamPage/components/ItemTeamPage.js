@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import stylesTeamPage from '../stylesTeamPage';
-const iconGitHub = `${process.env.PUBLIC_URL}/assets/icons/github.png`;
+const iconGitHub = `/assets/icons/github.png`;
 const githubPrefix = 'https://github.com/';
 
 const objPhotoMember = {
@@ -17,7 +17,7 @@ const objPhotoMember = {
 };
 
 export default function ItemTeamPage({ photoName, name, gitHub, about }) {
-  const photoUrl = `url(${process.env.PUBLIC_URL}/assets/images/team-photos/${photoName})`
+  const photoUrl = `url(/assets/images/team-photos/${photoName})`
   objPhotoMember.photoMember.backgroundImage = photoUrl;
 
   const stylePhotoMember = makeStyles(objPhotoMember);
