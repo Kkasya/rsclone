@@ -8,7 +8,9 @@ export default function HelpElements(props) {
     <div className={classes.helpCard}>
       <div className={classes.helpCard_title}>{props.helpCard.title}</div>
       <div className={classes.helpCard_description}>
-        <img src={props.helpCard.imgUrl} alt={props.helpCard.title} className={classes.helpCard_img} />
+        <div className={classes.imgContainer}>
+          <img src={props.helpCard.imgUrl} alt={props.helpCard.title} className={classes.helpCard_img} />
+        </div>
         <div className={classes.helpCard_descriptionText}>{props.helpCard.description}</div>
       </div>
     </div>

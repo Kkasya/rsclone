@@ -5,14 +5,14 @@ const helpCardStyles = makeStyles({
   helpContainer: {
     display: 'flex',
     flexDirection: 'column',
-    rowGap: '2em',
+    rowGap: '3em',
     marginTop: '2em',
   },
 
   helpCard: {
     display: 'flex',
     flexDirection: 'column',
-    rowGap: '1em',
+    rowGap: '0.5em',
   },
 
   helpCard_title: {
@@ -24,18 +24,25 @@ const helpCardStyles = makeStyles({
   helpCard_description: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  imgContainer: {
+    display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    columnGap: '2em',
+    width: '20%',
   },
 
   helpCard_img: {
-    width: '150px',
-    height: '150px',
+    maxWidth: '150px',
+    maxHeight: '120px',
   },
 
   helpCard_descriptionText: {
-    minWidth: '10em',
+    width: '78%',
   },
 
   pagination_container: {
