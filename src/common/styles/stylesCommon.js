@@ -81,6 +81,15 @@ export const stylesCommonObj = {
     minWidth: '240px',
     minHeight: '45px',
   },
+
+  buttonDisabled: {
+    opacity: '0.5',
+  },
+
+  buttonHide: {
+    display: 'none'
+  },
+});
 }
 
 const stylesCommon = makeStyles(stylesCommonObj);

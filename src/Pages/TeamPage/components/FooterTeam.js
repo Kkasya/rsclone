@@ -18,7 +18,7 @@ export default function FooterTeam() {
       >
         <img
           className={useStylesTeamPage.icon}
-          src={iconRss}
+          src='./assets/icons/rs_school_js.svg'
           alt='RSSchool-logo'
         />
       </a>

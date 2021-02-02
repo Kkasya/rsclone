@@ -1,0 +1,82 @@
+{
+  "1": [
+    {
+      "title": "Overview",
+      "imgUrl": "./assets/images/help/overview.png",
+      "description": "This is Dweep. Dweep is a cute, furry, defenseless creature trapped in a hostile world. You must help Dweep solve 21 levels of unique puzzles. Levels will gradually increase in difficulty and complexity, and many levels have multiple solutions. You can play the levels in any sequence, but it is best to attempt them in order."
+    },
+    {
+      "title": "Objective",
+      "imgUrl": "./assets/images/help/objective.png",
+      "description": "You goal is to save the baby Dweeps. To do so, you must maneuver Dweep past a series of obstacles. If you get stuck, you can always restart the level and try a different approach. Pick up special items along the way, and use them wisely. Every item has many possible uses, so you must decide the event used for each item to lead Dweep safely to the baby Dweeps."
+    },
+    {
+      "title": "How To Play",
+      "imgUrl": "./assets/images/help/howToPalay.png",
+      "description": "You control Dweep with the mouse. The panel below contains a sample inventory. Left-click on an item to select an action to perform. The cursor will change to indicate your selection. Then click on the map area to use the current item at a specific location. For example to make Dweep wet, click on the water bucket item, then click on Dweep. When you pick up a new item, it will be added to your inventory. When you use an item, it will be removed from your inventory permanently and cannot be refused. It is possible to have more than one of any given item. Right-click ant any time to cancel the currently selected item and return to the MOVE DWEEP command."
+    }
+  ],
+  "2": [
+    {
+      "title": "Moving Dweep",
+      "imgUrl": "./assets/images/help/movingDweep.png",
+      "description": "The first command in the list of items is always the MOVE DWEEP command. When the movement cursor is selected, just left-click any were on the map, and Dweep will move there if possible. If Dweep moves through cells with traps, for example, a freezing or heating plate, then Dweep can only move one cell at a time."
+    },
+    {
+      "title": "Items",
+      "imgUrl": "./assets/images/help/items.png",
+      "description": "On most levels, you will start with no items in your inventory, so you will have to collect them along the way. Items will appear as icons on individual tiles. If you move Dweep onto an item, it will be added to your inventory. Often Dweepwill is surrounded by several items you can pick up and use right away. Items include lasers, mirrors, bombs, wrenches, torches, and water buskets. Most items have multiple functions."
+    },
+    {
+      "title": "Obstacles",
+      "imgUrl": "./assets/images/help/obstacles.png",
+      "description": "On every level, you will encounter obstacles blocking Dweep's path to the baby Dweeps. These include lasers, mirrors, bombs, freeze plates, and heat plates. Some objects can be used to your advantage; others must be avoided."
+    }
+  ],
+  "3": [
+    {
+      "title": "Laser",
+      "imgUrl": "./assets/images/help/laser.png",
+      "description": "A laser shoots a continuous beam of light in one of four directions. The Beam will incinerate Dweep and destroy any other objects it hits. A laser beam can be avoided by deflecting it with a mirror. You can permanently destroy a laser with a bomb, hammer, or another laser. You can pick up laser items to add to your inventory. There are four types of lasers, one for each direction the laser can face. You can place a laser on any empty tile. An active laser will then appears at that location."
+    },
+    {
+      "title": "Mirror",
+      "imgUrl": "./assets/images/help/mirror.png",
+      "description": "A mirror can deflect any laser beam by 90 degrees. Mirrors can face one of two directions, and they can deflect laser beams on both their front and back sides. Mirrors cannot be destroyed by laser beams directly. Mirror items can be picked up to add to your inventory. You can place a mirror on an empty tile. A mirror object will then appear at that location."
+    },
+    {
+      "title": "Wrench",
+      "imgUrl": "./assets/images/help/wrench.png",
+      "description": "A wrench can rotate a fan, or mirror by 90 degrees. There are both clockwise and counterclockwise wrenches, each represented by a different icon. Both types of wrenches will have the same effect on a mirror since a mirror can face only one or two directions."
+    }
+  ],
+  "4": [
+    {
+      "title": "Bomb",
+      "imgUrl": "./assets/images/help/bomb.png",
+      "description": "A bomb is normally inactive, but it will explode when its fuse is lit by a laser beam or torch. An exploding bomb will destroy all adjacent objects. There is a short delay between the lighting of a bomb's fuse and its subsequent explosion. A lit bomb can be defused with a water bucket. A bomb can still be lit again after being soaked. Bomb items can be picked up to add to your inventory. You can place a bomb on an empty tile. A bomb object will then appear at that location. If you place a bomb directly in the path of a laser beam, the fuse will light instantly. "
+    },
+    {
+      "title": "Torch",
+      "imgUrl": "./assets/images/help/torch.png",
+      "description": "A torch can be used to light a bomb's fuse or to melt a frozen Dweep. It has no effect on inflammable objects, such as lasers, mirrors, and fans. A torch can also make a wet Dweep dry again."
+    },
+    {
+      "title": "Water Bucket",
+      "imgUrl": "./assets/images/help/waterBucket.png",
+      "description": "Use a water bucket to douse an object with water. It can make Dweep wet, which will allow Dweep to safely cross a laser beam or heat plate. It has no effect on lasers, mirrors, or fans. A lit bomb can be defused be using a water bucket on it. A water bucket will bring a floating Dweep back down to the ground. Water buckets have no effect on a frozen Dweep."
+    }
+  ],
+  "5": [
+    {
+      "title": "Freeze Plate",
+      "imgUrl": "./assets/images/help/freezePlate.png",
+      "description": "If Dweep steps onto a freeze plate, Dweep will become frozen inside a block of ice. Use a torch or hammer on the ice to free Dweep. Freeze plates cannot be destroyed."
+    },
+    {
+      "title": "Heat Plate",
+      "imgUrl": "./assets/images/help/heatPlate.png",
+      "description": "If Dweep steps onto a heat plate, Dweep will float like a balloon. A floating Dweep can only be moved by fans. Use a water bucket or a hammer to bring a floating Dweep back down to the ground. A wet Dweep who steps onto a heat plate will become dry again. Heat plates cannot be destroyed."
+    }
+  ]
+}

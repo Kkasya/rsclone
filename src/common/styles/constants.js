@@ -4,6 +4,7 @@ const constants = {
   logoHeight: 70,
 
   fontColorPrimary: '#333',
+
   backgroundColorHeader: '#33CCFF',
   backgroundColorMain: '#B3ECFF',
 

@@ -36,7 +36,7 @@ export default function ItemTeamPage({ photoName, name, gitHub, about }) {
         <div className={useStylesTeamPage.nameMember}>{name}</div>
         <img
           className={useStylesTeamPage.icon}
-          src={iconGitHub}
+          src='./assets/icons/github.png'
           alt={name}
         />
       </a>

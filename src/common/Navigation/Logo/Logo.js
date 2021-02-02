@@ -9,7 +9,7 @@ export default function Logo() {
   return (
     <NavLink to='/' className={useStylesCommon.logoNav}>
       <img
-        src={logo}
+        src='./assets/images/logo.png'
         alt='logo'
         height={constants.logoHeight}
       />
