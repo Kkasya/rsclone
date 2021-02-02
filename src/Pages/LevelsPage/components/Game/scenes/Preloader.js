@@ -19,19 +19,19 @@ export default class Preloader extends Phaser.Scene {
 
   _loadSpritesChar() {
     SPRITES_CHAR.forEach((item) => {
-      this.load.image(item, `assets/sprites/char/${item}.png`);
+      this.load.image(item, `/assets/sprites/char/${item}.png`);
     });
   }
 
   _loadSpritesItems() {
     SPRITES_ITEMS.forEach((item) => {
-      this.load.image(item.type, `assets/sprites/items/${item.type}.png`);
+      this.load.image(item.type, `/assets/sprites/items/${item.type}.png`);
     });
   }
 
   _loadSpritesAnimation() {
     SPRITES_ANIMATION.forEach((item) => {
-      this.load.image(item, `assets/sprites/animation/${item}.png`);
+      this.load.image(item, `/assets/sprites/animation/${item}.png`);
     });
   }
 
