@@ -243,7 +243,7 @@ export default class MainScene extends Phaser.Scene {
         this.char.stopMoving();
         setTimeout(() => {
           this.scene.start('WinRound');
-        }, 2400);
+        }, 2000);
         break;
 
       default: return;

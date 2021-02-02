@@ -8,10 +8,8 @@ export default class WinRound extends Phaser.Scene {
   create() {
     this.add.text(20, 20, 'Congratulations!');
 
-    this.input.on('pointerdown', (pointer) => {
-      if (pointer.primaryDown) {
-        this.scene.start('MainScene');
-      }
-    });
+    setTimeout(() => {
+      this.scene.start('MainScene');
+    }, 2000);
   }
 }

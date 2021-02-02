@@ -252,9 +252,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":29,
@@ -267,9 +267,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":30,
@@ -282,9 +282,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":31,
@@ -297,9 +297,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":32,
@@ -600,9 +600,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":77,
@@ -615,9 +615,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":78,
@@ -630,9 +630,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":79,
@@ -645,9 +645,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":80,
@@ -948,9 +948,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":125,
@@ -963,9 +963,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":126,
@@ -978,9 +978,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":127,
@@ -993,9 +993,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":128,
@@ -1296,9 +1296,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":173,
@@ -1311,9 +1311,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":174,
@@ -1326,9 +1326,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":175,
@@ -1341,9 +1341,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":176,
@@ -1632,9 +1632,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":213,
@@ -1647,9 +1647,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":214,
@@ -1662,9 +1662,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":215,
@@ -1677,9 +1677,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":224,
@@ -1948,9 +1948,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":261,
@@ -1963,9 +1963,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":262,
@@ -1978,9 +1978,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":263,
@@ -1993,9 +1993,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":272,
@@ -2264,9 +2264,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":309,
@@ -2279,9 +2279,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":310,
@@ -2294,9 +2294,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":311,
@@ -2309,9 +2309,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":320,
@@ -2580,9 +2580,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":357,
@@ -2595,9 +2595,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":358,
@@ -2610,9 +2610,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":359,
@@ -2625,9 +2625,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":368,
@@ -2986,6 +2986,66 @@
                         }]
                 }, 
                 {
+                 "id":416,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":417,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":418,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":419,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
                  "id":432,
                  "properties":[
                         {
@@ -3244,6 +3304,66 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":464,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":465,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":466,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":467,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":480,
@@ -3506,6 +3626,66 @@
                         }]
                 }, 
                 {
+                 "id":512,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":513,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":514,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":515,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
                  "id":528,
                  "properties":[
                         {
@@ -3764,6 +3944,66 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":560,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":561,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":562,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
+                }, 
+                {
+                 "id":563,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-top-1"
+                        }],
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":576,
@@ -4076,6 +4316,66 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":612,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":613,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":614,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":615,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":616,
@@ -4450,6 +4750,66 @@
                         }]
                 }, 
                 {
+                 "id":660,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":661,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":662,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":663,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
                  "id":664,
                  "properties":[
                         {
@@ -4820,6 +5180,66 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":708,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":709,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":710,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":711,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":712,
@@ -5194,6 +5614,66 @@
                         }]
                 }, 
                 {
+                 "id":756,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":757,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":758,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
+                 "id":759,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-bottom-1"
+                        }],
+                 "type":"stock-laser-bottom-1"
+                }, 
+                {
                  "id":760,
                  "properties":[
                         {
@@ -5364,9 +5844,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":777,
@@ -5379,9 +5859,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":778,
@@ -5394,9 +5874,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":779,
@@ -5409,9 +5889,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":784,
@@ -5424,9 +5904,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":785,
@@ -5439,9 +5919,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":786,
@@ -5454,9 +5934,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":787,
@@ -5469,9 +5949,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":792,
@@ -5508,6 +5988,126 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":800,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":801,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":802,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":803,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":804,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":805,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":806,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":807,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":812,
@@ -5680,9 +6280,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":825,
@@ -5695,9 +6295,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":826,
@@ -5710,9 +6310,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":827,
@@ -5725,9 +6325,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":832,
@@ -5740,9 +6340,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":833,
@@ -5755,9 +6355,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":834,
@@ -5770,9 +6370,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":835,
@@ -5785,9 +6385,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":840,
@@ -5824,6 +6424,126 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":848,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":849,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":850,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":851,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":852,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":853,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":854,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":855,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":860,
@@ -5996,9 +6716,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":873,
@@ -6011,9 +6731,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":874,
@@ -6026,9 +6746,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":875,
@@ -6041,9 +6761,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":880,
@@ -6056,9 +6776,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":881,
@@ -6071,9 +6791,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":882,
@@ -6086,9 +6806,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":883,
@@ -6101,9 +6821,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":888,
@@ -6140,6 +6860,126 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":896,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":897,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":898,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":899,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":900,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":901,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":902,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":903,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":908,
@@ -6312,9 +7152,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":921,
@@ -6327,9 +7167,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":922,
@@ -6342,9 +7182,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":923,
@@ -6357,9 +7197,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":928,
@@ -6372,9 +7212,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":929,
@@ -6387,9 +7227,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":930,
@@ -6402,9 +7242,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":931,
@@ -6417,9 +7257,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":936,
@@ -6456,6 +7296,126 @@
                          "type":"bool",
                          "value":true
                         }]
+                }, 
+                {
+                 "id":944,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":945,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":946,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":947,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-left-1"
+                        }],
+                 "type":"stock-laser-left-1"
+                }, 
+                {
+                 "id":948,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":949,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":950,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
+                }, 
+                {
+                 "id":951,
+                 "properties":[
+                        {
+                         "name":"isSetupOnField",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"stock-laser-right-1"
+                        }],
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":956,

@@ -10,8 +10,7 @@ export default class Preloader extends Phaser.Scene {
 
   preload() {
     this.add.text(20, 20, 'Loading...');
-    // this.load.tilemapTiledJSON('map', require(`../levels/${this.game.levelNumber}.json`));
-    this.load.tilemapTiledJSON('map', require(`../levels/example.json`));
+    this.load.tilemapTiledJSON('map', require(`../levels/${this.game.levelNumber}.json`));
 
     this._loadSpritesChar();
     this._loadSpritesItems();

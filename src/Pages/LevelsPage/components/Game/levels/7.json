@@ -1,4 +1,11 @@
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "target":"."
+        }
+    },
  "height":56,
  "infinite":false,
  "layers":[
@@ -245,9 +252,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":29,
@@ -260,9 +267,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":30,
@@ -275,9 +282,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":31,
@@ -290,9 +297,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":32,
@@ -593,9 +600,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":77,
@@ -608,9 +615,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":78,
@@ -623,9 +630,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":79,
@@ -638,9 +645,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":80,
@@ -941,9 +948,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":125,
@@ -956,9 +963,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":126,
@@ -971,9 +978,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":127,
@@ -986,9 +993,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":128,
@@ -1289,9 +1296,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":173,
@@ -1304,9 +1311,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":174,
@@ -1319,9 +1326,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":175,
@@ -1334,9 +1341,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-left"
+                         "value":"laser-left-1"
                         }],
-                 "type":"laser-left"
+                 "type":"laser-left-1"
                 }, 
                 {
                  "id":176,
@@ -1625,9 +1632,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":213,
@@ -1640,9 +1647,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":214,
@@ -1655,9 +1662,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":215,
@@ -1670,9 +1677,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":224,
@@ -1941,9 +1948,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":261,
@@ -1956,9 +1963,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":262,
@@ -1971,9 +1978,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":263,
@@ -1986,9 +1993,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":272,
@@ -2257,9 +2264,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":309,
@@ -2272,9 +2279,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":310,
@@ -2287,9 +2294,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":311,
@@ -2302,9 +2309,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":320,
@@ -2573,9 +2580,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":357,
@@ -2588,9 +2595,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":358,
@@ -2603,9 +2610,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":359,
@@ -2618,9 +2625,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-top"
+                         "value":"laser-top-1"
                         }],
-                 "type":"laser-top"
+                 "type":"laser-top-1"
                 }, 
                 {
                  "id":368,
@@ -2989,9 +2996,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":417,
@@ -3004,9 +3011,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":418,
@@ -3019,9 +3026,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":419,
@@ -3034,9 +3041,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":432,
@@ -3309,9 +3316,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":465,
@@ -3324,9 +3331,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":466,
@@ -3339,9 +3346,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":467,
@@ -3354,9 +3361,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":480,
@@ -3629,9 +3636,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":513,
@@ -3644,9 +3651,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":514,
@@ -3659,9 +3666,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":515,
@@ -3674,9 +3681,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":528,
@@ -3949,9 +3956,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":561,
@@ -3964,9 +3971,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":562,
@@ -3979,9 +3986,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":563,
@@ -3994,9 +4001,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-top"
+                         "value":"stock-laser-top-1"
                         }],
-                 "type":"stock-laser-top"
+                 "type":"stock-laser-top-1"
                 }, 
                 {
                  "id":576,
@@ -4321,9 +4328,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":613,
@@ -4336,9 +4343,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":614,
@@ -4351,9 +4358,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":615,
@@ -4366,9 +4373,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":616,
@@ -4753,9 +4760,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":661,
@@ -4768,9 +4775,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":662,
@@ -4783,9 +4790,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":663,
@@ -4798,9 +4805,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":664,
@@ -5185,9 +5192,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":709,
@@ -5200,9 +5207,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":710,
@@ -5215,9 +5222,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":711,
@@ -5230,9 +5237,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":712,
@@ -5617,9 +5624,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":757,
@@ -5632,9 +5639,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":758,
@@ -5647,9 +5654,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":759,
@@ -5662,9 +5669,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-bottom"
+                         "value":"stock-laser-bottom-1"
                         }],
-                 "type":"stock-laser-bottom"
+                 "type":"stock-laser-bottom-1"
                 }, 
                 {
                  "id":760,
@@ -5837,9 +5844,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":777,
@@ -5852,9 +5859,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":778,
@@ -5867,9 +5874,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":779,
@@ -5882,9 +5889,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":784,
@@ -5897,9 +5904,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":785,
@@ -5912,9 +5919,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":786,
@@ -5927,9 +5934,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":787,
@@ -5942,9 +5949,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":792,
@@ -5993,9 +6000,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":801,
@@ -6008,9 +6015,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":802,
@@ -6023,9 +6030,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":803,
@@ -6038,9 +6045,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":804,
@@ -6053,9 +6060,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":805,
@@ -6068,9 +6075,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":806,
@@ -6083,9 +6090,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":807,
@@ -6098,9 +6105,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":812,
@@ -6273,9 +6280,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":825,
@@ -6288,9 +6295,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":826,
@@ -6303,9 +6310,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":827,
@@ -6318,9 +6325,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":832,
@@ -6333,9 +6340,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":833,
@@ -6348,9 +6355,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":834,
@@ -6363,9 +6370,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":835,
@@ -6378,9 +6385,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":840,
@@ -6429,9 +6436,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":849,
@@ -6444,9 +6451,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":850,
@@ -6459,9 +6466,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":851,
@@ -6474,9 +6481,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":852,
@@ -6489,9 +6496,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":853,
@@ -6504,9 +6511,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":854,
@@ -6519,9 +6526,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":855,
@@ -6534,9 +6541,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":860,
@@ -6709,9 +6716,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":873,
@@ -6724,9 +6731,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":874,
@@ -6739,9 +6746,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":875,
@@ -6754,9 +6761,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":880,
@@ -6769,9 +6776,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":881,
@@ -6784,9 +6791,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":882,
@@ -6799,9 +6806,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":883,
@@ -6814,9 +6821,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":888,
@@ -6865,9 +6872,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":897,
@@ -6880,9 +6887,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":898,
@@ -6895,9 +6902,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":899,
@@ -6910,9 +6917,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":900,
@@ -6925,9 +6932,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":901,
@@ -6940,9 +6947,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":902,
@@ -6955,9 +6962,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":903,
@@ -6970,9 +6977,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":908,
@@ -7145,9 +7152,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":921,
@@ -7160,9 +7167,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":922,
@@ -7175,9 +7182,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":923,
@@ -7190,9 +7197,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-right"
+                         "value":"laser-right-1"
                         }],
-                 "type":"laser-right"
+                 "type":"laser-right-1"
                 }, 
                 {
                  "id":928,
@@ -7205,9 +7212,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":929,
@@ -7220,9 +7227,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":930,
@@ -7235,9 +7242,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":931,
@@ -7250,9 +7257,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"laser-bottom"
+                         "value":"laser-bottom-1"
                         }],
-                 "type":"laser-bottom"
+                 "type":"laser-bottom-1"
                 }, 
                 {
                  "id":936,
@@ -7301,9 +7308,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":945,
@@ -7316,9 +7323,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":946,
@@ -7331,9 +7338,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":947,
@@ -7346,9 +7353,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-left"
+                         "value":"stock-laser-left-1"
                         }],
-                 "type":"stock-laser-left"
+                 "type":"stock-laser-left-1"
                 }, 
                 {
                  "id":948,
@@ -7361,9 +7368,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":949,
@@ -7376,9 +7383,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":950,
@@ -7391,9 +7398,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":951,
@@ -7406,9 +7413,9 @@
                         {
                          "name":"type",
                          "type":"string",
-                         "value":"stock-laser-right"
+                         "value":"stock-laser-right-1"
                         }],
-                 "type":"stock-laser-right"
+                 "type":"stock-laser-right-1"
                 }, 
                 {
                  "id":956,
