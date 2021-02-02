@@ -4,7 +4,7 @@ import constants from './constants';
 const logoHeightWithPaddings = constants.logoHeight + 2 * constants.logoPaddings;
 const headerHeight = Math.max(constants.minHeaderHeight, logoHeightWithPaddings);
 
-const stylesCommon = makeStyles({
+export const stylesCommonObj = {
   root: {
     '& a': {
       textDecoration: 'none',
@@ -72,6 +72,11 @@ const stylesCommon = makeStyles({
     },
   },
 
+  containerLevels: {
+    paddingTop: '5vh',
+    justifyContent: 'center',
+  },
+
   buttonBig: {
     minWidth: '240px',
     minHeight: '45px',
@@ -85,5 +90,8 @@ const stylesCommon = makeStyles({
     display: 'none'
   },
 });
+}
+
+const stylesCommon = makeStyles(stylesCommonObj);
 
 export default stylesCommon;

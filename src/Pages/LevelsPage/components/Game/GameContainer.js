@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import PhaserGame from './PhaserGame';
+import { Container } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import { stylesCommonObj } from '../../../../common/styles/stylesCommon';
 
-export default class GameContainer extends Component {
+class GameContainer extends Component {
   constructor({ levelNumber }) {
     super();
     this.levelNumber = levelNumber;
   }
 
   componentDidMount() {
-    this.game = new PhaserGame(this, this.levelNumber);
+    this.game = new PhaserGame(this.levelNumber);
   }
 
   render() {
+    const { classes } = this.props;
     return (
-      <div id="gameContainer" />
+      <Container
+        maxWidth='lg'
+        className={`${classes.container} ${classes.containerLevels}`}
+      >
+        <div id="gameContainer" />
+      </Container>
     );
   }
 }
+
+export default withStyles(stylesCommonObj)(GameContainer);

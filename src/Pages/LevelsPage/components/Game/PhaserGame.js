@@ -6,7 +6,7 @@ import WinRound from './scenes/WinRound';
 import Death from './scenes/Death';
 
 export default class PhaserGame extends Phaser.Game {
-  constructor(react) {
+  constructor(levelNumber) {
     const config = {
       type: Phaser.AUTO,
       width: SIZES.widthInPixels,
@@ -36,7 +36,6 @@ export default class PhaserGame extends Phaser.Game {
       },
     }
     super(config);
-    this.react = react;
-    this.levelNumber = 1;
+    this.levelNumber = levelNumber;
   }
 }

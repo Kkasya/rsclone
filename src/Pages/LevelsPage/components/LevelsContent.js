@@ -1,51 +1,27 @@
-import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
+import React from 'react';
+import { NavLink } from "react-router-dom";
+import DIFFERENT_CONSTANTS from './Game/constants/DIFFERENT_CONSTANTS';
 import ItemLevelsPage from './ItemLevelsPage';
-import LEVELS_LIST from '../LIST_LEVELS';
-import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLevelsPage from '../stylesLevelsPage';
 
 export default function LevelsContent() {
-  const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
-  const buttonAndBig = `
-    ${commonStyles.button}
-    ${commonStyles.buttonBig}
-    ${commonStyles.containerInlineCenter}
-  `;
 
-  const [passedLevels, setPassedLevels] = useState(LEVELS_LIST);
-
-  const clearPassedLevel = () => {
-    const newPassedLevels = [...passedLevels];
-    newPassedLevels.forEach((item) => item.isCompleted = false);
-    setPassedLevels(newPassedLevels);
-  };
-
-  const levelsListComponents = LEVELS_LIST.map((item) => {
-    return (
-      <ItemLevelsPage
-        name={item.name}
-        isCompleted={item.isCompleted}
-        key={item.id}
-      />
-    );
-  });
+  const levelsListComponents = Array(DIFFERENT_CONSTANTS.levelsQuantity)
+    .fill(0)
+    .map((item, index) => {
+      return (
+        <NavLink to={`/levels/${index + 1}`} key={index + 1}>
+          <ItemLevelsPage
+            name={index + 1}
+          />
+        </NavLink>
+      );
+    });
 
   return (
-    <div>
-      <div className={useStyles.buttonsLevelsWrapper}>
-        {levelsListComponents}
-      </div>
-      <div className={commonStyles.containerInlineCenter}>
-        <Button
-          variant='contained'
-          className={buttonAndBig}
-          onClick={clearPassedLevel}
-        >
-          Reset progress
-        </Button>
-      </div>
+    <div className={useStyles.buttonsLevelsWrapper}>
+      {levelsListComponents}
     </div>
   );
 }

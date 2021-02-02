@@ -1,11 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
 const stylesLevelsPage = makeStyles({
-  containerLevels: {
-    paddingTop: '5vh',
-    justifyContent: 'center',
-  },
-
   buttonsLevelsWrapper: {
     padding: '10vh 0',
     display: 'flex',
