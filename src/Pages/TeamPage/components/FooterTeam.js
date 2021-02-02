@@ -1,7 +1,6 @@
 import React from 'react';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesTeamPage from '../stylesTeamPage';
-const iconRss = `/assets/icons/rs_school_js.svg`;
 const urlRss = 'https://rs.school/js/';
 
 export default function FooterTeam() {

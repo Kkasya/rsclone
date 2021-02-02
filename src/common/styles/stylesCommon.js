@@ -89,8 +89,7 @@ export const stylesCommonObj = {
   buttonHide: {
     display: 'none'
   },
-});
-}
+};
 
 const stylesCommon = makeStyles(stylesCommonObj);
 

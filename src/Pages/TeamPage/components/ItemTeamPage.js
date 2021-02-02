@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import stylesTeamPage from '../stylesTeamPage';
-const iconGitHub = `/assets/icons/github.png`;
 const githubPrefix = 'https://github.com/';
 
 const objPhotoMember = {
