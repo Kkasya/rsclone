@@ -2,6 +2,7 @@ import React from 'react';
 import stylesNav from './stylesNav';
 import { connect } from 'react-redux';
 import NavElement from './components/NavElement'
+import { toggleSetting, toggleLang } from '../../../redux/actions';
 
 const pagesList_EN = {
   levels: 'levels',
@@ -17,18 +18,24 @@ const pagesList_RU = {
   team: 'команда',
 }
 
-function Nav({ isNavbar, lang }) {
+function Nav({ isNavbar, settings, lang }) {
   const useNavStyles = stylesNav();
 
   return (
     <nav className={useNavStyles.nav}>
-      <NavElement isNavbar={isNavbar} pageList={lang === 'en' ? pagesList_EN : pagesList_RU} />
+      <NavElement isNavbar={isNavbar} pageList={lang === 'en' ? pagesList_EN : pagesList_RU} settings={settings} />
     </nav>
   );
 }
 
 const mapStateToProps = (state) => ({
-  lang: state.lang
+  lang: state.lang,
+  settings: state.settings,
 });
 
-export default connect(mapStateToProps)(Nav);
+const mapDispatchToProps = {
+  toggleSetting,
+  toggleLang
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

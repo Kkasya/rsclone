@@ -8,7 +8,7 @@ export default function StartPage() {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth='lg'
       className={commonStyles.container}
     >
       <div className={commonStyles.containerPage}>

@@ -15,7 +15,7 @@ export default function App() {
     <Router>
       <div className={commonStyles.root}>
         <Container
-          maxWidth="lg"
+          maxWidth='lg'
           className={header}
         >
           <Logo />

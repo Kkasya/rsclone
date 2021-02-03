@@ -16,6 +16,15 @@ export default function NavElement(props) {
   const listInNavbar = `${useNavStyles.list} ${useNavStyles.listInNavbar}`;
   const listOnStart = `${useNavStyles.list} ${useNavStyles.listOnStart}`;
 
+  const isShowBySetting = props.settings[0].state;
+  const srcPressMenu = `/assets/sounds/press1.mp3`;
+  const audioPressMenu = new Audio(srcPressMenu);
+  const playPress = () => {
+    if (isShowBySetting) {
+      audioPressMenu.play();
+    }
+  }
+
   const navElements =
     Object.entries(props.pageList).map(([routPath, valueBtn]) => {
       return (
@@ -24,6 +33,7 @@ export default function NavElement(props) {
             <Button
               variant='contained'
               className={props.isNavbar ? commonStyles.button : buttonAndBig}
+              onClick={playPress}
             >
               {valueBtn}
             </Button>

@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core';
 import helpStyles from '../HelpStyles';
 import HelpCards from './HelpCards';
 import stylesCommon from '../../../common/styles/stylesCommon';
+import { toggleSetting, toggleLang } from '../../../redux/actions';
 import { connect } from 'react-redux';
 
 let pageNumber = 1;
@@ -18,7 +19,8 @@ function getCardsArray(urlPath) {
     .catch(() => false);
 }
 
-function HelpContent({ lang }) {
+
+function HelpContent({ lang, settings }) {
   const classes = helpStyles();
   let commonStyles = stylesCommon();
 
@@ -36,9 +38,19 @@ function HelpContent({ lang }) {
     setPage(pageNumber);
   }, []);
 
+  const isShowBySetting = settings[0].state;
+  const srcPressButton = `/assets/sounds/press1.mp3`;
+  const audioPressButton = new Audio(srcPressButton);
+  const playPress = () => {
+    if (isShowBySetting) {
+      audioPressButton.play();
+    }
+  }
+
   const countPages = Object.keys(data).length;
 
   const changePage = (e) => {
+    playPress();
     const buttonType = e.currentTarget.getAttribute('aria-label');
     buttonType === 'left' ? --pageNumber : ++pageNumber;
     setPage(pageNumber);
@@ -93,7 +105,13 @@ function HelpContent({ lang }) {
 }
 
 const mapStateToProps = (state) => ({
-  lang: state.lang
+  lang: state.lang,
+  settings: state.settings,
 });
 
-export default connect(mapStateToProps)(HelpContent);
+const mapDispatchToProps = {
+  toggleSetting,
+  toggleLang
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HelpContent);

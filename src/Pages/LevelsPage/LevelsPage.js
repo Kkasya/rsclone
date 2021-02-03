@@ -5,10 +5,11 @@ import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function LevelsPage() {
   const commonStyles = stylesCommon();
+  const containerForLevels = `${commonStyles.container} ${commonStyles.containerLevels}`
   return (
     <Container
       maxWidth='lg'
-      className={commonStyles.container}
+      className={containerForLevels}
     >
       <LevelsContent />
     </Container>

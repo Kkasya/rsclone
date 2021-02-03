@@ -15,6 +15,7 @@ function TeamPage({ lang }) {
         key={item.id}
         photoName={item.photoName}
         name={item.name}
+        role={item.role}
         gitHub={item.gitHub}
         about={item.about}
       />

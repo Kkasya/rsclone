@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import LEVELS from './Game/levels/LEVELS';
 import ItemLevelsPage from './ItemLevelsPage';
-import LEVELS_LIST from '../LIST_LEVELS';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLevelsPage from '../stylesLevelsPage';
 import { connect } from 'react-redux';
@@ -15,23 +16,26 @@ function LevelsContent({ lang }) {
     ${commonStyles.containerInlineCenter}
   `;
 
-  const [passedLevels, setPassedLevels] = useState(LEVELS_LIST);
+  const levelsQuantity = Object.entries(LEVELS).length;
+  const levelsListComponents = Array(levelsQuantity)
+    .fill(0)
+    .map((item, index) => {
+      return (
+        <NavLink to={`/levels/${index + 1}`} key={index + 1}>
+          <ItemLevelsPage
+            name={index + 1}
+            isCompleted={localStorage.getItem(`dweep-${index + 1}`)}
+          />
+        </NavLink>
+      );
+    });
 
   const clearPassedLevel = () => {
-    const newPassedLevels = [...passedLevels];
-    newPassedLevels.forEach((item) => item.isCompleted = false);
-    setPassedLevels(newPassedLevels);
+    for (let i = 1; i <= levelsQuantity; i++) {
+      localStorage.removeItem(`dweep-${i}`);
+    }
+    window.location.reload(false);
   };
-
-  const levelsListComponents = LEVELS_LIST.map((item) => {
-    return (
-      <ItemLevelsPage
-        name={item.name}
-        isCompleted={item.isCompleted}
-        key={item.id}
-      />
-    );
-  });
 
   return (
     <div>
