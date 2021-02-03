@@ -15,7 +15,7 @@ function getCardsArray(urlPath) {
       }
       return Promise.reject(response.json);
     })
-    .catch((answer) => console.log("Something went wrong! Error: " + answer.statusText));
+    .catch(() => false);
 }
 
 function HelpContent({ lang }) {
@@ -34,7 +34,6 @@ function HelpContent({ lang }) {
     }
     fetchData();
     setPage(pageNumber);
-    console.log("Data" + data);
   }, []);
 
   const countPages = Object.keys(data).length;
@@ -70,7 +69,6 @@ function HelpContent({ lang }) {
   }
 
   const createHelpPageWithPaginations = () => {
-    console.log("new render!")
     let pageRender = [];
     pageRender.push(<HelpCards page={data[pageNumber]} key={'helpCards'} />);
 
