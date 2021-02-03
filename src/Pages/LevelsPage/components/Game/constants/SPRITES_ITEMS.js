@@ -26,9 +26,6 @@ const SPRITES_ITEMS = [
     type: 'ray-short-right',
   },
   {
-    type: 'menu',
-  },
-  {
     type: 'move',
   },
   {
