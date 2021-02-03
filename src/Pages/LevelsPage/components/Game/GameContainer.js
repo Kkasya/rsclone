@@ -5,13 +5,14 @@ import { withStyles } from '@material-ui/core/styles';
 import { stylesCommonObj } from '../../../../common/styles/stylesCommon';
 
 class GameContainer extends Component {
-  constructor({ levelNumber }) {
+  constructor({ history, levelNumber }) {
     super();
     this.levelNumber = levelNumber;
+    this.history = history;
   }
 
   componentDidMount() {
-    this.game = new PhaserGame(this.levelNumber);
+    this.game = new PhaserGame(this.history, this.levelNumber);
   }
 
   render() {

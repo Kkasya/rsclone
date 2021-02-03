@@ -3,15 +3,15 @@ import * as Phaser from 'phaser';
 export default class Winning extends Phaser.Scene {
   constructor() {
     super('Winning');
-    this.once = false;
+    this.isStarted = false;
   }
 
   create() {
     this.add.text(20, 20, 'Congratulations!');
-    if (!this.once) {
-      this.once = true;
+    if (!this.isStarted) {
+      this.isStarted = true;
       this._saveProgress();
-      this._redirectToMainScene();
+      this._redirectToLevelsPage();
     }
   }
 
@@ -19,10 +19,9 @@ export default class Winning extends Phaser.Scene {
     localStorage.setItem(`dweep-${this.game.levelNumber}`, true);
   }
 
-  _redirectToMainScene() {
+  _redirectToLevelsPage() {
     setTimeout(() => {
-      this.scene.start('MainScene');
-      this.once = false;
+      this.game.history.push(`/levels`);
     }, 2000);
   }
 }
