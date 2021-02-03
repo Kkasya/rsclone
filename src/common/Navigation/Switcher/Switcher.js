@@ -10,21 +10,21 @@ import SettingsPage from '../../../Pages/SettingsPage/SettingsPage';
 import HelpPage from '../../../Pages/HelpPage/HelpPage';
 import TeamPage from '../../../Pages/TeamPage/TeamPage';
 import GameContainer from '../../../Pages/LevelsPage/components/Game/GameContainer';
-import DIFFERENT_CONSTANTS from '../../../Pages/LevelsPage/components/Game/constants/DIFFERENT_CONSTANTS';
+import LEVELS from '../../../Pages/LevelsPage/components/Game/levels/LEVELS';
 
 export default function Switcher() {
-  const isLevelExists = ({ match }) => {
+  const isLevelExists = ({ history, match }) => {
     const levelNumber = Number(match.params.id);
 
     if (
         levelNumber < 1 
-        || levelNumber > DIFFERENT_CONSTANTS.levelsQuantity
+        || levelNumber > Object.entries(LEVELS).length
         || (levelNumber ^ 0) !== levelNumber
       ) {
       return <Redirect to='/levels' />
     }
 
-    return <GameContainer levelNumber={levelNumber} />
+    return <GameContainer history={history} levelNumber={levelNumber} />
   }
 
   return (

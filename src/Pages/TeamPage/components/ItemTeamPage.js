@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import stylesTeamPage from '../stylesTeamPage';
+
+const iconGitHub = `/assets/icons/github.png`;
 const githubPrefix = 'https://github.com/';
 
 const objPhotoMember = {
@@ -15,7 +17,7 @@ const objPhotoMember = {
   },
 };
 
-export default function ItemTeamPage({ photoName, name, gitHub, about }) {
+export default function ItemTeamPage({ photoName, name, role, gitHub, about }) {
   const photoUrl = `url(/assets/images/team-photos/${photoName})`
   objPhotoMember.photoMember.backgroundImage = photoUrl;
 
@@ -24,21 +26,22 @@ export default function ItemTeamPage({ photoName, name, gitHub, about }) {
   const useStylesTeamPage = stylesTeamPage();
 
   return (
-    <div className={useStylesTeamPage.cardWrapper}>
-      <div className={useStylePhotoMember.photoMember}></div>
+    <div className={ useStylesTeamPage.cardWrapper }>
+      <div className={ useStylePhotoMember.photoMember }></div>
       <a
         className={useStylesTeamPage.nameWrapper}
         href={`${githubPrefix}${gitHub}`}
         target='_blank'
         rel='noreferrer'
       >
-        <div className={useStylesTeamPage.nameMember}>{name}</div>
+        <div className={ useStylesTeamPage.nameMember }>{name}</div>
         <img
           className={useStylesTeamPage.icon}
-          src='./assets/icons/github.png'
+          src={iconGitHub}
           alt={name}
         />
       </a>
+      <p className={useStylesTeamPage.role}>{role}</p>
       <p className={useStylesTeamPage.aboutMember}>{about}</p>
     </div>
   );

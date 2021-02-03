@@ -7,15 +7,16 @@ import { toggleSetting } from '../../../../redux/actions';
 import { connect } from 'react-redux';
 
 class GameContainer extends Component {
-  constructor({ levelNumber, settings }) {
+  constructor({ history, levelNumber, settings }) {
     super();
+    this.history = history;
     this.levelNumber = levelNumber;
     this.settings = settings;
     this.idGame = ((this.levelNumber / 4) - Math.floor(this.levelNumber/4)) * 4;
   }
 
   componentDidMount() {
-    this.game = new PhaserGame(this.levelNumber);
+    this.game = new PhaserGame(this.history, this.levelNumber);
     const srcGame = `/assets/sounds/${this.idGame}.mp3`;
     this.audioGame = new Audio(srcGame);
     this.interval = setInterval(() => this.playGame(), 1000);

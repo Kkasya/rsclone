@@ -6,7 +6,7 @@ import GameObjectFabric from '../gameElements/GameObjectFabric';
 import Char from '../gameElements/Char';
 import Stock from '../gameElements/Stock';
 import ActiveItem from '../gameElements/ActiveItem';
-import INIT_CHAR_LOCATION from '../levels/INIT_CHAR_LOCATION';
+import LEVELS from '../levels/LEVELS';
 
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -194,14 +194,14 @@ export default class MainScene extends Phaser.Scene {
   _addListenerToRestartButton() {
     this.restartButton.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
-        this.scene.start('MainScene');
+        this.scene.start('Hint');
       }
     });
   }
 
   _createCharacter() {
-    const offsetX = (INIT_CHAR_LOCATION[this.game.levelNumber]?.x || 2) * SIZES.blocksInTile;
-    const offsetY = (INIT_CHAR_LOCATION[this.game.levelNumber]?.y || 2) * SIZES.blocksInTile;
+    const offsetX = (LEVELS[this.game.levelNumber]?.initCharPosition?.x || 2) * SIZES.blocksInTile;
+    const offsetY = (LEVELS[this.game.levelNumber]?.initCharPosition?.y || 2) * SIZES.blocksInTile;
     this.char = new Char(this, offsetX, offsetY, 'char-normal');
   }
 
@@ -239,10 +239,10 @@ export default class MainScene extends Phaser.Scene {
         this.scene.start('Death');
         break;
 
-      case 'winRound':
+      case 'winning':
         this.char.stopMoving();
         setTimeout(() => {
-          this.scene.start('WinRound');
+          this.scene.start('Winning');
         }, 2000);
         break;
 

@@ -36,9 +36,6 @@ export default class Preloader extends Phaser.Scene {
   }
 
   create() {
-    const delayForPreventLags = 2000;
-    setTimeout(() => {
-      this.scene.start('MainScene');
-    }, delayForPreventLags);
+    this.scene.start('Hint');
   }
 }

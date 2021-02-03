@@ -1,12 +1,13 @@
 import * as Phaser from 'phaser';
 import SIZES from './constants/SIZES';
 import Preloader from './scenes/Preloader';
+import Hint from './scenes/Hint';
 import MainScene from './scenes/MainScene';
-import WinRound from './scenes/WinRound';
+import Winning from './scenes/Winning';
 import Death from './scenes/Death';
 
 export default class PhaserGame extends Phaser.Game {
-  constructor(levelNumber) {
+  constructor(history, levelNumber) {
     const config = {
       type: Phaser.AUTO,
       width: SIZES.widthInPixels,
@@ -18,8 +19,9 @@ export default class PhaserGame extends Phaser.Game {
       parent: 'gameContainer',
       scene: [
         Preloader,
+        Hint,
         MainScene,
-        WinRound,
+        Winning,
         Death,
       ],
 
@@ -37,6 +39,7 @@ export default class PhaserGame extends Phaser.Game {
     }
 
     super(config);
+    this.history = history;
     this.levelNumber = levelNumber;
   }
 }
