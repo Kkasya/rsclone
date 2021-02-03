@@ -10,7 +10,7 @@ import SettingsPage from '../../../Pages/SettingsPage/SettingsPage';
 import HelpPage from '../../../Pages/HelpPage/HelpPage';
 import TeamPage from '../../../Pages/TeamPage/TeamPage';
 import GameContainer from '../../../Pages/LevelsPage/components/Game/GameContainer';
-import DIFFERENT_CONSTANTS from '../../../Pages/LevelsPage/components/Game/constants/DIFFERENT_CONSTANTS';
+import LEVELS from '../../../Pages/LevelsPage/components/Game/levels/LEVELS';
 
 export default function Switcher() {
   const isLevelExists = ({ match }) => {
@@ -18,7 +18,7 @@ export default function Switcher() {
 
     if (
         levelNumber < 1 
-        || levelNumber > DIFFERENT_CONSTANTS.levelsQuantity
+        || levelNumber > Object.entries(LEVELS).length
         || (levelNumber ^ 0) !== levelNumber
       ) {
       return <Redirect to='/levels' />

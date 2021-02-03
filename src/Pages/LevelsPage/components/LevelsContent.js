@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import DIFFERENT_CONSTANTS from './Game/constants/DIFFERENT_CONSTANTS';
 import ItemLevelsPage from './ItemLevelsPage';
 import stylesLevelsPage from '../stylesLevelsPage';
+import LEVELS from './Game/levels/LEVELS';
 
 export default function LevelsContent() {
   const useStyles = stylesLevelsPage();
 
-  const levelsListComponents = Array(DIFFERENT_CONSTANTS.levelsQuantity)
+  const levelsListComponents = Array(Object.entries(LEVELS).length)
     .fill(0)
     .map((item, index) => {
       return (

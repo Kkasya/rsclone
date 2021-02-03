@@ -194,7 +194,7 @@ export default class MainScene extends Phaser.Scene {
   _addListenerToRestartButton() {
     this.restartButton.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
-        this.scene.start('MainScene');
+        this.scene.start('Hint');
       }
     });
   }
@@ -239,10 +239,10 @@ export default class MainScene extends Phaser.Scene {
         this.scene.start('Death');
         break;
 
-      case 'winRound':
+      case 'winning':
         this.char.stopMoving();
         setTimeout(() => {
-          this.scene.start('WinRound');
+          this.scene.start('Winning');
         }, 2000);
         break;
 

@@ -1,8 +1,8 @@
 import * as Phaser from 'phaser';
 
-export default class WinRound extends Phaser.Scene {
+export default class Winning extends Phaser.Scene {
   constructor() {
-    super('WinRound');
+    super('Winning');
   }
 
   create() {

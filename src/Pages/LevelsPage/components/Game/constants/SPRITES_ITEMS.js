@@ -39,7 +39,7 @@ const SPRITES_ITEMS = [
   },
   {
     type: 'kids',
-    action: 'winRound',
+    action: 'winning',
   },
   {
     type: 'bomb',
