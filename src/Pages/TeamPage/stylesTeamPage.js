@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import {makeStyles} from "@material-ui/core";
 
 const stylesTeamPage = makeStyles({
   contentWrapper: {
@@ -39,6 +39,12 @@ const stylesTeamPage = makeStyles({
       color: 'rgba(0, 0, 0, 1)',
       borderBottom: '1px solid rgba(0, 0, 0, 1)',
     },
+  },
+
+  role: {
+    fontSize: '1.1rem',
+    margin: '0 0 0.5rem 0',
+    fontWeight: '600',
   },
 
   aboutMember: {
