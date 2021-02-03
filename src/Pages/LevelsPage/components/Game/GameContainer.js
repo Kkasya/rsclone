@@ -16,7 +16,7 @@ class GameContainer extends Component {
 
   componentDidMount() {
     this.game = new PhaserGame(this.levelNumber);
-    const srcGame = `${process.env.PUBLIC_URL}/assets/sounds/${this.idGame}.mp3`;
+    const srcGame = `/assets/sounds/${this.idGame}.mp3`;
     this.audioGame = new Audio(srcGame);
     this.interval = setInterval(() => this.playGame(), 1000);
   }

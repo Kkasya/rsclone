@@ -27,7 +27,7 @@ export default class PhaserGame extends Phaser.Game {
         default: 'arcade',
         arcade: {
           debug: false,
-          gravity: {y: 0},
+          gravity: { y: 0 },
         },
       },
 

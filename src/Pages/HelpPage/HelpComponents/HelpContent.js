@@ -39,7 +39,7 @@ function HelpContent({settings}) {
   }, []);
 
   const isShowBySetting = settings[1].state;
-  const srcPressButton = `${process.env.PUBLIC_URL}/assets/sounds/press1.mp3`;
+  const srcPressButton = `/assets/sounds/press1.mp3`;
   const audioPressButton = new Audio(srcPressButton);
   const playPress  = () => {
     if (isShowBySetting) {
