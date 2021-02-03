@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import helpStyles from '../HelpStyles';
 import HelpCards from './HelpCards';
 import stylesCommon from '../../../common/styles/stylesCommon';
-import { toggleSetting } from '../../../redux/actions';
+import { toggleSetting, toggleLang } from '../../../redux/actions';
 import { connect } from 'react-redux';
 
 let pageNumber = 1;
@@ -16,20 +16,19 @@ function getCardsArray(urlPath) {
       }
       return Promise.reject(response.json);
     })
-    .catch((answer) => alert("Something went wrong! Error: " + answer.statusText));
+    .catch(() => false);
 }
 
-function HelpContent({ settings }) {
+function HelpContent({ lang, settings }) {
   const classes = helpStyles();
   let commonStyles = stylesCommon();
-  const url = '/assets/json/HelpCardsDescription.json';
 
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function fetchData() {
-      let pages = getCardsArray(url);
+      let pages = getCardsArray(lang === 'en' ? './assets/json/HelpCardsDescriptionEn.json' : './assets/json/HelpCardsDescriptionRu.json');
       pages.then((pageData) => {
         setData(pageData);
       })
@@ -39,7 +38,7 @@ function HelpContent({ settings }) {
   }, []);
 
   const isShowBySetting = settings[0].state;
-  const srcPressButton = `/assets/sounds/press1.mp3`;
+  const srcPressButton = `./assets/sounds/press1.mp3`;
   const audioPressButton = new Audio(srcPressButton);
   const playPress = () => {
     if (isShowBySetting) {
@@ -104,12 +103,14 @@ function HelpContent({ settings }) {
   )
 }
 
-
 const mapStateToProps = (state) => ({
+  lang: state.lang,
   settings: state.settings,
 });
 
 const mapDispatchToProps = {
   toggleSetting,
+  toggleLang
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(HelpContent);

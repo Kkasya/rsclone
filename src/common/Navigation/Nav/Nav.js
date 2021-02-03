@@ -1,68 +1,41 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Button } from '@material-ui/core';
-import stylesCommon from '../../styles/stylesCommon';
 import stylesNav from './stylesNav';
-import { toggleSetting } from '../../../redux/actions';
 import { connect } from 'react-redux';
+import NavElement from './components/NavElement'
+import { toggleSetting, toggleLang } from '../../../redux/actions';
 
-const pagesList = [
-  'levels',
-  'settings',
-  'help',
-  'team',
-];
+const pagesList_EN = {
+  levels: 'levels',
+  settings: 'settings',
+  help: 'help',
+  team: 'team',
+};
 
-function Nav({ isNavbar, settings }) {
-  const commonStyles = stylesCommon();
+const pagesList_RU = {
+  levels: 'уровни',
+  settings: 'настройки',
+  help: 'помощь',
+  team: 'команда',
+}
+
+function Nav({ isNavbar, settings, lang }) {
   const useNavStyles = stylesNav();
-  const buttonAndBig = `
-    ${commonStyles.button}
-    ${commonStyles.buttonBig}
-    ${commonStyles.containerInlineCenter}
-  `;
-  const listInNavbar = `${useNavStyles.list} ${useNavStyles.listInNavbar}`;
-  const listOnStart = `${useNavStyles.list} ${useNavStyles.listOnStart}`;
-
-  const isShowBySetting = settings[0].state;
-  const srcPressMenu = `/assets/sounds/press1.mp3`;
-  const audioPressMenu = new Audio(srcPressMenu);
-  const playPress  = () => {
-    if (isShowBySetting) {
-      audioPressMenu.play();
-    }
-  }
-
-  const pagesListComponents = pagesList.map((item) => {
-    return (
-      <li key={item}>
-        <NavLink to={`/${item}`} activeClassName='activeNavLink'>
-          <Button
-            variant='contained'
-            className={isNavbar ? commonStyles.button : buttonAndBig}
-            onClick={playPress}
-          >
-            {item}
-          </Button>
-        </NavLink>
-      </li>
-    );
-  });
 
   return (
     <nav className={useNavStyles.nav}>
-      <ul className={isNavbar ? listInNavbar : listOnStart}>
-        {pagesListComponents}
-      </ul>
+      <NavElement isNavbar={isNavbar} pageList={lang === 'en' ? pagesList_EN : pagesList_RU} settings={settings} />
     </nav>
   );
 }
 
 const mapStateToProps = (state) => ({
+  lang: state.lang,
   settings: state.settings,
 });
 
 const mapDispatchToProps = {
   toggleSetting,
+  toggleLang
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

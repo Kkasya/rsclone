@@ -10,10 +10,7 @@ const settingsReducer = (state = initialState, action) => {
       return { ...state, settings: [...newSettings] }
 
     case 'TOGGLE_LANG':
-      if (action.value !== state.lang) {
-        return { ...state, lang: action.value }
-      }
-      break;
+      return { ...state, lang: action.value }
 
     default: return state;
   }

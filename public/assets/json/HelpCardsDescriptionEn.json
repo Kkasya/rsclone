@@ -36,8 +36,8 @@
   "3": [
     {
       "title": "Laser",
-      "imgUrl": "/assets/images/help/laser.png",
-      "description": "A laser shoots a continuous beam of light in one of four directions. The Beam will incinerate Dweep and destroy any other objects it hits. A laser beam can be avoided by deflecting it with a mirror. You can permanently destroy a laser with a bomb, hammer, or another laser. You can pick up laser items to add to your inventory. There are four types of lasers, one for each direction the laser can face. You can place a laser on any empty tile. An active laser will then appears at that location."
+      "imgUrl": "./assets/images/help/laser.png",
+      "description": "A laser shoots a continuous beam of light in one of four directions. The Beam will incinerate Dweep and destroy any other objects it hits. A laser beam can be avoided by deflecting it with a mirror. You can permanently destroy a laser with a bomb or another laser. You can pick up laser items to add to your inventory. There are four types of lasers, one for each direction the laser can face. You can place a laser on any empty tile. An active laser will then appears at that location."
     },
     {
       "title": "Mirror",
@@ -46,8 +46,8 @@
     },
     {
       "title": "Wrench",
-      "imgUrl": "/assets/images/help/wrench.png",
-      "description": "A wrench can rotate a fan, or mirror by 90 degrees. There are both clockwise and counterclockwise wrenches, each represented by a different icon. Both types of wrenches will have the same effect on a mirror since a mirror can face only one or two directions."
+      "imgUrl": "./assets/images/help/wrench.png",
+      "description": "A wrench can rotate mirror by 90 degrees. There are both clockwise and counterclockwise wrenches, each represented by a different icon. Both types of wrenches will have the same effect on a mirror since a mirror can face only one or two directions."
     }
   ],
   "4": [
@@ -63,20 +63,20 @@
     },
     {
       "title": "Water Bucket",
-      "imgUrl": "/assets/images/help/waterBucket.png",
-      "description": "Use a water bucket to douse an object with water. It can make Dweep wet, which will allow Dweep to safely cross a laser beam or heat plate. It has no effect on lasers, mirrors, or fans. A lit bomb can be defused be using a water bucket on it. A water bucket will bring a floating Dweep back down to the ground. Water buckets have no effect on a frozen Dweep."
+      "imgUrl": "./assets/images/help/waterBucket.png",
+      "description": "Use a water bucket to douse an object with water. It can make Dweep wet, which will allow Dweep to safely cross a laser beam or heat plate. It has no effect on lasers and mirrors. A lit bomb can be defused be using a water bucket on it. A water bucket will bring a floating Dweep back down to the ground. Water buckets have no effect on a frozen Dweep."
     }
   ],
   "5": [
     {
       "title": "Freeze Plate",
-      "imgUrl": "/assets/images/help/freezePlate.png",
-      "description": "If Dweep steps onto a freeze plate, Dweep will become frozen inside a block of ice. Use a torch or hammer on the ice to free Dweep. Freeze plates cannot be destroyed."
+      "imgUrl": "./assets/images/help/freezePlate.png",
+      "description": "If Dweep steps onto a freeze plate, Dweep will become frozen inside a block of ice. Use a torch on the ice to free Dweep. Freeze plates cannot be destroyed."
     },
     {
       "title": "Heat Plate",
-      "imgUrl": "/assets/images/help/heatPlate.png",
-      "description": "If Dweep steps onto a heat plate, Dweep will float like a balloon. A floating Dweep can only be moved by fans. Use a water bucket or a hammer to bring a floating Dweep back down to the ground. A wet Dweep who steps onto a heat plate will become dry again. Heat plates cannot be destroyed."
+      "imgUrl": "./assets/images/help/heatPlate.png",
+      "description": "If Dweep steps onto a heat plate, Dweep will float like a balloon. Use a water bucket to bring a floating Dweep back down to the ground. A wet Dweep who steps onto a heat plate will become dry again. Heat plates cannot be destroyed."
     }
   ]
 }

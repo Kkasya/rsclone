@@ -2,9 +2,11 @@ import React from 'react';
 import ItemTeamPage from './ItemTeamPage';
 import FooterTeam from './FooterTeam';
 import stylesTeamPage from '../stylesTeamPage';
-import TEAM_MEMBERS from '../TEAM_MEMBERS';
+import TEAM_MEMBERS_EN from '../TEAM_MEMBERS_EN';
+import TEAM_MEMBERS_RU from '../TEAM_MEMBERS _RU'
+import { connect } from 'react-redux';
 
-export default function TeamPage() {
+function TeamPage({ lang }) {
   const useStylesTeamPage = stylesTeamPage();
 
   const addItemTeamMembers = (item) => {
@@ -23,9 +25,15 @@ export default function TeamPage() {
   return (
     <div>
       <div className={useStylesTeamPage.contentWrapper}>
-        {TEAM_MEMBERS.map((item) => addItemTeamMembers(item))}
+        {lang === 'en' ? TEAM_MEMBERS_EN.map((item) => addItemTeamMembers(item)) : TEAM_MEMBERS_RU.map((item) => addItemTeamMembers(item))}
       </div>
       <FooterTeam />
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(TeamPage);

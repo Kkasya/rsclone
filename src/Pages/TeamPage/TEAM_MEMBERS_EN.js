@@ -1,4 +1,4 @@
-const TEAM_MEMBERS = [
+const TEAM_MEMBERS_EN = [
   {
     id: '1',
     photoName: 'viktor.jpg',
@@ -34,4 +34,4 @@ const TEAM_MEMBERS = [
   },
 ];
 
-export default TEAM_MEMBERS;
+export default TEAM_MEMBERS_EN;
