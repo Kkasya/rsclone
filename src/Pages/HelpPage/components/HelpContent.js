@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core';
 import helpStyles from '../HelpStyles';
 import HelpCards from './HelpCards';
 import stylesCommon from '../../../common/styles/stylesCommon';
+import { connect } from 'react-redux';
 
 let pageNumber = 1;
 
@@ -14,26 +15,26 @@ function getCardsArray(urlPath) {
       }
       return Promise.reject(response.json);
     })
-    .catch((answer) => alert("Something went wrong! Error: " + answer.statusText));
+    .catch((answer) => console.log("Something went wrong! Error: " + answer.statusText));
 }
 
-export default function HelpContent() {
+function HelpContent({ lang }) {
   const classes = helpStyles();
   let commonStyles = stylesCommon();
-  const url = '/assets/json/HelpCardsDescription.json';
 
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function fetchData() {
-      let pages = getCardsArray(url);
+      let pages = getCardsArray(lang === 'en' ? '/assets/json/HelpCardsDescriptionEn.json' : '/assets/json/HelpCardsDescriptionRu.json');
       pages.then((pageData) => {
         setData(pageData);
       })
     }
     fetchData();
     setPage(pageNumber);
+    console.log("Data" + data);
   }, []);
 
   const countPages = Object.keys(data).length;
@@ -69,6 +70,7 @@ export default function HelpContent() {
   }
 
   const createHelpPageWithPaginations = () => {
+    console.log("new render!")
     let pageRender = [];
     pageRender.push(<HelpCards page={data[pageNumber]} key={'helpCards'} />);
 
@@ -92,3 +94,8 @@ export default function HelpContent() {
   )
 }
 
+const mapStateToProps = (state) => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(HelpContent);

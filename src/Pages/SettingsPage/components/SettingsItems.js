@@ -3,13 +3,19 @@ import { FormControlLabel, Checkbox } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { toggleSetting } from '../../../redux/actions';
 
-const SETTINGS_TITLES = {
+const SETTINGS_TITLES_RU = {
   'areEffectsOn': 'Sound effects',
   'isMusicOn': 'Music',
   'areTipsOn': 'Level tips',
+};
+
+const SETTINGS_TITLES_EN = {
+  'areEffectsOn': 'Звуковой эффект',
+  'isMusicOn': 'Музыка',
+  'areTipsOn': 'Советы к уровням',
 }
 
-function SettingsItems({ settings, toggleSetting }) {
+function SettingsItems({ settings, lang, toggleSetting }) {
   return settings.map((item) => {
     return (
       <FormControlLabel
@@ -22,7 +28,7 @@ function SettingsItems({ settings, toggleSetting }) {
             color='primary'
           />
         }
-        label={SETTINGS_TITLES[item.id]}
+        label={lang === 'en' ? SETTINGS_TITLES_RU[item.id] : SETTINGS_TITLES_EN[item.id]}
       />
     );
   });
@@ -30,10 +36,11 @@ function SettingsItems({ settings, toggleSetting }) {
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
+  lang: state.lang
 });
 
 const mapDispatchToProps = {
-  toggleSetting,
+  toggleSetting
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsItems);

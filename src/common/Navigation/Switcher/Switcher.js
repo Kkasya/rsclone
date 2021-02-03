@@ -18,7 +18,7 @@ export default function Switcher() {
       <Route path='/settings' component={SettingsPage} />
       <Route path='/help' component={HelpPage} />
       <Route path='/team' component={TeamPage} />
-      <Redirect path="*" to='/' />
+      {/* <Redirect path="*" to='/' /> */}
     </Switch>
   );
 }

@@ -4,8 +4,9 @@ import ItemLevelsPage from './ItemLevelsPage';
 import LEVELS_LIST from '../LIST_LEVELS';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLevelsPage from '../stylesLevelsPage';
+import { connect } from 'react-redux';
 
-export default function LevelsContent() {
+function LevelsContent({ lang }) {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
   const buttonAndBig = `
@@ -43,9 +44,16 @@ export default function LevelsContent() {
           className={buttonAndBig}
           onClick={clearPassedLevel}
         >
-          Reset progress
+          {lang === 'en' ? 'Reset progress' : 'Сбросить прогресс'}
         </Button>
       </div>
     </div>
   );
 }
+
+
+const mapStateToProps = (state) => ({
+  lang: state.lang
+});
+
+export default connect(mapStateToProps)(LevelsContent);
