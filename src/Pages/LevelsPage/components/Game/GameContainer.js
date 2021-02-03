@@ -3,11 +3,14 @@ import PhaserGame from './PhaserGame';
 import { Container } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { stylesCommonObj } from '../../../../common/styles/stylesCommon';
+import { toggleSetting } from '../../../../redux/actions';
+import { connect } from 'react-redux';
 
 class GameContainer extends Component {
-  constructor({ levelNumber }) {
+  constructor({ levelNumber, settings }) {
     super();
     this.levelNumber = levelNumber;
+    this.settings = settings;
     this.idGame = ((this.levelNumber / 4) - Math.floor(this.levelNumber/4)) * 4;
   }
 
@@ -24,8 +27,8 @@ class GameContainer extends Component {
   }
 
   playGame = () => {
-    //const isShowBySetting = this.settings[1].state;
-    if (1)  this.audioGame.play();
+    const isShowBySetting = this.settings[1].state;
+    if (isShowBySetting)  this.audioGame.play();
     else  this.audioGame.pause();
   }
 
@@ -41,5 +44,12 @@ class GameContainer extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  settings: state.settings,
+});
 
-export default withStyles(stylesCommonObj)(GameContainer);
+const mapDispatchToProps = {
+  toggleSetting,
+};
+
+export default withStyles(stylesCommonObj)(connect(mapStateToProps, mapDispatchToProps)(GameContainer));
