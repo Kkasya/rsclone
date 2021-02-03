@@ -19,7 +19,7 @@ function getCardsArray(urlPath) {
     .catch((answer) => alert("Something went wrong! Error: " + answer.statusText));
 }
 
-function HelpContent({settings}) {
+function HelpContent({ settings }) {
   const classes = helpStyles();
   let commonStyles = stylesCommon();
   const url = '/assets/json/HelpCardsDescription.json';
@@ -41,7 +41,7 @@ function HelpContent({settings}) {
   const isShowBySetting = settings[0].state;
   const srcPressButton = `/assets/sounds/press1.mp3`;
   const audioPressButton = new Audio(srcPressButton);
-  const playPress  = () => {
+  const playPress = () => {
     if (isShowBySetting) {
       audioPressButton.play();
     }
@@ -66,7 +66,7 @@ function HelpContent({settings}) {
         onClick={changePage}
         aria-label={'left'}
       >
-        <img src='./assets/icons/paginationArrow.png' alt='left arrow' className={classes.leftArrow} />
+        <img src='/assets/icons/paginationArrow.png' alt='left arrow' className={classes.leftArrow} />
       </Button>
       <div className={classes.pagination_NumberContainer} id='page-number'>Page {pageNumber}</div>
       <Button
@@ -75,7 +75,7 @@ function HelpContent({settings}) {
         onClick={changePage}
         aria-label={'right'}
       >
-        <img src='./assets/icons/paginationArrow.png' alt='right arrow' />
+        <img src='/assets/icons/paginationArrow.png' alt='right arrow' />
       </Button>
     </div>)
   }
