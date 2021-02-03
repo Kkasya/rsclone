@@ -26,7 +26,7 @@ const SIZES = {
   },
 
   hitboxes: {
-    small: 2,
+    small: 3,
     big: 19,
   },
 

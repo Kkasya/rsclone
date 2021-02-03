@@ -13,7 +13,7 @@ class GameContainer extends Component {
     this.history = history;
     this.levelNumber = levelNumber;
     const levelVariant = this.levelNumber % 4;
-    this.audioplayer = new Audioplayer(levelVariant, settings[0].state);
+    this.audioplayer = new Audioplayer(levelVariant, settings[1].state);
   }
 
   componentDidMount() {

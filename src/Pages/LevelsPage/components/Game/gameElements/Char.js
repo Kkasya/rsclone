@@ -23,9 +23,9 @@ export default class Char extends GameObject {
   }
 
   _addListener() {
-    this.on('pointerdown', () => {
+    this.on('pointerdown', (pointer) => {
       const actionType = this.scene.activeItem.image.texture.key;
-      if (actionType) {
+      if (pointer.primaryDown && actionType) {
         if (actionType === 'pail' || actionType === 'torch') {
           if (actionType === 'pail') {
             this.addPail();
