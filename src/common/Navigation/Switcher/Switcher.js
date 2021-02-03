@@ -13,7 +13,7 @@ import GameContainer from '../../../Pages/LevelsPage/components/Game/GameContain
 import LEVELS from '../../../Pages/LevelsPage/components/Game/levels/LEVELS';
 
 export default function Switcher() {
-  const isLevelExists = ({ match }) => {
+  const isLevelExists = ({ history, match }) => {
     const levelNumber = Number(match.params.id);
 
     if (
@@ -24,7 +24,7 @@ export default function Switcher() {
       return <Redirect to='/levels' />
     }
 
-    return <GameContainer levelNumber={levelNumber} />
+    return <GameContainer history={history} levelNumber={levelNumber} />
   }
 
   return (

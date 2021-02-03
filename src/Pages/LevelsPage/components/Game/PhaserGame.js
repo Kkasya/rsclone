@@ -7,7 +7,7 @@ import Winning from './scenes/Winning';
 import Death from './scenes/Death';
 
 export default class PhaserGame extends Phaser.Game {
-  constructor(levelNumber) {
+  constructor(history, levelNumber) {
     const config = {
       type: Phaser.AUTO,
       width: SIZES.widthInPixels,
@@ -37,7 +37,9 @@ export default class PhaserGame extends Phaser.Game {
         disableWebAudio: true,
       },
     }
+
     super(config);
+    this.history = history;
     this.levelNumber = levelNumber;
   }
 }
