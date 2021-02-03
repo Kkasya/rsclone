@@ -11,7 +11,6 @@ export default function App() {
   const header = `${commonStyles.container} ${commonStyles.containerHeader}`;
 
   return (
-
     <Router>
       <div className={commonStyles.root}>
         <Container
