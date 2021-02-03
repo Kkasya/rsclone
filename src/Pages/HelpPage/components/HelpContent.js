@@ -29,7 +29,7 @@ function HelpContent({ lang, settings }) {
 
   useEffect(() => {
     async function fetchData() {
-      let pages = getCardsArray(lang === 'en' ? '/assets/json/HelpCardsDescriptionEn.json' : '/assets/json/HelpCardsDescriptionRu.json');
+      let pages = getCardsArray(lang === 'en' ? './assets/json/HelpCardsDescriptionEn.json' : './assets/json/HelpCardsDescriptionRu.json');
       pages.then((pageData) => {
         setData(pageData);
       })
@@ -39,7 +39,7 @@ function HelpContent({ lang, settings }) {
   }, []);
 
   const isShowBySetting = settings[0].state;
-  const srcPressButton = `/assets/sounds/press1.mp3`;
+  const srcPressButton = `./assets/sounds/press1.mp3`;
   const audioPressButton = new Audio(srcPressButton);
   const playPress = () => {
     if (isShowBySetting) {
