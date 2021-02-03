@@ -24,7 +24,7 @@ function Nav({ isNavbar, settings }) {
   const listInNavbar = `${useNavStyles.list} ${useNavStyles.listInNavbar}`;
   const listOnStart = `${useNavStyles.list} ${useNavStyles.listOnStart}`;
 
-  const isShowBySetting = settings[1].state;
+  const isShowBySetting = settings[0].state;
   const srcPressMenu = `/assets/sounds/press1.mp3`;
   const audioPressMenu = new Audio(srcPressMenu);
   const playPress  = () => {

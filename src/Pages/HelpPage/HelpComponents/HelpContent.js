@@ -38,7 +38,7 @@ function HelpContent({settings}) {
     setPage(pageNumber);
   }, []);
 
-  const isShowBySetting = settings[1].state;
+  const isShowBySetting = settings[0].state;
   const srcPressButton = `/assets/sounds/press1.mp3`;
   const audioPressButton = new Audio(srcPressButton);
   const playPress  = () => {

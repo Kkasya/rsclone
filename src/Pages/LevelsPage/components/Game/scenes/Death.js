@@ -7,9 +7,13 @@ export default class Death extends Phaser.Scene {
 
   create() {
     this.add.text(20, 20, 'You lose!');
+    this._restartLevel();
+  }
 
+  _restartLevel() {
     setTimeout(() => {
       this.scene.start('Hint');
+      this.game.audioplayer.play();
     }, 2000);
   }
 }

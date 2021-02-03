@@ -191,6 +191,7 @@ export default class Char extends GameObject {
       setTimeout(() => {
         this.setOrigin(0.5, 0.7);
         this.play('burned');
+        this.scene.game.audioplayer.play('death');
         setTimeout(() => {
           this.scene.scene.start('Death');
         }, 5000);

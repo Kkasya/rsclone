@@ -47,6 +47,7 @@ export default class Hint extends Phaser.Scene {
   _addListener() {
     this.input.on('pointerdown', (pointer) => {
       if (pointer.primaryDown) {
+        this.game.audioplayer.start();
         this.scene.start('MainScene');
       }
     });

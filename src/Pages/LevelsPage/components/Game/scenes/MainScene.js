@@ -240,10 +240,14 @@ export default class MainScene extends Phaser.Scene {
         break;
 
       case 'winning':
-        this.char.stopMoving();
-        setTimeout(() => {
-          this.scene.start('Winning');
-        }, 2000);
+        if (!this.isGameOver) {
+          this.isGameOver = true;
+          this.char.stopMoving();
+          this.game.audioplayer.play('winning');
+          setTimeout(() => {
+            this.scene.start('Winning');
+          }, 2000);
+        }
         break;
 
       default: return;
