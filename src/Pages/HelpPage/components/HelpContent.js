@@ -21,7 +21,8 @@ function getCardsArray(urlPath) {
 
 function HelpContent({ lang, settings }) {
   const classes = helpStyles();
-  let commonStyles = stylesCommon();
+  const commonStyles = stylesCommon();
+  const helpPage = `${commonStyles.containerPage} ${classes.helpContainer}`;
 
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -95,7 +96,7 @@ function HelpContent({ lang, settings }) {
   }
 
   return (
-    <div id='helpContainer' className={classes.helpContainer} >
+    <div id='helpContainer' className={helpPage} >
       { countPages === 1 ? <HelpCards page={data[page]} key={'helpCards'} /> :
         countPages > 1 ? createHelpPageWithPaginations()
           : <div> There are no help description card!</div>}

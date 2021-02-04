@@ -2,6 +2,7 @@ import React from 'react';
 import { FormControlLabel, Checkbox } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { toggleSetting } from '../../../redux/actions';
+import stylesSettingsPage from '../stylesSettingsPage';
 
 const SETTINGS_TITLES_RU = {
   'areEffectsOn': 'Sound effects',
@@ -16,9 +17,10 @@ const SETTINGS_TITLES_EN = {
 }
 
 function SettingsItems({ settings, lang, toggleSetting }) {
+  const useStyles = stylesSettingsPage();
   return settings.map((item) => {
     return (
-      <FormControlLabel
+      <FormControlLabel  className={useStyles.itemCheckboxes}
         key={item.id}
         control={
           <Checkbox

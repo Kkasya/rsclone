@@ -31,7 +31,7 @@ class GameContainer extends Component {
     return (
       <Container
         maxWidth='lg'
-        className={`${classes.container} ${classes.containerLevels}`}
+        className={`${classes.container} ${classes.containerLevels} ${classes.containerGame}`}
       >
         <div id="gameContainer" />
       </Container>

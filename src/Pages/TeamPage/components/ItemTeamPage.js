@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import stylesTeamPage from '../stylesTeamPage';
+import stylesCommon from "../../../common/styles/stylesCommon";
 
 const iconGitHub = `/assets/icons/github.png`;
 const githubPrefix = 'https://github.com/';
@@ -24,9 +25,11 @@ export default function ItemTeamPage({ photoName, name, role, gitHub, about }) {
   const stylePhotoMember = makeStyles(objPhotoMember);
   const useStylePhotoMember = stylePhotoMember();
   const useStylesTeamPage = stylesTeamPage();
+  const classes = stylesCommon();
+  const teamCard = `${useStylesTeamPage.cardWrapper} ${classes.containerPage}`;
 
   return (
-    <div className={ useStylesTeamPage.cardWrapper }>
+    <div className={ teamCard }>
       <div className={ useStylePhotoMember.photoMember }></div>
       <a
         className={useStylesTeamPage.nameWrapper}

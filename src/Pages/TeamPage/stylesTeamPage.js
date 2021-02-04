@@ -16,10 +16,6 @@ const stylesTeamPage = makeStyles({
     maxWidth: '30rem',
     minHeight: '25rem',
     flexDirection: 'column',
-
-    borderRadius: '.8rem',
-    backgroundColor: 'rgba(242, 242, 167, 0.3)',
-    boxShadow: '2px 2px 8px 0px rgba(0, 0, 0, 0.6)',
   },
 
   nameWrapper: {

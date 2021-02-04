@@ -6,15 +6,26 @@ import ItemLevelsPage from './ItemLevelsPage';
 import stylesCommon from '../../../common/styles/stylesCommon';
 import stylesLevelsPage from '../stylesLevelsPage';
 import { connect } from 'react-redux';
+import {toggleLang, toggleSetting} from "../../../redux/actions";
 
-function LevelsContent({ lang }) {
+function LevelsContent({ lang, settings }) {
   const commonStyles = stylesCommon();
   const useStyles = stylesLevelsPage();
+
   const buttonAndBig = `
     ${commonStyles.button}
     ${commonStyles.buttonBig}
     ${commonStyles.containerInlineCenter}
   `;
+    const isShowBySetting = settings[0].state;
+    const srcPressButton = `./assets/sounds/press1.mp3`;
+    const audioPressButton = new Audio(srcPressButton);
+    const playPress = () => {
+        if (isShowBySetting) {
+            audioPressButton.play();
+        }
+        setTimeout(() => clearPassedLevel(), 100);
+    }
 
   const levelsQuantity = Object.entries(LEVELS).length;
   const levelsListComponents = Array(levelsQuantity)
@@ -31,14 +42,16 @@ function LevelsContent({ lang }) {
     });
 
   const clearPassedLevel = () => {
-    for (let i = 1; i <= levelsQuantity; i++) {
+      console.log(srcPressButton);
+
+      for (let i = 1; i <= levelsQuantity; i++) {
       localStorage.removeItem(`dweep-${i}`);
     }
     window.location.reload(false);
   };
 
   return (
-    <div>
+    <div className={commonStyles.containerPage}>
       <div className={useStyles.buttonsLevelsWrapper}>
         {levelsListComponents}
       </div>
@@ -46,7 +59,7 @@ function LevelsContent({ lang }) {
         <Button
           variant='contained'
           className={buttonAndBig}
-          onClick={clearPassedLevel}
+          onClick={playPress}
         >
           {lang === 'en' ? 'Reset progress' : 'Сбросить прогресс'}
         </Button>
@@ -55,9 +68,14 @@ function LevelsContent({ lang }) {
   );
 }
 
-
 const mapStateToProps = (state) => ({
-  lang: state.lang
+    lang: state.lang,
+    settings: state.settings,
 });
 
-export default connect(mapStateToProps)(LevelsContent);
+const mapDispatchToProps = {
+    toggleSetting,
+    toggleLang
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LevelsContent);
