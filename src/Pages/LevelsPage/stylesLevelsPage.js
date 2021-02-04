@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import constants from "../../common/styles/constants";
 
 const stylesLevelsPage = makeStyles({
   buttonsLevelsWrapper: {
@@ -6,12 +7,18 @@ const stylesLevelsPage = makeStyles({
     display: 'flex',
     flexWrap: 'wrap',
     gap: '50px',
+
   },
 
   containerButtonsLevels: {
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
+    paddingLeft: '20px',
+  },
+
+  containerGame: {
+    backgroundColor: constants.backgroundColorMainGame,
   },
 
   completedMark: {

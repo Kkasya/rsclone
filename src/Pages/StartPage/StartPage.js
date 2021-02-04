@@ -5,13 +5,14 @@ import stylesCommon from '../../common/styles/stylesCommon';
 
 export default function StartPage() {
   const commonStyles = stylesCommon();
+  const wrapperStartPage = `${commonStyles.containerPage} ${commonStyles.containerPageCenter}`;
 
   return (
     <Container
       maxWidth='lg'
       className={commonStyles.container}
     >
-      <div className={commonStyles.containerPage}>
+      <div className={wrapperStartPage}>
         <Nav isNavbar={false} />
       </div>
     </Container>

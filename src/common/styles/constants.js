@@ -5,8 +5,9 @@ const constants = {
 
   fontColorPrimary: '#333',
 
-  backgroundColorHeader: '#33CCFF',
-  backgroundColorMain: '#B3ECFF',
+  backgroundColorHeader: 'url(./assets/images/background-up.jpg)',
+  backgroundColorMain: 'url(./assets/images/background.jpg)',
+  backgroundColorMainGame: 'linear-gradient(to top, #74ebd5, #ACB6E5)',
 
   backgroundButtonDefault: '#FFBA5F',
   backgroundButtonHover: '#FF9E44',

@@ -1,12 +1,16 @@
 import { makeStyles } from '@material-ui/core/styles';
-import constants from '../../common/styles/constants';
 
 const helpCardStyles = makeStyles({
+  helpPage: {
+    padding: '0 40px',
+  },
+
   helpContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: '2em',
+    margin: '15px auto',
+    minHeight: '540px',
   },
 
   helpCard: {
@@ -18,7 +22,7 @@ const helpCardStyles = makeStyles({
   helpCard_title: {
     textAlign: 'left',
     fontWeight: 'bold',
-    color: constants.backgroundButtonDefault,
+    fontSize: '20px',
   },
 
   helpCard_description: {
@@ -66,7 +70,6 @@ const helpCardStyles = makeStyles({
   pagination_NumberContainer: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: constants.backgroundButtonDefault,
   }
 });
 

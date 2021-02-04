@@ -39,7 +39,12 @@ export const stylesCommonObj = {
     minHeight: `calc(100vh - ${headerHeight}px)`,
 
     display: 'flex',
-    backgroundColor: constants.backgroundColorMain,
+    background: constants.backgroundColorMain,
+    backgroundSize: 'cover',
+  },
+
+  containerGame: {
+    background: `${constants.backgroundColorMainGame}`,
   },
 
   containerHeader: {
@@ -48,13 +53,21 @@ export const stylesCommonObj = {
     minHeight: `${constants.minHeaderHeight}px`,
 
     justifyContent: 'space-between',
-    backgroundColor: constants.backgroundColorHeader,
+    background: constants.backgroundColorHeader,
+    backgroundSize: 'cover',
     boxShadow: '0px 2px 4px 0px rgba(0, 0, 0, .5)',
   },
 
   containerPage: {
-    margin: '0 auto',
-    paddingTop: '20vh',
+    borderRadius: '.8rem',
+    backgroundColor: 'rgba(242, 242, 167, 0.3)',
+    boxShadow: '2px 2px 8px 0px rgba(0, 0, 0, 0.6)',
+    padding: '15px',
+  },
+
+  containerPageCenter: {
+    margin: 'auto',
+    padding: '20px',
   },
 
   containerInlineCenter: {
