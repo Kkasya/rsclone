@@ -35,7 +35,7 @@ function HelpContent({ lang, settings }) {
     }
     fetchData();
     setPage(pageNumber);
-  }, []);
+  }, [lang]);
 
   const isShowBySetting = settings[0].state;
   const srcPressButton = `./assets/sounds/press1.mp3`;

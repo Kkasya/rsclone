@@ -8,16 +8,17 @@ import { connect } from 'react-redux';
 import Audioplayer from './utils/Audioplayer';
 
 class GameContainer extends Component {
-  constructor({ history, levelNumber, settings }) {
+  constructor({ history, levelNumber, settings, lang }) {
     super();
     this.history = history;
     this.levelNumber = levelNumber;
     const levelVariant = this.levelNumber % 4;
     this.audioplayer = new Audioplayer(levelVariant, settings[1].state);
+    this.lang = lang;
   }
 
   componentDidMount() {
-    this.game = new PhaserGame(this.history, this.levelNumber, this.audioplayer);
+    this.game = new PhaserGame(this.history, this.levelNumber, this.audioplayer, this.lang);
     this.audioplayer.play();
   }
 
@@ -40,6 +41,7 @@ class GameContainer extends Component {
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
+  lang: state.lang,
 });
 
 const mapDispatchToProps = {

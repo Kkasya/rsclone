@@ -21,7 +21,7 @@ export default class Hint extends Phaser.Scene {
       origin: {
         x: 0.5,
       },
-      text: `Level ${this.game.levelNumber}. ${LEVELS[this.game.levelNumber].title.en}`,
+      text: `${this.game.lang === 'en' ? 'Level' : 'Уровень'} ${this.game.levelNumber}. ${LEVELS[this.game.levelNumber].title[this.game.lang]}`,
       style: {
         font: '18px Arial',
         fill: 'white',
@@ -33,7 +33,7 @@ export default class Hint extends Phaser.Scene {
     this.make.text({
       x: this.padding,
       y: this.padding * 3,
-      text: `Tip: ${LEVELS[this.game.levelNumber].description.en}`,
+      text: `${this.game.lang === 'en' ? 'Hint' : 'Совет'}: ${LEVELS[this.game.levelNumber].description[this.game.lang]}`,
       style: {
         font: '18px Arial',
         fill: 'white',
