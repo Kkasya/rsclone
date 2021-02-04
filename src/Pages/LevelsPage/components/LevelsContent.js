@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import LEVELS from './Game/levels/LEVELS';
@@ -30,11 +30,12 @@ function LevelsContent({ lang }) {
       );
     });
 
+  const [, setPassedLevels] = useState(levelsQuantity);
   const clearPassedLevel = () => {
     for (let i = 1; i <= levelsQuantity; i++) {
       localStorage.removeItem(`dweep-${i}`);
     }
-    window.location.reload(false);
+    setPassedLevels(0);
   };
 
   return (
@@ -54,7 +55,6 @@ function LevelsContent({ lang }) {
     </div>
   );
 }
-
 
 const mapStateToProps = (state) => ({
   lang: state.lang
