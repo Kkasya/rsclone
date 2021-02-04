@@ -9,9 +9,13 @@ export default class Hint extends Phaser.Scene {
   }
 
   create() {
+    const turnHint = this.game.settings[2].state;
     this._addLevelTitle();
-    this._addLevelHint();
+    if (turnHint) {
+      this._addLevelHint();
+    }
     this._addListener();
+
   }
 
   _addLevelTitle() {
