@@ -81,6 +81,7 @@ export default class Bomb extends GameObject {
   explode() {
     setTimeout(() => {
       if (this.scene) {
+        this.scene.game.audioplayer.playIndependentSound('bomb-explosion');
         this._explodeNearObjects(this.x, this.y);
         this.scene?.removeItemFromArray(this.scene?.collideObjects, this);
         this.scene?.refreshLasers();

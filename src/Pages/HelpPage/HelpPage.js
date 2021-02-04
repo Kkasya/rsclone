@@ -2,7 +2,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 import stylesCommon from '../../common/styles/stylesCommon';
-import helpCardStyles from "./HelpStyles";
 import HelpContent from './components/HelpContent';
 import helpStyles from "./HelpStyles";
 
@@ -20,4 +19,3 @@ export default function HelpPage() {
     </Container>
   );
 }
-

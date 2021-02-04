@@ -1,4 +1,4 @@
-const bombExplodeSpritesQuantity = 5;
+const bombExplodeSpritesQuantity = 7;
 export const bombExplodeArr = Array(bombExplodeSpritesQuantity)
   .fill(0)
   .map((item, index) => `bomb-explode${index + 1}`);

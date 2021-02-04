@@ -33,4 +33,12 @@ export default class Audioplayer {
       this.audio = null;
     }
   }
+
+  playIndependentSound(soundName) {
+    if (this.isMusicOn) {
+      let audio = new Audio(`/assets/sounds/${soundName}.mp3`);
+      audio.play();
+      audio = null;
+    }
+  }
 }
