@@ -10,7 +10,7 @@ const SETTINGS_TITLES_RU = {
 };
 
 const SETTINGS_TITLES_EN = {
-  'areEffectsOn': 'Звуковой эффект',
+  'areEffectsOn': 'Звуковые эффекты',
   'isMusicOn': 'Музыка',
   'areTipsOn': 'Советы к уровням',
 }

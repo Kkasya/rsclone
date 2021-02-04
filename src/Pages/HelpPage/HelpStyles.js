@@ -5,9 +5,8 @@ const helpCardStyles = makeStyles({
   helpContainer: {
     display: 'flex',
     flexDirection: 'column',
-    rowGap: '3em',
+    justifyContent: 'space-between',
     marginTop: '2em',
-    justifyContent: 'space-between'
   },
 
   helpCard: {

@@ -19,7 +19,6 @@ function getCardsArray(urlPath) {
     .catch(() => false);
 }
 
-
 function HelpContent({ lang, settings }) {
   const classes = helpStyles();
   let commonStyles = stylesCommon();
@@ -36,7 +35,7 @@ function HelpContent({ lang, settings }) {
     }
     fetchData();
     setPage(pageNumber);
-  }, []);
+  }, [lang]);
 
   const isShowBySetting = settings[0].state;
   const srcPressButton = `./assets/sounds/press1.mp3`;
@@ -66,7 +65,7 @@ function HelpContent({ lang, settings }) {
         onClick={changePage}
         aria-label={'left'}
       >
-        <img src='./assets/icons/paginationArrow.png' alt='left arrow' className={classes.leftArrow} />
+        <img src='/assets/icons/paginationArrow.png' alt='left arrow' className={classes.leftArrow} />
       </Button>
       <div className={classes.pagination_NumberContainer} id='page-number'>Page {pageNumber}</div>
       <Button
@@ -75,7 +74,7 @@ function HelpContent({ lang, settings }) {
         onClick={changePage}
         aria-label={'right'}
       >
-        <img src='./assets/icons/paginationArrow.png' alt='right arrow' />
+        <img src='/assets/icons/paginationArrow.png' alt='right arrow' />
       </Button>
     </div>)
   }

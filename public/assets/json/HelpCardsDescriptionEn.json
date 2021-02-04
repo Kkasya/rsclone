@@ -2,34 +2,34 @@
   "1": [
     {
       "title": "Overview",
-      "imgUrl": "./assets/images/help/overview.png",
+      "imgUrl": "/assets/images/help/overview.png",
       "description": "This is Dweep. Dweep is a cute, furry, defenseless creature trapped in a hostile world. You must help Dweep solve 21 levels of unique puzzles. Levels will gradually increase in difficulty and complexity, and many levels have multiple solutions. You can play the levels in any sequence, but it is best to attempt them in order."
     },
     {
       "title": "Objective",
-      "imgUrl": "./assets/images/help/objective.png",
+      "imgUrl": "/assets/images/help/objective.png",
       "description": "Your goal is to save the baby Dweeps. To do so, you must maneuver Dweep past a series of obstacles. If you get stuck, you can always restart the level and try a different approach. Pick up special items along the way, and use them wisely. Every item has many possible uses, so you must decide the event used for each item to lead Dweep safely to the baby Dweeps."
     },
     {
       "title": "How To Play",
-      "imgUrl": "./assets/images/help/howToPalay.png",
+      "imgUrl": "/assets/images/help/howToPalay.png",
       "description": "You control Dweep with the mouse. The panel below contains a sample inventory. Left-click on an item to select an action to perform. The cursor will change to indicate your selection. Then click on the map area to use the current item at a specific location. For example to make Dweep wet, click on the water bucket item, then click on Dweep. When you pick up a new item, it will be added to your inventory. When you use an item, it will be removed from your inventory permanently and cannot be reused. It is possible to have more than one of any given item. Right-click ant any time to cancel the currently selected item and return to the MOVE DWEEP command."
     }
   ],
   "2": [
     {
       "title": "Moving Dweep",
-      "imgUrl": "./assets/images/help/movingDweep.png",
+      "imgUrl": "/assets/images/help/movingDweep.png",
       "description": "The first command in the list of items is always the MOVE DWEEP command. When the movement cursor is selected, just left-click any were on the map, and Dweep will move there if possible. If Dweep moves through cells with traps, for example, a freezing or heating plate, then Dweep can only move one cell at a time."
     },
     {
       "title": "Items",
-      "imgUrl": "./assets/images/help/items.png",
+      "imgUrl": "/assets/images/help/items.png",
       "description": "On most levels, you will start with no items in your inventory, so you will have to collect them along the way. Items will appear as icons on individual tiles. If you move Dweep onto an item, it will be added to your inventory. Often Dweepwill is surrounded by several items you can pick up and use right away. Items include lasers, mirrors, bombs, wrenches, torches, and water buskets. Most items have multiple functions."
     },
     {
       "title": "Obstacles",
-      "imgUrl": "./assets/images/help/obstacles.png",
+      "imgUrl": "/assets/images/help/obstacles.png",
       "description": "On every level, you will encounter obstacles blocking Dweep's path to the baby Dweeps. These include lasers, mirrors, bombs, freeze plates, and heat plates. Some objects can be used to your advantage; others must be avoided."
     }
   ],
@@ -41,7 +41,7 @@
     },
     {
       "title": "Mirror",
-      "imgUrl": "./assets/images/help/mirror.png",
+      "imgUrl": "/assets/images/help/mirror.png",
       "description": "A mirror can deflect any laser beam by 90 degrees. Mirrors can face one of two directions, and they can deflect laser beams on both their front and back sides. Mirrors cannot be destroyed by laser beams directly. Mirror items can be picked up to add to your inventory. You can place a mirror on an empty tile. A mirror object will then appear at that location."
     },
     {
@@ -53,12 +53,12 @@
   "4": [
     {
       "title": "Bomb",
-      "imgUrl": "./assets/images/help/bomb.png",
+      "imgUrl": "/assets/images/help/bomb.png",
       "description": "A bomb is normally inactive, but it will explode when its fuse is lit by a laser beam or torch. An exploding bomb will destroy all adjacent objects. There is a short delay between the lighting of a bomb's fuse and its subsequent explosion. A lit bomb can be defused with a water bucket. A bomb can still be lit again after being soaked. Bomb items can be picked up to add to your inventory. You can place a bomb on an empty tile. A bomb object will then appear at that location. If you place a bomb directly in the path of a laser beam, the fuse will light instantly. "
     },
     {
       "title": "Torch",
-      "imgUrl": "./assets/images/help/torch.png",
+      "imgUrl": "/assets/images/help/torch.png",
       "description": "A torch can be used to light a bomb's fuse or to melt a frozen Dweep. It has no effect on inflammable objects, such as lasers, mirrors, and fans. A torch can also make a wet Dweep dry again."
     },
     {
