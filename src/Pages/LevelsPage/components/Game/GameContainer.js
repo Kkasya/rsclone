@@ -15,10 +15,11 @@ class GameContainer extends Component {
     const levelVariant = this.levelNumber % 4;
     this.audioplayer = new Audioplayer(levelVariant, settings[1].state);
     this.lang = lang;
+    this.settings = settings;
   }
 
   componentDidMount() {
-    this.game = new PhaserGame(this.history, this.levelNumber, this.audioplayer, this.lang);
+    this.game = new PhaserGame(this.history, this.levelNumber, this.audioplayer, this.lang, this.settings);
     this.audioplayer.play();
   }
 
