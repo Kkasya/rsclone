@@ -24,7 +24,7 @@ function LevelsContent({ lang, settings }) {
         if (isShowBySetting) {
             audioPressButton.play();
         }
-        setTimeout(() => clearPassedLevel(), 100);
+        setTimeout(() => clearPassedLevel(), 1000);
     }
 
   const levelsQuantity = Object.entries(LEVELS).length;
